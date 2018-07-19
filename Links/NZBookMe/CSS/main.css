@@ -1,0 +1,280 @@
+header h1{
+	font-size: 38px;
+	font-variant: small-caps;
+}
+.fa.fa-bars{
+	color: black;
+	font-size: 40px;
+}
+#firstPage{
+	background-image: url(../SummativeImages/pool-2128578_1280_edited_more.jpg);
+}
+.firstPageSection{
+	text-align: center;
+}
+.firstPageSection h2, .secondPageSection h2{
+	margin-bottom: 30px;
+}
+.firstPageSection h3{
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin-bottom: 10px;
+}
+.swiper-slide {
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    font-family: OpenSansRegular;
+}
+.swiper-slide{
+	opacity: 0.2;
+	font-size: 12px;
+}
+.swiper-slide-active{		/* Setting a adjacent sibling combinator */	
+							/* Two div's that come immediately after the active div */
+	font-size: 24px;									/* https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_selectors */
+	opacity: 1.0;
+}
+.swiper-slide-prev, .swiper-slide-next{
+	opacity: 0.5;
+	font-size: 18px;
+}
+.BookingNumbers{
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.firstPageBreakerLine{
+	padding: 2px;
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	opacity: 0.3;
+}
+.secondPageSection{
+	background-image: url(../SummativeImages/canva-photo-editor.png);
+}
+.formItemSpacerPageTwo label, .formItemSpacerPageTwo input{
+	margin: 0px auto;
+	display: block;
+}
+.formItemSpacerPageTwo label{
+	margin-bottom: 5px;
+}
+.formItemSpacerPageTwo input{
+	width: 191px;
+	padding: 8px;
+}
+.formItemSpacerPageTwo{
+	margin-bottom: 20px;
+}
+.thirdPageSection{
+	background-image: url(../SummativeImages/s3.amazonaws.com_upload.uxpin_files_755839_753059_mountains-2463999_1920_edited.jpg);
+}
+.formWrapPageThree, .formWrapPageFour{
+	margin-top: 10px;
+	text-align: left;
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+div.addui-radios div.addui-radios-radio{
+	padding: 0px;
+}
+div.addui-radios div.addui-radios-radio div.addui-radios-icon{
+	display: inline-block;
+	font-size: 35px;
+	color: black;
+	margin-bottom: 20px;
+}
+div.addui-radios div.addui-radios-radio div.addui-radios-label{
+	font-size: 20px;
+	padding-left: 40px;
+}
+.fourthPageSection{
+	background-image: url(../SummativeImages/s3.amazonaws.com_upload.uxpin_files_755839_753059_mountains-2463999_1920_edited2.jpg);
+}
+.fourthPageSection h3{
+	margin: 30px 0px 20px 0px;
+}
+.fourthPageSection h4{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	color: black;
+}
+.fourthPageSection p{
+	color: black;
+}
+.fourthPageSection p:last-child{
+	font-weight: bold;
+	margin-top: 5px;
+}
+.fa-male{
+	font-size: 70px;
+	color: black;
+	margin-right: 5px;
+}
+.fa-arrow-circle-down{
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	margin-left: -26px;
+	font-size: 60px;
+	opacity: 1.0;
+}
+.fithPageSection{
+	background-image: url(../SummativeImages/lake-hawea-2138787_1280_edited.jpg);
+	overflow:auto;
+}
+.fithPageSection h2{
+	margin-bottom: 30px;
+}
+.editItems li{
+	text-align: left;
+	margin-bottom: 8px;
+	padding: 4.5px;
+	box-shadow: 1px 1px 1px black;
+}
+.editItems li:last-child{
+	margin-bottom: 24px;
+}
+.priceOutputEdit{
+	position: relative;
+}
+.fa-pencil-square{
+	float: right;
+}
+.fadeSuggest{
+	opacity: 0.2;
+}
+.Millennium{
+	padding: 10px;
+	background-color: #FFFFFF;
+	margin-bottom: 30px;
+	box-shadow: 2px 2px 2px black;
+	overflow: auto;
+}
+.imageMillennium{
+	padding: 60px;
+	background-image: url(../SummativeImages/s3.jpg);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: cover;
+	margin-bottom: 7.5px;
+}
+.infoMillenniumVectors{
+	color: black;
+	margin-bottom: 10px;
+	float: left;
+}
+.infoMillenniumVectors p:last-child{
+	float: right;
+	margin-top: 2px;
+	margin-left: 48px;
+	font-weight: bold;
+	font-size: 20px;
+	color: #49DE73;
+}
+.infoMillenniumVectors h3{
+	margin-top: 20px;
+}
+.bedNum, .fa-bed{
+	display: inline-block;
+}
+.bedNum{
+	padding-right: 2.5px;
+	font-size: 20px;
+}
+.fa-bed{
+	font-size: 20px;
+	padding-right: 5px;
+}
+.fa-bath, .fa-television, .fa-wifi, .fa-cutlery{
+	padding: 0px 5px 0px 5px;
+	font-size: 20px;
+}
+.infoMillennium{
+	color: black;
+	text-align: left;
+}
+.fa-star{
+	color: #E3E31F;
+	font-size: 22px;
+}
+.reserveMillenniumButton{
+	margin-left: 128px;
+	background-color: #49DE73;
+	box-shadow: 2px 2px 2px black;
+	border-radius: 2px;
+	border-width: 1px;
+	float: right;
+}
+.fa-star, .reserveMillenniumButton{
+	display: inline-block;
+}
+.modalHotel{
+	z-index: 1;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+.daySum{
+	color: #000000;
+	font-weight: bold;
+	margin: 5px 0px 5px 0px;
+}
+.error{
+	font-size: 12px;
+	color: red;
+}
+.circleOverlay{
+	height: 4vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 5px;
+	border-radius: 50%;
+}
+.sleepingRadiosDiv{
+	margin-bottom: 20px;
+}
+.sleepingRadiosDiv label{
+	text-align: justify;
+}
+.blueMan{
+	color: blue;
+}
+.arrivalOverlay, .depatureOverlay{
+	font-weight: bold;
+	padding-bottom: 5px;
+	border-bottom: 2px solid white;
+}
+.fp-section.fp-table, .fp-slide.fp-table{
+	display: block;
+}
+.hide, .hidePricing, .hideSleeping{
+	display: none;
+}
+.mealLetter, .fa-cutlery{
+	display: inline-block;
+}
+.mealLetter{
+	font-size: 20px;
+	margin-left: -1px;
+	font-weight: bold;
+}
+
+
+
+
+
+

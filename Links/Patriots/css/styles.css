@@ -1,0 +1,327 @@
+body{
+	margin: 0px;
+	font-family: Arial, sans-serif;
+}
+.fp-tableCell{
+	display: block;
+}
+.header{
+	background-color: #00295b;
+	box-shadow: 3px 3px 10px black;
+	user-select: none;
+	position: relative;
+	padding: 0px 10px 0px 4px;
+}
+.header ul{
+	display: flex;
+	justify-content: space-between;
+	margin: 0px;
+}
+.header li{
+	list-style: none;
+	padding-top: 27px;
+	font-family:OswaldRegular;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 26px;
+}
+.header li:hover{
+	color: #da2128;
+	cursor: pointer;
+}
+.menu{
+	color: white;
+	font-size: 50px;
+	padding-top: 7px;
+}
+@font-face{
+	font-family: OswaldRegular;
+	src: url("../fonts/oswald/Oswald-Regular.ttf");
+}
+.bodyTitle{
+	text-align: center;
+	font-family: "OswaldRegular";
+	font-size: 26px;
+	color: black;
+	background-image: url("../images/3711214fd1aa36101d14ce4909d500c8 (1).jpg");
+	background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.pageOneOverlay{
+	background-color: rgba(255, 255, 255, 0.7);
+	padding-bottom: 100%;
+}
+.playerPhotos{
+	width: 100%;
+}
+.pageOneOverlay h1{
+	padding: 15px 0px 10px 0px;
+	font-size: 36px;
+}
+.statsSubtitle{
+	padding: 0px 0px 10px 0px;
+	width: 90%;
+	font-size: 20px;
+	margin: 0px auto;
+	text-align: center;
+	border-bottom: 2px solid black;
+}
+.players{
+	width: 90%;
+	margin: 0px auto;
+	margin-top: 5px;
+	display: flex;
+	justify-content: space-around;
+}
+.playerBox{
+	margin-right: 10px;
+	padding: 5px;
+}
+.playerBox p, .playerBox h3{
+	margin: 0px;
+}
+.playerBox:hover{
+	background-color: rgba(255, 255, 255, 0.4);
+	box-shadow: 2px 2px 8px black;
+	cursor: pointer;
+}
+.playerBox:active{
+	box-shadow: inset 2px 2px 8px black;
+}
+.stats-button{
+	display: block;
+	margin: 0px auto;
+	background-color: #00295b;
+	font-family: "OswaldRegular";
+	color: #ffffff;
+	margin-top: 10px;
+	font-size: 26px;
+	width: 100%;
+}
+.stats-button:hover{
+	cursor: pointer;
+}
+.pageTwo{
+	border: 1px solid black;
+	background-image: url("../images/tom-brady (1).jpg");
+	background-position: 70%;
+    background-repeat: no-repeat;
+    background-size: cover;
+	padding: 0px;
+	overflow: hidden;
+}
+.pageTwoOverlay{
+	background-color: rgba(0,0,0,0.5);
+	padding-bottom: 100%;
+	width: 100%;
+}
+.diagonalStatDisplay{
+	float: right;
+	background-color: rgba(255,255,255,0.855);
+	padding-bottom: 100%;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-right: 60px;
+	color: #000000;
+	width: 67%;
+	transform: rotate(15deg);
+	box-shadow: 10px 16px 16px 12px grey;
+}
+.diagonalStatDisplay h1{
+	text-transform: uppercase;
+	font-size: 36px;
+	font-family: "OswaldRegular";
+	transform: rotate(-15deg);
+}
+.statDataType{
+	display: flex;
+	justify-content: space-around;
+}
+.charts{
+	transform: rotate(-15deg);
+	margin-top: 100px;
+	margin-left: 2px;
+	padding: 10px;
+	width: 50%;
+}
+.statDataType li{
+	padding: 7.5px;
+	font-size: 20px;
+	font-family: "OswaldRegular";
+}
+.statDataType li:hover{
+	cursor: pointer;
+	color: blue;
+}
+.activeData{
+	border-radius: 5px;
+	color: blue;
+	box-shadow: inset 2px 1px 2px 1px grey;
+	background-color: rgba(255,255,255,0.2);
+}
+.axis path, .axis line{
+	fill: none;
+  	stroke: #777;
+  	shape-rendering: crispEdges;
+}
+.axis text{
+  font-family: 'Arial';
+  font-size: 13px;
+}
+.tick{
+  	stroke-dasharray: 4, 12;
+}
+.bar{
+  	fill: FireBrick;
+}
+.dot {
+  	fill: #ffab00;
+  	stroke: #fff;
+}
+.chartItself{
+	/*position: absolute;
+	top: 6.5%;
+	left: 5%;*/
+	transform: rotate(-15deg);
+	background-color: rgba(255,255,255,0.0);
+}
+.chartType{
+	display: flex;
+	width: 50%;
+	margin: 60px 0px 0px 200px;
+	justify-content: space-between;
+	transform: rotate(-15deg);
+}
+.fa{
+	font-size:46px;
+}
+.fa:hover{
+	cursor: pointer;
+	color: blue;
+}
+.activeChart{
+	color: blue;
+}
+.active{
+	display: block;
+}
+.hide{
+	display: none;
+}
+.playerNameStats{
+	color: blue;
+}
+.subtitleStats{
+	transform: rotate(-15deg);
+	font-family: "OswaldRegular";
+	margin: 5px 0px 0px 8px;
+}
+.hidePieYards{
+	display: none;
+}
+.header h1{
+	font-size: 26px;
+}
+.header img{
+	padding-left: 5px;
+}
+@media (max-width: 458px){
+	.header h1{
+		
+	}
+}
+@media (min-width: 299px){
+	.header h1{
+		padding-bottom: 20px;
+	}
+	.header img{
+		width: 100px;
+		height: 80px;
+		padding-top: 25px;
+	}
+	.menu{
+		padding-top: 20px;
+	}
+}
+@media (min-width: 376px){
+	.header img{
+		padding-bottom: 13px;
+		width: 120px;
+		height: 90px;
+		padding-top: 25px;
+	}
+	.header h1{
+		padding-top: 5px;
+	}
+}
+@media (min-width: 427px){
+	.header h1{
+		padding-top: 5px;
+	}
+}
+@media (min-width: 409px){
+	.header h1{
+		padding-top: 5px;
+	}
+}
+@media (max-width: 800px){	/*medium*/
+	.diagonalStatDisplay{
+		margin: 0px auto;
+		width: 90%;
+		float: none;
+		border-right: 1px solid grey;
+		border-bottom: 1px solid grey;
+		box-shadow: 3px 3px 3px 3px white;
+	}
+}
+@media (min-width: 300px){
+	.diagonalStatDisplay{
+		transform: rotate(10deg);
+		float: none;
+		width: 100%;
+		padding-left: 7px;
+		padding-top: 30px;
+	}
+	.diagonalStatDisplay h1, .subtitleStats, .charts, .chartItself, .chartType{
+		transform: rotate(-10deg);
+	}
+	.charts{
+		padding-left: 130px;
+		margin-top: 10px;
+	}
+	.chartType{
+		margin: 0px auto;
+		margin-top: 10px;
+	}
+	.chartType i{
+		padding-right: 30px;
+		font-size: 32px;
+	}
+	.statDataType li{
+		font-size: 18px;
+	}
+	.diagonalStatDisplay h1{
+		margin-top: 10px;
+		text-align: left;
+		margin: 0px auto;
+	}
+}
+@media (min-width: 800px){
+	.diagonalStatDisplay{
+		float: right;
+		padding-left: 20px;
+		padding-top: 20px;
+		width: 67%;
+	}
+	.diagonalStatDisplay h1{
+		transform: rotate(-10deg);
+	}
+	.charts{
+		margin-top: 50px;
+		padding: 10px;
+	}
+}
+
+

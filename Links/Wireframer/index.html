@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta charset="utf-8">
+		<title>Wireframer</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/menu.css">
+		<link rel="stylesheet" href="css/drawingBoard.css">
+	</head>
+	<body>
+		<header class="top_menu">
+			<div class="pen_button button">
+				<i class="material-icons">brush</i>
+			</div>
+			<div class="box_button button">
+				<i class="fas fa-square"></i>
+			</div>
+			<div class="input_button button">
+				<i class="material-icons">short_text</i>
+				<p class="input_button_text">Input</p>
+			</div>
+			<div class="lorem_button button">
+				<i class="material-icons">text_fields</i>
+				<p class="lorem_button_text">Placeholder</p>
+			</div>
+			<div class="customText_button button">
+				<i class="material-icons">text_fields</i>
+				<p class="customText_button_text">Custom</p>
+			</div>
+		</header>
+
+		<div id="boxDrawLayer" class="boxHere boxCanvasNone"></div>
+		<div id="inputDrawLayer" class="inputHere inputCanvasNone"></div>
+		<div id="loremDrawLayer" class="loremHere loremCanvasNone"></div>
+		<div id="customTextDrawLayer" class="customTextHere customTextCanvasNone"></div>
+		<canvas class="penCanvas penCanvasNone"</canvas>
+
+		<script type="text/javascript" src="LibrariesPlugins/jquery.min.js"></script>
+				<script type="text/javascript" src="LibrariesPlugins/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/full.js"></script>
+	</body>
+</html>

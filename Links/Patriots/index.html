@@ -1,0 +1,125 @@
+<!doctype html5>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New England Patriots</title>
+  <link rel="stylesheet" type="text/css" href="plugins/fullPage.js-master/dist/jquery.fullpage.min.css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body class="container-full">
+	<div id="fullpage" class="row">
+    <div class="section row col-12 no-gutters">
+		<header class="header no-gutters">
+			<ul row>
+				<img class="col-1.3" src="images/teamLogo.png">
+        <li class="d-lg-none"><h1>New England Patriots</span></h1></li>
+        <i class="material-icons menu d-lg-none">menu</i>
+				<li class="col-1.3 col-auto d-none d-lg-block">Home</li>
+				<li class="col-1.3 col-auto d-none d-lg-block">News</li>
+				<li class="col-1.3 col-auto d-none d-lg-block">Photos</li>
+				<li class="col-1.3 col-auto d-none d-lg-block">Stats</li>
+				<li class="col-1.3 col-auto d-none d-lg-block">Team</li>
+				<li class="col-1.3 col-auto d-none d-lg-block">Tickets</li>
+				<li class="col-1.3 col-auto d-none d-lg-block">Proshop</li>
+				<li class="col-1.3 col-auto d-none d-lg-block">More</li>
+			</ul>
+		</header>
+    <section class="bodyTitle">
+      <div class="pageOneOverlay">
+      <h1>Stats</h1>
+      <p class="statsSubtitle">Click a player to view their stats below</p>
+      <div class="players row">
+        <div class="playerBox col-5 col-sm-4 col-md-3 col-lg-2">
+          <h3>Tom Brady</h3>
+          <p>QB</p>
+          <img class="playerPhotos" src="images/BRA371156.png">
+          <button class="stats-button">See stats</button>
+        </div>
+        <div class="playerBox col-5 col-sm-4 col-md-3 col-lg-2">
+          <h3>Ken Britt</h3>
+          <p>WR</p>
+          <img class="playerPhotos" src="images/BRI708216.png">
+          <button class="stats-button">See stats</button>
+        </div>
+        <div class="playerBox col-sm-4 d-none d-sm-inline col-md-3 col-lg-2 col-auto">
+          <h3>Bra Bolden</h3>
+          <p>RB</p>
+          <img class="playerPhotos" src="images/BOL167697.png">
+          <button class="stats-button">See stats</button>
+        </div>
+        <div class="playerBox col-sm-4 d-none d-sm-inline col-md-3 col-lg-2">
+          <h3>John Bade</h3>
+          <p>CB</p>
+          <img class="playerPhotos" src="images/BAD600092.png">
+          <button class="stats-button">See stats</button>
+        </div>
+        <div class="playerBox d-none d-md-inline col-md-3 col-lg-2">
+          <h3>Cole Cro</h3>
+          <p>OT</p>
+          <img class="playerPhotos" src="images/CRO522680.png">
+          <button class="stats-button">See stats</button>
+        </div>
+      </div>
+      </div>
+    </section>
+  </div>
+  <section class="section pageTwo row col-12">
+      <article class="pageTwoOverlay">
+        <div class="diagonalStatDisplay">
+          <h1>Stats - <span class="playerNameStats">Tom Brady</span></h1>
+          <h2 class="subtitleStats">Within 10 years</h2>
+          <div class="charts">
+            <ul class="statDataType">
+              <li id="YDS" class="Data">YDS</li>
+              <li id="TDS" class="Data">TDS</li>
+              <li id="INT" class="Data">INT</li>
+              <li id="SCK" class="Data">SCK</li>
+              <li id="PCT" class="Data">PCT</li>
+              <li id="ATT" class="Data">ATT</li>
+            </ul>
+          </div>
+        <div class="chartItself">
+        <svg id="visualisationYards" class="chart active YDS" viewBox="0 0 900 325"
+        preserveAspectRatio="xMidYMid slice"></svg>
+        <div id="pieYards" class="pie hidePieYards"></div>
+        <svg id="visualisationTouchdowns" class="chart hide TDS" viewBox="0 0 900 325"
+        preserveAspectRatio="xMidYMid slice"></svg>
+        <svg id="visualisationInterceptions" class="chart hide INT" viewBox="0 0 900 325"
+        preserveAspectRatio="xMidYMid slice"></svg>
+        <svg id="visualisationSacks" class="chart hide SCK" viewBox="0 0 900 325"
+        preserveAspectRatio="xMidYMid slice"></svg>
+        <svg id="visualisationPct" class="chart hide PCT" viewBox="0 0 900 325"
+        preserveAspectRatio="xMidYMid slice"></svg>
+        <svg id="visualisationAtt" class="chart hide ATT" viewBox="0 0 900 325"
+        preserveAspectRatio="xMidYMid slice"></svg>
+        </div>
+        <div class="chartType">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            <i class="fa fa-pie-chart pieSelector" aria-hidden="true"></i>
+        </div>
+        <footer style="padding: 100px; transform: rotate(-10deg); opacity: 0.3;">
+          <p>&copy;	All rights reserved by NFL and the New England Patriots NFL Team</p>
+          <p>https://www.nfl.com/</p>
+          <p>https://www.patriots.com/</p>
+        </footer>
+      </article>
+
+  </section>
+	</div>
+
+<script type="text/javascript" src="Libraries/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugins/fullPage.js-master/dist/jquery.fullpage.min.js"></script>
+<script src="http://d3js.org/d3.v4.js"></script>
+<script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>
