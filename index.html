@@ -14,14 +14,15 @@
       <meta name="keywords" content="HTML5,CSS3,HTML,CSS,XML,JavaScript,jQuery,Canvas,Web Developer,Web Development,Websites,Unqiue,Skill,Design">
       <meta name="author" content="Dale Hogg">
       <title>Dale Hogg | Portfolio</title>
+      
+      <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      
+      <link rel="preload" href="css/reset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      
       <noscript>
          <link rel="stylesheet" href="css/reset.css">
       </noscript>
-      <link rel="stylesheet" href="css/canvas.css">
-      
-      <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <link rel="preload" href="css/reset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      
+
       <noscript>
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
       </noscript>
@@ -30,9 +31,14 @@
          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       </noscript>
       <link rel="preload" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
       <noscript>
          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
       </noscript>
+
+      
+      <link rel="stylesheet" href="css/canvas.css">
+      
       <script>/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */ (function(w){"use strict"; if (!w.loadCSS){w.loadCSS=function(){};}var rp=loadCSS.relpreload={}; rp.support=(function(){var ret; try{ret=w.document.createElement("link").relList.supports("preload");}catch (e){ret=false;}return function(){return ret;};})(); rp.bindMediaToggle=function(link){var finalMedia=link.media || "all"; function enableStylesheet(){link.media=finalMedia;}if (link.addEventListener){link.addEventListener("load", enableStylesheet);}else if (link.attachEvent){link.attachEvent("onload", enableStylesheet);}setTimeout(function(){link.rel="stylesheet"; link.media="only x";}); setTimeout(enableStylesheet, 3000);}; rp.poly=function(){if (rp.support()){return;}var links=w.document.getElementsByTagName("link"); for (var i=0; i < links.length; i++){var link=links[i]; if (link.rel==="preload" && link.getAttribute("as")==="style" && !link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss", true); rp.bindMediaToggle(link);}}}; if (!rp.support()){rp.poly(); var run=w.setInterval(rp.poly, 500); if (w.addEventListener){w.addEventListener("load", function(){rp.poly(); w.clearInterval(run);});}else if (w.attachEvent){w.attachEvent("onload", function(){rp.poly(); w.clearInterval(run);});}}if (typeof exports !=="undefined"){exports.loadCSS=loadCSS;}else{w.loadCSS=loadCSS;}}(typeof global !=="undefined" ? global : this)); </script> 
       
    </head>
@@ -172,6 +178,7 @@
             </footer>
          </div>
       </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <script type="text/javascript" src="js/full.js"></script> 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+      <script type="text/javascript" src="js/full.js"></script> 
    </body>
 </html>
