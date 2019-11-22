@@ -17,10 +17,15 @@
       <link rel="shortcut icon" href="#"/>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="preload" as="style" href="css/reset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <link rel="preload" as="style" href="css/globals.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
       <link rel="stylesheet" href="css/canvas.css">
       <noscript>
          <link rel="stylesheet" href="css/reset.css">
+      </noscript>
+      <noscript>
+         <link rel="stylesheet" href="css/globals.css">
       </noscript>
       <noscript>
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,11 +36,11 @@
    </head>
    <body class="backNight">
       <div id="fullpage">
-         <div id="preloader">
+<!--          <div id="preloader">
             <div id="status">
                <h1>Loading</h1>
             </div>
-         </div>
+         </div> -->
          <div class="row">
             <canvas class="col-12" id="space"></canvas>
          </div>
@@ -45,8 +50,10 @@
             <div class="row">
                <div class="header col-12 text-center">
                   <hgroup>
-                     <h1>Dale Hogg</h1>
-                     <h2>Front-end Web Developer</h2>
+                     <h1 class="text1">Dale Hogg</h1>
+                     <div class="h2Box">
+                        <h2 class="text2">Front-end Web Developer</h2>
+                     </div>
                   </hgroup>
                </div>
                <div class="weather-info">
@@ -89,20 +96,20 @@
                      <input class="skillButton interpersonalButton" type="submit" name="interpersonalButton" value="Soft Skills"> 
                      <div class="skillOutput order-2 order-sm-0">
                         <ul class="interpersonalList">
-                           <li>Time management</li>
-                           <li>Communication</li>
-                           <li>Teamwork</li>
-                           <li>Perseverance</li>
-                           <li>Critical thinking</li>
-                           <li>Problem solving</li>
+                           <li class="noOpac">Time management</li>
+                           <li class="noOpac">Communication</li>
+                           <li class="noOpac">Teamwork</li>
+                           <li class="noOpac">Perseverance</li>
+                           <li class="noOpac">Critical thinking</li>
+                           <li class="noOpac">Problem solving</li>
                         </ul>
                         <ul class="technicalList hide">
-                           <li>HTML5</li>
-                           <li>CSS3</li>
-                           <li>JavaScript</li>
-                           <li>jQuery</li>
-                           <li>MEAN Stack</li>
-                           <li>Git</li>
+                           <li class="noOpac">HTML5</li>
+                           <li class="noOpac">CSS3</li>
+                           <li class="noOpac">JavaScript</li>
+                           <li class="noOpac">jQuery</li>
+                           <li class="noOpac">MEAN Stack</li>
+                           <li class="noOpac">Git</li>
                         </ul>
 
                      </div>
