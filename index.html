@@ -34,7 +34,7 @@
 
 <body class="backNight">
     <div id="fullpage">
-        <div class="blackPreLoad"></div>
+        <!-- <div class="blackPreLoad"></div> -->
         <div class="row">
             <div id="nightSky">
                 <canvas id="starfield"></canvas>
@@ -47,48 +47,48 @@
         <div class="cloudsLightTwo noOpac"></div>
         <div class="section section-one">
             <header id="header">
-<svg width="174px" height="65px" viewBox="-25 54 600 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path d="M103.712042,96 C131.410134,96 153.863874,74.0619527 153.863874,47 C153.863874,19.9380473 131.410134,-2 103.712042,-2 C76.0139496,-2 53.5602094,19.9380473 53.5602094,47 C53.5602094,56.4836566 56.317751,65.3380469 61.09218,72.8395272 C69.9417546,86.7437887 85.7205365,96 103.712042,96 Z" id="path-1"></path>
-        <filter x="-7.0%" y="-7.1%" width="114.0%" height="114.3%" filterUnits="objectBoundingBox" id="filter-2">
-            <feOffset dx="14" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0.938616071   0 0 0 0 0.926408236   0 0 0 0 0.773124992  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
-            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
-            <feOffset dx="5" dy="0" in="shadowBlurInner2" result="shadowOffsetInner2"></feOffset>
-            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
-                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
-            </feMerge>
-        </filter>
-        <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-3">
-            <stop stop-color="#05172C" offset="0%"></stop>
-            <stop stop-color="#707070" offset="0%"></stop>
-            <stop stop-color="#191818" offset="0%"></stop>
-            <stop stop-color="#05172C" offset="0%"></stop>
-            <stop stop-color="#FFFFFF" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Oval" transform="translate(2.000000, 2.000000)">
-            <g transform="translate(103.712042, 47.000000) scale(-1, 1) translate(-103.712042, -47.000000) ">
-                <use fill-opacity="0" fill="#05172C" fill-rule="evenodd" xlink:href="#path-1"></use>
-                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-            </g>
-            <path d="M11.6858639,53.5 L12.1727749,152" id="Line" stroke="#FFFFFF" stroke-width="3" fill="#FFFFFF" fill-rule="evenodd" stroke-linecap="square"></path>
-            <path d="M62.3246073,151.5 L62.3246073,-0.5" id="Line-2" stroke="#FFFFFF" stroke-width="3" fill="#FFFFFF" fill-rule="evenodd" stroke-linecap="square"></path>
-            <text id="ALE" fill="#D8D8D8" fill-rule="evenodd" font-family="AvenirNext-UltraLight, Avenir Next" font-size="64" font-weight="200" letter-spacing="9">
-                <tspan x="153.864147" y="96">ALE</tspan>
-            </text>
-            <text id="OGG" fill="#D8D8D8" fill-rule="evenodd" font-family="AvenirNext-UltraLight, Avenir Next" font-size="64" font-weight="200" letter-spacing="9">
-                <tspan x="79.5955812" y="152">OGG</tspan>
-            </text>
-            <rect id="Rectangle" fill="url(#linearGradient-3)" fill-rule="evenodd" transform="translate(192.329843, 101.000000) scale(1, -1) translate(-192.329843, -101.000000) " x="12.6596859" y="100" width="359.340314" height="2"></rect>
-        </g>
-    </g>
-</svg>
+              <!-- <svg width="174px" height="65px" viewBox="-25 54 600 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <defs>
+                      <path d="M103.712042,96 C131.410134,96 153.863874,74.0619527 153.863874,47 C153.863874,19.9380473 131.410134,-2 103.712042,-2 C76.0139496,-2 53.5602094,19.9380473 53.5602094,47 C53.5602094,56.4836566 56.317751,65.3380469 61.09218,72.8395272 C69.9417546,86.7437887 85.7205365,96 103.712042,96 Z" id="path-1"></path>
+                      <filter x="-7.0%" y="-7.1%" width="114.0%" height="114.3%" filterUnits="objectBoundingBox" id="filter-2">
+                          <feOffset dx="14" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+                          <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+                          <feColorMatrix values="0 0 0 0 0.938616071   0 0 0 0 0.926408236   0 0 0 0 0.773124992  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+                          <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
+                          <feOffset dx="5" dy="0" in="shadowBlurInner2" result="shadowOffsetInner2"></feOffset>
+                          <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+                          <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+                          <feMerge>
+                              <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                              <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+                          </feMerge>
+                      </filter>
+                      <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-3">
+                          <stop stop-color="#05172C" offset="0%"></stop>
+                          <stop stop-color="#707070" offset="0%"></stop>
+                          <stop stop-color="#191818" offset="0%"></stop>
+                          <stop stop-color="#05172C" offset="0%"></stop>
+                          <stop stop-color="#FFFFFF" offset="100%"></stop>
+                      </linearGradient>
+                  </defs>
+                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="Oval" transform="translate(2.000000, 2.000000)">
+                          <g transform="translate(103.712042, 47.000000) scale(-1, 1) translate(-103.712042, -47.000000) ">
+                              <use fill-opacity="0" fill="#05172C" fill-rule="evenodd" xlink:href="#path-1"></use>
+                              <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                          </g>
+                          <path d="M11.6858639,53.5 L12.1727749,152" id="Line" stroke="#FFFFFF" stroke-width="3" fill="#FFFFFF" fill-rule="evenodd" stroke-linecap="square"></path>
+                          <path d="M62.3246073,151.5 L62.3246073,-0.5" id="Line-2" stroke="#FFFFFF" stroke-width="3" fill="#FFFFFF" fill-rule="evenodd" stroke-linecap="square"></path>
+                          <text id="ALE" fill="#D8D8D8" fill-rule="evenodd" font-family="AvenirNext-UltraLight, Avenir Next" font-size="64" font-weight="200" letter-spacing="9">
+                              <tspan x="153.864147" y="96">ALE</tspan>
+                          </text>
+                          <text id="OGG" fill="#D8D8D8" fill-rule="evenodd" font-family="AvenirNext-UltraLight, Avenir Next" font-size="64" font-weight="200" letter-spacing="9">
+                              <tspan x="79.5955812" y="152">OGG</tspan>
+                          </text>
+                          <rect id="Rectangle" fill="url(#linearGradient-3)" fill-rule="evenodd" transform="translate(192.329843, 101.000000) scale(1, -1) translate(-192.329843, -101.000000) " x="12.6596859" y="100" width="359.340314" height="2"></rect>
+                      </g>
+                  </g>
+              </svg> -->
                 <h1 class="contactButton navButton faded">Contact</h1>
             </header>
             <div class="row">
@@ -178,7 +178,7 @@
 <!--                     <p>Throughout my development journey I have learnt the professional standards of web-development and what technologies are required by the means of study.
                         <br/>I have found in my career I have been more drawn towards Javascript and I am currently learning the MEAN stack.
                         <br/>I strive to grow and develop my skills as the technologies in our world are ever changing, learn new ways to push them to the max of their capabilities and turn ordinary projects into something extraodinary.</p> -->
-                    <div class="socialIcons"> <a class="faded" href="https://github.com/dalehogg" target='_blank'><i class="fab fa-github"> </i></a> <a class="faded" href="https://www.linkedin.com/in/dale-hogg/" target='_blank'><i class="fab fa-linkedin"></i></a>
+                    <div class="socialIcons"> <a class="faded" href="https://github.com/dalehogg" target='_blank'><i class="fab fa-github"> </i></a>
                         <a class="faded CVdownloadLink" href="Links/CV/DaleHoggCV.pdf" target='_blank'>
                             <p class="CViconText">CV</p><i class="fas fa-file-alt"></i> </a>
                     </div>
@@ -199,9 +199,9 @@
                                 <div>
                                     <h1>Wireframe App</h1> <img src="Img/projects/WireframerScreenshot.png"> </div>
                             </a>
-                            <a class="col-xs-6 project-image Patriots" href="Links/Patriots/index.html" target='_blank'>
+                            <a class="col-xs-6 project-image ExclusiveCuts" href="Links/Exclusive_Cuts/index.html" target='_blank'>
                                 <div>
-                                    <h1>Patriots Stats</h1> <img src="Img/projects/PatriotsScreenshot.png"> </div>
+                                    <h1>Exclusive Cuts</h1> <img src="Img/projects/ExclusiveCuts_Screenshot.png"> </div>
                             </a>
                             <a class="col-xs-6 project-image Moonlodge" href="Links/Moonlodge/index.html" target='_blank'>
                                 <div>
