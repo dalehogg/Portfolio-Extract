@@ -1,0 +1,57 @@
+.ds { background: #070b33; color: #f4f6ff; font-family: "Source Sans 3", "Segoe UI", sans-serif; }
+.ds a { color: inherit; }
+.ds-nav, .ds-hero, .ds-section { width: min(1080px, calc(100% - 2rem)); margin: 0 auto; }
+.ds-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+}
+.ds-nav img { width: 64px; height: 64px; }
+.ds-nav ul { display: flex; flex-wrap: wrap; gap: 0.9rem; list-style: none; margin: 0; padding: 0; }
+.ds-nav a { text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.75rem; }
+.ds-hero { padding: 3rem 0 4rem; display: grid; gap: 1.5rem; }
+@media (min-width: 800px) {
+  .ds-hero { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+}
+.ds-hero h2 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+  font-weight: 600;
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.03em;
+}
+.ds-hero p { margin: 0 0 1rem; line-height: 1.5; font-size: 1.1rem; max-width: 36rem; color: #d5dcf8; }
+.ds-mark {
+  justify-self: center;
+  width: min(320px, 80%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #070b33 url("../../Img/recreations/drain-saves/logo.png") center / cover no-repeat;
+}
+.ds-cta {
+  display: inline-block;
+  background: #c9d4ff;
+  color: #070b33;
+  text-decoration: none;
+  padding: 0.8rem 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.ds-section { padding: 1rem 0 3rem; }
+.ds-section h3 { font-size: 1.6rem; margin: 0 0 0.8rem; }
+.ds-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; }
+.ds-services article { border: 1px solid rgba(201, 212, 255, 0.35); padding: 1rem; }
+.ds-services h4 { margin: 0 0 0.4rem; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
+.ds-services p, .ds-prose p { margin: 0; line-height: 1.55; color: #d5dcf8; }
+.ds-prose { max-width: 42rem; }
+.ds-contact {
+  border-top: 1px solid rgba(201, 212, 255, 0.3);
+  padding: 2rem 0 3rem;
+  width: min(1080px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+.ds-contact p { color: #d5dcf8; line-height: 1.5; }

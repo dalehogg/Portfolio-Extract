@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unique Slider — Project — Dale Hogg</title>
+  <meta name="description" content="Case study and a rebuilt image slider. A self-initiated interface study.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&amp;display=swap">
+  <link rel="stylesheet" href="../../css/case-study.css">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="case-bar">
+    <a class="case-back" href="../../index.html#work">← All work</a>
+    <h1>Unique Slider</h1>
+    <ul class="case-tags"><li>Study</li><li>Development</li><li>Interaction</li></ul>
+    <div class="case-grid">
+      <div>
+        <h2>Brief</h2>
+        <p>A self-initiated study: show a run of photographs on one page and move through them without dumping every image into a grid.</p>
+      </div>
+      <div>
+        <h2>What was done</h2>
+        <p>The earlier slider was a thin strip of pictures. This version gives the current photo the screen, keeps previous and next obvious, and adds a thumbnail row. It does not autoplay.</p>
+      </div>
+    </div>
+  </header>
+  <p class="showcase-note">The photographs are the same set used in the original slider study.</p>
+  <div class="us">
+    <div class="us-frame">
+      <div class="us-stage">
+        <img id="slide" alt="">
+        <button class="us-prev" type="button" aria-label="Previous photo">‹</button>
+        <button class="us-next" type="button" aria-label="Next photo">›</button>
+      </div>
+      <div class="us-caption">
+        <span id="slide-count"></span>
+        <span>Use the arrows or the thumbnails</span>
+      </div>
+      <div class="us-thumbs" id="thumbs" role="tablist" aria-label="Photographs"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var photos = [
+        ["../../Links/Slider/Photos/coast-2723729_640.jpg", "Coast"],
+        ["../../Links/Slider/Photos/denmark-2334304_640.jpg", "Harbour"],
+        ["../../Links/Slider/Photos/autumn-2183489_640.jpg", "Autumn ridge"],
+        ["../../Links/Slider/Photos/sunset-2180346_640.jpg", "Sunset beach"],
+        ["../../Links/Slider/Photos/iceland-2700427_640.jpg", "Icelandic shore"],
+        ["../../Links/Slider/Photos/grapes-2715711_640.jpg", "Grapes"],
+        ["../../Links/Slider/Photos/flower-2919284_640.jpg", "Flower"],
+        ["../../Links/Slider/Photos/leopard-2895448_640.jpg", "Leopard"]
+      ];
+      var index = 0;
+      var img = document.getElementById("slide");
+      var count = document.getElementById("slide-count");
+      var thumbs = document.getElementById("thumbs");
+      function show(next) {
+        index = (next + photos.length) % photos.length;
+        img.src = photos[index][0];
+        img.alt = photos[index][1];
+        count.textContent = (index + 1) + " / " + photos.length + " — " + photos[index][1];
+        Array.prototype.forEach.call(thumbs.children, function (button, i) {
+          button.setAttribute("aria-current", i === index ? "true" : "false");
+        });
+      }
+      photos.forEach(function (photo, i) {
+        var button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("role", "tab");
+        button.setAttribute("aria-label", photo[1]);
+        var thumb = document.createElement("img");
+        thumb.src = photo[0];
+        thumb.alt = "";
+        button.appendChild(thumb);
+        button.addEventListener("click", function () { show(i); });
+        thumbs.appendChild(button);
+      });
+      document.querySelector(".us-prev").addEventListener("click", function () { show(index - 1); });
+      document.querySelector(".us-next").addEventListener("click", function () { show(index + 1); });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") show(index - 1);
+        if (event.key === "ArrowRight") show(index + 1);
+      });
+      show(0);
+    })();
+  </script>
+</body>
+</html>

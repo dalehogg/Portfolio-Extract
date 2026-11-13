@@ -1,0 +1,40 @@
+.cs { background: #16140f; color: #f7f3ea; font-family: "Barlow Condensed", "Arial Narrow", sans-serif; }
+.cs a { color: inherit; text-decoration: none; }
+.cs-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 6vw;
+  background: #e0b323;
+  color: #1a160f;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cs-brand { display: flex; align-items: center; gap: 0.55rem; font-size: 1.15rem; }
+.cs-squares { width: 1.4rem; height: 1.4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.cs-squares i { background: #1a160f; display: block; }
+.cs-squares i:nth-child(2), .cs-squares i:nth-child(3) { background: transparent; border: 2px solid #1a160f; }
+.cs-nav ul { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+.cs-hero {
+  min-height: 68vh;
+  display: grid;
+  align-items: end;
+  background: #1a160f url("../../Img/recreations/cornerstone/hero.jpg") center 30% / cover no-repeat;
+}
+.cs-hero div {
+  width: min(720px, calc(100% - 2rem));
+  margin: 0 6vw 8vh;
+  background: rgba(16, 14, 10, 0.72);
+  padding: 1.2rem 1.2rem 1.3rem;
+}
+.cs-hero h2 { font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 0.95; margin: 0 0 0.4rem; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; }
+.cs-hero p { margin: 0; font-size: 1.2rem; letter-spacing: 0.04em; }
+.cs-section { width: min(900px, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0; }
+.cs-section h3 { font-size: 2rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.6rem; }
+.cs-section p { font-family: "Source Sans 3", "Segoe UI", sans-serif; font-size: 1.05rem; line-height: 1.55; color: #e6e0d4; margin: 0 0 0.8rem; }
+.cs-panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.7rem; }
+.cs-panels article { border-top: 3px solid #e0b323; background: #221e16; padding: 0.9rem; }
+.cs-panels h4 { margin: 0 0 0.35rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.cs-link { color: #e0b323; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.95rem; }

@@ -1,230 +1,432 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=3.0, minimum-scale=1.0">
-    <meta charset="utf-8">
-    <meta property="og:title" content="Want an affordable website? Inquire today.">
-    <meta property="og:description" content="Custom made web development. Each website created to suit you and / or your company at affordable prices.">
-    <meta property="og:image" content="Img/ThumbnailSocialIcon.png">
-    <meta property="og:url" content="http://www.dalehogg.tk/">
-    <meta name="twitter:title" content="Want an affordable website? Inquire today.">
-    <meta name="twitter:description" content="Custom made web development. Each website created to suit you and / or your company at affordable prices.">
-    <meta name="twitter:image" content="Img/ThumbnailSocialIcon.png">
-    <meta name="description" content="Custom made web development. Each website created to suit you and / or your company at affordable prices.">
-    <meta name="keywords" content="HTML5,CSS3,HTML,CSS,XML,JavaScript,jQuery,Canvas,Web Developer,Web Development,Websites,Unqiue,Skill,Design">
-    <meta name="author" content="Dale Hogg">
-    <title>Dale Hogg | Portfolio</title>
-    <link rel="shortcut icon" href="#" />
-    <link rel="icon" href="Img/BrowserTabLogo.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="preload" as="style" href="css/reset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style" href="css/globals.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-    <noscript>
-        <link rel="stylesheet" href="css/reset.css"> </noscript>
-    <noscript>
-        <link rel="stylesheet" href="css/globals.css"> </noscript>
-    <noscript>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> </noscript>
-    <noscript>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> </noscript>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dale Hogg | Freelance Web Design &amp; Development</title>
+  <meta name="description" content="Freelance web design and development in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before any work starts. Email Dale Hogg.">
+  <meta name="author" content="Dale Hogg">
+  <meta property="og:title" content="Dale Hogg | Freelance web design and development">
+  <meta property="og:description" content="Landing pages, business sites, and custom web tools for small businesses. You deal with Dale directly. Ask for a quote.">
+  <meta property="og:image" content="Img/ThumbnailSocialIcon.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:title" content="Dale Hogg | Freelance web design and development">
+  <meta name="twitter:description" content="Landing pages, business sites, and custom web tools. Fixed quotes, direct contact, and you own the finished site.">
+  <meta name="twitter:image" content="Img/ThumbnailSocialIcon.png">
+  <link rel="icon" href="Img/BrowserTabLogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/globals.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/services.css">
 </head>
-
 <body class="backNight">
-    <div id="fullpage">
-        <!-- <div class="blackPreLoad"></div> -->
-        <div class="row">
-            <div id="nightSky">
-                <canvas id="starfield"></canvas>
-                <canvas id="twinklefield"></canvas>
-                <canvas id="shooting"></canvas>
-                <canvas id="planet"></canvas>
-            </div>
-        </div>
-        <div class="cloudsLightOne noOpac"></div>
-        <div class="cloudsLightTwo noOpac"></div>
-        <div class="section section-one">
-            <header id="header">
-              <!-- <svg width="174px" height="65px" viewBox="-25 54 600 115" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <defs>
-                      <path d="M103.712042,96 C131.410134,96 153.863874,74.0619527 153.863874,47 C153.863874,19.9380473 131.410134,-2 103.712042,-2 C76.0139496,-2 53.5602094,19.9380473 53.5602094,47 C53.5602094,56.4836566 56.317751,65.3380469 61.09218,72.8395272 C69.9417546,86.7437887 85.7205365,96 103.712042,96 Z" id="path-1"></path>
-                      <filter x="-7.0%" y="-7.1%" width="114.0%" height="114.3%" filterUnits="objectBoundingBox" id="filter-2">
-                          <feOffset dx="14" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
-                          <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-                          <feColorMatrix values="0 0 0 0 0.938616071   0 0 0 0 0.926408236   0 0 0 0 0.773124992  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
-                          <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
-                          <feOffset dx="5" dy="0" in="shadowBlurInner2" result="shadowOffsetInner2"></feOffset>
-                          <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
-                          <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
-                          <feMerge>
-                              <feMergeNode in="shadowMatrixInner1"></feMergeNode>
-                              <feMergeNode in="shadowMatrixInner2"></feMergeNode>
-                          </feMerge>
-                      </filter>
-                      <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-3">
-                          <stop stop-color="#05172C" offset="0%"></stop>
-                          <stop stop-color="#707070" offset="0%"></stop>
-                          <stop stop-color="#191818" offset="0%"></stop>
-                          <stop stop-color="#05172C" offset="0%"></stop>
-                          <stop stop-color="#FFFFFF" offset="100%"></stop>
-                      </linearGradient>
-                  </defs>
-                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g id="Oval" transform="translate(2.000000, 2.000000)">
-                          <g transform="translate(103.712042, 47.000000) scale(-1, 1) translate(-103.712042, -47.000000) ">
-                              <use fill-opacity="0" fill="#05172C" fill-rule="evenodd" xlink:href="#path-1"></use>
-                              <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                          </g>
-                          <path d="M11.6858639,53.5 L12.1727749,152" id="Line" stroke="#FFFFFF" stroke-width="3" fill="#FFFFFF" fill-rule="evenodd" stroke-linecap="square"></path>
-                          <path d="M62.3246073,151.5 L62.3246073,-0.5" id="Line-2" stroke="#FFFFFF" stroke-width="3" fill="#FFFFFF" fill-rule="evenodd" stroke-linecap="square"></path>
-                          <text id="ALE" fill="#D8D8D8" fill-rule="evenodd" font-family="AvenirNext-UltraLight, Avenir Next" font-size="64" font-weight="200" letter-spacing="9">
-                              <tspan x="153.864147" y="96">ALE</tspan>
-                          </text>
-                          <text id="OGG" fill="#D8D8D8" fill-rule="evenodd" font-family="AvenirNext-UltraLight, Avenir Next" font-size="64" font-weight="200" letter-spacing="9">
-                              <tspan x="79.5955812" y="152">OGG</tspan>
-                          </text>
-                          <rect id="Rectangle" fill="url(#linearGradient-3)" fill-rule="evenodd" transform="translate(192.329843, 101.000000) scale(1, -1) translate(-192.329843, -101.000000) " x="12.6596859" y="100" width="359.340314" height="2"></rect>
-                      </g>
-                  </g>
-              </svg> -->
-                <h1 class="contactButton navButton faded">Contact</h1>
-            </header>
-            <div class="row">
-                <div class="title col-12 text-center">
-                    <hgroup>
-                        <div class="subTitleWrap">
-                          <h1>Dale Hogg</h1>
-                        </div>
-                        <div class="subTitleWrap">
-                            <h2>Freelance Web Developer</h2>
-                        </div>
-                    </hgroup>
-                </div>
-            </div>
-            <div class="galaxy-center"></div>
-            <div class="realMoon-container">
-                <div class="realMoon-moonCut"> </div>
-            </div>
-            <div class="flare hide">
-                <div class="in"></div>
-            </div>
-            <div class="circleNav">
-                <div class="mySkillsButton navButton faded">
-                    <h1>Skills<br><i class="fas fa-chevron-down"></i></h1> </div>
-                <div class="aboutMeButton navButton faded">
-                    <h1>About<br><i class="fas fa-chevron-down"></i></h1> </div>
-                <div class="myWorkButton navButton faded">
-                    <h1>Projects<br><i class="fas fa-chevron-down"></i></h1> </div>
-            </div>
-        </div>
-        <div class="section section-two hide">
-            <div class="section-two-light"></div>
-            <div class="row">
-                <div id="placeholderCity" class="col-12 section-two-container text-center"></div>
+  <a class="skip" href="#services">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#top">Dale Hogg</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#questions">FAQ</a>
+      <a class="nav-quote" href="#contact">Get a quote</a>
+    </nav>
+  </header>
 
-                <div id="contactSection" class="col-12 section-two-container text-center deactive">
-                    <h1>Contact</h1>
-                    <div class="contactContainer">
-                        <form name="contact" class="form contactForm" action="POST" method="post" data-netlify="true">
-                                <div class="contactFormItemWrap row">
-                                    <div class="contactFormItem col col-12 col-sm-6">
-                                        <label for="name">Name</label>
-                                        <input class="inputText" id="name" type="text" name="name">
-                                    </div>
-                                    <div class="contactFormItem col-12 col-sm-6">
-                                        <label for="email">E-Mail</label>
-                                        <input class="inputText" id="email" type="email" name="email">
-                                    </div>
-                                    <div class="contactFormItem col-12 col-sm-6">
-                                        <label>Message</label>
-                                        <textarea class="inputText" name="message" id="message" rows="7" spellcheck="false"></textarea>
-                                    </div>
-                                    <div class="contactFormItem submitFormSection col-12 col-sm-6">
-                                        <input class="submit" type="submit" name="submit"/>
-                                    </div>
-                                </div>
-                        </form>
-                    </div>
-                </div>
-                <div id="skillsSection" class="col-12 section-two-container text-center deactive">
-                    <h1>Skills</h1>
-                    <div class="skillContainer">
-                        <input class="skillButton interpersonalButton" type="submit" name="interpersonalButton" value="Soft Skills">
-                        <div class="skillOutput order-2 order-sm-0">
-                            <ul class="interpersonalList">
-                                <li class="noOpac">Time management</li>
-                                <li class="noOpac">Communication</li>
-                                <li class="noOpac">Teamwork</li>
-                                <li class="noOpac">Perseverance</li>
-                                <li class="noOpac">Critical thinking</li>
-                                <li class="noOpac">Problem solving</li>
-                            </ul>
-                            <ul class="technicalList hide">
-                                <li class="noOpac">HTML5</li>
-                                <li class="noOpac">CSS3</li>
-                                <li class="noOpac">VueJS</li>
-                                <li class="noOpac">NuxtJS</li>
-                                <li class="noOpac">Gulp</li>
-                                <li class="noOpac">Git</li>
-                            </ul>
-                        </div>
-                        <input class="skillButton faded technicalButton" type="submit" name="technicalButton" value="Tech Skills"> </div>
-                </div>
-                <div id="aboutSection" class="col-12 section-two-container text-center deactive">
-                    <h1>About</h1>
-                    <p>Welcome to my web development portfolio! My name is Dale, and I am a skilled web developer with a passion for crafting unique and engaging websites. With 5 years of experience in the industry, I have honed my skills in front-end and back-end development, as well as touching on design and user experience. Throughout my career, I have had the pleasure of working with a diverse range of clients, and I have always strived to deliver exceptional results that exceed expectations. My goal is not just to build a website, but to create an online presence that truly represents your brand and resonates with your target audience. In this portfolio, you will find a selection of my latest projects, which showcase my range of skills and expertise. Whether you are looking for a simple brochure site or a complex web application, I am confident that I have the skills and knowledge to bring your vision to life. Thank you for visiting my portfolio, and I look forward to the opportunity to work with you on your next project.</p>
-<!--                     <p>Throughout my development journey I have learnt the professional standards of web-development and what technologies are required by the means of study.
-                        <br/>I have found in my career I have been more drawn towards Javascript and I am currently learning the MEAN stack.
-                        <br/>I strive to grow and develop my skills as the technologies in our world are ever changing, learn new ways to push them to the max of their capabilities and turn ordinary projects into something extraodinary.</p> -->
-                    <div class="socialIcons"> <a class="faded" href="https://github.com/dalehogg" target='_blank'><i class="fab fa-github"> </i></a>
-                        <!-- <a class="faded CVdownloadLink" href="Links/CV/DaleHoggCV.pdf" target='_blank'>
-                            <p class="CViconText">CV</p><i class="fas fa-file-alt"></i> </a> -->
-                    </div>
-                </div>
-                <div id="workSection" class="col-12 section-two-container text-center deactive">
-                    <h1>Projects</h1>
-                    <div class="container">
-                        <div class="row workImages justify-content-around">
-                            <a class="col-xs-6 project-image Design" href="https://drainsaves.netlify.app/" target='_blank'>
-                                <div>
-                                    <h1>Drain Saves</h1> <img src="Img/projects/DrainSavesScreenshot.avif"> </div>
-                            </a>
-                            <a class="col-xs-6 project-image CornerstoneConstruction" href="https://cornerstoneconstruction.netlify.com/" target='_blank'>
-                                <div>
-                                    <h1>Cornerstone Construction</h1> <img src="Img/projects/CornerstoneScreenshot.avif"> </div>
-                            </a>
-                            <a class="col-xs-6 project-image Wireframer" href="Links/Wireframer/index.html" target='_blank'>
-                                <div>
-                                    <h1>Wireframe App</h1> <img src="Img/projects/WireframerScreenshot.avif"> </div>
-                            </a>
-                            <a class="col-xs-6 project-image ExclusiveCuts" href="https://exclusivecuts.netlify.app/" target='_blank'>
-                                <div>
-                                    <h1>Exclusive Cuts</h1> <img src="Img/projects/ExclusiveCuts_Screenshot.avif"> </div>
-                            </a>
-                            <a class="col-xs-6 project-image Moonlodge" href="https://moonlodge.netlify.app/" target='_blank'>
-                                <div>
-                                    <h1>Moonlodge</h1> <img src="Img/projects/MoonlodgeScreenshot.avif"> </div>
-                            </a>
-                            <a class="col-xs-6 project-image Slider" href="Links/Slider/index.html" target='_blank'>
-                                <div>
-                                    <h1>Unqiue Slider</h1> <img src="Img/projects/SliderScreenshot.avif"> </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div id="nightSky" aria-hidden="true">
+    <canvas id="starfield"></canvas>
+    <canvas id="twinklefield"></canvas>
+    <canvas id="shooting"></canvas>
+    <canvas id="planet"></canvas>
+  </div>
+  <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
+  <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
 
-            <footer>
-                <div class="citySilouhute city col-12"></div>
-                <div class="cityWhite city col-12 hideVis"></div>
-            </footer>
+  <div id="fullpage">
+    <section class="section section-one" id="top">
+      <div class="galaxy-center" aria-hidden="true"></div>
+      <div class="realMoon-container" aria-hidden="true">
+        <div class="realMoon-moonCut"></div>
+      </div>
+      <div class="flare hide" aria-hidden="true"><div class="in"></div></div>
+      <div class="hero-copy">
+        <p class="availability"><span class="dot" aria-hidden="true"></span> {{AVAILABILITY}}</p>
+        <p class="eyebrow">Freelance web design and development</p>
+        <h1>Websites that make the next step obvious.</h1>
+        <p class="lede">I’m Dale Hogg, a freelance designer and developer in New Zealand. I design and build landing pages, business sites, and custom web tools — and you work with me, not a queue.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">Start a project</a>
+          <a class="button button-ghost" href="#work">See the work</a>
         </div>
+        <p class="trust-line">Fixed quote before any build. Direct replies. You own the finished site.</p>
+      </div>
+    </section>
+  </div>
+
+  <main>
+    <section class="band" aria-label="What you can expect">
+      <div class="wrap">
+        <ul class="promise-row">
+          <li><strong>Fixed quote</strong> Agreed scope, agreed price, before the build.</li>
+          <li><strong>Direct</strong> You email Dale. Dale replies.</li>
+          <li><strong>Phones first</strong> Laid out for a small screen, then scaled up.</li>
+          <li><strong>Yours</strong> After the final invoice, the site and the code are yours.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="services">
+      <div class="wrap">
+        <p class="kicker">Services</p>
+        <h2>What I can take on</h2>
+        <p class="intro">Five ways to help, from a first page to looking after a site that is already live. The point of each one is a site your customers can use, not a folder of skills.</p>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span>01</span>
+            <h3>Custom website design</h3>
+            <p>A look and a page structure that fit the business, organised around what a visitor needs to do next.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>02</span>
+            <h3>Website development</h3>
+            <p>The design built into a responsive site you can try on your own phone before it goes live.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>03</span>
+            <h3>Redesigns and refreshes</h3>
+            <p>Keep what still works on the current site. Replace what is dated, slow, or hard to follow.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>04</span>
+            <h3>Landing pages</h3>
+            <p>One focused page for a launch, an offer, or a campaign, with a single next step.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>05</span>
+            <h3>Care and support</h3>
+            <p>After launch: small updates, fixes, and someone to write to so the site does not go stale.</p>
+          </article>
+        </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact" data-project-type="Not sure yet">Tell me what you need</a></p>
+      </div>
+    </section>
+
+    <section class="band" id="pricing">
+      <div class="wrap">
+        <p class="kicker">Pricing</p>
+        <h2>Starting points, then a proper quote</h2>
+        <p class="intro">These are typical starting prices in NZD for a straightforward brief. Your quote is a fixed figure for an agreed scope, sent before any build starts.</p>
+        <div class="price-grid" id="price-grid">
+<!--PRICING-->
+<!--/PRICING-->
+        </div>
+        <p class="fine-print">Starting prices in NZD. Hosting, domain names, and third-party services are extra unless the quote says otherwise. The quote will also say whether GST is added.</p>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="work">
+      <div class="wrap">
+        <p class="kicker">Selected work</p>
+        <h2>Projects, rebuilt on this site</h2>
+        <p class="intro">Each card opens a page here: a short note on the brief, then a redesigned version of that project. Nothing sends you off to another domain.</p>
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/drain-saves/">
+              <img src="Img/projects/DrainSavesScreenshot.avif" alt="Drain Saves homepage, navy logo on a dark field">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Drain Saves</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>An Auckland drainage company needed the services — overflow, flood prevention, residential and commercial — and a way to ask for a quote.</p>
+              <a class="text-link" href="projects/drain-saves/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/cornerstone-construction/">
+              <img src="Img/projects/CornerstoneScreenshot.avif" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Cornerstone Construction</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>A construction company site built around the work itself, with room for about, reviews, and contact.</p>
+              <a class="text-link" href="projects/cornerstone-construction/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/custom-paint/">
+              <img src="Img/recreations/custom-paint/studio.jpg" alt="Photo Markup Studio, a dark interface with drawing tools and a blank canvas">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Web app</p>
+              <h3>Custom Paint</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>Photo Markup Studio: paste a photo, mark it up with boxes, arrows, and measurements, then copy or download it.</p>
+              <a class="text-link" href="projects/custom-paint/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/exclusive-cuts/">
+              <img src="Img/projects/ExclusiveCuts_Screenshot.avif" alt="Exclusive Cuts homepage, white type on a dark timber wall">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Exclusive Cuts</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>A barbershop site for services, a gallery, hours, and a way to get in touch. Walk-ins are welcome.</p>
+              <a class="text-link" href="projects/exclusive-cuts/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/moonlodge/">
+              <img src="Img/projects/MoonlodgeScreenshot.avif" alt="Moonlodge homepage over a west-coast beach and green hills">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Moonlodge</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>Accommodation and an art studio in Whaingaroa, with the coast, the mountain, and Bridal Veil Falls nearby.</p>
+              <a class="text-link" href="projects/moonlodge/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/unique-slider/">
+              <img src="Img/projects/SliderScreenshot.avif" alt="A row of photographs in an image slider">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Study</p>
+              <h3>Unique Slider</h3>
+              <ul class="tags"><li>Development</li><li>Interaction</li></ul>
+              <p>A self-initiated study: move through a set of photographs on one page, without a cluttered gallery.</p>
+              <a class="text-link" href="projects/unique-slider/">View project</a>
+            </div>
+          </article>
+        </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Start a project in this vein</a></p>
+      </div>
+    </section>
+
+    <section class="band" id="why">
+      <div class="wrap">
+        <p class="kicker">Why work with me</p>
+        <h2>Plain terms, before you hire me</h2>
+        <p class="intro">No ratings and no borrowed praise. This is how the work actually runs.</p>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <h3>A fixed quote you can see</h3>
+            <p>You get a price for the agreed scope before I start. The numbers above are starting points. The quote is the number that matters.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>Direct contact with the developer</h3>
+            <p>Design and build are done by me. Questions come to dhdaleleon@gmail.com, and the reply comes from me.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>A real reply</h3>
+            <p>I answer project enquiries myself. You will not be handed to a ticket queue or a junior account.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>Mobile-first, and kept light</h3>
+            <p>Pages are laid out for a phone first, then widened. I keep the pages plain enough that they are not waiting on a pile of scripts.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>You own the site and the code</h3>
+            <p>After the final invoice is paid, the design, the pages, and the code are yours. I hand over the files.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>Support after launch</h3>
+            <p>Stay on the care plan for small updates, or take the site and run it. Either way, launch includes a walkthrough.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      TESTIMONIALS TOGGLE
+      The only switch is "showTestimonials" in site.config.json.
+      Set it to true only after the placeholder quotes in that file are real client words, then run bash build.sh.
+      This section stays out of the live page while the flag is false.
+    -->
+    <section class="band band-alt testimonials" id="testimonials" {{TESTIMONIALS_ATTRS}}>
+      <div class="wrap">
+        <p class="kicker">Testimonials</p>
+        <h2>In their words</h2>
+        <p class="intro">Notes from people Dale has worked with. Placeholder lines stay marked until they are replaced.</p>
+        <div class="quote-grid">
+<!--TESTIMONIALS-->
+<!--/TESTIMONIALS-->
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="process">
+      <div class="wrap">
+        <p class="kicker">How I work</p>
+        <h2>Four steps, and you are in all of them</h2>
+        <div class="steps">
+          <article class="step reveal">
+            <span>01</span>
+            <h3>Discovery</h3>
+            <p>We talk about the business, who the site is for, and what it needs to do. You leave with a scope, not a vague promise.</p>
+          </article>
+          <article class="step reveal">
+            <span>02</span>
+            <h3>Design</h3>
+            <p>I plan the pages and the look. You review them before anything is built.</p>
+          </article>
+          <article class="step reveal">
+            <span>03</span>
+            <h3>Build</h3>
+            <p>I develop the site. You try it on your own phone and computer, and we adjust what is not right.</p>
+          </article>
+          <article class="step reveal">
+            <span>04</span>
+            <h3>Launch</h3>
+            <p>I put it live, walk you through it, and stay available for the first round of changes. Care after that is optional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="about">
+      <div class="wrap about-layout">
+        <div>
+          <p class="kicker">About</p>
+          <h2>You hire the person who does the work</h2>
+          <p class="intro">I’m Dale, a freelance web designer and developer based in New Zealand. For five years I have worked with a range of clients, from straightforward brochure sites to more involved web apps, covering the design, the interface, and the build behind it when a project needs that.</p>
+          <p class="intro">If something about your business or your customers is unclear, I would rather ask than guess. I will also say so if a simpler site will do the job.</p>
+          <p><a class="github-link" href="https://github.com/dalehogg" target="_blank" rel="noopener">Code on GitHub</a></p>
+        </div>
+        <div>
+          <p class="kicker">Tools I use</p>
+          <ul class="tools" aria-label="Tools I use">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Vue.js</li>
+            <li>Nuxt.js</li>
+            <li>Gulp</li>
+            <li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="questions">
+      <div class="wrap">
+        <p class="kicker">Questions</p>
+        <h2>Before you write</h2>
+        <div class="faq">
+          <details>
+            <summary>How long does a website take?</summary>
+            <p>A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.</p>
+          </details>
+          <details>
+            <summary>How do revisions work?</summary>
+            <p>The quote includes time for you to review the design and the build and ask for changes. I will say how many review rounds are included before you agree. Work outside that scope is quoted separately.</p>
+          </details>
+          <details>
+            <summary>Do you host the site?</summary>
+            <p>I can launch onto hosting you already pay for, or help you choose a host. Hosting is billed by the host. It is not folded into the starting prices unless the quote says so.</p>
+          </details>
+          <details>
+            <summary>Who owns the site?</summary>
+            <p>You do. After the final invoice is paid, the design, the pages, and the code are yours, and I hand over the files.</p>
+          </details>
+          <details>
+            <summary>What do you need from me to start?</summary>
+            <p>A short description of the business, who the site is for, and any logo, photos, or text you already have. If the words are not ready, we can start from a conversation.</p>
+          </details>
+          <details>
+            <summary>How do payments work?</summary>
+            <p>I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="contact">
+      <div class="wrap contact-layout">
+        <div>
+          <p class="kicker">Start a project</p>
+          <h2>Tell me what you need</h2>
+          <p class="intro">I will reply by email with questions and a quote. There is no public price list beyond the starting points above.</p>
+          <p class="contact-email"><a href="mailto:dhdaleleon@gmail.com">dhdaleleon@gmail.com</a></p>
+          <p class="fine-print">Use the form, or write to that address directly. The same inbox receives both.</p>
+        </div>
+        <div>
+          <p class="kicker" id="type-label">Project type</p>
+          <div class="type-picker" role="group" aria-labelledby="type-label">
+            <button class="type-chip" type="button" data-project-type="Landing page" aria-pressed="false">Landing page</button>
+            <button class="type-chip" type="button" data-project-type="Business site" aria-pressed="false">Business site</button>
+            <button class="type-chip" type="button" data-project-type="Redesign or refresh" aria-pressed="false">Redesign</button>
+            <button class="type-chip" type="button" data-project-type="Custom build" aria-pressed="false">Custom build</button>
+            <button class="type-chip" type="button" data-project-type="Care plan" aria-pressed="false">Care plan</button>
+            <button class="type-chip" type="button" data-project-type="Not sure yet" aria-pressed="false">Not sure yet</button>
+          </div>
+          <form id="enquiry-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Project enquiry from Dale Hogg's website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <p class="honey" aria-hidden="true">
+              <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none"></label>
+            </p>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="project-type">Project type <span class="optional">(optional)</span></label>
+                <select id="project-type" name="Project type">
+                  <option value="">Choose if you know</option>
+                  <option>Landing page</option>
+                  <option>Business site</option>
+                  <option>Redesign or refresh</option>
+                  <option>Custom build</option>
+                  <option>Care plan</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="budget">Budget <span class="optional">(optional)</span></label>
+                <input id="budget" name="Budget" type="text" placeholder="A range is fine" autocomplete="off">
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button class="submit-button" type="submit">Send enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bar">
+      <p>Dale Hogg · Freelance web design and development · New Zealand</p>
+      <a href="#contact">Start a project</a>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" defer></script>
-    <script type="text/javascript" src="js/full.js" defer></script>
-</body>
+  </footer>
+  <a class="sticky-quote" href="#contact">Get a quote</a>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/full.js" defer></script>
+</body>
 </html>

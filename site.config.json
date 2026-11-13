@@ -1,0 +1,91 @@
+{
+  "_readme": "Edit this file, then run bash build.sh. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Confirm the NZD starting prices, and whether GST should be shown, before publishing. Availability is the badge in the hero.",
+  "showTestimonials": false,
+  "availability": "Taking new projects",
+  "pricing": [
+    {
+      "id": "starter",
+      "kicker": "Landing page",
+      "name": "Starter",
+      "fromNzd": 1500,
+      "period": "project",
+      "note": "One page, one job to do.",
+      "summary": "A single page for a launch, an offer, or a new business, with a clear next step for the visitor.",
+      "includes": [
+        "One page, designed and built",
+        "Layout for phones and desktops",
+        "A way for people to enquire",
+        "Page title and description set",
+        "A review round before launch"
+      ],
+      "projectType": "Landing page"
+    },
+    {
+      "id": "business",
+      "kicker": "Business site",
+      "name": "Business",
+      "fromNzd": 3500,
+      "period": "project",
+      "note": "A site with room to explain the work.",
+      "summary": "Several pages for a business that needs more than a single screen: services, about, and contact.",
+      "includes": [
+        "Pages mapped out with you first",
+        "Custom design and build",
+        "Layout for phones and desktops",
+        "An enquiry path",
+        "A walkthrough at launch"
+      ],
+      "projectType": "Business site"
+    },
+    {
+      "id": "custom",
+      "kicker": "Web app",
+      "name": "Custom",
+      "fromNzd": 8500,
+      "period": "project",
+      "note": "Scoped before any build. Larger apps cost more.",
+      "summary": "A custom tool or a more involved site. The figure is where this kind of work starts, not a guess at your project.",
+      "includes": [
+        "A written scope before the build",
+        "A fixed quote for that scope",
+        "Interface and development",
+        "Time to try it and ask for changes",
+        "Launch, plus the files handed over"
+      ],
+      "projectType": "Custom build"
+    },
+    {
+      "id": "care",
+      "kicker": "After launch",
+      "name": "Care",
+      "fromNzd": 150,
+      "period": "month",
+      "note": "Month to month. Stop when you want.",
+      "summary": "Someone to write to after the site is live: small updates, and fixes if something I built breaks.",
+      "includes": [
+        "Small text and image updates",
+        "Fixes if something I built breaks",
+        "A direct email to me",
+        "Larger changes quoted separately"
+      ],
+      "projectType": "Care plan"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    },
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    },
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    }
+  ]
+}
