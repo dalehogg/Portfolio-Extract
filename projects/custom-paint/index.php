@@ -1,9 +1,16 @@
 <?php
+$chrome = 'minimal';
 $page_title = 'Custom Paint | Photo Markup Studio | Soffit';
 $page_description = 'Photo Markup Studio: paste a photo, mark it up with boxes, arrows, measurements and pipe slopes, then copy, download, or send it on.';
 $page_path = '/projects/custom-paint/';
 $page_og_image = '/Img/recreations/custom-paint/studio.jpg';
-$extra_head = '<link rel="stylesheet" href="/projects/custom-paint/site.css">' . "\n" . '<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.170.0/build/three.module.js" } }</script>' . "\n" . '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>';
+$extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n"
+    . '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n"
+    . '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&display=swap">' . "\n"
+    . '<link rel="stylesheet" href="/projects/custom-paint/site.css">' . "\n"
+    . '<style>:root{--chrome-fg:#087cbb;--chrome-bg:#ffffff}</style>' . "\n"
+    . '<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.170.0/build/three.module.js" } }</script>' . "\n"
+    . '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
