@@ -98,8 +98,9 @@ body { margin: 0; }
   font-size: 0.85rem;
 }
 .studio-foot a { color: #fff; }
-.rise { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.rise.on { opacity: 1; transform: none; }
+.rise { opacity: 1; transform: none; }
+html.can-rise .rise:not(.on) { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+html.can-rise .rise.on { opacity: 1; transform: none; }
 @media (max-width: 700px) {
   .studio-links a:not(.studio-quote) { display: none; }
 }

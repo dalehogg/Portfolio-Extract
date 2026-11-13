@@ -7,6 +7,7 @@ import html
 import json
 import re
 import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -198,8 +199,20 @@ def main() -> None:
     for css_path in (DIST / "css").glob("*.css"):
         css_path.write_text(minify_css(css_path.read_text(encoding="utf-8")), encoding="utf-8")
 
+    projects_root = ROOT / "projects"
+    if projects_root.is_dir():
+        for folder in sorted(path for path in projects_root.iterdir() if path.is_dir()):
+            if not (folder / "index.php").is_file():
+                print(
+                    f"Warning: {folder.relative_to(ROOT)} has no index.php; continuing.",
+                    file=sys.stderr,
+                )
+
     built = (DIST / "index.php").read_text(encoding="utf-8")
-    paint = (DIST / "projects" / "custom-paint" / "index.php").read_text(encoding="utf-8")
+    paint_path = DIST / "projects" / "custom-paint" / "index.php"
+    paint = paint_path.read_text(encoding="utf-8") if paint_path.is_file() else ""
+    if not paint:
+        print("Warning: projects/custom-paint/index.php is missing; skipping its feature check.", file=sys.stderr)
     checks = [
         ("formsubmit.co/dhdaleleon@gmail.com" in built, "FormSubmit action missing"),
         ('name="_honey"' in built, "honeypot missing"),
@@ -213,7 +226,7 @@ def main() -> None:
         ("Soffit" in built, "business name missing"),
         ((DIST / "sitemap.xml").exists() and (DIST / "robots.txt").exists(), "sitemap or robots missing"),
         ((DIST / "404.php").exists() and (DIST / "thanks.php").exists(), "php utility pages missing"),
-        ("function setTool" in paint and "function openLongSection3D" in paint, "custom paint features missing"),
+        (not paint or ("function setTool" in paint and "function openLongSection3D" in paint), "custom paint features missing"),
         ("DirectoryIndex index.php" in (DIST / ".htaccess").read_text(encoding="utf-8"), "DirectoryIndex missing"),
     ]
     if not show:

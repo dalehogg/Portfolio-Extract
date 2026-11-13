@@ -71,6 +71,7 @@ if ($page_path === '/') {
   <link rel="icon" href="/Img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/Img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/Img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/box.css">
 <?php
 // $chrome = 'minimal' loads css/chrome.css only (pill + footer). Set $site_styles = true to also load the main fonts and tokens. Pages override --chrome-fg and --chrome-bg.
 $chrome_mode = isset($chrome) ? (string) $chrome : 'full';
