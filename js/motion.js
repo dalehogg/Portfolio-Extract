@@ -26,12 +26,10 @@
       });
     }
 
-    var form = document.getElementById("enquiry-form");
-    if (form) {
+    document.querySelectorAll('form[action*="formsubmit.co"]').forEach(function (form) {
       var next = form.querySelector('input[name="_next"]');
       if (next && location.protocol.indexOf("http") === 0) {
-        var base = location.pathname.replace(/[^/]*$/, "");
-        next.value = location.origin + base + "thanks.php";
+        next.value = location.origin + "/thanks.php";
       }
       form.addEventListener("submit", function () {
         var button = form.querySelector('[type="submit"]');
@@ -40,7 +38,7 @@
           button.textContent = "Sending…";
         }
       });
-    }
+    });
 
     var preset = new URLSearchParams(location.search).get("project");
     var presetSelect = document.getElementById("project-type");
@@ -86,9 +84,35 @@
       paint();
     }
 
+    var shifters = document.querySelectorAll(".band h2, #work .work-media, .promise-row");
+    var bands = document.querySelectorAll(".band");
+    var scrollFrame = 0;
     var onScroll = function () {
-      if (!header) return;
-      header.classList.toggle("is-scrolled", window.scrollY > 12);
+      if (header) header.classList.toggle("is-scrolled", window.scrollY > 12);
+      var quote = document.querySelector(".sticky-quote");
+      var contact = document.getElementById("contact");
+      if (quote && contact) {
+        var box = contact.getBoundingClientRect();
+        var near = box.top < window.innerHeight * 0.82;
+        var onHero = (window.scrollY || 0) < window.innerHeight * 0.72;
+        quote.classList.toggle("is-hidden", near || onHero);
+      }
+      if (reduce) return;
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(function () {
+        scrollFrame = 0;
+        var vh = window.innerHeight || 1;
+        bands.forEach(function (band) {
+          var top = band.getBoundingClientRect().top;
+          band.style.setProperty("--shift", ((top / vh) * -72).toFixed(1) + "px");
+        });
+        shifters.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          var delta = (rect.top + rect.height * 0.5 - vh * 0.5) / vh;
+          var amount = el.classList.contains("work-media") ? 16 : 18;
+          el.style.transform = "translate3d(0," + (delta * amount).toFixed(1) + "px,0)";
+        });
+      });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
