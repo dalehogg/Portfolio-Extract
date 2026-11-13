@@ -221,7 +221,7 @@ def main() -> None:
         ("Wireframe" not in built, "old Wireframe project still present"),
         ("data-netlify" not in built, "Netlify form attribute still present"),
         ("site_pricing()" in built, "pricing renderer missing"),
-        ('href="projects/drain-saves/"' in built, "internal project link missing"),
+        ('href="/projects/drain-saves/"' in built, "internal project link missing"),
         ("https://drainsaves.netlify.app" not in built, "outbound project link on homepage"),
         ("Soffit" in built, "business name missing"),
         ((DIST / "sitemap.xml").exists() and (DIST / "robots.txt").exists(), "sitemap or robots missing"),
