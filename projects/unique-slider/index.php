@@ -1,9 +1,16 @@
 <?php
+$chrome = 'minimal';
 $page_title = 'Unique Slider | Soffit';
 $page_description = 'Unique Slider: twenty-five photographs in five strips. Click a frame to widen it, or move with the arrows and the keyboard.';
 $page_path = '/projects/unique-slider/';
 $page_og_image = '/Links/Slider/Photos/coast-2723729_640.jpg';
-$extra_head = '<link rel="stylesheet" href="/projects/unique-slider/site.css">';
+$extra_head = <<<'HTML'
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="/projects/unique-slider/site.css">
+<style>:root{--chrome-fg:#2a1248;--chrome-bg:#fff4fb}</style>
+HTML;
 $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>';
 ?>
 <!DOCTYPE html>
@@ -14,8 +21,7 @@ $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>
 
 <main>
   <section class="us-stage" id="slider" aria-roledescription="carousel" aria-label="Photographs">
-    <p class="us-kicker">Unique Slider</p>
-    <h1>Five strips. Twenty-five frames.</h1>
+    <p class="us-kicker">A study in looking</p>
     <div class="us-window">
       <ul id="slideList">
         <li>
@@ -54,20 +60,13 @@ $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>
           <button type="button" class="card one"><img src="/Links/Slider/Photos/flower-2919284_640.jpg" alt="Flower"></button>
         </li>
       </ul>
-      <button type="button" id="PreviousHidden" aria-label="Previous strip">‹</button>
-      <button type="button" id="NextHidden" aria-label="Next strip">›</button>
     </div>
-    <p class="us-count" id="slide-count">1 / 5</p>
-  </section>
-
-  <section class="us-note" data-reveal>
-    <p>Click a photograph to widen it. Click again to set it back. Arrows, the keyboard, and a ten-second advance move between strips. These are the same pictures as the original study.</p>
-  </section>
-
-  <section class="us-quote" data-reveal>
-    <h2>Interaction, built properly.</h2>
-    <p>Soffit is Dale Hogg’s freelance web development practice in New Zealand.</p>
-    <a class="button button-primary" href="/#contact">Get a quote</a>
+    <div class="us-controls">
+      <button type="button" id="PreviousHidden">Previous</button>
+      <p id="slide-count">1 / 5</p>
+      <button type="button" id="NextHidden">Next</button>
+    </div>
+    <p class="us-note">Click a photograph to widen it. Click again to set it back. The strip also moves with these buttons, the arrow keys, and a ten-second advance. These are the same pictures as the original study.</p>
   </section>
 </main>
 

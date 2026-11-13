@@ -14,6 +14,7 @@
     index = (nextIndex + slides.length) % slides.length;
     list.style.transform = "translate3d(" + (-index * 100 / slides.length) + "%,0,0)";
     if (count) count.textContent = (index + 1) + " / " + slides.length;
+    document.body.setAttribute("data-strip", String(index));
   }
 
   function arm() {
