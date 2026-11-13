@@ -1,0 +1,46 @@
+@media (min-width: 981px) {
+  body #fullpage .section-one .realMoon-container {
+    left: auto;
+    right: 8vw;
+    top: 20vh;
+    width: 230px;
+    height: 230px;
+  }
+  .hero-copy {
+    margin-left: 7vw;
+    margin-bottom: 0;
+    width: min(34rem, 48vw);
+  }
+}
+@media (max-width: 980px) {
+  body #fullpage .section-one .realMoon-container {
+    width: 88px;
+    height: 88px;
+    top: 11vh;
+    right: 1rem;
+    left: auto;
+  }
+  body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+    width: 72px;
+    height: 100px;
+    left: 64%;
+    top: -8%;
+    box-shadow: -6px 0 10px 2px #000;
+    -webkit-animation-name: moonPhaseSmall;
+    animation-name: moonPhaseSmall;
+  }
+}
+body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+  -webkit-animation: moonPhase 46s ease-in-out infinite;
+  animation: moonPhase 46s ease-in-out infinite;
+}
+#nightSky canvas { animation: none; }
+@media (max-width: 980px) {
+  body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+    -webkit-animation-name: moonPhaseSmall;
+    animation-name: moonPhaseSmall;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .realMoon-moonCut, #driftfield { animation: none !important; }
+}

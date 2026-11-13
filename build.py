@@ -161,6 +161,7 @@ def main() -> None:
     copy_tree(ROOT / "js" / "ui.js", DIST / "js" / "ui.js")
     copy_tree(ROOT / "js" / "rise.js", DIST / "js" / "rise.js")
     copy_tree(ROOT / "js" / "motion.js", DIST / "js" / "motion.js")
+    copy_tree(ROOT / "js" / "sky.js", DIST / "js" / "sky.js")
     for name in ("index.php", "thanks.php", "404.php", "site.config.json", ".htaccess"):
         copy_tree(ROOT / name, DIST / name)
     photos = ROOT / "Links" / "Slider" / "Photos"

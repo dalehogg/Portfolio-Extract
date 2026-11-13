@@ -3,8 +3,8 @@ require __DIR__ . '/includes/site.php';
 $page_title = 'Soffit | Freelance web design and development in New Zealand';
 $page_description = 'Soffit is Dale Hogg\'s freelance web design and development practice in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before work starts.';
 $page_path = '/';
-$extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">';
-$page_scripts = '<script src="/js/full.js" defer></script>';
+$extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">' . "\n" . '<link rel="stylesheet" href="/css/home.css">';
+$page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +12,13 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
 <body class="backNight">
 <?php require __DIR__ . '/includes/nav.php'; ?>
 
-  <div id="nightSky" data-parallax="0.12" aria-hidden="true">
-    <canvas id="starfield"></canvas>
-    <canvas id="twinklefield"></canvas>
-    <canvas id="shooting"></canvas>
-    <canvas id="planet"></canvas>
+  <div id="nightSky" aria-hidden="true">
+    <canvas id="stillfield" data-parallax="0.035"></canvas>
+    <canvas id="starfield" data-parallax="0.08"></canvas>
+    <canvas id="twinklefield" data-parallax="0.15"></canvas>
+    <canvas id="driftfield" data-parallax="0.24"></canvas>
+    <canvas id="shooting" data-parallax="0.18"></canvas>
+    <canvas id="planet" data-parallax="0.05"></canvas>
   </div>
   <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
@@ -55,7 +57,6 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
       <div class="wrap">
         <p class="kicker">Services</p>
         <h2>What I can take on</h2>
-        <p class="intro">Five ways to help, from a first page to looking after a site that is already live. The point of each one is a site your customers can use, not a folder of skills.</p>
         <div class="service-grid">
           <article class="service-card reveal">
             <span>01</span>
@@ -90,8 +91,8 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
     <section class="band" id="pricing" data-reveal>
       <div class="wrap">
         <p class="kicker">Pricing</p>
-        <h2>Starting points, then a proper quote</h2>
-        <p class="intro">These are typical starting prices in NZD for a straightforward brief. Your quote is a fixed figure for an agreed scope, sent before any build starts.</p>
+        <h2>Starting points.</h2>
+        <p class="intro">Typical NZD figures for a straightforward brief. The quote is a fixed price for an agreed scope.</p>
         <div class="price-grid" id="price-grid">
 <?php site_pricing(); ?>
         </div>
@@ -102,8 +103,7 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
     <section class="band band-alt" id="work" data-reveal>
       <div class="wrap">
         <p class="kicker">Selected work</p>
-        <h2>Projects, rebuilt on this site</h2>
-        <p class="intro">Each card opens a page here: a short note on the brief, then a redesigned version of that project. Nothing sends you off to another domain.</p>
+        <h2>Projects.</h2>
         <div class="work-grid">
           <article class="work-card reveal">
             <a class="work-media" href="projects/drain-saves/">
@@ -185,35 +185,15 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
     <section class="band" id="why" data-reveal>
       <div class="wrap">
         <p class="kicker">Why work with me</p>
-        <h2>Plain terms, before you hire me</h2>
-        <p class="intro">No ratings and no borrowed praise. This is how the work actually runs.</p>
+        <h2>Plain terms.</h2>
         <div class="why-grid">
-          <article class="why-card reveal">
-            <h3>A fixed quote you can see</h3>
-            <p>You get a price for the agreed scope before I start. The numbers above are starting points. The quote is the number that matters.</p>
-          </article>
-          <article class="why-card reveal">
-            <h3>Direct contact with the developer</h3>
-            <p>Design and build are done by me. Questions come to dhdaleleon@gmail.com, and the reply comes from me.</p>
-          </article>
-          <article class="why-card reveal">
-            <h3>A real reply</h3>
-            <p>I answer project enquiries myself. You will not be handed to a ticket queue or a junior account.</p>
-          </article>
-          <article class="why-card reveal">
-            <h3>Mobile-first, and kept light</h3>
-            <p>Pages are laid out for a phone first, then widened. I keep the pages plain enough that they are not waiting on a pile of scripts.</p>
-          </article>
-          <article class="why-card reveal">
-            <h3>You own the site and the code</h3>
-            <p>After the final invoice is paid, the design, the pages, and the code are yours. I hand over the files.</p>
-          </article>
-          <article class="why-card reveal">
-            <h3>Support after launch</h3>
-            <p>Stay on the care plan for small updates, or take the site and run it. Either way, launch includes a walkthrough.</p>
-          </article>
+          <article class="why-card"><h3>Fixed quote</h3><p>A price for the agreed scope, before I start.</p></article>
+          <article class="why-card"><h3>Direct</h3><p>You write to me. I reply.</p></article>
+          <article class="why-card"><h3>Phones first</h3><p>Laid out for a small screen, then widened.</p></article>
+          <article class="why-card"><h3>Yours</h3><p>After the final invoice, the site and the code are yours.</p></article>
+          <article class="why-card"><h3>After launch</h3><p>A walkthrough, then care if you want it.</p></article>
+          <article class="why-card"><h3>No queue</h3><p>Design and build are both done by Dale.</p></article>
         </div>
-        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Get a quote</a></p>
       </div>
     </section>
 
@@ -239,30 +219,13 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
     <section class="band band-alt" id="process" data-reveal>
       <div class="wrap">
         <p class="kicker">How I work</p>
-        <h2>Four steps, and you are in all of them</h2>
+        <h2>Four steps.</h2>
         <div class="steps">
-          <article class="step reveal">
-            <span>01</span>
-            <h3>Discovery</h3>
-            <p>We talk about the business, who the site is for, and what it needs to do. You leave with a scope, not a vague promise.</p>
-          </article>
-          <article class="step reveal">
-            <span>02</span>
-            <h3>Design</h3>
-            <p>I plan the pages and the look. You review them before anything is built.</p>
-          </article>
-          <article class="step reveal">
-            <span>03</span>
-            <h3>Build</h3>
-            <p>I develop the site. You try it on your own phone and computer, and we adjust what is not right.</p>
-          </article>
-          <article class="step reveal">
-            <span>04</span>
-            <h3>Launch</h3>
-            <p>I put it live, walk you through it, and stay available for the first round of changes. Care after that is optional.</p>
-          </article>
+          <article class="step"><span>01</span><h3>Discovery</h3><p>Who it is for, and what it needs to do.</p></article>
+          <article class="step"><span>02</span><h3>Design</h3><p>Pages and a look, reviewed before the build.</p></article>
+          <article class="step"><span>03</span><h3>Build</h3><p>You try it on your own phone.</p></article>
+          <article class="step"><span>04</span><h3>Launch</h3><p>Live, with a walkthrough.</p></article>
         </div>
-        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Start with a conversation</a></p>
       </div>
     </section>
 
@@ -270,30 +233,18 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
       <div class="wrap about-layout">
         <div>
           <p class="kicker">About</p>
-          <h2>You hire the person who does the work</h2>
-          <p class="intro">Soffit is my freelance web design and development practice, and I am Dale Hogg. I work from New Zealand. For five years I have taken on a range of clients, from straightforward brochure sites to more involved web apps, covering the design, the interface, and the build behind it when a project needs that.</p>
-          <p class="intro">If something about your business or your customers is unclear, I would rather ask than guess. I will also say so if a simpler site will do the job.</p>
-          <p><a class="github-link" href="https://github.com/dalehogg" target="_blank" rel="noopener">Code on GitHub</a></p>
-          <p class="band-cta" style="margin-top:1.2rem"><a class="button button-primary" href="#contact">Work with Dale</a></p>
+          <h2>Dale Hogg.</h2>
+          <p class="intro">Soffit is my freelance practice. I design and build sites from New Zealand, and you deal with me. Brochure sites through to web apps. If a simpler site will do, I will say so.</p>
+          <p><a class="github-link" href="https://github.com/dalehogg" target="_blank" rel="noopener">GitHub</a></p>
         </div>
-        <div>
-          <p class="kicker">Tools I use</p>
-          <ul class="tools" aria-label="Tools I use">
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>Vue.js</li>
-            <li>Nuxt.js</li>
-            <li>Gulp</li>
-            <li>Git</li>
-          </ul>
-        </div>
+        <p class="tools-line">HTML, CSS, Vue, Nuxt, Gulp, Git</p>
       </div>
     </section>
 
     <section class="band band-alt" id="questions" data-reveal>
       <div class="wrap">
         <p class="kicker">Questions</p>
-        <h2>Before you write</h2>
+        <h2>Before you write.</h2>
         <div class="faq">
           <details>
             <summary>How long does a website take?</summary>
@@ -328,21 +279,11 @@ $page_scripts = '<script src="/js/full.js" defer></script>';
       <div class="wrap contact-layout">
         <div>
           <p class="kicker">Start a project</p>
-          <h2>Tell me what you need</h2>
-          <p class="intro">I will reply by email with questions and a quote. There is no public price list beyond the starting points above.</p>
+          <h2>Tell me what you need.</h2>
+          <p class="intro">I reply by email with questions, then a fixed quote.</p>
           <p class="contact-email"><a href="mailto:dhdaleleon@gmail.com">dhdaleleon@gmail.com</a></p>
-          <p class="fine-print">Use the form, or write to that address directly. The same inbox receives both.</p>
         </div>
         <div>
-          <p class="kicker" id="type-label">Project type</p>
-          <div class="type-picker" role="group" aria-labelledby="type-label">
-            <button class="type-chip" type="button" data-project-type="Landing page" aria-pressed="false">Landing page</button>
-            <button class="type-chip" type="button" data-project-type="Business site" aria-pressed="false">Business site</button>
-            <button class="type-chip" type="button" data-project-type="Redesign or refresh" aria-pressed="false">Redesign</button>
-            <button class="type-chip" type="button" data-project-type="Custom build" aria-pressed="false">Custom build</button>
-            <button class="type-chip" type="button" data-project-type="Care plan" aria-pressed="false">Care plan</button>
-            <button class="type-chip" type="button" data-project-type="Not sure yet" aria-pressed="false">Not sure yet</button>
-          </div>
           <form id="enquiry-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="Project enquiry from the Soffit website">
             <input type="hidden" name="_template" value="table">

@@ -15,9 +15,12 @@ if ($page_path === '') {
     $page_path = '/';
 }
 $canonical = $site_base . ($page_path === '/' ? '/' : $page_path);
-$og_image = isset($page_og_image) && $page_og_image !== ''
-    ? (string) $page_og_image
-    : $site_base . '/Img/og.png';
+if (isset($page_og_image) && $page_og_image !== '') {
+    $og_raw = (string) $page_og_image;
+    $og_image = str_starts_with($og_raw, 'http') ? $og_raw : $site_base . '/' . ltrim($og_raw, '/');
+} else {
+    $og_image = $site_base . '/Img/og.png';
+}
 $h = static function (string $value): string {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 };
