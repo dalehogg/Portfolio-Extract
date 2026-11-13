@@ -1,3 +1,5 @@
+*, *::before, *::after { box-sizing: border-box; }
+
 :root {
   --chrome-fg: #161616;
   --chrome-bg: #ffffff;

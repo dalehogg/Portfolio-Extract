@@ -53,17 +53,33 @@
     });
 
     var reveals = document.querySelectorAll("[data-reveal]");
-    if (reduce || !("IntersectionObserver" in window)) {
-      reveals.forEach(function (el) { el.classList.add("is-in"); });
-    } else {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-in");
-          observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.14 });
-      reveals.forEach(function (el) { observer.observe(el); });
+    function showReveals(list) {
+      list.forEach(function (el) { el.classList.add("is-in"); });
+    }
+    try {
+      if (reduce || !("IntersectionObserver" in window)) {
+        showReveals(reveals);
+      } else {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-in");
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0, rootMargin: "0px 0px 8% 0px" });
+        reveals.forEach(function (el) { observer.observe(el); });
+        document.documentElement.classList.add("can-reveal");
+        window.setTimeout(function () {
+          reveals.forEach(function (el) {
+            if (el.classList.contains("is-in")) return;
+            var rect = el.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < window.innerHeight) el.classList.add("is-in");
+          });
+        }, 400);
+      }
+    } catch (err) {
+      document.documentElement.classList.remove("can-reveal");
+      showReveals(reveals);
     }
 
     var layers = document.querySelectorAll("[data-parallax]");
