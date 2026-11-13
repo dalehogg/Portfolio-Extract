@@ -5,7 +5,9 @@ $page_title = 'Moonlodge | Accommodation and art studio in Whaingaroa';
 $page_description = 'Moonlodge at Waimaunga, Whaingaroa / Raglan: a place to rest, an art studio, and the coast, falls, and maunga around Karioi. Accommodation, artist questions, and enquiries.';
 $page_path = '/projects/moonlodge/';
 $page_og_image = $origin . '/projects/moonlodge/assets/hero.jpg';
+$chrome = 'minimal';
 $extra_head = <<<'HTML'
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400&display=swap">
   <link rel="stylesheet" href="site.css">
 HTML;
 $page_scripts = '<script src="site.js" defer></script>';
@@ -13,7 +15,7 @@ $page_scripts = '<script src="site.js" defer></script>';
 <!DOCTYPE html>
 <html lang="en">
 <?php include __DIR__ . '/../../includes/head.php'; ?>
-<body>
+<body class="ml">
 <?php include __DIR__ . '/../../includes/nav.php'; ?>
 <main class="ml">
   <section class="sky" id="home" data-drift>
@@ -23,6 +25,7 @@ $page_scripts = '<script src="site.js" defer></script>';
     <h1>Moonlodge</h1>
     <p class="role">Accommodation &amp; Art Studio</p>
     <p class="place">Whaingaroa Wellbeing</p>
+    <p class="enquire"><a href="#contact">Enquire about a stay</a></p>
     <nav class="rail" aria-label="Moonlodge">
       <a href="#home">Home</a>
       <a href="#about">About</a>
