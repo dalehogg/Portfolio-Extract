@@ -30,7 +30,9 @@ HTML;
   </header>
 
   <section class="cc-hero" id="home">
-    <div class="cc-hero-photo" style="background-image:url('/projects/cornerstone-construction/assets/landingPic.jpg')"></div>
+    <div class="cc-hero-photo">
+      <img src="/projects/cornerstone-construction/assets/landingPic.jpg" alt="Cornerstone Construction excavator on a job site" width="2048" height="1152" fetchpriority="high">
+    </div>
     <div class="cc-hero-spec">
       <p>Site photograph</p>
       <h1>Fast work. Right attitude. Excellent results.</h1>
