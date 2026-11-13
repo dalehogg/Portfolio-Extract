@@ -5,7 +5,9 @@ $page_title = 'Drain Saves | Overflow and flood prevention in Auckland';
 $page_description = 'Drain Saves stops sewer and stormwater backflow before it reaches Auckland homes and businesses. Civil, commercial, residential and maintenance work, with free quotes on the fly.';
 $page_path = '/projects/drain-saves/';
 $page_og_image = $origin . '/projects/drain-saves/assets/logo.png';
+$chrome = 'minimal';
 $extra_head = <<<'HTML'
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&display=swap">
   <link rel="stylesheet" href="site.css">
 HTML;
 $page_scripts = '<script src="site.js" defer></script>';
@@ -13,7 +15,7 @@ $page_scripts = '<script src="site.js" defer></script>';
 <!DOCTYPE html>
 <html lang="en">
 <?php include __DIR__ . '/../../includes/head.php'; ?>
-<body>
+<body class="ds">
 <?php include __DIR__ . '/../../includes/nav.php'; ?>
 <main class="ds">
   <section class="well" id="home" data-drift>
@@ -25,7 +27,8 @@ $page_scripts = '<script src="site.js" defer></script>';
     <p class="eye">Auckland</p>
     <h1>Overflow and flood prevention</h1>
     <p class="lede">Stop sewer and stormwater backflow before it reaches your property.</p>
-    <a class="call" href="tel:02108169900">Get a quote</a>
+    <a class="call" href="tel:02108169900">Call 021 081 699 00</a>
+    <a class="job-note" href="#contact">Send a job note</a>
     <nav class="rail" aria-label="Drain Saves">
       <a href="#services">Services</a>
       <a href="#about">About</a>
