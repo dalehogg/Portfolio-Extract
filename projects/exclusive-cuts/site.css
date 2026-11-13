@@ -1,37 +1,41 @@
-.ec { position: relative; background: #14110e; color: #f6f1ea; font-family: "Libre Baskerville", Georgia, serif; }
-.ec a { color: inherit; }
-.ec-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 6vw;
-  position: absolute;
-  left: 0; right: 0;
-  z-index: 2;
-  font-family: "Source Sans 3", "Segoe UI", sans-serif;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-}
-.ec-nav ul { display: flex; flex-wrap: wrap; gap: 0.8rem; list-style: none; margin: 0; padding: 0; }
-.ec-nav a { text-decoration: none; }
+.ec { background: #100e0c; color: #f6f1ea; font-family: Georgia, "Iowan Old Style", serif; }
 .ec-hero {
-  min-height: 88vh;
+  min-height: 100vh;
   display: grid;
   align-items: end;
+  padding: 18vh 6vw 8vh;
   background:
-    linear-gradient(to top, rgba(10, 8, 6, 0.78), rgba(10, 8, 6, 0.25)),
-    url("../../Img/recreations/exclusive-cuts/cut-3.jpeg") center 20% / cover no-repeat;
-  padding: 18vh 6vw 4rem;
+    linear-gradient(to top, rgba(8,6,4,0.72), rgba(8,6,4,0.15)),
+    url("../../Img/recreations/exclusive-cuts/cut-3.jpeg") center 18% / cover no-repeat;
 }
-.ec-hero h2 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin: 0 0 0.6rem; font-weight: 400; }
-.ec-hero p { margin: 0; font-family: "Source Sans 3", sans-serif; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85rem; }
-.ec-section { width: min(1000px, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0; }
-.ec-section h3 { font-size: 1.8rem; font-weight: 400; margin: 0 0 0.8rem; }
-.ec-cuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.6rem; }
-.ec-cuts article { border: 1px solid rgba(246, 241, 234, 0.25); padding: 1rem 0.7rem; text-align: center; font-family: "Source Sans 3", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.78rem; }
-.ec-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; }
-.ec-gallery img { width: 100%; height: 240px; object-fit: cover; display: block; }
-.ec-hours { font-family: "Source Sans 3", sans-serif; font-size: 1.05rem; line-height: 1.6; }
-.ec-link { font-family: "Source Sans 3", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.78rem; }
+.ec-hero h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: clamp(4.5rem, 16vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+.ec-hero p { font-family: "Segoe UI", sans-serif; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.78rem; }
+.ec-marquee {
+  overflow: hidden;
+  border-top: 1px solid rgba(246,241,234,0.25);
+  border-bottom: 1px solid rgba(246,241,234,0.25);
+  font-family: "Segoe UI", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+.ec-marquee div { display: flex; gap: 2rem; width: max-content; padding: 0.8rem 0; animation: ticker 22s linear infinite; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+.ec-rail {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1.2rem 6vw 2rem;
+}
+.ec-rail figure { margin: 0; flex: 0 0 min(70vw, 420px); scroll-snap-align: start; }
+.ec-rail img { width: 100%; height: 68vh; object-fit: cover; display: block; }
+.ec-rail figcaption { font-family: "Segoe UI", sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; padding-top: 0.4rem; color: #d9cfc3; }
+.ec-hours { padding: 1rem 6vw 3rem; font-family: "Segoe UI", sans-serif; font-size: 1.2rem; }
+@media (prefers-reduced-motion: reduce) { .ec-marquee div { animation: none; } }

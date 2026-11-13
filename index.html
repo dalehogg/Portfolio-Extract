@@ -3,22 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dale Hogg | Freelance Web Design &amp; Development</title>
-  <meta name="description" content="Freelance web design and development in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before any work starts. Email Dale Hogg.">
+  <title>Southing | Freelance web design and development in New Zealand</title>
+  <meta name="description" content="Southing is Dale Hogg’s freelance web design and development practice in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before work starts.">
   <meta name="author" content="Dale Hogg">
-  <meta property="og:title" content="Dale Hogg | Freelance web design and development">
-  <meta property="og:description" content="Landing pages, business sites, and custom web tools for small businesses. You deal with Dale directly. Ask for a quote.">
-  <meta property="og:image" content="Img/ThumbnailSocialIcon.png">
-  <meta property="og:type" content="website">
-  <meta name="twitter:title" content="Dale Hogg | Freelance web design and development">
-  <meta name="twitter:description" content="Landing pages, business sites, and custom web tools. Fixed quotes, direct contact, and you own the finished site.">
-  <meta name="twitter:image" content="Img/ThumbnailSocialIcon.png">
-  <link rel="icon" href="Img/BrowserTabLogo.png">
+  <script type="application/json" id="page-meta">{"path":"/","title":"Southing | Freelance web design and development in New Zealand","description":"Southing is Dale Hogg’s freelance web design and development practice in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before work starts.","kind":"home"}</script>
+  <!--HEAD_SEO-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,620&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/main.css">
@@ -27,9 +19,12 @@
 <body class="backNight">
   <a class="skip" href="#services">Skip to content</a>
   <header class="site-header" id="site-header">
-    <a class="brand" href="#top">Dale Hogg</a>
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.2 L14 14 H2 Z" fill="currentColor"/></svg>
+      Southing
+    </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" aria-label="Primary">
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#work">Work</a>
@@ -56,17 +51,22 @@
         <div class="realMoon-moonCut"></div>
       </div>
       <div class="flare hide" aria-hidden="true"><div class="in"></div></div>
+      <div class="bearing" id="bearing">
+        <div class="bearing-arm" id="bearing-arm" aria-hidden="true"></div>
+        <p class="bearing-read">Bearing <span id="bearing-deg">180</span>°</p>
+      </div>
       <div class="hero-copy">
         <p class="availability"><span class="dot" aria-hidden="true"></span> {{AVAILABILITY}}</p>
-        <p class="eyebrow">Freelance web design and development</p>
-        <h1>Websites that make the next step obvious.</h1>
-        <p class="lede">I’m Dale Hogg, a freelance designer and developer in New Zealand. I design and build landing pages, business sites, and custom web tools — and you work with me, not a queue.</p>
+        <p class="eyebrow">Freelance web design and development in New Zealand</p>
+        <h1>Take a bearing. Then I build the site.</h1>
+        <p class="lede">Southing is Dale Hogg’s practice. I design and build landing pages, business sites, and custom web tools for people in New Zealand. You deal with me, not a queue. The moon is a toy. The quote is the point.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#contact">Start a project</a>
           <a class="button button-ghost" href="#work">See the work</a>
         </div>
         <p class="trust-line">Fixed quote before any build. Direct replies. You own the finished site.</p>
       </div>
+      <p class="scroll-cue"><i aria-hidden="true"></i> Scroll</p>
     </section>
   </div>
 
@@ -139,7 +139,7 @@
         <div class="work-grid">
           <article class="work-card reveal">
             <a class="work-media" href="projects/drain-saves/">
-              <img src="Img/projects/DrainSavesScreenshot.avif" alt="Drain Saves homepage, navy logo on a dark field">
+              <img src="Img/projects/DrainSavesScreenshot.avif" loading="lazy" decoding="async" alt="Drain Saves homepage, navy logo on a dark field">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -151,7 +151,7 @@
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="projects/cornerstone-construction/">
-              <img src="Img/projects/CornerstoneScreenshot.avif" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
+              <img src="Img/projects/CornerstoneScreenshot.avif" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -163,7 +163,7 @@
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="projects/custom-paint/">
-              <img src="Img/recreations/custom-paint/studio.jpg" alt="Photo Markup Studio, a dark interface with drawing tools and a blank canvas">
+              <img src="Img/recreations/custom-paint/studio.jpg" loading="lazy" decoding="async" alt="Photo Markup Studio, a dark interface with drawing tools and a blank canvas">
             </a>
             <div class="work-body">
               <p class="kicker">Web app</p>
@@ -175,7 +175,7 @@
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="projects/exclusive-cuts/">
-              <img src="Img/projects/ExclusiveCuts_Screenshot.avif" alt="Exclusive Cuts homepage, white type on a dark timber wall">
+              <img src="Img/projects/ExclusiveCuts_Screenshot.avif" loading="lazy" decoding="async" alt="Exclusive Cuts homepage, white type on a dark timber wall">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -187,7 +187,7 @@
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="projects/moonlodge/">
-              <img src="Img/projects/MoonlodgeScreenshot.avif" alt="Moonlodge homepage over a west-coast beach and green hills">
+              <img src="Img/projects/MoonlodgeScreenshot.avif" loading="lazy" decoding="async" alt="Moonlodge homepage over a west-coast beach and green hills">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -199,7 +199,7 @@
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="projects/unique-slider/">
-              <img src="Img/projects/SliderScreenshot.avif" alt="A row of photographs in an image slider">
+              <img src="Img/projects/SliderScreenshot.avif" loading="lazy" decoding="async" alt="A row of photographs in an image slider">
             </a>
             <div class="work-body">
               <p class="kicker">Study</p>
@@ -245,6 +245,7 @@
             <p>Stay on the care plan for small updates, or take the site and run it. Either way, launch includes a walkthrough.</p>
           </article>
         </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Get a quote</a></p>
       </div>
     </section>
 
@@ -292,6 +293,7 @@
             <p>I put it live, walk you through it, and stay available for the first round of changes. Care after that is optional.</p>
           </article>
         </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Start with a conversation</a></p>
       </div>
     </section>
 
@@ -300,9 +302,10 @@
         <div>
           <p class="kicker">About</p>
           <h2>You hire the person who does the work</h2>
-          <p class="intro">I’m Dale, a freelance web designer and developer based in New Zealand. For five years I have worked with a range of clients, from straightforward brochure sites to more involved web apps, covering the design, the interface, and the build behind it when a project needs that.</p>
+          <p class="intro">Southing is my freelance web design and development practice, and I am Dale Hogg. I work from New Zealand. For five years I have taken on a range of clients, from straightforward brochure sites to more involved web apps, covering the design, the interface, and the build behind it when a project needs that.</p>
           <p class="intro">If something about your business or your customers is unclear, I would rather ask than guess. I will also say so if a simpler site will do the job.</p>
           <p><a class="github-link" href="https://github.com/dalehogg" target="_blank" rel="noopener">Code on GitHub</a></p>
+          <p class="band-cta" style="margin-top:1.2rem"><a class="button button-primary" href="#contact">Work with Dale</a></p>
         </div>
         <div>
           <p class="kicker">Tools I use</p>
@@ -348,6 +351,7 @@
             <p>I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.</p>
           </details>
         </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Ask a question in the form</a></p>
       </div>
     </section>
 
@@ -371,7 +375,7 @@
             <button class="type-chip" type="button" data-project-type="Not sure yet" aria-pressed="false">Not sure yet</button>
           </div>
           <form id="enquiry-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Project enquiry from Dale Hogg's website">
+            <input type="hidden" name="_subject" value="Project enquiry from the Southing website">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="">
@@ -419,13 +423,12 @@
 
   <footer class="site-footer">
     <div class="footer-bar">
-      <p>Dale Hogg · Freelance web design and development · New Zealand</p>
+      <p>Southing · by Dale Hogg · Freelance web design in New Zealand</p>
       <a href="#contact">Start a project</a>
     </div>
   </footer>
   <a class="sticky-quote" href="#contact">Get a quote</a>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
   <script src="js/ui.js" defer></script>
   <script src="js/full.js" defer></script>
 </body>

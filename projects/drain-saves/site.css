@@ -1,57 +1,62 @@
-.ds { background: #070b33; color: #f4f6ff; font-family: "Source Sans 3", "Segoe UI", sans-serif; }
-.ds a { color: inherit; }
-.ds-nav, .ds-hero, .ds-section { width: min(1080px, calc(100% - 2rem)); margin: 0 auto; }
-.ds-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.1rem 0;
+.ds { background: #06102e; color: #e7eeff; font-family: "Segoe UI", sans-serif; overflow-x: hidden; }
+.ds-hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  padding: 16vh 6vw 10vh;
+  background:
+    radial-gradient(ellipse at 70% 20%, rgba(140, 176, 255, 0.28), transparent 46%),
+    linear-gradient(#071433, #06102e 40%, #0a1d4a);
 }
-.ds-nav img { width: 64px; height: 64px; }
-.ds-nav ul { display: flex; flex-wrap: wrap; gap: 0.9rem; list-style: none; margin: 0; padding: 0; }
-.ds-nav a { text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.75rem; }
-.ds-hero { padding: 3rem 0 4rem; display: grid; gap: 1.5rem; }
-@media (min-width: 800px) {
-  .ds-hero { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+.ds-hero h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(3.4rem, 11vw, 8.5rem);
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #d5e2ff;
 }
-.ds-hero h2 {
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.05;
-  font-weight: 600;
-  margin: 0 0 0.8rem;
-  letter-spacing: -0.03em;
-}
-.ds-hero p { margin: 0 0 1rem; line-height: 1.5; font-size: 1.1rem; max-width: 36rem; color: #d5dcf8; }
+.ds-kicker { position: relative; z-index: 2; letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.75rem; color: #b9cbff; }
 .ds-mark {
-  justify-self: center;
-  width: min(320px, 80%);
+  position: absolute;
+  right: 8vw;
+  top: 22vh;
+  width: min(280px, 42vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #070b33 url("../../Img/recreations/drain-saves/logo.png") center / cover no-repeat;
+  background: url("../../Img/recreations/drain-saves/logo.png") center / cover;
+  box-shadow: 0 0 0 1px rgba(201, 216, 255, 0.35), 0 30px 80px rgba(0, 0, 0, 0.35);
+  animation: drift 8s ease-in-out infinite;
 }
-.ds-cta {
-  display: inline-block;
-  background: #c9d4ff;
-  color: #070b33;
-  text-decoration: none;
-  padding: 0.8rem 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  font-weight: 700;
+@keyframes drift { 50% { transform: translateY(-12px); } }
+.ds-tide {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 22%;
+  background: linear-gradient(transparent, rgba(120, 170, 255, 0.28) 40%, rgba(90, 140, 230, 0.45));
+  animation: tide 7s ease-in-out infinite;
 }
-.ds-section { padding: 1rem 0 3rem; }
-.ds-section h3 { font-size: 1.6rem; margin: 0 0 0.8rem; }
-.ds-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; }
-.ds-services article { border: 1px solid rgba(201, 212, 255, 0.35); padding: 1rem; }
-.ds-services h4 { margin: 0 0 0.4rem; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.85rem; }
-.ds-services p, .ds-prose p { margin: 0; line-height: 1.55; color: #d5dcf8; }
-.ds-prose { max-width: 42rem; }
-.ds-contact {
-  border-top: 1px solid rgba(201, 212, 255, 0.3);
-  padding: 2rem 0 3rem;
-  width: min(1080px, calc(100% - 2rem));
-  margin: 0 auto;
+@keyframes tide { 50% { height: 38%; } }
+.ds-list { width: min(980px, calc(100% - 12vw)); margin: 0 auto; padding: 4rem 0 2rem; }
+.ds-list article {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1rem;
+  padding: 1.3rem 0;
+  border-top: 1px solid rgba(201, 216, 255, 0.28);
 }
-.ds-contact p { color: #d5dcf8; line-height: 1.5; }
+.ds-list span { font-size: 0.8rem; letter-spacing: 0.16em; color: #9db4ee; }
+.ds-list h2 { margin: 0 0 0.3rem; font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.03em; }
+.ds-list p { margin: 0; color: #c9d6f8; line-height: 1.5; max-width: 40rem; }
+.ds-about { width: min(720px, calc(100% - 12vw)); margin: 0 auto 3rem; line-height: 1.6; color: #d5def8; font-size: 1.15rem; }
+@media (max-width: 700px) {
+  .ds-mark { position: relative; right: auto; top: auto; margin-bottom: 1rem; }
+  .ds-list article { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-mark, .ds-tide { animation: none; }
+}

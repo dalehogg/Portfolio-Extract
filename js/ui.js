@@ -41,6 +41,10 @@
       });
     });
 
+    var preset = new URLSearchParams(location.search).get("project");
+    var presetSelect = document.getElementById("project-type");
+    if (preset && presetSelect) presetSelect.value = preset;
+
     var form = document.getElementById("enquiry-form");
     if (form) {
       var next = form.querySelector('input[name="_next"]');
@@ -94,6 +98,24 @@
           paint();
         }, { threshold: 0.2 }).observe(contact);
       }
+    }
+
+    var arm = document.getElementById("bearing-arm");
+    var deg = document.getElementById("bearing-deg");
+    var moon = document.querySelector(".realMoon-container");
+    if (arm && deg && moon && !reduce) {
+      var setBearing = function (clientX, clientY) {
+        var rect = moon.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var angle = Math.atan2(clientX - cx, -(clientY - cy)) * 180 / Math.PI;
+        if (angle < 0) angle += 360;
+        arm.style.transform = "translateX(-50%) rotate(" + angle.toFixed(1) + "deg)";
+        deg.textContent = String(Math.round(angle)).padStart(3, "0");
+      };
+      window.addEventListener("pointermove", function (event) {
+        setBearing(event.clientX, event.clientY);
+      }, { passive: true });
     }
 
     var onScroll = function () {

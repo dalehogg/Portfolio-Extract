@@ -3,78 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Custom Paint — Project — Dale Hogg</title>
-  <meta name="description" content="Case study and interface recreation of Photo Markup Studio, Dale Hogg’s Custom Paint web app.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&amp;display=swap">
+  <title>Custom Paint | Web app case study | Southing</title>
+  <meta name="description" content="Photo Markup Studio, rebuilt as a static showcase by Southing. Dale Hogg’s freelance web development in New Zealand: mark up a photo, then copy or download it.">
+  <script type="application/json" id="page-meta">{"path":"/projects/custom-paint/","title":"Custom Paint | Web app case study | Southing","description":"Photo Markup Studio, rebuilt as a static showcase by Southing. Dale Hogg’s freelance web development in New Zealand: mark up a photo, then copy or download it.","kind":"project","name":"Custom Paint"}</script>
+  <!--HEAD_SEO-->
   <link rel="stylesheet" href="../../css/case-study.css">
   <link rel="stylesheet" href="site.css">
 </head>
-<body>
-  <header class="case-bar">
-    <a class="case-back" href="../../index.html#work">← All work</a>
-    <h1>Custom Paint</h1>
-    <ul class="case-tags"><li>Web app</li><li>Design</li><li>Development</li></ul>
-    <div class="case-grid">
-      <div>
-        <h2>Brief</h2>
-        <p>Photo Markup Studio is a browser tool for marking up a photograph: paste an image, draw on it, then copy or download the result, or send it to a job pack.</p>
-      </div>
-      <div>
-        <h2>What was done</h2>
-        <p>The studio screen — tools, colour, line settings, and a canvas — rebuilt as a static layout so the interface can be read without opening the app. The controls on this page do not draw.</p>
-      </div>
-    </div>
+<body class="cp">
+  <header class="studio-bar">
+    <a class="brand" href="../../index.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 L14 14 H2 Z" fill="currentColor"/></svg> Southing</a>
+    <nav class="studio-links" aria-label="Studio"><a href="../../index.html#services">Services</a><a href="../../index.html#work">Work</a><a class="studio-quote" href="../../index.html#contact">Get a quote</a></nav>
   </header>
-  <p class="showcase-note">Static recreation of the Photo Markup Studio layout. The sample marks are drawn in the page, not by the live tool.</p>
-  <div class="cp">
-    <header class="cp-top">
-      <h2>Photo Markup Studio<small>Editable photo annotations</small></h2>
-      <div class="cp-actions" aria-hidden="true">
-        <span class="primary">Paste Photo (Ctrl+V)</span>
-        <span class="primary">Job Pack Maker</span>
-        <span class="primary">Send To Job Pack Maker</span>
-        <span>Undo</span>
-        <span>Redo</span>
-        <span>Copy Image</span>
-        <span>Download Image</span>
+  <section class="cp-stage">
+    <aside class="cp-tools">
+      <h1>Photo Markup Studio</h1>
+      <p>Paste a photo. Draw. Export.</p>
+      <div class="cp-grid" aria-hidden="true">
+        <span class="on">Move</span><span>Box</span><span>Arrow</span>
+        <span>Line</span><span>Text</span><span>Measure</span>
+        <span>Curve</span><span>Circle</span><span>Slope</span>
       </div>
-    </header>
-    <div class="cp-body">
-      <aside class="cp-side">
-        <h3>Tools</h3>
-        <div class="tool-grid" aria-hidden="true">
-          <span class="tool on">Move</span>
-          <span class="tool">Box</span>
-          <span class="tool">Skew</span>
-          <span class="tool">Circle</span>
-          <span class="tool">Arrow</span>
-          <span class="tool">Line</span>
-          <span class="tool">Curve</span>
-          <span class="tool">Pen</span>
-          <span class="tool">Text</span>
-          <span class="tool">Cylinder</span>
-          <span class="tool">Measure</span>
-          <span class="tool">Slope</span>
-        </div>
-        <p>Nothing selected</p>
-        <p>Text / Outline / Line</p>
-        <div class="swatches" aria-hidden="true">
-          <i style="background:#fff"></i><i style="background:#000"></i><i style="background:#ffe14a"></i><i style="background:#e23b3b"></i><i style="background:#3aa0ff"></i><i style="background:#3dce7a"></i><i style="background:#ff8a1e"></i><i style="background:#e85bd0"></i>
-        </div>
-        <p>Fill colour, line thickness, opacity, solid / dashed / dotted.</p>
-        <p>Hold Shift to keep a square, a circle, or a 10° angle. Double-click a skew box or curve to add a point.</p>
-      </aside>
-      <div class="cp-stage">
-        <div>
-          <div class="canvas-sample" role="img" aria-label="Sample photo with a yellow box and a measurement label">
-            <span class="sample-box"></span>
-            <span class="sample-label">4.2 m</span>
-          </div>
-          <p class="sample-note">Sample markup, for the layout only.</p>
-        </div>
-      </div>
+      <p>Hold Shift for a square, a circle, or a 10° snap. This layout does not draw — the live tool does.</p>
+    </aside>
+    <div class="cp-canvas" role="img" aria-label="Sample coast photo with a yellow box and a 4.2 metre label drawn on it">
+      <svg viewBox="0 0 800 520" preserveAspectRatio="none">
+        <rect class="draw" x="90" y="80" width="280" height="200"></rect>
+        <path class="draw" d="M390 160 L560 120"></path>
+      </svg>
+      <span class="cp-label">4.2 m</span>
     </div>
-  </div>
+  </section>
+  <p class="cp-note">Sample marks are part of this page, not a saved job. Tools on the real studio include box, arrow, line, text, measurement, curve, and a job-pack handoff.</p>
+  <section class="case-notes">
+    <div><h2>Brief</h2><p>A browser studio for annotating a photograph, then copying it, downloading it, or sending it to a job pack.</p></div>
+    <div><h2>What was done</h2><ul class="case-tags"><li>Design</li><li>Development</li></ul><p>The interface is staged like a product film: tools on the left, the marked photo filling the rest of the screen.</p></div>
+  </section>
+  <section class="case-end">
+    <h2>A tool, not a brochure.</h2>
+    <p>Custom web apps are part of the Southing practice. Dale Hogg scopes them before any build.</p>
+    <a class="quote-btn" href="../../index.html?project=Custom%20build#contact">Get a quote</a>
+    <nav class="more-work" aria-label="More projects">
+      <a href="../drain-saves/">Drain Saves</a>
+      <a href="../cornerstone-construction/">Cornerstone</a>
+      <a href="../exclusive-cuts/">Exclusive Cuts</a>
+      <a href="../moonlodge/">Moonlodge</a>
+      <a href="../unique-slider/">Unique Slider</a>
+    </nav>
+  </section>
+  <footer class="studio-foot"><p>Southing · by Dale Hogg</p><a href="../../index.html#contact">Start a project</a></footer>
 </body>
 </html>

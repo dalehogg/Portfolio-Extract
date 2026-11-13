@@ -3,44 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unique Slider — Project — Dale Hogg</title>
-  <meta name="description" content="Case study and a rebuilt image slider. A self-initiated interface study.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&amp;display=swap">
+  <title>Unique Slider | Interface study | Southing</title>
+  <meta name="description" content="Unique Slider, an interface study by Southing. Move through photographs on one screen. Freelance web development in New Zealand by Dale Hogg.">
+  <script type="application/json" id="page-meta">{"path":"/projects/unique-slider/","title":"Unique Slider | Interface study | Southing","description":"Unique Slider, an interface study by Southing. Move through photographs on one screen. Freelance web development in New Zealand by Dale Hogg.","kind":"project","name":"Unique Slider"}</script>
+  <!--HEAD_SEO-->
   <link rel="stylesheet" href="../../css/case-study.css">
   <link rel="stylesheet" href="site.css">
 </head>
-<body>
-  <header class="case-bar">
-    <a class="case-back" href="../../index.html#work">← All work</a>
-    <h1>Unique Slider</h1>
-    <ul class="case-tags"><li>Study</li><li>Development</li><li>Interaction</li></ul>
-    <div class="case-grid">
-      <div>
-        <h2>Brief</h2>
-        <p>A self-initiated study: show a run of photographs on one page and move through them without dumping every image into a grid.</p>
-      </div>
-      <div>
-        <h2>What was done</h2>
-        <p>The earlier slider was a thin strip of pictures. This version gives the current photo the screen, keeps previous and next obvious, and adds a thumbnail row. It does not autoplay.</p>
-      </div>
-    </div>
+<body class="us">
+  <header class="studio-bar">
+    <a class="brand" href="../../index.html"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 L14 14 H2 Z" fill="currentColor"/></svg> Southing</a>
+    <nav class="studio-links" aria-label="Studio"><a href="../../index.html#services">Services</a><a href="../../index.html#work">Work</a><a class="studio-quote" href="../../index.html#contact">Get a quote</a></nav>
   </header>
-  <p class="showcase-note">The photographs are the same set used in the original slider study.</p>
-  <div class="us">
-    <div class="us-frame">
-      <div class="us-stage">
-        <img id="slide" alt="">
-        <button class="us-prev" type="button" aria-label="Previous photo">‹</button>
-        <button class="us-next" type="button" aria-label="Next photo">›</button>
-      </div>
-      <div class="us-caption">
-        <span id="slide-count"></span>
-        <span>Use the arrows or the thumbnails</span>
-      </div>
+  <section class="us-stage">
+    <img id="slide" alt="">
+    <h1>Unique Slider</h1>
+    <div class="us-ui">
+      <button class="us-prev" type="button" aria-label="Previous photograph">‹</button>
+      <span id="slide-count"></span>
       <div class="us-thumbs" id="thumbs" role="tablist" aria-label="Photographs"></div>
+      <button class="us-next" type="button" aria-label="Next photograph">›</button>
     </div>
-  </div>
+  </section>
+  <section class="case-notes">
+    <div><h2>Brief</h2><p>A self-initiated study: show a run of photographs and move through them without a cluttered grid. It does not autoplay.</p></div>
+    <div><h2>What was done</h2><ul class="case-tags"><li>Development</li><li>Interaction</li></ul><p>The current photograph takes the screen. Arrows, the keyboard, and a filmstrip move it. These are the same pictures as the original study.</p></div>
+  </section>
+  <section class="case-end">
+    <h2>Interaction, built properly.</h2>
+    <p>Southing is Dale Hogg’s freelance web development practice in New Zealand.</p>
+    <a class="quote-btn" href="../../index.html#contact">Get a quote</a>
+    <nav class="more-work" aria-label="More projects">
+      <a href="../drain-saves/">Drain Saves</a>
+      <a href="../cornerstone-construction/">Cornerstone</a>
+      <a href="../custom-paint/">Custom Paint</a>
+      <a href="../exclusive-cuts/">Exclusive Cuts</a>
+      <a href="../moonlodge/">Moonlodge</a>
+    </nav>
+  </section>
+  <footer class="studio-foot"><p>Southing · by Dale Hogg</p><a href="../../index.html#contact">Start a project</a></footer>
   <script>
     (function () {
       var photos = [
@@ -70,10 +71,11 @@
         var button = document.createElement("button");
         button.type = "button";
         button.setAttribute("role", "tab");
-        button.setAttribute("aria-label", photo[1]);
+        button.setAttribute("aria-label", "Show " + photo[1]);
         var thumb = document.createElement("img");
         thumb.src = photo[0];
         thumb.alt = "";
+        thumb.loading = "lazy";
         button.appendChild(thumb);
         button.addEventListener("click", function () { show(i); });
         thumbs.appendChild(button);

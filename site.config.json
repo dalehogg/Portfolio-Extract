@@ -1,5 +1,9 @@
 {
-  "_readme": "Edit this file, then run bash build.sh. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Confirm the NZD starting prices, and whether GST should be shown, before publishing. Availability is the badge in the hero.",
+  "_readme": "Edit this file, then run bash build.sh. baseUrl is the live site origin used for canonical links, Open Graph, the sitemap, and robots.txt. Confirm it matches the InfinityFree domain before launch. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Confirm the NZD starting prices, and whether GST should be shown, before publishing. Availability is the badge in the hero.",
+  "businessName": "Southing",
+  "founderName": "Dale Hogg",
+  "baseUrl": "https://dalehogg.infinityfreeapp.com",
+  "email": "dhdaleleon@gmail.com",
   "showTestimonials": false,
   "availability": "Taking new projects",
   "pricing": [
