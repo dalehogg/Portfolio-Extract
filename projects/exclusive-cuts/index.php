@@ -5,7 +5,9 @@ $page_title = 'Exclusive Cuts | Haircuts, fades, and walk-ins';
 $page_description = 'Exclusive Cuts: zero fades, shavings, mohawks, razor fades, style cuts, and standard cuts. Open Monday to Saturday, 9:00 to 5:30. Walk-ins welcome. Call 022 430 9918.';
 $page_path = '/projects/exclusive-cuts/';
 $page_og_image = $origin . '/projects/exclusive-cuts/assets/cut-fade.jpeg';
+$chrome = 'minimal';
 $extra_head = <<<'HTML'
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600&display=swap">
   <link rel="stylesheet" href="site.css">
 HTML;
 $page_scripts = '<script src="site.js" defer></script>';
@@ -13,8 +15,9 @@ $page_scripts = '<script src="site.js" defer></script>';
 <!DOCTYPE html>
 <html lang="en">
 <?php include __DIR__ . '/../../includes/head.php'; ?>
-<body>
+<body class="ec">
 <?php include __DIR__ . '/../../includes/nav.php'; ?>
+<a class="call-pill" href="tel:0224309918">Call 022 430 9918</a>
 <main class="ec">
   <section class="board" id="home" data-drift>
     <div class="grain" aria-hidden="true"></div>
