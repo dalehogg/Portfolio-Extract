@@ -27,14 +27,13 @@ def price_cards(packages: list[dict]) -> str:
             price_html = f'From <span>{figure}</span> <small>/ month</small>'
         else:
             price_html = f'From <span>{figure}</span>'
-        items = "".join(f"<li>{html.escape(item)}</li>" for item in package["includes"])
+        items = "".join(f"<li>{html.escape(item)}</li>" for item in package["includes"][:3])
         parts.append(
             f"""<article class="price-card" id="price-{html.escape(package["id"])}">
   <p class="kicker">{html.escape(package["kicker"])}</p>
   <h3>{html.escape(package["name"])}</h3>
   <p class="price">{price_html}</p>
   <p class="price-note">{html.escape(package["note"])}</p>
-  <p>{html.escape(package["summary"])}</p>
   <ul>{items}</ul>
   <a class="button button-primary" href="#contact" data-project-type="{html.escape(package["projectType"])}">Get a custom quote</a>
 </article>"""
@@ -156,44 +155,28 @@ def main() -> None:
         shutil.rmtree(DIST)
     DIST.mkdir()
 
-    for folder in ("css", "Img", "projects"):
+    for folder in ("css", "Img", "projects", "includes"):
         copy_tree(ROOT / folder, DIST / folder)
     copy_tree(ROOT / "js" / "full.js", DIST / "js" / "full.js")
     copy_tree(ROOT / "js" / "ui.js", DIST / "js" / "ui.js")
     copy_tree(ROOT / "js" / "rise.js", DIST / "js" / "rise.js")
-    copy_tree(ROOT / "thanks.html", DIST / "thanks.html")
-    copy_tree(ROOT / "404.html", DIST / "404.html")
-    copy_tree(ROOT / ".htaccess", DIST / ".htaccess")
+    copy_tree(ROOT / "js" / "motion.js", DIST / "js" / "motion.js")
+    for name in ("index.php", "thanks.php", "404.php", "site.config.json", ".htaccess"):
+        copy_tree(ROOT / name, DIST / name)
     photos = ROOT / "Links" / "Slider" / "Photos"
     if photos.is_dir():
         copy_tree(photos, DIST / "Links" / "Slider" / "Photos")
 
-    page = (ROOT / "index.html").read_text(encoding="utf-8")
-    page = page.replace("{{AVAILABILITY}}", html.escape(config["availability"]))
     show = bool(config.get("showTestimonials"))
-    attrs = (
-        'data-show-testimonials="true"'
-        if show
-        else 'data-show-testimonials="false" hidden'
-    )
-    page = page.replace("{{TESTIMONIALS_ATTRS}}", attrs)
-    page = replace_block(page, "<!--PRICING-->", "<!--/PRICING-->", price_cards(config["pricing"]))
-    page = replace_block(
-        page,
-        "<!--TESTIMONIALS-->",
-        "<!--/TESTIMONIALS-->",
-        testimonial_cards(config["testimonials"]),
-    )
-    (DIST / "index.html").write_text(page, encoding="utf-8")
-
-    sitemap_paths = []
-    for html_path in DIST.rglob("*.html"):
-        text = html_path.read_text(encoding="utf-8")
-        updated, meta = apply_seo(text, config)
-        if updated != text:
-            html_path.write_text(updated, encoding="utf-8")
-        if meta and meta.get("kind") != "utility":
-            sitemap_paths.append(meta["path"])
+    sitemap_paths = [
+        "/",
+        "/projects/drain-saves/",
+        "/projects/cornerstone-construction/",
+        "/projects/custom-paint/",
+        "/projects/exclusive-cuts/",
+        "/projects/moonlodge/",
+        "/projects/unique-slider/",
+    ]
 
     base = config["baseUrl"].rstrip("/")
     urls = []
@@ -214,7 +197,8 @@ def main() -> None:
     for css_path in (DIST / "css").glob("*.css"):
         css_path.write_text(minify_css(css_path.read_text(encoding="utf-8")), encoding="utf-8")
 
-    built = (DIST / "index.html").read_text(encoding="utf-8")
+    built = (DIST / "index.php").read_text(encoding="utf-8")
+    paint = (DIST / "projects" / "custom-paint" / "index.php").read_text(encoding="utf-8")
     checks = [
         ("formsubmit.co/dhdaleleon@gmail.com" in built, "FormSubmit action missing"),
         ('name="_honey"' in built, "honeypot missing"),
@@ -222,17 +206,20 @@ def main() -> None:
         ("Unqiue" not in built, "slider typo still present"),
         ("Wireframe" not in built, "old Wireframe project still present"),
         ("data-netlify" not in built, "Netlify form attribute still present"),
-        ("NZ$1,500" in built and "NZ$3,500" in built and "NZ$8,500" in built and "NZ$150" in built, "prices missing"),
+        ("site_pricing()" in built, "pricing renderer missing"),
         ('href="projects/drain-saves/"' in built, "internal project link missing"),
         ("https://drainsaves.netlify.app" not in built, "outbound project link on homepage"),
-        ("Southing" in built, "business name missing"),
-        (config["baseUrl"] in built, "canonical base URL missing"),
-        ("application/ld+json" in built, "structured data missing"),
+        ("Soffit" in built, "business name missing"),
         ((DIST / "sitemap.xml").exists() and (DIST / "robots.txt").exists(), "sitemap or robots missing"),
-        ((DIST / "404.html").exists(), "404 page missing"),
+        ((DIST / "404.php").exists() and (DIST / "thanks.php").exists(), "php utility pages missing"),
+        ("function setTool" in paint and "function openLongSection3D" in paint, "custom paint features missing"),
+        ("DirectoryIndex index.php" in (DIST / ".htaccess").read_text(encoding="utf-8"), "DirectoryIndex missing"),
     ]
     if not show:
-        checks.append(("data-show-testimonials=\"false\"" in built and "hidden" in built, "testimonials not hidden"))
+        checks.append((
+            'data-show-testimonials="false"' in (ROOT / "includes" / "site.php").read_text(encoding="utf-8"),
+            "testimonials not hidden",
+        ))
     failed = [message for ok, message in checks if not ok]
     if failed:
         raise SystemExit("Build checks failed:\n- " + "\n- ".join(failed))

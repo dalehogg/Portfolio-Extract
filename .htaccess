@@ -1,14 +1,21 @@
-# InfinityFree (Apache). Upload this file with the rest of dist/ into htdocs.
-# If the HTTPS block causes a redirect loop on InfinityFree, comment out the three Rewrite lines.
+# InfinityFree (Apache, PHP 8). Upload the contents of dist/ into htdocs.
+# If the HTTPS block loops, comment out the three Rewrite lines under Optional HTTPS.
+
+DirectoryIndex index.php index.html
+ErrorDocument 404 /404.php
 
 RewriteEngine On
 
-# Optional HTTPS. InfinityFree often sets X-Forwarded-Proto on the proxy.
+# Optional HTTPS.
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-ErrorDocument 404 /404.html
+# Old HTML addresses.
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^thanks\.html$ /thanks.php [R=301,L]
+RewriteRule ^404\.html$ /404.php [R=301,L]
+RewriteRule ^projects/([^/]+)/index\.html$ /projects/$1/ [R=301,L]
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml application/xml

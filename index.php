@@ -1,0 +1,395 @@
+<?php
+require __DIR__ . '/includes/site.php';
+$page_title = 'Soffit | Freelance web design and development in New Zealand';
+$page_description = 'Soffit is Dale Hogg\'s freelance web design and development practice in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before work starts.';
+$page_path = '/';
+$extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">';
+$page_scripts = '<script src="/js/full.js" defer></script>';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<?php require __DIR__ . '/includes/head.php'; ?>
+<body class="backNight">
+<?php require __DIR__ . '/includes/nav.php'; ?>
+
+  <div id="nightSky" data-parallax="0.12" aria-hidden="true">
+    <canvas id="starfield"></canvas>
+    <canvas id="twinklefield"></canvas>
+    <canvas id="shooting"></canvas>
+    <canvas id="planet"></canvas>
+  </div>
+  <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
+  <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
+
+  <div id="fullpage">
+    <section class="section section-one" id="top">
+      <div class="galaxy-center" aria-hidden="true"></div>
+      <div class="realMoon-container" aria-hidden="true">
+        <div class="realMoon-moonCut"></div>
+      </div>
+      <div class="flare hide" aria-hidden="true"><div class="in"></div></div>
+      <div class="hero-copy">
+        <h1>Sites that earn their keep.</h1>
+        <p class="lede">Freelance web design and development in New Zealand, by Dale Hogg.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">Start a project</a>
+        </div>
+      </div>
+      <p class="scroll-cue"><i aria-hidden="true"></i> Scroll</p>
+    </section>
+  </div>
+
+  <main>
+    <section class="band" data-reveal aria-label="What you can expect">
+      <div class="wrap">
+        <ul class="promise-row">
+          <li><strong>Fixed quote</strong> Agreed scope, agreed price, before the build.</li>
+          <li><strong>Direct</strong> You email Dale. Dale replies.</li>
+          <li><strong>Phones first</strong> Laid out for a small screen, then scaled up.</li>
+          <li><strong>Yours</strong> After the final invoice, the site and the code are yours.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="services" data-reveal>
+      <div class="wrap">
+        <p class="kicker">Services</p>
+        <h2>What I can take on</h2>
+        <p class="intro">Five ways to help, from a first page to looking after a site that is already live. The point of each one is a site your customers can use, not a folder of skills.</p>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span>01</span>
+            <h3>Custom website design</h3>
+            <p>A look and a page structure that fit the business, organised around what a visitor needs to do next.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>02</span>
+            <h3>Website development</h3>
+            <p>The design built into a responsive site you can try on your own phone before it goes live.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>03</span>
+            <h3>Redesigns and refreshes</h3>
+            <p>Keep what still works on the current site. Replace what is dated, slow, or hard to follow.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>04</span>
+            <h3>Landing pages</h3>
+            <p>One focused page for a launch, an offer, or a campaign, with a single next step.</p>
+          </article>
+          <article class="service-card reveal">
+            <span>05</span>
+            <h3>Care and support</h3>
+            <p>After launch: small updates, fixes, and someone to write to so the site does not go stale.</p>
+          </article>
+        </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact" data-project-type="Not sure yet">Tell me what you need</a></p>
+      </div>
+    </section>
+
+    <section class="band" id="pricing" data-reveal>
+      <div class="wrap">
+        <p class="kicker">Pricing</p>
+        <h2>Starting points, then a proper quote</h2>
+        <p class="intro">These are typical starting prices in NZD for a straightforward brief. Your quote is a fixed figure for an agreed scope, sent before any build starts.</p>
+        <div class="price-grid" id="price-grid">
+<?php site_pricing(); ?>
+        </div>
+        <p class="fine-print">Starting prices in NZD. Hosting, domain names, and third-party services are extra unless the quote says otherwise. The quote will also say whether GST is added.</p>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="work" data-reveal>
+      <div class="wrap">
+        <p class="kicker">Selected work</p>
+        <h2>Projects, rebuilt on this site</h2>
+        <p class="intro">Each card opens a page here: a short note on the brief, then a redesigned version of that project. Nothing sends you off to another domain.</p>
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/drain-saves/">
+              <img src="Img/projects/DrainSavesScreenshot.avif" loading="lazy" decoding="async" alt="Drain Saves homepage, navy logo on a dark field">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Drain Saves</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>An Auckland drainage company needed the services — overflow, flood prevention, residential and commercial — and a way to ask for a quote.</p>
+              <a class="text-link" href="projects/drain-saves/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/cornerstone-construction/">
+              <img src="Img/projects/CornerstoneScreenshot.avif" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Cornerstone Construction</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>A construction company site built around the work itself, with room for about, reviews, and contact.</p>
+              <a class="text-link" href="projects/cornerstone-construction/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/custom-paint/">
+              <img src="Img/recreations/custom-paint/studio.jpg" loading="lazy" decoding="async" alt="Photo Markup Studio, a dark interface with drawing tools and a blank canvas">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Web app</p>
+              <h3>Custom Paint</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>Photo Markup Studio: paste a photo, mark it up with boxes, arrows, and measurements, then copy or download it.</p>
+              <a class="text-link" href="projects/custom-paint/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/exclusive-cuts/">
+              <img src="Img/projects/ExclusiveCuts_Screenshot.avif" loading="lazy" decoding="async" alt="Exclusive Cuts homepage, white type on a dark timber wall">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Exclusive Cuts</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>A barbershop site for services, a gallery, hours, and a way to get in touch. Walk-ins are welcome.</p>
+              <a class="text-link" href="projects/exclusive-cuts/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/moonlodge/">
+              <img src="Img/projects/MoonlodgeScreenshot.avif" loading="lazy" decoding="async" alt="Moonlodge homepage over a west-coast beach and green hills">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Client site</p>
+              <h3>Moonlodge</h3>
+              <ul class="tags"><li>Design</li><li>Development</li></ul>
+              <p>Accommodation and an art studio in Whaingaroa, with the coast, the mountain, and Bridal Veil Falls nearby.</p>
+              <a class="text-link" href="projects/moonlodge/">View project</a>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <a class="work-media" href="projects/unique-slider/">
+              <img src="Img/projects/SliderScreenshot.avif" loading="lazy" decoding="async" alt="A row of photographs in an image slider">
+            </a>
+            <div class="work-body">
+              <p class="kicker">Study</p>
+              <h3>Unique Slider</h3>
+              <ul class="tags"><li>Development</li><li>Interaction</li></ul>
+              <p>A self-initiated study: move through a set of photographs on one page, without a cluttered gallery.</p>
+              <a class="text-link" href="projects/unique-slider/">View project</a>
+            </div>
+          </article>
+        </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Start a project in this vein</a></p>
+      </div>
+    </section>
+
+    <section class="band" id="why" data-reveal>
+      <div class="wrap">
+        <p class="kicker">Why work with me</p>
+        <h2>Plain terms, before you hire me</h2>
+        <p class="intro">No ratings and no borrowed praise. This is how the work actually runs.</p>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <h3>A fixed quote you can see</h3>
+            <p>You get a price for the agreed scope before I start. The numbers above are starting points. The quote is the number that matters.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>Direct contact with the developer</h3>
+            <p>Design and build are done by me. Questions come to dhdaleleon@gmail.com, and the reply comes from me.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>A real reply</h3>
+            <p>I answer project enquiries myself. You will not be handed to a ticket queue or a junior account.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>Mobile-first, and kept light</h3>
+            <p>Pages are laid out for a phone first, then widened. I keep the pages plain enough that they are not waiting on a pile of scripts.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>You own the site and the code</h3>
+            <p>After the final invoice is paid, the design, the pages, and the code are yours. I hand over the files.</p>
+          </article>
+          <article class="why-card reveal">
+            <h3>Support after launch</h3>
+            <p>Stay on the care plan for small updates, or take the site and run it. Either way, launch includes a walkthrough.</p>
+          </article>
+        </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Get a quote</a></p>
+      </div>
+    </section>
+
+    <!--
+      TESTIMONIALS TOGGLE
+      The only switch is "showTestimonials" in site.config.json.
+      Set it to true only after the placeholder quotes in that file are real client words, then run bash build.sh.
+      This section stays out of the live page while the flag is false.
+    -->
+    <section class="band band-alt testimonials" id="testimonials" <?php echo site_testimonial_attrs(); ?>>
+      <div class="wrap">
+        <p class="kicker">Testimonials</p>
+        <h2>In their words</h2>
+        <p class="intro">Notes from people Dale has worked with. Placeholder lines stay marked until they are replaced.</p>
+        <div class="quote-grid">
+<?php foreach (site_config()['testimonials'] ?? [] as $t): ?>
+<blockquote class="quote-card"><p><?php echo site_h($t['quote']); ?></p><footer><?php echo site_h($t['name']); ?>, <?php echo site_h($t['business']); ?></footer></blockquote>
+<?php endforeach; ?>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="process" data-reveal>
+      <div class="wrap">
+        <p class="kicker">How I work</p>
+        <h2>Four steps, and you are in all of them</h2>
+        <div class="steps">
+          <article class="step reveal">
+            <span>01</span>
+            <h3>Discovery</h3>
+            <p>We talk about the business, who the site is for, and what it needs to do. You leave with a scope, not a vague promise.</p>
+          </article>
+          <article class="step reveal">
+            <span>02</span>
+            <h3>Design</h3>
+            <p>I plan the pages and the look. You review them before anything is built.</p>
+          </article>
+          <article class="step reveal">
+            <span>03</span>
+            <h3>Build</h3>
+            <p>I develop the site. You try it on your own phone and computer, and we adjust what is not right.</p>
+          </article>
+          <article class="step reveal">
+            <span>04</span>
+            <h3>Launch</h3>
+            <p>I put it live, walk you through it, and stay available for the first round of changes. Care after that is optional.</p>
+          </article>
+        </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Start with a conversation</a></p>
+      </div>
+    </section>
+
+    <section class="band" id="about" data-reveal>
+      <div class="wrap about-layout">
+        <div>
+          <p class="kicker">About</p>
+          <h2>You hire the person who does the work</h2>
+          <p class="intro">Soffit is my freelance web design and development practice, and I am Dale Hogg. I work from New Zealand. For five years I have taken on a range of clients, from straightforward brochure sites to more involved web apps, covering the design, the interface, and the build behind it when a project needs that.</p>
+          <p class="intro">If something about your business or your customers is unclear, I would rather ask than guess. I will also say so if a simpler site will do the job.</p>
+          <p><a class="github-link" href="https://github.com/dalehogg" target="_blank" rel="noopener">Code on GitHub</a></p>
+          <p class="band-cta" style="margin-top:1.2rem"><a class="button button-primary" href="#contact">Work with Dale</a></p>
+        </div>
+        <div>
+          <p class="kicker">Tools I use</p>
+          <ul class="tools" aria-label="Tools I use">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Vue.js</li>
+            <li>Nuxt.js</li>
+            <li>Gulp</li>
+            <li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band-alt" id="questions" data-reveal>
+      <div class="wrap">
+        <p class="kicker">Questions</p>
+        <h2>Before you write</h2>
+        <div class="faq">
+          <details>
+            <summary>How long does a website take?</summary>
+            <p>A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.</p>
+          </details>
+          <details>
+            <summary>How do revisions work?</summary>
+            <p>The quote includes time for you to review the design and the build and ask for changes. I will say how many review rounds are included before you agree. Work outside that scope is quoted separately.</p>
+          </details>
+          <details>
+            <summary>Do you host the site?</summary>
+            <p>I can launch onto hosting you already pay for, or help you choose a host. Hosting is billed by the host. It is not folded into the starting prices unless the quote says so.</p>
+          </details>
+          <details>
+            <summary>Who owns the site?</summary>
+            <p>You do. After the final invoice is paid, the design, the pages, and the code are yours, and I hand over the files.</p>
+          </details>
+          <details>
+            <summary>What do you need from me to start?</summary>
+            <p>A short description of the business, who the site is for, and any logo, photos, or text you already have. If the words are not ready, we can start from a conversation.</p>
+          </details>
+          <details>
+            <summary>How do payments work?</summary>
+            <p>I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.</p>
+          </details>
+        </div>
+        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Ask a question in the form</a></p>
+      </div>
+    </section>
+
+    <section class="band" id="contact" data-reveal>
+      <div class="wrap contact-layout">
+        <div>
+          <p class="kicker">Start a project</p>
+          <h2>Tell me what you need</h2>
+          <p class="intro">I will reply by email with questions and a quote. There is no public price list beyond the starting points above.</p>
+          <p class="contact-email"><a href="mailto:dhdaleleon@gmail.com">dhdaleleon@gmail.com</a></p>
+          <p class="fine-print">Use the form, or write to that address directly. The same inbox receives both.</p>
+        </div>
+        <div>
+          <p class="kicker" id="type-label">Project type</p>
+          <div class="type-picker" role="group" aria-labelledby="type-label">
+            <button class="type-chip" type="button" data-project-type="Landing page" aria-pressed="false">Landing page</button>
+            <button class="type-chip" type="button" data-project-type="Business site" aria-pressed="false">Business site</button>
+            <button class="type-chip" type="button" data-project-type="Redesign or refresh" aria-pressed="false">Redesign</button>
+            <button class="type-chip" type="button" data-project-type="Custom build" aria-pressed="false">Custom build</button>
+            <button class="type-chip" type="button" data-project-type="Care plan" aria-pressed="false">Care plan</button>
+            <button class="type-chip" type="button" data-project-type="Not sure yet" aria-pressed="false">Not sure yet</button>
+          </div>
+          <form id="enquiry-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Project enquiry from the Soffit website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <p class="honey" aria-hidden="true">
+              <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none"></label>
+            </p>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="project-type">Project type <span class="optional">(optional)</span></label>
+                <select id="project-type" name="Project type">
+                  <option value="">Choose if you know</option>
+                  <option>Landing page</option>
+                  <option>Business site</option>
+                  <option>Redesign or refresh</option>
+                  <option>Custom build</option>
+                  <option>Care plan</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="budget">Budget <span class="optional">(optional)</span></label>
+                <input id="budget" name="Budget" type="text" placeholder="A range is fine" autocomplete="off">
+              </div>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button class="submit-button" type="submit">Send enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<?php require __DIR__ . '/includes/footer.php'; ?>
+</body>
+</html>

@@ -50,7 +50,7 @@
       var next = form.querySelector('input[name="_next"]');
       if (next && location.protocol.indexOf("http") === 0) {
         var base = location.pathname.replace(/[^/]*$/, "");
-        next.value = location.origin + base + "thanks.html";
+        next.value = location.origin + base + "thanks.php";
       }
       form.addEventListener("submit", function () {
         var button = form.querySelector('[type="submit"]');
