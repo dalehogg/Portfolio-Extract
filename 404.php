@@ -6,7 +6,7 @@ $page_path = '/404.php';
 <!DOCTYPE html>
 <html lang="en">
 <?php require __DIR__ . '/includes/head.php'; ?>
-<body>
+<body class="backNight">
 <?php require __DIR__ . '/includes/nav.php'; ?>
   <main class="thanks-page">
     <div class="thanks-card">

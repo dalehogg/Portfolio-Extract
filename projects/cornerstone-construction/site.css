@@ -162,7 +162,20 @@ figcaption {
   .cc-bar, .cc-hero, .cc-about, .cc-contact { grid-template-columns: 1fr; }
   .cc-bar nav { display: none; }
   .cc-call { justify-self: start; }
-  .cc-hero-photo { width: 100%; border-right: 0; border-bottom: 1px solid #3a3a3a; min-height: 46vh; }
+  .cc-hero { display: flex; flex-direction: column; }
+  .cc-hero-photo {
+    display: block;
+    width: 100%;
+    height: 62vw;
+    min-height: 220px;
+    flex: none;
+    animation: none;
+    clip-path: none;
+    border-right: 0;
+    border-bottom: 1px solid #3a3a3a;
+    background-size: cover;
+    background-position: center;
+  }
   .cc-actions { flex-direction: column; align-items: stretch; }
   .cc-actions a { text-align: center; }
 }

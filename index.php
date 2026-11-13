@@ -106,7 +106,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
         <h2>Projects.</h2>
         <div class="work-grid">
           <article class="work-card reveal">
-            <a class="work-media" href="projects/drain-saves/">
+            <a class="work-media" href="/projects/drain-saves/">
               <img src="Img/projects/DrainSavesScreenshot.avif" loading="lazy" decoding="async" alt="Drain Saves homepage, navy logo on a dark field">
             </a>
             <div class="work-body">
@@ -114,11 +114,11 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
               <h3>Drain Saves</h3>
               <ul class="tags"><li>Design</li><li>Development</li></ul>
               <p>An Auckland drainage company needed the services — overflow, flood prevention, residential and commercial — and a way to ask for a quote.</p>
-              <a class="text-link" href="projects/drain-saves/">View project</a>
+              <a class="text-link" href="/projects/drain-saves/">View project</a>
             </div>
           </article>
           <article class="work-card reveal">
-            <a class="work-media" href="projects/cornerstone-construction/">
+            <a class="work-media" href="/projects/cornerstone-construction/">
               <img src="Img/projects/CornerstoneScreenshot.avif" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
             </a>
             <div class="work-body">
@@ -126,11 +126,11 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
               <h3>Cornerstone Construction</h3>
               <ul class="tags"><li>Design</li><li>Development</li></ul>
               <p>A construction company site built around the work itself, with room for about, reviews, and contact.</p>
-              <a class="text-link" href="projects/cornerstone-construction/">View project</a>
+              <a class="text-link" href="/projects/cornerstone-construction/">View project</a>
             </div>
           </article>
           <article class="work-card reveal">
-            <a class="work-media" href="projects/custom-paint/">
+            <a class="work-media" href="/projects/custom-paint/">
               <img src="Img/recreations/custom-paint/studio.jpg" loading="lazy" decoding="async" alt="Photo Markup Studio, a dark interface with drawing tools and a blank canvas">
             </a>
             <div class="work-body">
@@ -138,11 +138,11 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
               <h3>Custom Paint</h3>
               <ul class="tags"><li>Design</li><li>Development</li></ul>
               <p>Photo Markup Studio: paste a photo, mark it up with boxes, arrows, and measurements, then copy or download it.</p>
-              <a class="text-link" href="projects/custom-paint/">View project</a>
+              <a class="text-link" href="/projects/custom-paint/">View project</a>
             </div>
           </article>
           <article class="work-card reveal">
-            <a class="work-media" href="projects/exclusive-cuts/">
+            <a class="work-media" href="/projects/exclusive-cuts/">
               <img src="Img/projects/ExclusiveCuts_Screenshot.avif" loading="lazy" decoding="async" alt="Exclusive Cuts homepage, white type on a dark timber wall">
             </a>
             <div class="work-body">
@@ -150,11 +150,11 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
               <h3>Exclusive Cuts</h3>
               <ul class="tags"><li>Design</li><li>Development</li></ul>
               <p>A barbershop site for services, a gallery, hours, and a way to get in touch. Walk-ins are welcome.</p>
-              <a class="text-link" href="projects/exclusive-cuts/">View project</a>
+              <a class="text-link" href="/projects/exclusive-cuts/">View project</a>
             </div>
           </article>
           <article class="work-card reveal">
-            <a class="work-media" href="projects/moonlodge/">
+            <a class="work-media" href="/projects/moonlodge/">
               <img src="Img/projects/MoonlodgeScreenshot.avif" loading="lazy" decoding="async" alt="Moonlodge homepage over a west-coast beach and green hills">
             </a>
             <div class="work-body">
@@ -162,11 +162,11 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
               <h3>Moonlodge</h3>
               <ul class="tags"><li>Design</li><li>Development</li></ul>
               <p>Accommodation and an art studio in Whaingaroa, with the coast, the mountain, and Bridal Veil Falls nearby.</p>
-              <a class="text-link" href="projects/moonlodge/">View project</a>
+              <a class="text-link" href="/projects/moonlodge/">View project</a>
             </div>
           </article>
           <article class="work-card reveal">
-            <a class="work-media" href="projects/unique-slider/">
+            <a class="work-media" href="/projects/unique-slider/">
               <img src="Img/projects/SliderScreenshot.avif" loading="lazy" decoding="async" alt="A row of photographs in an image slider">
             </a>
             <div class="work-body">
@@ -174,7 +174,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
               <h3>Unique Slider</h3>
               <ul class="tags"><li>Development</li><li>Interaction</li></ul>
               <p>A self-initiated study: move through a set of photographs on one page, without a cluttered gallery.</p>
-              <a class="text-link" href="projects/unique-slider/">View project</a>
+              <a class="text-link" href="/projects/unique-slider/">View project</a>
             </div>
           </article>
         </div>

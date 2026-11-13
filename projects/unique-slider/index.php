@@ -22,6 +22,7 @@ $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>
 <main>
   <section class="us-stage" id="slider" aria-roledescription="carousel" aria-label="Photographs">
     <p class="us-kicker">A study in looking</p>
+    <h1>Unique Slider</h1>
     <div class="us-window">
       <ul id="slideList">
         <li>

@@ -11,7 +11,17 @@
 .us[data-strip="3"] { background: linear-gradient(160deg, #e6f0ff, #fff7d6 50%, #f3e6ff); }
 .us[data-strip="4"] { background: linear-gradient(160deg, #ffe9d6, #e8fff6 55%, #fff0f6); }
 .us main { padding: 4.5rem 4vw 2rem; }
-.us-kicker { margin: 0 0 0.6rem; text-align: center; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; }
+.us-kicker { margin: 0; text-align: center; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; }
+.us-stage h1 {
+  margin: 0.2rem 0 0.8rem;
+  text-align: center;
+  font-family: "Space Grotesk", "Avenir Next", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: #241433;
+}
 .us-window {
   position: relative;
   height: min(68vh, 680px);

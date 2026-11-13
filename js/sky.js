@@ -43,8 +43,8 @@
   }
 
   function boot() {
-    paint(document.getElementById("stillfield"), 720, 1.35, false);
-    paint(document.getElementById("driftfield"), 160, 1.7, true);
+    paint(document.getElementById("stillfield"), 1500, 1.35, false);
+    paint(document.getElementById("driftfield"), 110, 1.6, true);
   }
 
   if (document.readyState === "complete") boot();

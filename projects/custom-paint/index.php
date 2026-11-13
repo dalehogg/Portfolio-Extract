@@ -81,7 +81,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 <iframe id="jobBridgeFrame" src="https://jobpackmaker.gt.tc/job_bridge.php" style="display:none;" aria-hidden="true"></iframe>
     
 <div id="header">
-    <h1>Photo Markup Studio <span style="font-size:12px;color:#a8bbd2">Editable photo annotations</span></h1>
+    <h2>Photo Markup Studio <span style="font-size:12px;color:#5c7084;font-weight:600">Editable photo annotations</span></h2>
     <button class="primary" onclick="pastePhoto()" style="margin: 0;">Paste Photo (Ctrl+V)</button>
 	<button class="primary" onclick="JobPackMaker()" style="margin: 0;">Job Pack Maker</button>
     
@@ -254,7 +254,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 </div>
 
 <div id="work" style="display:flex; gap:20px; align-items:flex-start;">
-    <div id="empty"></div>
+    <div id="empty">Paste a photo</div>
     <canvas id="stage" width="800" height="600"></canvas>
     <canvas id="longSectionCanvas" width="1600" height="800" style="display:none;flex:1;max-width:calc(100% - 320px);height:auto;background:#fff;border:1px solid #777;image-rendering:auto"></canvas>
     
@@ -7082,6 +7082,12 @@ window.ls3dSetHScale = ls3dSetHScale;
 window.ls3dSetView = ls3dSetView;
 window.ls3dSetExpanded = ls3dSetExpanded;
 
+var originalDraw = draw;
+draw = function () {
+  var work = document.getElementById('work');
+  if (work) work.classList.toggle('has-photo', !!photo);
+  return originalDraw.apply(this, arguments);
+};
 window.onload = init;
 </script>
 </body>

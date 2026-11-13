@@ -770,6 +770,10 @@ body.backNight #contact .contact-email a, body.backNight #contact a { color: var
 body.backNight #contact .intro, body.backNight #contact .fine-print, body.backNight #contact p { color: var(--ink-text); }
 body.backNight #contact::before { background: radial-gradient(ellipse at 100% 0%, rgba(226, 163, 34, 0.35), transparent 55%); }
 body.backNight #work .work-media { overflow: hidden; }
+body.backNight #work .work-card:first-child .work-media {
+  background: #e7eef8;
+  box-shadow: inset 0 0 0 12px #e7eef8;
+}
 @media (max-width: 980px) {
   body #fullpage .section-one .realMoon-container .realMoon-moonCut {
     width: 150px;

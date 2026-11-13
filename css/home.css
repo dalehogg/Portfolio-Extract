@@ -1,3 +1,23 @@
+html, body { overflow-x: clip; }
+#nightSky {
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+}
+#nightSky canvas,
+.cloudsLightOne,
+.cloudsLightTwo,
+body #fullpage .section-one .galaxy-center {
+  width: 100%;
+  max-width: 100%;
+}
+.site-footer, .site-footer::before {
+  background-image: none;
+}
+.city, .cityWhite, .citySilouhute { display: none; }
+
 @media (min-width: 981px) {
   body #fullpage .section-one .realMoon-container {
     left: auto;
