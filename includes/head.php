@@ -71,11 +71,19 @@ if ($page_path === '/') {
   <link rel="icon" href="/Img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/Img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/Img/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,620&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="/css/tokens.css">
-  <link rel="stylesheet" href="/css/services.css">
+<?php
+// $chrome = 'minimal' loads css/chrome.css only (pill + footer). Set $site_styles = true to also load the main fonts and tokens. Pages override --chrome-fg and --chrome-bg.
+$chrome_mode = isset($chrome) ? (string) $chrome : 'full';
+if ($chrome_mode === 'minimal' && empty($site_styles)) {
+    echo "  <link rel=\"stylesheet\" href=\"/css/chrome.css\">\n";
+} else {
+    echo "  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n";
+    echo "  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n";
+    echo "  <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,620&family=IBM+Plex+Mono:wght@400;500&display=swap\">\n";
+    echo "  <link rel=\"stylesheet\" href=\"/css/tokens.css\">\n";
+    echo "  <link rel=\"stylesheet\" href=\"/css/services.css\">\n";
+}
+?>
 <?php
 if ($json !== null) {
     echo '  <script type="application/ld+json">' . json_encode($json, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</script>\n";
