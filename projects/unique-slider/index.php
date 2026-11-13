@@ -67,7 +67,7 @@ $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>
       <p id="slide-count">1 / 5</p>
       <button type="button" id="NextHidden">Next</button>
     </div>
-    <p class="us-note">Click a photograph to widen it. Click again to set it back. The strip also moves with these buttons, the arrow keys, and a ten-second advance. These are the same pictures as the original study.</p>
+    <p class="us-note" data-reveal>Click a photograph to widen it. Click again to set it back. The strip also moves with these buttons, the arrow keys, and a ten-second advance. These are the same pictures as the original study.</p>
   </section>
 </main>
 

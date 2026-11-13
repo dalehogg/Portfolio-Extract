@@ -132,7 +132,23 @@ figcaption {
 .cc-about div, .cc-contact > div, .cc-reviews { padding: 1.6rem 1.3rem 2rem; }
 .cc-about h2, .cc-reviews h2, .cc-contact h2 { margin: 0 0 0.8rem; font-size: clamp(2rem, 4vw, 3.2rem); }
 .cc-about p { margin: 0 0 0.9rem; max-width: 42rem; color: var(--text); }
-.cc-reviews { background: var(--asphalt); border-bottom: 1px solid #3a3a3a; }
+.cc-marks, .cc-gallery, .cc-about, .cc-reviews, .cc-contact, .cc-hero { padding-top: 0; }
+.cc-marks, .cc-gallery { padding: 6.5rem 1.4rem; border-bottom: 1px solid #3a3a3a; }
+.cc-marks ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; list-style: none; margin: 1.2rem 0 0; padding: 0; }
+.cc-marks li { border-top: 3px solid var(--gold); padding-top: 1rem; }
+.cc-marks strong, .cc-marks span { display: block; font-family: "Archivo Black", Impact, sans-serif; text-transform: uppercase; letter-spacing: -0.03em; }
+.cc-marks strong { font-size: clamp(2rem, 4vw, 3rem); }
+.cc-marks span { color: var(--gold); font-size: 1.1rem; }
+.cc-gallery h2 { max-width: 16ch; }
+.cc-shots { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1rem; margin-top: 1.4rem; }
+.cc-shots figure { margin: 0; }
+.cc-shots figure:first-child { grid-row: span 2; }
+.cc-shots img { width: 100%; height: auto; max-width: 100%; display: block; object-fit: cover; }
+.cc-shots figcaption { color: var(--gold); }
+.cc-reviews { background: var(--asphalt); border-bottom: 1px solid #3a3a3a; padding: 6.5rem 0; }
+.cc-about, .cc-contact { padding: 1rem 0; }
+html.can-reveal .cc [data-reveal]:not(.is-in) { opacity: 0; transform: translateY(22px); }
+html.can-reveal .cc [data-reveal].is-in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 .cc-reviews blockquote { margin: 0; padding: 0.9rem 0; border-top: 1px solid #3a3a3a; }
 .cc-reviews blockquote p { margin: 0; font-size: 1.2rem; color: var(--text); }
 .cc-contact { background: var(--asphalt); }
@@ -186,6 +202,10 @@ figcaption {
     min-height: 220px;
     object-fit: cover;
   }
+  .cc-marks, .cc-gallery, .cc-reviews { padding: 4.5rem 1.1rem; }
+  .cc-marks ul, .cc-shots { grid-template-columns: 1fr; }
+  .cc-shots figure:first-child { grid-row: auto; }
+  .cc-shots img { max-height: 280px; object-fit: cover; }
   .cc-actions { flex-direction: column; align-items: stretch; }
   .cc-actions a { text-align: center; }
 }

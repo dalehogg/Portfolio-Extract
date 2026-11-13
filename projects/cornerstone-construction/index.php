@@ -57,6 +57,25 @@ HTML;
     </div>
   </section>
 
+  <section class="cc-marks" aria-label="Fast work, right attitude, excellent results">
+    <p class="cc-kicker">The standard</p>
+    <ul>
+      <li data-reveal><strong>Fast</strong><span>Work</span></li>
+      <li data-reveal><strong>Right</strong><span>Attitude</span></li>
+      <li data-reveal><strong>Excellent</strong><span>Results</span></li>
+    </ul>
+  </section>
+
+  <section class="cc-gallery" aria-label="Photographs from the site">
+    <p class="cc-kicker">On site</p>
+    <h2>The plant and the ground.</h2>
+    <div class="cc-shots">
+      <figure data-reveal><img src="/projects/cornerstone-construction/assets/landingPic.jpg" alt="Excavator with the Cornerstone Construction name on the boom" width="2048" height="1152"><figcaption>The machine</figcaption></figure>
+      <figure data-reveal><img src="/projects/cornerstone-construction/assets/aboutPic.jpg" alt="Cornerstone Construction machinery working the site" width="2048" height="1152"><figcaption>The cut</figcaption></figure>
+      <figure data-reveal><img src="/projects/cornerstone-construction/assets/background/underLayerBg.jpg" alt="Ground and site texture from the Cornerstone Construction site" width="1080" height="810"><figcaption>The ground</figcaption></figure>
+    </div>
+  </section>
+
   <section class="cc-reviews" id="reviews">
     <p class="cc-kicker">What others have to say</p>
     <h2>Job notes.</h2>

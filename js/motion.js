@@ -45,6 +45,16 @@
     if (preset && presetSelect) presetSelect.value = preset;
 
     document.addEventListener("click", function (event) {
+      var link = event.target.closest("a[href]");
+      if (link && link.hash && link.hash.length > 1) {
+        var same = link.pathname === location.pathname || (link.pathname === "/" && (location.pathname === "/" || location.pathname === "/index.php"));
+        var target = same ? document.querySelector(link.hash) : null;
+        if (target) {
+          event.preventDefault();
+          var top = target.getBoundingClientRect().top + window.scrollY - 76;
+          window.scrollTo({ top: Math.max(0, top), behavior: reduce ? "auto" : "smooth" });
+        }
+      }
       var trigger = event.target.closest("[data-project-type]");
       if (!trigger) return;
       var select = document.getElementById("project-type");

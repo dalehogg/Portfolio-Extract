@@ -71,13 +71,13 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
     <p class="kicker">Photo Markup Studio</p>
     <h1>Mark it. Measure it. Send it.</h1>
     <p>Paste a photograph, then draw boxes, arrows, text, dimensions, and pipe slopes. The studio below is the full tool.</p>
-    <a class="button button-primary" href="#studio">Open the studio</a>
+    <button type="button" class="button button-primary" id="open-studio">Open the studio</button>
   </div>
   <figure class="cp-hero-shot" data-parallax="0.12">
     <img src="/Img/recreations/custom-paint/studio.jpg" alt="Photo Markup Studio, a dark drawing surface with tools along the side">
   </figure>
 </section>
-<div id="studio">
+<div id="studio" class="is-closed">
 <iframe id="jobBridgeFrame" src="https://jobpackmaker.gt.tc/job_bridge.php" style="display:none;" aria-hidden="true"></iframe>
     
 <div id="header">
@@ -7089,6 +7089,13 @@ draw = function () {
   return originalDraw.apply(this, arguments);
 };
 window.onload = init;
+document.getElementById('open-studio').addEventListener('click', function () {
+  var studio = document.getElementById('studio');
+  studio.classList.remove('is-closed');
+  studio.classList.add('is-open');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  studio.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+});
 </script>
 </body>
 </html>

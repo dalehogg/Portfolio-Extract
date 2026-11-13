@@ -54,9 +54,11 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
     </section>
 
     <section class="band band-alt" id="services" data-reveal>
-      <div class="wrap">
-        <p class="kicker">Services</p>
-        <h2>What I can take on</h2>
+      <div class="wrap split-head">
+        <div class="sticky-head">
+          <p class="kicker">Services</p>
+          <h2>What I can take on</h2>
+        </div>
         <div class="service-grid">
           <article class="service-card reveal">
             <span>01</span>
@@ -84,8 +86,8 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
             <p>After launch: small updates, fixes, and someone to write to so the site does not go stale.</p>
           </article>
         </div>
-        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact" data-project-type="Not sure yet">Tell me what you need</a></p>
       </div>
+      <p class="band-cta wrap"><a class="button button-primary" href="#contact" data-project-type="Not sure yet">Tell me what you need</a></p>
     </section>
 
     <section class="band" id="pricing" data-reveal>
@@ -107,7 +109,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
         <div class="work-grid">
           <article class="work-card reveal">
             <a class="work-media" href="/projects/drain-saves/">
-              <img src="Img/projects/DrainSavesScreenshot.avif" loading="lazy" decoding="async" alt="Drain Saves homepage, navy logo on a dark field">
+              <img src="/Img/work/drain-saves.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Drain Saves homepage, navy logo on a dark field">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -119,7 +121,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="/projects/cornerstone-construction/">
-              <img src="Img/projects/CornerstoneScreenshot.avif" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
+              <img src="/Img/work/cornerstone.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -131,7 +133,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="/projects/custom-paint/">
-              <img src="Img/recreations/custom-paint/studio.jpg" loading="lazy" decoding="async" alt="Photo Markup Studio, a dark interface with drawing tools and a blank canvas">
+              <img src="/Img/work/custom-paint.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Photo Markup Studio, a light page with a button to open the drawing tools">
             </a>
             <div class="work-body">
               <p class="kicker">Web app</p>
@@ -143,7 +145,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="/projects/exclusive-cuts/">
-              <img src="Img/projects/ExclusiveCuts_Screenshot.avif" loading="lazy" decoding="async" alt="Exclusive Cuts homepage, white type on a dark timber wall">
+              <img src="/Img/work/exclusive-cuts.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Exclusive Cuts homepage, white type on a dark timber wall">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -155,7 +157,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="/projects/moonlodge/">
-              <img src="Img/projects/MoonlodgeScreenshot.avif" loading="lazy" decoding="async" alt="Moonlodge homepage over a west-coast beach and green hills">
+              <img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge homepage over a west-coast beach and green hills">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -167,7 +169,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="/projects/unique-slider/">
-              <img src="Img/projects/SliderScreenshot.avif" loading="lazy" decoding="async" alt="A row of photographs in an image slider">
+              <img src="/Img/work/unique-slider.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Unique Slider, a row of photographs on a light page">
             </a>
             <div class="work-body">
               <p class="kicker">Study</p>
@@ -187,12 +189,10 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
         <p class="kicker">Why work with me</p>
         <h2>Plain terms.</h2>
         <div class="why-grid">
-          <article class="why-card"><h3>Fixed quote</h3><p>A price for the agreed scope, before I start.</p></article>
-          <article class="why-card"><h3>Direct</h3><p>You write to me. I reply.</p></article>
-          <article class="why-card"><h3>Phones first</h3><p>Laid out for a small screen, then widened.</p></article>
-          <article class="why-card"><h3>Yours</h3><p>After the final invoice, the site and the code are yours.</p></article>
-          <article class="why-card"><h3>After launch</h3><p>A walkthrough, then care if you want it.</p></article>
-          <article class="why-card"><h3>No queue</h3><p>Design and build are both done by Dale.</p></article>
+          <article class="why-card" data-reveal><span>01</span><h3>Fixed quote</h3><p>A price for the agreed scope, before I start.</p></article>
+          <article class="why-card" data-reveal><span>02</span><h3>Direct</h3><p>You write to me. I reply. Design and build are both done by Dale.</p></article>
+          <article class="why-card" data-reveal><span>03</span><h3>Phones first</h3><p>Laid out for a small screen, then widened.</p></article>
+          <article class="why-card" data-reveal><span>04</span><h3>Yours</h3><p>After the final invoice, the site and the code are yours. A walkthrough at launch, then care if you want it.</p></article>
         </div>
       </div>
     </section>
@@ -220,24 +220,25 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
       <div class="wrap">
         <p class="kicker">How I work</p>
         <h2>Four steps.</h2>
-        <div class="steps">
-          <article class="step"><span>01</span><h3>Discovery</h3><p>Who it is for, and what it needs to do.</p></article>
-          <article class="step"><span>02</span><h3>Design</h3><p>Pages and a look, reviewed before the build.</p></article>
-          <article class="step"><span>03</span><h3>Build</h3><p>You try it on your own phone.</p></article>
-          <article class="step"><span>04</span><h3>Launch</h3><p>Live, with a walkthrough.</p></article>
+        <div class="timeline">
+          <article class="step" data-reveal><span>01</span><h3>Discovery</h3><p>Who it is for, and what it needs to do.</p></article>
+          <article class="step" data-reveal><span>02</span><h3>Design</h3><p>Pages and a look, reviewed before the build.</p></article>
+          <article class="step" data-reveal><span>03</span><h3>Build</h3><p>You try it on your own phone.</p></article>
+          <article class="step" data-reveal><span>04</span><h3>Launch</h3><p>Live, with a walkthrough.</p></article>
         </div>
       </div>
     </section>
 
     <section class="band" id="about" data-reveal>
       <div class="wrap about-layout">
+        <div class="about-mark" data-parallax="0.06" aria-hidden="true"><span>DH</span></div>
         <div>
           <p class="kicker">About</p>
           <h2>Dale Hogg.</h2>
           <p class="intro">Soffit is my freelance practice. I design and build sites from New Zealand, and you deal with me. Brochure sites through to web apps. If a simpler site will do, I will say so.</p>
           <p><a class="github-link" href="https://github.com/dalehogg" target="_blank" rel="noopener">GitHub</a></p>
+          <p class="tools-line">HTML, CSS, Vue, Nuxt, Gulp, Git</p>
         </div>
-        <p class="tools-line">HTML, CSS, Vue, Nuxt, Gulp, Git</p>
       </div>
     </section>
 
