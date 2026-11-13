@@ -1,11 +1,12 @@
 .cc {
   --gold: #d2b62a;
-  --gold-2: #e1ce47;
-  --concrete: #e6e2da;
-  --ink: #1c1c1c;
+  --asphalt: #1b1b1b;
+  --panel: #2a2a2a;
+  --paper: #f7f7f5;
+  --text: #f4f4f2;
   margin: 0;
-  background: var(--concrete);
-  color: var(--ink);
+  background: var(--asphalt);
+  color: var(--text);
   font-family: Archivo, "Arial Narrow", sans-serif;
   font-size: 1.05rem;
   line-height: 1.45;
@@ -17,26 +18,59 @@
   letter-spacing: -0.03em;
   line-height: 0.92;
   text-transform: uppercase;
+  color: var(--text);
 }
-.cc main { padding-bottom: 4.5rem; }
+.cc a { color: var(--gold); }
+.cc > .soffit-pill,
+.cc > .soffit-foot,
+.cc > .soffit-foot a {
+  background: var(--gold);
+  color: var(--asphalt);
+}
+a.cc-call,
+a.cc-phone,
+.cc-bar a.cc-call,
+.cc-contact button {
+  color: var(--asphalt);
+}
+p.cc-kicker,
+.cc-hero-spec p,
+figcaption {
+  color: var(--gold);
+}
+.cc main { padding-bottom: 0; }
 .cc-bar {
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 1rem;
   align-items: center;
-  padding: 4.2rem 1.2rem 0.8rem;
-  border-bottom: 4px solid var(--ink);
-  background: #f7f5f0;
+  padding: 4.2rem 1.2rem 0.9rem;
+  background: var(--asphalt);
+  border-bottom: 1px solid #3a3a3a;
 }
 .cc-brand { margin: 0; font-size: 1.15rem; }
-.cc-brand span { display: block; font-family: "Roboto Mono", ui-monospace, monospace; font-size: 0.68rem; letter-spacing: 0.16em; }
-.cc-bar nav { display: flex; gap: 1rem; }
-.cc-bar a { color: var(--ink); text-decoration: none; font-family: "Roboto Mono", ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.cc-brand span {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+.cc-bar nav { display: flex; gap: 1.1rem; }
+.cc-bar a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: "Roboto Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .cc-call, .cc-contact button, .cc-phone {
   display: inline-block;
   background: var(--gold);
-  color: var(--ink);
-  border: 3px solid var(--ink);
+  color: var(--asphalt);
+  border: 3px solid var(--gold);
   border-radius: 0;
   padding: 0.75rem 0.9rem;
   font-family: "Archivo Black", Impact, sans-serif;
@@ -44,71 +78,93 @@
   text-decoration: none;
   letter-spacing: 0;
 }
+.cc-send {
+  display: inline-block;
+  background: transparent;
+  color: var(--text);
+  border: 3px solid var(--gold);
+  border-radius: 0;
+  padding: 0.75rem 0.9rem;
+  font-family: "Archivo Black", Impact, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
 .cc-hero {
   display: grid;
   grid-template-columns: 1.4fr 0.8fr;
   min-height: 72vh;
-  border-bottom: 4px solid var(--ink);
-  background:
-    linear-gradient(rgba(28, 28, 28, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 28, 28, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
-  background-color: #d9d4ca;
+  background: var(--asphalt);
+  border-bottom: 1px solid #3a3a3a;
 }
 .cc-hero-photo {
   min-height: 52vh;
-  background: #222 center/cover no-repeat;
-  border-right: 4px solid var(--ink);
+  background: #111 center/cover no-repeat;
+  border-right: 1px solid #3a3a3a;
   animation: scaffold 0.9s steps(8, end) both;
 }
-.cc-hero-spec { padding: 1.4rem 1.2rem; align-self: end; }
+.cc-hero-spec { padding: 1.6rem 1.4rem; align-self: end; background: var(--panel); }
 .cc-hero-spec p, .cc-kicker, .cc-copy, figcaption {
   font-family: "Roboto Mono", ui-monospace, monospace;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-size: 0.72rem;
+  color: var(--gold);
 }
-.cc-hero h1 { margin: 0.4rem 0 1rem; font-size: clamp(2.2rem, 4vw, 3.6rem); }
-.cc-hero ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 0; padding: 0; list-style: none; border: 3px solid var(--ink); }
-.cc-hero li { padding: 0.55rem; border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); font-family: "Roboto Mono", monospace; font-size: 0.75rem; text-transform: uppercase; }
+.cc-hero h1 { margin: 0.45rem 0 1.1rem; font-size: clamp(2.2rem, 4vw, 3.6rem); }
+.cc-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .cc-about, .cc-contact {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
-  gap: 0;
-  border-bottom: 4px solid var(--ink);
+  background: var(--panel);
+  border-bottom: 1px solid #3a3a3a;
 }
 .cc-about figure { margin: 0; background: #111; }
-.cc-about img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; filter: contrast(1.05); }
-.cc-about figcaption { padding: 0.45rem 0.7rem; background: var(--ink); color: var(--gold); }
-.cc-about div, .cc-contact > div, .cc-contact form, .cc-reviews { padding: 1.6rem 1.3rem 2rem; }
+.cc-about img { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; }
+.cc-about figcaption { padding: 0.45rem 0.7rem; background: var(--asphalt); color: var(--gold); }
+.cc-about div, .cc-contact > div, .cc-reviews { padding: 1.6rem 1.3rem 2rem; }
 .cc-about h2, .cc-reviews h2, .cc-contact h2 { margin: 0 0 0.8rem; font-size: clamp(2rem, 4vw, 3.2rem); }
-.cc-about p { margin: 0 0 0.9rem; max-width: 42rem; }
-.cc-reviews { background: #f7f5f0; border-bottom: 4px solid var(--ink); }
-.cc-reviews blockquote { margin: 0; padding: 0.9rem 0; border-top: 3px solid var(--ink); }
-.cc-reviews blockquote p { margin: 0; font-size: 1.2rem; }
-.cc-contact { background: #f3f0e8; }
-.cc-phone { font-size: 1.6rem; margin-top: 0.6rem; }
-.cc-contact form { display: grid; gap: 0.3rem; background: #fff; border-left: 4px solid var(--ink); }
-.cc-contact label { font-family: "Roboto Mono", monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.45rem; }
+.cc-about p { margin: 0 0 0.9rem; max-width: 42rem; color: var(--text); }
+.cc-reviews { background: var(--asphalt); border-bottom: 1px solid #3a3a3a; }
+.cc-reviews blockquote { margin: 0; padding: 0.9rem 0; border-top: 1px solid #3a3a3a; }
+.cc-reviews blockquote p { margin: 0; font-size: 1.2rem; color: var(--text); }
+.cc-contact { background: var(--asphalt); }
+.cc-contact > div { background: var(--panel); }
+.cc-phone { font-size: 1.4rem; margin-top: 0.8rem; }
+.cc-contact form {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.6rem 1.3rem 2rem;
+  background: var(--paper);
+  color: var(--asphalt);
+}
+.cc-contact form h2, .cc-contact label { color: var(--asphalt); }
+.cc-contact label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.45rem;
+}
 .cc-contact input, .cc-contact textarea {
   width: 100%;
-  border: 3px solid var(--ink);
+  border: 2px solid var(--asphalt);
   border-radius: 0;
   background: #fff;
-  color: var(--ink);
+  color: var(--asphalt);
   padding: 0.65rem;
   font: inherit;
 }
 .cc-contact button { justify-self: start; margin-top: 0.8rem; cursor: pointer; }
 .cc-honey { position: absolute; left: -9999px; height: 0; overflow: hidden; }
-.cc-copy { margin: 0; padding: 0.8rem 1.2rem 1rem; }
+.cc-copy { margin: 0; padding: 0.9rem 1.2rem 1.1rem; color: #c8c8c6; background: var(--asphalt); }
 @keyframes scaffold { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
 @media (max-width: 800px) {
   .cc-bar, .cc-hero, .cc-about, .cc-contact { grid-template-columns: 1fr; }
   .cc-bar nav { display: none; }
-  .cc-hero-photo { border-right: 0; border-bottom: 4px solid var(--ink); min-height: 42vh; }
-  .cc-contact form { border-left: 0; border-top: 4px solid var(--ink); }
-  .cc-hero ul { grid-template-columns: 1fr 1fr; }
+  .cc-call { justify-self: start; }
+  .cc-hero-photo { width: 100%; border-right: 0; border-bottom: 1px solid #3a3a3a; min-height: 46vh; }
+  .cc-actions { flex-direction: column; align-items: stretch; }
+  .cc-actions a { text-align: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cc-hero-photo { animation: none; }

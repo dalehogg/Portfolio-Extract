@@ -34,9 +34,10 @@ HTML;
     <div class="cc-hero-spec">
       <p>Site photograph</p>
       <h1>Fast work. Right attitude. Excellent results.</h1>
-      <ul>
-        <li>Fast</li><li>Work</li><li>Right</li><li>Attitude</li><li>Excellent</li><li>Results</li>
-      </ul>
+      <div class="cc-actions">
+        <a class="cc-call" href="tel:+6421998961">Call 021 998 961</a>
+        <a class="cc-send" href="#contact">Send a job</a>
+      </div>
     </div>
   </section>
 
