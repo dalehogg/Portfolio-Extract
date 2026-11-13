@@ -99,16 +99,6 @@ body.ec h1, body.ec h2, body.ec .clock, body.ec .walk, body.ec .line {
   align-items: center;
 }
 
-.about {
-  display: grid;
-  gap: 0.6rem;
-  background: var(--bone);
-  color: var(--ink);
-  padding: 1.6rem 1rem 1.4rem 38%;
-}
-.about h2 { font-size: clamp(3rem, 12vw, 6rem); line-height: 0.8; text-transform: uppercase; }
-.copy { line-height: 1.45; font-size: 0.95rem; max-width: 36rem; }
-
 .gallery {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -246,9 +236,6 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.8); }
 .js body.ec [data-reveal].is-in { opacity: 1; transform: none; }
 
 @media (min-width: 800px) {
-  .about { grid-template-columns: 0.7fr 1.3fr; padding: 2rem 4vw 2rem 6vw; align-items: end; }
-  .about h2 { grid-column: 1; }
-  .copy { grid-column: 2; }
   .gallery { grid-template-columns: 1.4fr 0.8fr 0.9fr; padding: 0.6rem 1.2rem 1rem; }
   .gallery-head { grid-column: 1 / -1; }
   .gallery figure:nth-child(2) { grid-row: span 2; }
@@ -262,7 +249,6 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.8); }
 
 @media (max-width: 640px) {
   .gallery { grid-template-columns: 1fr 0.72fr; }
-  .about { padding: 1.3rem 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -30,18 +30,11 @@ $page_scripts = '<script src="site.js" defer></script>';
     <div class="shear" aria-hidden="true"></div>
     <nav class="rail" aria-label="Exclusive Cuts">
       <a href="#home">Home</a>
-      <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
       <a href="#services">Services</a>
       <a href="#hours">Hours</a>
       <a href="#contact">Contact</a>
     </nav>
-  </section>
-
-  <section class="about" id="about">
-    <p class="eye">About</p>
-    <h2 data-reveal>What we<br>do</h2>
-    <p class="copy" data-reveal>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean porttitor iaculis dapibus. Curabitur gravida condimentum odio vitae ultrices. Curabitur at ultricies sapien, vitae vehicula ex. Phasellus arcu libero, posuere at varius in, ornare in sapien. Donec mattis ante eget enim consectetur, sit amet pharetra leo pulvinar. Sed auctor tincidunt mauris, sit amet sollicitudin nibh accumsan vel. Praesent tincidunt convallis pulvinar. Duis vitae eros quam.</p>
   </section>
 
   <section class="gallery" id="gallery">
