@@ -218,6 +218,10 @@ body.ml h1, body.ml h2, body.ml h3, body.ml .locale, body.ml .who, body.ml .role
   line-height: 0.86;
   margin: 0.15rem 0 0.55rem;
 }
+.about-page .about-copy h1 { margin-bottom: 2.4rem; }
+@media (max-width: 800px) {
+  .about-page .about-copy h1 { margin-bottom: 1.85rem; }
+}
 .stay h2 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   margin: 0.2rem 0 0.4rem;

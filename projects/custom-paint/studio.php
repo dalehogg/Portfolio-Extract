@@ -33,8 +33,8 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 .tab-pane{display:none}
 .tab-pane.active{display:block}
 #layersList{background:#142132;border:1px solid #52667f;border-radius:4px;height:340px;overflow-y:auto;padding:4px}
-.layer-item{padding:6px 8px;margin:2px 0;background:#1b2a3f;border:1px solid #33445c;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:between}
-.layer-item:hover{background:#2b3e59}
+.layer-item{padding:6px 8px;margin:2px 0;background:#1b2a3f;border:1px solid #33445c;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:between;color:#f4f7fb}
+.layer-item:hover{background:#2b3e59;color:#ffffff}
 .layer-item.selected{background:#087cbb;border-color:#63caff;color:#ffffff}
 .range-val{float:right;color:#8ab4f8;font-weight:600}
 .tool-grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:4px;margin-top:7px}
@@ -44,8 +44,8 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 .menu-item:hover{background:#33445c;color:#ffffff}
 .menu-divider{height:1px;background:#45556a;margin:4px 0}
 #historyList{background:#142132;border:1px solid #52667f;border-radius:4px;height:340px;overflow-y:auto;padding:4px}
-.history-item{padding:6px 8px;margin:2px 0;background:#1b2a3f;border:1px solid #33445c;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
-.history-item:hover{background:#2b3e59}
+.history-item{padding:6px 8px;margin:2px 0;background:#1b2a3f;border:1px solid #33445c;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;color:#f4f7fb}
+.history-item:hover{background:#2b3e59;color:#ffffff}
 .history-item.current{background:#087cbb;border-color:#63caff;color:#ffffff}
 #ls3dStage{display:none;position:relative;flex:1 1 auto;min-width:0;min-height:300px;background:#071018;border:1px solid #3d5168;border-radius:8px;overflow:hidden}
 #ls3dCanvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
@@ -68,7 +68,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 <iframe id="jobBridgeFrame" src="https://jobpackmaker.gt.tc/job_bridge.php" style="display:none;" aria-hidden="true"></iframe>
     
 <div id="header">
-    <p class="studio-back"><a href="/projects/custom-paint/">Back to Custom Paint</a></p>
+    <p class="studio-back"><a href="/projects/custom-paint/">Back to home page</a></p>
 
     <h2>Photo Markup Studio <span style="font-size:12px;color:#5c7084;font-weight:600">Editable photo annotations</span></h2>
     <button class="primary" onclick="pastePhoto()" style="margin: 0;">Paste Photo (Ctrl+V)</button>
@@ -243,7 +243,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 </div>
 
 <div id="work" style="display:flex; gap:20px; align-items:flex-start;">
-    <div id="empty">Paste a photo</div>
+    <div id="empty"></div>
     <canvas id="stage" width="800" height="600"></canvas>
     <canvas id="longSectionCanvas" width="1600" height="800" style="display:none;flex:1;max-width:calc(100% - 320px);height:auto;background:#fff;border:1px solid #777;image-rendering:auto"></canvas>
     

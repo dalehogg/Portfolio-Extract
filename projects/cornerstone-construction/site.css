@@ -94,7 +94,18 @@ figcaption {
   .cc-bar.is-open nav { display: flex; }
   .cc-bar nav a { min-height: 44px; display: flex; align-items: center; }
 }
-.cc-brand { margin: 0 auto 0 0; font-size: clamp(1.4rem, 2vw, 2rem); }
+.cc-logo {
+  display: block;
+  margin: 0 auto 0 0;
+  line-height: 0;
+  color: var(--gold);
+}
+.cc-logo svg {
+  display: block;
+  width: min(250px, 42vw);
+  height: auto;
+}
+.cc-logo svg * { fill: var(--gold); }
 .cc-brand span {
   display: block;
   margin-top: 0.3rem;

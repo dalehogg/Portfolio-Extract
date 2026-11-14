@@ -23,7 +23,27 @@ HTML;
 
 <main>
   <header class="cc-bar" data-menu>
-    <p class="cc-brand">Cornerstone<span>Construction</span></p>
+    <a class="cc-logo" href="#home" aria-label="Cornerstone Construction">
+      <svg class="homeLiLogo" width="480" height="84" viewBox="0 0 480 104" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Desktop-HD" transform="translate(-518.000000, -312.000000)" fill="#000000">
+            <text id="Construction" font-family="GillSans-Bold, Gill Sans" font-size="32" font-weight="bold" letter-spacing="3.76470757">
+              <tspan x="639.653942" y="403">CONSTRUCTION</tspan>
+            </text>
+            <text id="Cornerstone" font-family="GillSans-Bold, Gill Sans" font-size="48" font-weight="bold" letter-spacing="2">
+              <tspan x="577.355469" y="358">CORNERSTONE</tspan>
+            </text>
+            <g id="Main-Logo" transform="translate(518.000000, 312.000000)">
+              <g id="Group">
+                <rect id="Rectangle" x="0" y="0" width="50.6976744" height="48.195122" rx="4"></rect>
+                <rect id="Rectangle" x="0" y="55.804878" width="50.6976744" height="48.195122" rx="4"></rect>
+                <rect id="Rectangle" x="58.3023256" y="55.804878" width="50.6976744" height="48.195122" rx="4"></rect>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </a>
     <button class="cc-menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="cc-nav">Menu</button>
     <nav id="cc-nav" data-menu-panel aria-label="On this page">
       <a href="#about">About</a>

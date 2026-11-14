@@ -78,14 +78,13 @@ body.cp .sticky-quote { display: none; }
 #header h2 { margin: 0 0 7px; font-family: Nunito, sans-serif; font-weight: 800; font-size: 1.2rem; color: #111; }
 #side label, #side .hint, #side b, #dialog, #dialog label, #dialog .hint, #dialog b, #dialog p { color: #111 !important; }
 #dialog { background: #fff !important; }
-#empty {
-  display: block !important;
-  padding: 2.2rem 1rem;
-  text-align: center;
-  color: #3d5166;
-  font-weight: 800;
-  font-size: 1.15rem;
-}
+#empty { display: none !important; }
+.layer-item,
+.history-item { color: #f4f7fb !important; }
+.layer-item:hover,
+.history-item:hover { color: #ffffff !important; }
+.layer-item.selected,
+.history-item.current { color: #ffffff !important; }
 #work.has-photo #empty { display: none !important; }
 #stage { box-shadow: none !important; }
 #side {
