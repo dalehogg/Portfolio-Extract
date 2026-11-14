@@ -185,11 +185,6 @@ def main() -> None:
     sitemap_paths = [
         "/",
         "/projects/drain-saves/",
-        "/projects/drain-saves/services.php",
-        "/projects/drain-saves/about.php",
-        "/projects/drain-saves/gallery.php",
-        "/projects/drain-saves/reviews.php",
-        "/projects/drain-saves/contact.php",
         "/projects/cornerstone-construction/",
         "/projects/custom-paint/",
         "/projects/custom-paint/studio.php",
