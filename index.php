@@ -189,28 +189,28 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
         <h2>Before you write.</h2>
         <div class="faq">
           <details>
-            <summary>How long does a website take?</summary>
-            <p>A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.</p>
+            <summary>How long does a website take?<span class="chev" aria-hidden="true"></span></summary>
+            <div class="faq-panel"><div class="faq-panel-in"><p>A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.</p></div></div>
           </details>
           <details>
-            <summary>How do revisions work?</summary>
-            <p>The quote includes time for you to review the design and the build and ask for changes. I will say how many review rounds are included before you agree. Work outside that scope is quoted separately.</p>
+            <summary>How do revisions work?<span class="chev" aria-hidden="true"></span></summary>
+            <div class="faq-panel"><div class="faq-panel-in"><p>The quote includes time for you to review the design and the build and ask for changes. I will say how many review rounds are included before you agree. Work outside that scope is quoted separately.</p></div></div>
           </details>
           <details>
-            <summary>Do you host the site?</summary>
-            <p>I can launch onto hosting you already pay for, or help you choose a host. Hosting is billed by the host. It is not folded into the starting prices unless the quote says so.</p>
+            <summary>Do you host the site?<span class="chev" aria-hidden="true"></span></summary>
+            <div class="faq-panel"><div class="faq-panel-in"><p>I can launch onto hosting you already pay for, or help you choose a host. Hosting is billed by the host. It is not folded into the starting prices unless the quote says so.</p></div></div>
           </details>
           <details>
-            <summary>Who owns the site?</summary>
-            <p>You do. After the final invoice is paid, the design, the pages, and the code are yours, and I hand over the files.</p>
+            <summary>Who owns the site?<span class="chev" aria-hidden="true"></span></summary>
+            <div class="faq-panel"><div class="faq-panel-in"><p>You do. After the final invoice is paid, the design, the pages, and the code are yours, and I hand over the files.</p></div></div>
           </details>
           <details>
-            <summary>What do you need from me to start?</summary>
-            <p>A short description of the business, who the site is for, and any logo, photos, or text you already have. If the words are not ready, we can start from a conversation.</p>
+            <summary>What do you need from me to start?<span class="chev" aria-hidden="true"></span></summary>
+            <div class="faq-panel"><div class="faq-panel-in"><p>A short description of the business, who the site is for, and any logo, photos, or text you already have. If the words are not ready, we can start from a conversation.</p></div></div>
           </details>
           <details>
-            <summary>How do payments work?</summary>
-            <p>I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.</p>
+            <summary>How do payments work?<span class="chev" aria-hidden="true"></span></summary>
+            <div class="faq-panel"><div class="faq-panel-in"><p>I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.</p></div></div>
           </details>
         </div>
         <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Ask a question in the form</a></p>

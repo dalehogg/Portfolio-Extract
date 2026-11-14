@@ -189,18 +189,31 @@ function site_pricing(): void
         $price = $period === 'month'
             ? 'From <span>' . site_h($figure) . '</span> <small>/ month</small>'
             : 'From <span>' . site_h($figure) . '</span>';
+        $panel_id = 'price-panel-' . (string) $package['id'];
+        $includes = '';
+        foreach (array_slice($package['includes'] ?? [], 0, 3) as $item) {
+            $includes .= '<li>' . site_h((string) $item) . '</li>';
+        }
+        $note = '<p class="price-note">' . site_h((string) $package['note']) . '</p>';
+        $list = '<ul>' . $includes . '</ul>';
+        $cta = '<a class="button button-primary" href="#contact" data-project-type="' . site_h((string) $package['projectType']) . '">Get a custom quote</a>';
         echo '<article class="price-card" id="price-' . site_h((string) $package['id']) . '">';
+        echo '<div class="price-desk">';
         echo '<p class="kicker">' . site_h((string) $package['kicker']) . '</p>';
         echo '<h3>' . site_h((string) $package['name']) . '</h3>';
         echo '<p class="price">' . $price . '</p>';
-        echo '<p class="price-note">' . site_h((string) $package['note']) . '</p>';
-        echo '<ul>';
-        foreach (array_slice($package['includes'] ?? [], 0, 3) as $item) {
-            echo '<li>' . site_h((string) $item) . '</li>';
-        }
-        echo '</ul>';
-        echo '<a class="button button-primary" href="#contact" data-project-type="' . site_h((string) $package['projectType']) . '">Get a custom quote</a>';
-        echo '</article>';
+        echo $note . $list . $cta;
+        echo '</div>';
+        echo '<details class="price-fold">';
+        echo '<summary aria-controls="' . site_h($panel_id) . '">';
+        echo '<p class="kicker">' . site_h((string) $package['kicker']) . '</p>';
+        echo '<h3>' . site_h((string) $package['name']) . '</h3>';
+        echo '<p class="price">' . $price . '</p>';
+        echo '<span class="chev" aria-hidden="true"></span>';
+        echo '</summary>';
+        echo '<div class="price-panel" id="' . site_h($panel_id) . '"><div class="price-panel-in">';
+        echo $note . $list . $cta;
+        echo '</div></div></details></article>';
     }
 }
 
