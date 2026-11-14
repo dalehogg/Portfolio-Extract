@@ -10,7 +10,7 @@
 .us[data-strip="2"] { background: linear-gradient(160deg, #fff1e6, #ffe0f0 45%, #e6f4ff); }
 .us[data-strip="3"] { background: linear-gradient(160deg, #e6f0ff, #fff7d6 50%, #f3e6ff); }
 .us[data-strip="4"] { background: linear-gradient(160deg, #ffe9d6, #e8fff6 55%, #fff0f6); }
-.us main { padding: 7.5rem 6vw 5rem; }
+.us main { padding: 6.5rem 6vw 6rem; }
 .us-note { max-width: 62ch; }
 .us-kicker { margin: 0; text-align: center; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; }
 .us-stage h1 {
@@ -79,7 +79,7 @@
 html.can-reveal .us [data-reveal]:not(.is-in) { opacity: 0; transform: translateY(18px); }
 html.can-reveal .us [data-reveal].is-in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 @media (max-width: 800px) {
-  .us main { padding: 5.2rem 1.1rem 3rem; }
+  .us main { padding: 4rem 1.1rem 3.5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   #slideList, .card, .us [data-reveal] { transition: none; opacity: 1; transform: none; }
