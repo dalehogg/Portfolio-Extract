@@ -7,7 +7,7 @@ $page_path = '/projects/drain-saves/';
 $page_og_image = $origin . '/projects/drain-saves/assets/logo.png';
 $chrome = 'minimal';
 $extra_head = <<<'HTML'
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="site.css">
 HTML;
 $page_scripts = '<script src="site.js" defer></script>';
@@ -20,22 +20,24 @@ $page_scripts = '<script src="site.js" defer></script>';
 <main class="ds">
   <section class="well" id="home" data-drift>
     <div class="bloom" aria-hidden="true"></div>
-    <div class="tide" data-parallax="-0.05" aria-hidden="true"></div>
+    <div class="tide" data-parallax="-0.02" aria-hidden="true"></div>
+    <div class="well-copy">
+      <p class="eye">Auckland</p>
+      <h1>Overflow and flood prevention</h1>
+      <p class="lede">Stop sewer and stormwater backflow before it reaches your property.</p>
+      <a class="call" href="tel:02108169900">Call 021 081 699 00</a>
+      <a class="job-note" href="#contact">Send a job note</a>
+      <nav class="rail" aria-label="Drain Saves">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
     <div class="mark-stage">
       <img class="mark" src="assets/logo.png" width="1000" height="1000" alt="Drain Saves">
     </div>
-    <p class="eye">Auckland</p>
-    <h1>Overflow and flood prevention</h1>
-    <p class="lede">Stop sewer and stormwater backflow before it reaches your property.</p>
-    <a class="call" href="tel:02108169900">Call 021 081 699 00</a>
-    <a class="job-note" href="#contact">Send a job note</a>
-    <nav class="rail" aria-label="Drain Saves">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </section>
 
   <section class="shaft" id="services" data-span>
@@ -79,7 +81,9 @@ $page_scripts = '<script src="site.js" defer></script>';
   </section>
 
   <section class="banner" data-drift>
-    <div class="banner-photo" style="background-image:url('assets/prevention.jpg')"></div>
+    <figure class="banner-frame">
+      <img src="assets/prevention.jpg" width="1600" height="1876" alt="A backflow valve and pipes set into a concrete chamber" data-parallax="0.02">
+    </figure>
     <h2>Reliable back flow prevention solutions</h2>
   </section>
 
@@ -92,23 +96,25 @@ $page_scripts = '<script src="site.js" defer></script>';
       <p data-reveal>Our commitment to quality, reliability, and customer satisfaction sets us apart as a trusted name in the industry. Trust Drain Saves for all your drainage and flood mitigation needs, and experience the difference of working with a reliable, experienced team.</p>
     </div>
     <figure class="about-figure" data-drift>
-      <img src="assets/land.jpg" width="1200" height="800" alt="A channel drain being set into paving">
+      <img src="assets/land.jpg" width="612" height="408" alt="A channel drain being set into paving">
     </figure>
   </section>
 
   <section class="gallery" id="gallery">
     <p class="eye">Gallery</p>
     <figure data-reveal>
-      <img src="assets/repair.jpg" alt="Drainage repair">
+      <img src="assets/site-work.jpg" width="612" height="408" alt="Drainage work on site">
     </figure>
     <figure class="shift" data-reveal>
-      <img src="assets/site-work.jpg" alt="Drainage work on site">
+      <img src="assets/repair.jpg" width="327" height="438" alt="Drainage repair">
     </figure>
   </section>
 
-  <section class="banner banner-standards" data-drift>
-    <div class="banner-photo" style="background-image:url('assets/standards.jpg')"></div>
+  <section class="banner banner-flip" data-drift>
     <h2>Highest<br>Standards</h2>
+    <figure class="banner-frame">
+      <img src="assets/standards.jpg" width="1600" height="1068" alt="A worker cutting a drain pipe in a trench" data-parallax="-0.02">
+    </figure>
   </section>
 
   <section class="reviews" id="reviews">
