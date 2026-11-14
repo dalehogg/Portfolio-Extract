@@ -50,26 +50,26 @@
         }
       });
     }
-    gsap.utils.toArray(".price-card, .work-card").forEach(function (el) {
-      gsap.from(el, {
-        y: 24,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        immediateRender: false,
-        scrollTrigger: { trigger: el, start: "top 90%", once: true }
+    gsap.utils.toArray(".price-card, .frame").forEach(function (el) {
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 90%",
+        once: true,
+        onEnter: function () {
+          gsap.fromTo(el, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", overwrite: "auto" });
+        }
       });
     });
   }
 
   gsap.utils.toArray("[data-gsap]").forEach(function (el) {
-    gsap.from(el, {
-      y: 22,
-      opacity: 0,
-      duration: 0.65,
-      ease: "power2.out",
-      immediateRender: false,
-      scrollTrigger: { trigger: el, start: "top 88%", once: true }
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 88%",
+      once: true,
+      onEnter: function () {
+        gsap.fromTo(el, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, ease: "power2.out", overwrite: "auto" });
+      }
     });
   });
 })();

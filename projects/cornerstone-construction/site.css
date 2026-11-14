@@ -164,7 +164,7 @@ figcaption {
 .cc-shots figcaption { color: var(--gold); }
 .cc-reviews { background: rgba(42, 42, 42, 0.9); border-bottom: 1px solid #3a3a3a; padding: 7.5rem 0; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18); }
 .cc-about, .cc-contact { padding: 1rem 0; }
-html.can-reveal .cc [data-reveal]:not(.is-in) { opacity: 0; transform: translateY(22px); }
+html.js .cc [data-reveal].will-animate:not(.is-in) { opacity: 0; transform: translateY(22px); }
 html.can-reveal .cc [data-reveal].is-in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 .cc-reviews blockquote { margin: 0; padding: 1.7rem 0; border-top: 1px solid #3a3a3a; }
 .cc-reviews blockquote p { margin: 0; font-size: 1.25rem; line-height: 1.7; max-width: 62ch; color: var(--text); }

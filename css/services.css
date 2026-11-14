@@ -542,21 +542,19 @@ body.backNight #services, body.backNight #pricing, body.backNight #work, body.ba
   opacity: 0;
   pointer-events: none;
 }
-html.can-reveal [data-reveal]:not(.is-in) {
+html.js [data-reveal].will-animate:not(.is-in),
+html.js .band[data-reveal].will-animate:not(.is-in) .wrap {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-html.can-reveal [data-reveal].is-in { opacity: 1; transform: none; }
-html.can-reveal .band[data-reveal] { opacity: 1; transform: none; }
-html.can-reveal .band[data-reveal]:not(.is-in) .wrap {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+html.js [data-reveal].is-in,
+html.js .band[data-reveal].is-in .wrap { opacity: 1; transform: none; }
+@media print {
+  [data-reveal], [data-gsap], .will-animate, .wrap { opacity: 1 !important; transform: none !important; }
 }
-html.can-reveal .band[data-reveal].is-in .wrap { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-reveal], [data-gsap], .will-animate, .wrap { opacity: 1 !important; transform: none !important; }
 }
 
 .thanks-page {

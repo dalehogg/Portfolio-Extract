@@ -76,7 +76,7 @@
   .us-window { height: 58vw; min-height: 240px; border-radius: 18px; }
   .us-controls button { padding: 0.7rem 0.9rem; }
 }
-html.can-reveal .us [data-reveal]:not(.is-in) { opacity: 0; transform: translateY(18px); }
+html.js .us [data-reveal].will-animate:not(.is-in) { opacity: 0; transform: translateY(18px); }
 html.can-reveal .us [data-reveal].is-in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 @media (max-width: 800px) {
   .us main { padding: 4.5rem 1.1rem 4rem; }

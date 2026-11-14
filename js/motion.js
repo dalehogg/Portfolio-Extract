@@ -64,7 +64,14 @@
 
     var reveals = document.querySelectorAll("[data-reveal]");
     function showReveals(list) {
-      list.forEach(function (el) { el.classList.add("is-in"); });
+      list.forEach(function (el) {
+        el.classList.add("is-in");
+        el.classList.remove("will-animate");
+      });
+    }
+    function inView(el) {
+      var rect = el.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight;
     }
     try {
       if (reduce || !("IntersectionObserver" in window)) {
@@ -74,18 +81,30 @@
           entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
             entry.target.classList.add("is-in");
+            entry.target.classList.remove("will-animate");
             observer.unobserve(entry.target);
           });
-        }, { threshold: 0, rootMargin: "0px 0px 8% 0px" });
-        reveals.forEach(function (el) { observer.observe(el); });
+        }, { threshold: 0, rootMargin: "0px 0px 12% 0px" });
+        reveals.forEach(function (el) {
+          if (inView(el)) {
+            el.classList.add("is-in");
+          } else {
+            el.classList.add("will-animate");
+            observer.observe(el);
+          }
+        });
         document.documentElement.classList.add("can-reveal");
-        window.setTimeout(function () {
+        var catchUp = function () {
           reveals.forEach(function (el) {
-            if (el.classList.contains("is-in")) return;
-            var rect = el.getBoundingClientRect();
-            if (rect.bottom > 0 && rect.top < window.innerHeight) el.classList.add("is-in");
+            if (!el.classList.contains("is-in") && inView(el)) {
+              el.classList.add("is-in");
+              el.classList.remove("will-animate");
+            }
           });
-        }, 400);
+        };
+        window.addEventListener("scroll", catchUp, { passive: true });
+        window.addEventListener("resize", catchUp);
+        window.setTimeout(catchUp, 250);
       }
     } catch (err) {
       document.documentElement.classList.remove("can-reveal");
