@@ -1,0 +1,88 @@
+{
+  "_readme": "Edit this file, then run bash build.sh. baseUrl is the live site origin used for canonical links, Open Graph, the sitemap, and robots.txt. Confirm it matches the InfinityFree domain before launch. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Confirm the NZD starting prices, and whether GST should be shown, before publishing. Availability is the badge in the hero.",
+  "businessName": "Soffit",
+  "founderName": "Dale Hogg",
+  "baseUrl": "https://dalehogg.infinityfreeapp.com",
+  "email": "dhdaleleon@gmail.com",
+  "showTestimonials": false,
+  "availability": "Taking new projects",
+  "pricing": [
+    {
+      "id": "starter",
+      "kicker": "Landing page",
+      "name": "Starter",
+      "fromNzd": 1500,
+      "period": "project",
+      "note": "One page for one offer.",
+      "summary": "A single page with a clear next step.",
+      "includes": [
+        "Designed and built",
+        "Works on phones",
+        "One review round"
+      ],
+      "projectType": "Landing page"
+    },
+    {
+      "id": "business",
+      "kicker": "Business site",
+      "name": "Business",
+      "fromNzd": 3500,
+      "period": "project",
+      "note": "Several pages, one business.",
+      "summary": "Services, about, and a way to enquire.",
+      "includes": [
+        "Pages agreed first",
+        "Custom design and build",
+        "Walkthrough at launch"
+      ],
+      "projectType": "Business site"
+    },
+    {
+      "id": "custom",
+      "kicker": "Web app",
+      "name": "Custom",
+      "fromNzd": 8500,
+      "period": "project",
+      "note": "Where a custom build starts.",
+      "summary": "A tool or a larger site, quoted after a scope.",
+      "includes": [
+        "Written scope first",
+        "Fixed quote for that scope",
+        "Files handed over"
+      ],
+      "projectType": "Custom build"
+    },
+    {
+      "id": "care",
+      "kicker": "After launch",
+      "name": "Care",
+      "fromNzd": 150,
+      "period": "month",
+      "note": "Month to month.",
+      "summary": "Small updates after launch.",
+      "includes": [
+        "Text and image edits",
+        "Fixes if my work breaks",
+        "Stop when you want"
+      ],
+      "projectType": "Care plan"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    },
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    },
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    }
+  ]
+}

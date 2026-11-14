@@ -1,24 +1,45 @@
+# InfinityFree (Apache or LiteSpeed, PHP 8). Upload the contents of dist/ into htdocs.
+# Plain http returned HTTP 500 when the redirect tested X-Forwarded-Proto.
+# Use only the HTTPS variable. InfinityFree sets it for https requests.
+
+DirectoryIndex index.php index.html
+ErrorDocument 404 /404.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect plain http to https. Do not test X-Forwarded-Proto.
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Old HTML addresses.
+  RewriteRule ^index\.html$ / [R=301,L]
+  RewriteRule ^thanks\.html$ /thanks.php [R=301,L]
+  RewriteRule ^404\.html$ /404.php [R=301,L]
+  RewriteRule ^projects/([^/]+)/index\.html$ /projects/$1/ [R=301,L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml application/xml
+</IfModule>
+
 <IfModule mod_expires.c>
   ExpiresActive On
-
-  # Images
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType image/x-icon "access plus 1 year"
-
-  # Video
-  ExpiresByType video/mp4 "access plus 1 year"
-  ExpiresByType video/mpeg "access plus 1 year"
-
-  # CSS, JavaScript
+  ExpiresByType text/html "access plus 10 minutes"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType text/javascript "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
 
-  # Others
-  ExpiresByType application/pdf "access plus 1 month"
-  ExpiresByType application/x-shockwave-flash "access plus 1 month"
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|avif|svg|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
 </IfModule>
