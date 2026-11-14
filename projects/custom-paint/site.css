@@ -15,7 +15,7 @@ body.cp .sticky-quote { display: none; }
   padding: 7.5rem 6vw 6rem;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
+  gap: 5rem;
   align-items: center;
   background:
     radial-gradient(circle at 12% 20%, rgba(8, 124, 187, 0.18), transparent 28%),
@@ -32,7 +32,8 @@ body.cp .sticky-quote { display: none; }
   line-height: 0.95;
   color: var(--cp-ink);
 }
-.cp-hero p { max-width: 34rem; line-height: 1.5; color: #3d5166; }
+.cp-hero p { max-width: 62ch; line-height: 1.7; margin: 0 0 1.75rem; color: #3d5166; }
+.cp-hero h1 { margin-bottom: 1.5rem; }
 .cp-hero .kicker { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78rem; color: var(--cp-blue); font-weight: 800; }
 .cp-hero .button, #open-studio {
   display: inline-block;
@@ -129,14 +130,14 @@ button.primary, #header .primary {
 .cp-points {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2.75rem;
   width: min(1080px, calc(100% - 3rem));
   margin: 0 auto;
   padding: 0 0 7.5rem;
 }
-.cp-points article { border-top: 3px solid var(--cp-blue); padding-top: 1rem; }
-.cp-points h2 { margin: 0 0 0.4rem; font-size: 1.6rem; }
-.cp-points p { margin: 0; max-width: 36ch; color: #3d5166; }
+.cp-points article { border-top: 3px solid var(--cp-blue); padding-top: 1.5rem; }
+.cp-points h2 { margin: 0 0 1rem; font-size: 1.6rem; }
+.cp-points p { margin: 0; max-width: 36ch; line-height: 1.7; color: #3d5166; }
 .studio-back { margin: 0 0 0.4rem; }
 .studio-back a { color: var(--cp-blue); font-weight: 800; text-decoration: none; }
 body.cp input::placeholder, body.cp textarea::placeholder { color: rgba(255, 255, 255, 0.82); opacity: 1; }
