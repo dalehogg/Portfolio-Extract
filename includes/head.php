@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/site.php';
 $config_path = dirname(__DIR__) . '/site.config.json';
 $site = json_decode((string) @file_get_contents($config_path), true);
 if (!is_array($site)) {
@@ -71,18 +72,18 @@ if ($page_path === '/') {
   <link rel="icon" href="/Img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/Img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/Img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/css/box.css">
+  <link rel="stylesheet" href="<?php echo $h(site_asset('/css/box.css')); ?>">
 <?php
 // $chrome = 'minimal' loads css/chrome.css only (pill + footer). Set $site_styles = true to also load the main fonts and tokens. Pages override --chrome-fg and --chrome-bg.
 $chrome_mode = isset($chrome) ? (string) $chrome : 'full';
 if ($chrome_mode === 'minimal' && empty($site_styles)) {
-    echo "  <link rel=\"stylesheet\" href=\"/css/chrome.css\">\n";
+    echo '  <link rel="stylesheet" href="' . $h(site_asset('/css/chrome.css')) . "\">\n";
 } else {
     echo "  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n";
     echo "  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n";
     echo "  <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,620&family=IBM+Plex+Mono:wght@400;500&display=swap\">\n";
-    echo "  <link rel=\"stylesheet\" href=\"/css/tokens.css\">\n";
-    echo "  <link rel=\"stylesheet\" href=\"/css/services.css\">\n";
+    echo '  <link rel="stylesheet" href="' . $h(site_asset('/css/tokens.css')) . "\">\n";
+    echo '  <link rel="stylesheet" href="' . $h(site_asset('/css/services.css')) . "\">\n";
 }
 ?>
 <?php
@@ -90,7 +91,7 @@ if ($json !== null) {
     echo '  <script type="application/ld+json">' . json_encode($json, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "</script>\n";
 }
 if (!empty($extra_head)) {
-    echo $extra_head;
+    echo site_version_markup((string) $extra_head);
 }
 ?>
 </head>

@@ -30,6 +30,48 @@ function site_name(): string
     return (string) (site_config()['businessName'] ?? 'Soffit');
 }
 
+function site_asset_version(): string
+{
+    $version = trim((string) (site_config()['assetVersion'] ?? ''));
+    return $version !== '' ? $version : '1';
+}
+
+function site_asset(string $url): string
+{
+    if ($url === '' || preg_match('#^(https?:)?//#i', $url) === 1 || str_starts_with($url, 'data:')) {
+        return $url;
+    }
+    $fragment = '';
+    $hash = strpos($url, '#');
+    if ($hash !== false) {
+        $fragment = substr($url, $hash);
+        $url = substr($url, 0, $hash);
+    }
+    $url = preg_replace('/([?&])v=[^&]*/', '$1', $url) ?? $url;
+    $url = rtrim($url, '?&');
+    $join = str_contains($url, '?') ? '&' : '?';
+    return $url . $join . 'v=' . rawurlencode(site_asset_version()) . $fragment;
+}
+
+function site_version_markup(string $html): string
+{
+    $versioned = preg_replace_callback(
+        '#\b(href|src)=([\'"])([^\'"]+)\\2#i',
+        static function (array $match): string {
+            $url = $match[3];
+            if (preg_match('#\.(?:css|js)(?:$|\?)#i', $url) !== 1) {
+                return $match[0];
+            }
+            if (preg_match('#^(https?:)?//#i', $url) === 1) {
+                return $match[0];
+            }
+            return $match[1] . '=' . $match[2] . htmlspecialchars(site_asset($url), ENT_QUOTES, 'UTF-8') . $match[2];
+        },
+        $html
+    );
+    return is_string($versioned) ? $versioned : $html;
+}
+
 function site_canonical(string $path): string
 {
     if ($path === '' || $path === '/') {

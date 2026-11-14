@@ -63,7 +63,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 .ls3d-pad button{width:46px;height:46px;padding:0;font-weight:700}
 .ls3d-pad button:empty{visibility:hidden}
 </style>
-<link rel="stylesheet" href="/projects/custom-paint/site.css">
+<link rel="stylesheet" href="<?php echo site_h(site_asset('/projects/custom-paint/site.css')); ?>">
 <div id="studio" class="is-open">
 <iframe id="jobBridgeFrame" src="https://jobpackmaker.gt.tc/job_bridge.php" style="display:none;" aria-hidden="true"></iframe>
     

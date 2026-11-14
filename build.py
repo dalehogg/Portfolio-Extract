@@ -7,6 +7,7 @@ import html
 import json
 import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -163,8 +164,19 @@ def main() -> None:
     copy_tree(ROOT / "js" / "rise.js", DIST / "js" / "rise.js")
     copy_tree(ROOT / "js" / "motion.js", DIST / "js" / "motion.js")
     copy_tree(ROOT / "js" / "sky.js", DIST / "js" / "sky.js")
+    copy_tree(ROOT / "js" / "gsap-scroll.js", DIST / "js" / "gsap-scroll.js")
     for name in ("index.php", "thanks.php", "404.php", "site.config.json", ".htaccess"):
         copy_tree(ROOT / name, DIST / name)
+    try:
+        revision = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+    except (OSError, subprocess.CalledProcessError):
+        revision = str(config.get("assetVersion") or "1")
+    config["assetVersion"] = revision or "1"
+    (DIST / "site.config.json").write_text(json.dumps(config, indent=2) + "\n", encoding="utf-8")
     photos = ROOT / "Links" / "Slider" / "Photos"
     if photos.is_dir():
         copy_tree(photos, DIST / "Links" / "Slider" / "Photos")
