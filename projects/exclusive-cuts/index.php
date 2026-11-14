@@ -20,21 +20,25 @@ $page_scripts = '<script src="site.js" defer></script>';
 <a class="call-pill" href="tel:0224309918">Call 022 430 9918</a>
 <main class="ec">
   <section class="board" id="home" data-drift>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="grain grain-alt" aria-hidden="true"></div>
-    <p class="eye">North Shore</p>
-    <h1>
-      <span class="line">Exclusive</span>
-      <span class="line cut">Cuts</span>
-    </h1>
-    <div class="shear" aria-hidden="true"></div>
-    <nav class="rail" aria-label="Exclusive Cuts">
-      <a href="#home">Home</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#services">Services</a>
-      <a href="#hours">Hours</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="board-copy">
+      <p class="eye">North Shore</p>
+      <h1>
+        <span class="line">Exclusive</span>
+        <span class="line cut">Cuts</span>
+      </h1>
+      <div class="shear" aria-hidden="true"></div>
+      <nav class="rail" aria-label="Exclusive Cuts">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <figure class="board-frame">
+      <img class="grain" src="assets/hero.jpg" width="1440" height="1246" alt="Dark timber wall" data-parallax="0.02">
+      <img class="grain-alt" src="assets/hero-alt.jpg" width="1400" height="574" alt="" data-parallax="-0.015">
+    </figure>
   </section>
 
   <section class="gallery" id="gallery">
@@ -42,55 +46,65 @@ $page_scripts = '<script src="site.js" defer></script>';
       <h2>Gallery</h2>
       <button type="button" id="view-more">View more</button>
     </div>
-    <figure data-drift><img src="assets/cut-fade.jpeg" alt="A razor fade at Exclusive Cuts"></figure>
-    <figure data-drift><img src="assets/cut-tattoo.jpeg" alt="A haircut in black and white"></figure>
-    <figure data-drift><img src="assets/cut-chair.jpeg" alt="A cut in the chair"></figure>
-    <figure data-drift><img src="assets/cut-kid.jpeg" alt="A child's haircut"></figure>
+    <div class="gallery-board">
+      <figure class="tall" data-reveal><img src="assets/cut-fade.jpeg" width="960" height="960" alt="A razor fade at Exclusive Cuts"></figure>
+      <figure data-reveal><img src="assets/cut-tattoo.jpeg" width="768" height="960" alt="A haircut in black and white"></figure>
+      <figure class="offset" data-reveal><img src="assets/cut-chair.jpeg" width="768" height="960" alt="A cut in the chair"></figure>
+      <figure data-reveal><img src="assets/cut-kid.jpeg" width="778" height="960" alt="A child's haircut"></figure>
+    </div>
   </section>
 
   <dialog id="more-cuts" aria-label="More of the gallery">
     <form method="dialog"><button class="close" value="close">Close</button></form>
     <div class="more-grid">
-      <img src="assets/cut-fade.jpeg" alt="A razor fade at Exclusive Cuts">
-      <img src="assets/cut-tattoo.jpeg" alt="A haircut in black and white">
-      <img src="assets/cut-chair.jpeg" alt="A cut in the chair">
-      <img src="assets/cut-kid.jpeg" alt="A child's haircut">
-      <img src="assets/scissors.jpeg" alt="Scissors">
-      <img src="assets/clippers.jpeg" alt="Clippers">
+      <img src="assets/cut-fade.jpeg" width="960" height="960" alt="A razor fade at Exclusive Cuts">
+      <img src="assets/cut-tattoo.jpeg" width="768" height="960" alt="A haircut in black and white">
+      <img src="assets/cut-chair.jpeg" width="768" height="960" alt="A cut in the chair">
+      <img src="assets/cut-kid.jpeg" width="778" height="960" alt="A child's haircut">
+      <img src="assets/scissors.jpeg" width="960" height="640" alt="Scissors">
+      <img src="assets/clippers.jpeg" width="960" height="640" alt="Clippers">
     </div>
   </dialog>
 
   <section class="quality" data-drift>
-    <p class="eye">The chair</p>
-    <h2>Quality<br>cuts</h2>
-    <a class="phone" href="tel:0224309918">022 430 9918</a>
+    <div>
+      <p class="eye">The chair</p>
+      <h2>Quality<br>cuts</h2>
+      <a class="phone" href="tel:0224309918">022 430 9918</a>
+    </div>
     <div class="tools" aria-hidden="true">
-      <img src="assets/scissors.jpeg" alt="" data-parallax="-0.05">
-      <img src="assets/clippers.jpeg" alt="" data-parallax="0.04">
+      <figure>
+        <img src="assets/scissors.jpeg" width="960" height="640" alt="" data-parallax="0.02">
+      </figure>
+      <figure class="offset">
+        <img src="assets/clippers.jpeg" width="960" height="640" alt="" data-parallax="-0.02">
+      </figure>
     </div>
   </section>
 
-  <section class="services" id="services">
-    <p class="eye">We provide</p>
-    <ol>
-      <li data-reveal>Zero Fades</li>
-      <li data-reveal>Shavings</li>
-      <li data-reveal>Mohawks</li>
-      <li data-reveal>Razor Fades</li>
-      <li data-reveal>Style Cuts</li>
-      <li data-reveal>Standard Cuts</li>
-    </ol>
-  </section>
+  <div class="sheet">
+    <section class="services" id="services">
+      <p class="eye">We provide</p>
+      <ol>
+        <li data-reveal>Zero Fades</li>
+        <li data-reveal>Shavings</li>
+        <li data-reveal>Mohawks</li>
+        <li data-reveal>Razor Fades</li>
+        <li data-reveal>Style Cuts</li>
+        <li data-reveal>Standard Cuts</li>
+      </ol>
+    </section>
 
-  <section class="hours" id="hours">
-    <p class="eye">Hours</p>
-    <div class="when">
-      <p>Monday</p>
-      <p>Saturday</p>
-    </div>
-    <p class="clock">9:00 to 5:30</p>
-    <p class="walk">Walk-ins<br>welcome</p>
-  </section>
+    <section class="hours" id="hours">
+      <p class="eye">Hours</p>
+      <div class="when">
+        <p>Monday</p>
+        <p>Saturday</p>
+      </div>
+      <p class="clock">9:00 to 5:30</p>
+      <p class="walk">Walk-ins<br>welcome</p>
+    </section>
+  </div>
 
   <section class="contact" id="contact">
     <div>
