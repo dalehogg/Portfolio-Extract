@@ -4,7 +4,7 @@ $page_title = 'Soffit | Freelance web design and development in New Zealand';
 $page_description = 'Soffit is Dale Hogg\'s freelance web design and development practice in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before work starts.';
 $page_path = '/';
 $extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">' . "\n" . '<link rel="stylesheet" href="/css/home.css">';
-$page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>';
+$page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>' . "\n" . '<script src="/js/gsap-scroll.js" defer></script>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +19,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
     <canvas id="driftfield" data-parallax="0.24"></canvas>
     <canvas id="shooting" data-parallax="0.18"></canvas>
     <canvas id="planet" data-parallax="0.05"></canvas>
+    <canvas id="sky-lines" data-parallax="0.04"></canvas>
   </div>
   <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
@@ -106,81 +107,32 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
       <div class="wrap">
         <p class="kicker">Selected work</p>
         <h2>Projects.</h2>
-        <div class="work-grid">
-          <article class="work-card reveal">
-            <a class="work-media" href="/projects/drain-saves/">
-              <img src="/Img/work/drain-saves.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Drain Saves, overflow and flood prevention with the company mark">
-            </a>
-            <div class="work-body">
-              <p class="kicker">Client site</p>
-              <h3>Drain Saves</h3>
-              <ul class="tags"><li>Design</li><li>Development</li></ul>
-              <p>An Auckland drainage company needed the services — overflow, flood prevention, residential and commercial — and a way to ask for a quote.</p>
-              <a class="text-link" href="/projects/drain-saves/">View project</a>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <a class="work-media" href="/projects/cornerstone-construction/">
-              <img src="/Img/work/cornerstone.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold navigation bar">
-            </a>
-            <div class="work-body">
-              <p class="kicker">Client site</p>
-              <h3>Cornerstone Construction</h3>
-              <ul class="tags"><li>Design</li><li>Development</li></ul>
-              <p>A construction company site built around the work itself, with room for about, reviews, and contact.</p>
-              <a class="text-link" href="/projects/cornerstone-construction/">View project</a>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <a class="work-media" href="/projects/custom-paint/">
-              <img src="/Img/work/custom-paint.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Photo Markup Studio, a light page with a button to open the drawing tools">
-            </a>
-            <div class="work-body">
-              <p class="kicker">Web app</p>
-              <h3>Custom Paint</h3>
-              <ul class="tags"><li>Design</li><li>Development</li></ul>
-              <p>Photo Markup Studio: paste a photo, mark it up with boxes, arrows, and measurements, then copy or download it.</p>
-              <a class="text-link" href="/projects/custom-paint/">View project</a>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <a class="work-media" href="/projects/exclusive-cuts/">
-              <img src="/Img/work/exclusive-cuts.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Exclusive Cuts, the name in white and red beside a timber wall">
-            </a>
-            <div class="work-body">
-              <p class="kicker">Client site</p>
-              <h3>Exclusive Cuts</h3>
-              <ul class="tags"><li>Design</li><li>Development</li></ul>
-              <p>A barbershop site for services, a gallery, hours, and a way to get in touch. Walk-ins are welcome.</p>
-              <a class="text-link" href="/projects/exclusive-cuts/">View project</a>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <a class="work-media" href="/projects/moonlodge/">
-              <img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge, the name beside a west-coast beach and green hills">
-            </a>
-            <div class="work-body">
-              <p class="kicker">Client site</p>
-              <h3>Moonlodge</h3>
-              <ul class="tags"><li>Design</li><li>Development</li></ul>
-              <p>Accommodation and an art studio in Whaingaroa, with the coast, the mountain, and Bridal Veil Falls nearby.</p>
-              <a class="text-link" href="/projects/moonlodge/">View project</a>
-            </div>
-          </article>
-          <article class="work-card reveal">
-            <a class="work-media" href="/projects/unique-slider/">
-              <img src="/Img/work/unique-slider.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Unique Slider, a row of photographs on a light page">
-            </a>
-            <div class="work-body">
-              <p class="kicker">Study</p>
-              <h3>Unique Slider</h3>
-              <ul class="tags"><li>Development</li><li>Interaction</li></ul>
-              <p>A self-initiated study: move through a set of photographs on one page, without a cluttered gallery.</p>
-              <a class="text-link" href="/projects/unique-slider/">View project</a>
-            </div>
-          </article>
+        <div class="showcase">
+          <a class="frame" data-gsap href="/projects/drain-saves/">
+            <span class="frame-shot"><img src="/Img/work/drain-saves.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Drain Saves, overflow and flood prevention with the company mark"></span>
+            <span class="frame-meta"><strong>Drain Saves</strong><em>Overflow and flood prevention.</em><span>View project</span></span>
+          </a>
+          <a class="frame" data-gsap href="/projects/cornerstone-construction/">
+            <span class="frame-shot"><img src="/Img/work/cornerstone.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold call button"></span>
+            <span class="frame-meta"><strong>Cornerstone</strong><em>Fast work. Right attitude.</em><span>View project</span></span>
+          </a>
+          <a class="frame" data-gsap href="/projects/custom-paint/">
+            <span class="frame-shot"><img src="/Img/work/custom-paint.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Custom Paint landing page, with a button that opens the studio"></span>
+            <span class="frame-meta"><strong>Custom Paint</strong><em>Mark a photo, then send it.</em><span>View project</span></span>
+          </a>
+          <a class="frame" data-gsap href="/projects/exclusive-cuts/">
+            <span class="frame-shot"><img src="/Img/work/exclusive-cuts.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Exclusive Cuts, the name in white and red beside a timber wall"></span>
+            <span class="frame-meta"><strong>Exclusive Cuts</strong><em>A North Shore barbershop.</em><span>View project</span></span>
+          </a>
+          <a class="frame" data-gsap href="/projects/moonlodge/">
+            <span class="frame-shot"><img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge, the name beside a west-coast beach and green hills"></span>
+            <span class="frame-meta"><strong>Moonlodge</strong><em>Stay beside the west coast.</em><span>View project</span></span>
+          </a>
+          <a class="frame" data-gsap href="/projects/unique-slider/">
+            <span class="frame-shot"><img src="/Img/work/unique-slider.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Unique Slider, a row of photographs on a light page"></span>
+            <span class="frame-meta"><strong>Unique Slider</strong><em>Twenty-five frames, one strip.</em><span>View project</span></span>
+          </a>
         </div>
-        <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Start a project in this vein</a></p>
       </div>
     </section>
 

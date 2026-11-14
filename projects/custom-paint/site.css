@@ -12,7 +12,7 @@ body.cp .sticky-quote { display: none; }
 .cp-hero {
   min-height: 70vh;
   margin-top: 0;
-  padding: 5.5rem 6vw 3rem;
+  padding: 7.5rem 6vw 6rem;
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
@@ -126,11 +126,26 @@ button.primary, #header .primary {
 }
 .tool-grid button { border-radius: 12px !important; }
 #progressBar { background: var(--cp-blue) !important; }
+.cp-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: min(1080px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 0 0 7.5rem;
+}
+.cp-points article { border-top: 3px solid var(--cp-blue); padding-top: 1rem; }
+.cp-points h2 { margin: 0 0 0.4rem; font-size: 1.6rem; }
+.cp-points p { margin: 0; max-width: 36ch; color: #3d5166; }
+.studio-back { margin: 0 0 0.4rem; }
+.studio-back a { color: var(--cp-blue); font-weight: 800; text-decoration: none; }
+body.cp input::placeholder, body.cp textarea::placeholder { color: rgba(255, 255, 255, 0.82); opacity: 1; }
 .cp-end { padding: 6rem 6vw; background: #fff; color: var(--cp-ink); }
 .cp-end h2 { margin: 0 0 0.5rem; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.03em; }
 .cp-end .button { display: inline-block; margin-top: 0.8rem; background: var(--cp-blue); color: #fff; border-radius: 999px; padding: 0.7rem 1rem; text-decoration: none; font-weight: 800; }
 @media (max-width: 800px) {
-  .cp-hero { grid-template-columns: 1fr; min-height: 0; padding: 4.25rem 1rem 3.5rem; }
+  .cp-hero { grid-template-columns: 1fr; min-height: 0; padding: 4.5rem 1.1rem 3rem; }
+  .cp-points { grid-template-columns: 1fr; padding-bottom: 4.5rem; }
   .cp-end { padding: 4rem 1.1rem; }
   #studio { height: auto; min-height: 100dvh; grid-template-columns: 1fr; grid-template-rows: auto auto minmax(280px, 70vh) auto; border-radius: 0; }
   #side { max-height: 46vh; }

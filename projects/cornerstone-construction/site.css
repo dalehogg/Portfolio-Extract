@@ -4,12 +4,28 @@
   --panel: #2a2a2a;
   --paper: #f7f7f5;
   --text: #f4f4f2;
+  position: relative;
   margin: 0;
   background: var(--asphalt);
   color: var(--text);
   font-family: Archivo, "Arial Narrow", sans-serif;
   font-size: 1.05rem;
   line-height: 1.45;
+}
+.cc::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("/projects/cornerstone-construction/assets/background/underLayerBg.jpg") center/cover no-repeat;
+  opacity: 0.16;
+}
+.cc main { position: relative; z-index: 1; }
+.cc-bar, .cc-hero, .cc-about, .cc-marks, .cc-gallery, .cc-reviews, .cc-contact, .cc-copy {
+  width: min(1080px, calc(100% - 3rem));
+  margin-left: auto;
+  margin-right: auto;
 }
 .cc * { box-sizing: border-box; }
 .cc h1, .cc h2, .cc .cc-brand {
@@ -133,7 +149,7 @@ figcaption {
 .cc-about h2, .cc-reviews h2, .cc-contact h2 { margin: 0 0 0.8rem; font-size: clamp(2rem, 4vw, 3.2rem); }
 .cc-about p { margin: 0 0 0.9rem; max-width: 42rem; color: var(--text); }
 .cc-marks, .cc-gallery, .cc-about, .cc-reviews, .cc-contact, .cc-hero { padding-top: 0; }
-.cc-marks, .cc-gallery { padding: 6rem 1.4rem; border-bottom: 1px solid #3a3a3a; }
+.cc-marks, .cc-gallery { padding: 7.5rem 0; border-bottom: 1px solid #3a3a3a; background: rgba(27, 27, 27, 0.82); }
 .cc-marks ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; list-style: none; margin: 1.2rem 0 0; padding: 0; }
 .cc-marks li { border-top: 3px solid var(--gold); padding-top: 1rem; }
 .cc-marks strong, .cc-marks span { display: block; font-family: "Archivo Black", Impact, sans-serif; text-transform: uppercase; letter-spacing: -0.03em; }
@@ -145,7 +161,7 @@ figcaption {
 .cc-shots figure:first-child { grid-row: span 2; }
 .cc-shots img { width: 100%; height: auto; max-width: 100%; display: block; object-fit: cover; }
 .cc-shots figcaption { color: var(--gold); }
-.cc-reviews { background: var(--asphalt); border-bottom: 1px solid #3a3a3a; padding: 6rem 0; }
+.cc-reviews { background: rgba(42, 42, 42, 0.9); border-bottom: 1px solid #3a3a3a; padding: 7.5rem 0; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18); }
 .cc-about, .cc-contact { padding: 1rem 0; }
 html.can-reveal .cc [data-reveal]:not(.is-in) { opacity: 0; transform: translateY(22px); }
 html.can-reveal .cc [data-reveal].is-in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -202,7 +218,8 @@ html.can-reveal .cc [data-reveal].is-in { opacity: 1; transform: none; transitio
     min-height: 220px;
     object-fit: cover;
   }
-  .cc-marks, .cc-gallery, .cc-reviews { padding: 4rem 1.1rem; }
+  .cc-bar, .cc-hero, .cc-about, .cc-marks, .cc-gallery, .cc-reviews, .cc-contact, .cc-copy { width: min(1080px, calc(100% - 1.4rem)); }
+  .cc-marks, .cc-gallery, .cc-reviews { padding: 4.5rem 0; }
   .cc-marks ul, .cc-shots { grid-template-columns: 1fr; }
   .cc-shots figure:first-child { grid-row: auto; }
   .cc-shots img { max-height: 280px; object-fit: cover; }

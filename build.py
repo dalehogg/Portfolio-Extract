@@ -175,6 +175,7 @@ def main() -> None:
         "/projects/drain-saves/",
         "/projects/cornerstone-construction/",
         "/projects/custom-paint/",
+        "/projects/custom-paint/studio.php",
         "/projects/exclusive-cuts/",
         "/projects/moonlodge/",
         "/projects/moonlodge/accommodation.php",
@@ -214,10 +215,10 @@ def main() -> None:
                 )
 
     built = (DIST / "index.php").read_text(encoding="utf-8")
-    paint_path = DIST / "projects" / "custom-paint" / "index.php"
+    paint_path = DIST / "projects" / "custom-paint" / "studio.php"
     paint = paint_path.read_text(encoding="utf-8") if paint_path.is_file() else ""
     if not paint:
-        print("Warning: projects/custom-paint/index.php is missing; skipping its feature check.", file=sys.stderr)
+        print("Warning: projects/custom-paint/studio.php is missing; skipping its feature check.", file=sys.stderr)
     checks = [
         ("formsubmit.co/dhdaleleon@gmail.com" in built, "FormSubmit action missing"),
         ('name="_honey"' in built, "honeypot missing"),

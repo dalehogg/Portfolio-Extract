@@ -9,6 +9,9 @@ $extra_head = <<<'HTML'
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
 <link rel="stylesheet" href="/projects/unique-slider/site.css">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="/js/gsap-scroll.js" defer></script>
 <style>:root{--chrome-fg:#2a1248;--chrome-bg:#fff4fb}</style>
 HTML;
 $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>';
@@ -22,7 +25,7 @@ $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>
 <main>
   <section class="us-stage" id="slider" aria-roledescription="carousel" aria-label="Photographs">
     <p class="us-kicker">A study in looking</p>
-    <h1>Unique Slider</h1>
+    <h1 data-gsap>Unique Slider</h1>
     <div class="us-window">
       <ul id="slideList">
         <li>
@@ -67,7 +70,7 @@ $page_scripts = '<script src="/projects/unique-slider/slider.js" defer></script>
       <p id="slide-count">1 / 5</p>
       <button type="button" id="NextHidden">Next</button>
     </div>
-    <p class="us-note" data-reveal>Click a photograph to widen it. Click again to set it back. The strip also moves with these buttons, the arrow keys, and a ten-second advance. These are the same pictures as the original study.</p>
+    <p class="us-note" data-gsap>Click a photograph to widen it. Click again to set it back. The strip also moves with these buttons, the arrow keys, and a ten-second advance. These are the same pictures as the original study.</p>
   </section>
 </main>
 

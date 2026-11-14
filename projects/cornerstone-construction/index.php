@@ -10,6 +10,9 @@ $extra_head = <<<'HTML'
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/projects/cornerstone-construction/site.css">
 <style>:root{--chrome-fg:#1c1c1c;--chrome-bg:#d2b62a}</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="/js/gsap-scroll.js" defer></script>
 HTML;
 ?>
 <!DOCTYPE html>
@@ -60,9 +63,9 @@ HTML;
   <section class="cc-marks" aria-label="Fast work, right attitude, excellent results">
     <p class="cc-kicker">The standard</p>
     <ul>
-      <li data-reveal><strong>Fast</strong><span>Work</span></li>
-      <li data-reveal><strong>Right</strong><span>Attitude</span></li>
-      <li data-reveal><strong>Excellent</strong><span>Results</span></li>
+      <li data-gsap><strong>Fast</strong><span>Work</span></li>
+      <li data-gsap><strong>Right</strong><span>Attitude</span></li>
+      <li data-gsap><strong>Excellent</strong><span>Results</span></li>
     </ul>
   </section>
 
@@ -70,9 +73,9 @@ HTML;
     <p class="cc-kicker">On site</p>
     <h2>The plant and the ground.</h2>
     <div class="cc-shots">
-      <figure data-reveal><img src="/projects/cornerstone-construction/assets/landingPic.jpg" alt="Excavator with the Cornerstone Construction name on the boom" width="2048" height="1152"><figcaption>The machine</figcaption></figure>
-      <figure data-reveal><img src="/projects/cornerstone-construction/assets/aboutPic.jpg" alt="Cornerstone Construction machinery working the site" width="2048" height="1152"><figcaption>The cut</figcaption></figure>
-      <figure data-reveal><img src="/projects/cornerstone-construction/assets/background/underLayerBg.jpg" alt="Ground and site texture from the Cornerstone Construction site" width="1080" height="810"><figcaption>The ground</figcaption></figure>
+      <figure data-gsap><img src="/projects/cornerstone-construction/assets/stock/site.jpg" alt="A building frame on a construction site" width="1600" height="1067"><figcaption>The frame</figcaption></figure>
+      <figure data-gsap><img src="/projects/cornerstone-construction/assets/stock/crew.jpg" alt="Crew on a construction site" width="1600" height="1060"><figcaption>The crew</figcaption></figure>
+      <figure data-gsap><img src="/projects/cornerstone-construction/assets/stock/frame.jpg" alt="Architectural drawings on a desk" width="1600" height="900"><figcaption>The drawings</figcaption></figure>
     </div>
   </section>
 
