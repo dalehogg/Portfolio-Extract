@@ -22,9 +22,10 @@ HTML;
 <?php include __DIR__ . '/../../includes/head.php'; ?>
 <body class="ds">
 <?php include __DIR__ . '/../../includes/nav.php'; ?>
-<header class="ds-bar">
-  <a class="ds-brand" href="#home">Drain Saves</a>
-  <nav class="rail" aria-label="Drain Saves">
+<header class="ds-bar" data-menu>
+  <a class="ds-brand" href="#home"><img src="/projects/drain-saves/assets/logo.png" width="1000" height="1000" alt="Drain Saves"></a>
+  <button class="ds-menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="ds-nav">Menu</button>
+  <nav id="ds-nav" class="rail" data-menu-panel aria-label="Drain Saves">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#about">About</a>

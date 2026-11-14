@@ -43,17 +43,6 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
   </div>
 
   <main>
-    <section class="band" data-reveal aria-label="What you can expect">
-      <div class="wrap">
-        <ul class="promise-row">
-          <li><strong>Fixed quote</strong> Agreed scope, agreed price, before the build.</li>
-          <li><strong>Direct</strong> You email Dale. Dale replies.</li>
-          <li><strong>Phones first</strong> Laid out for a small screen, then scaled up.</li>
-          <li><strong>Yours</strong> After the final invoice, the site and the code are yours.</li>
-        </ul>
-      </div>
-    </section>
-
     <section class="band band-alt" id="services" data-reveal>
       <div class="wrap split-head">
         <div class="sticky-head">
@@ -183,7 +172,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
 
     <section class="band" id="about" data-reveal>
       <div class="wrap about-layout">
-        <div class="about-mark" data-parallax="0.06" aria-hidden="true"><span>DH</span></div>
+        <div class="about-mark" aria-hidden="true"><span>DH</span></div>
         <div>
           <p class="kicker">About</p>
           <h2>Dale Hogg.</h2>

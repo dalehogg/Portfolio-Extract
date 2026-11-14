@@ -24,9 +24,10 @@ HTML;
 <body class="ec">
 <?php include __DIR__ . '/../../includes/nav.php'; ?>
 <a class="call-pill" href="tel:0224309918">Call 022 430 9918</a>
-<header class="ec-nav">
+<header class="ec-nav" data-menu>
   <a class="brand" href="#home">Exclusive <span>Cuts</span></a>
-  <nav class="rail" aria-label="Exclusive Cuts">
+  <button class="ec-menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="ec-nav">Menu</button>
+  <nav id="ec-nav" class="rail" data-menu-panel aria-label="Exclusive Cuts">
     <a href="#home">Home</a>
     <a href="#gallery">Gallery</a>
     <a href="#services">Services</a>

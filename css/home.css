@@ -91,20 +91,48 @@ body.backNight .timeline {
 body.backNight .timeline::before { content: none; }
 body.backNight .timeline .step { padding: 2.1rem 0 2.3rem; border-bottom: 1px solid rgba(244, 240, 230, 0.14); }
 body.backNight .step span { color: var(--amber); background: var(--ink-2); padding-right: 0.4rem; position: relative; }
-body.backNight .about-layout { grid-template-columns: 0.8fr 1.2fr; gap: 5.5rem; align-items: center; }
+body.backNight #about,
+body.backNight #about > .wrap { overflow: visible; }
+body.backNight .about-layout {
+  grid-template-columns: minmax(9.5rem, 16rem) minmax(0, 1fr);
+  gap: 2rem 3.5rem;
+  align-items: center;
+}
 body.backNight .about-mark {
-  min-height: 280px;
+  width: min(100%, 16rem);
+  aspect-ratio: 1;
+  min-height: 0;
   display: grid;
   place-items: center;
+  overflow: visible;
   border: 1px solid var(--amber);
   background:
     linear-gradient(160deg, rgba(226, 163, 34, 0.2), transparent 55%),
     var(--ink-2);
 }
 body.backNight .about-mark span {
+  display: block;
   font-family: var(--font-display);
-  font-size: clamp(4rem, 8vw, 7rem);
+  font-size: clamp(4.4rem, 12vw, 7rem);
+  line-height: 0.85;
   letter-spacing: -0.05em;
+  color: var(--text);
+}
+body.backNight .price-card a.button.button-primary {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  padding: 0.9rem 1.45rem;
+  margin-top: 0.35rem;
+  background: var(--amber);
+  color: var(--amber-ink);
+  border: 3px solid var(--amber);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
 }
 body.backNight .faq details { padding: 0.4rem 0; }
 body.backNight .price-grid { display: block; }

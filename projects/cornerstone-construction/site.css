@@ -51,16 +51,50 @@ figcaption {
   color: var(--gold);
 }
 .cc-bar {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 0.8rem 1.5rem;
   width: 100%;
   padding: 4.4rem 3vw 1rem;
-  background: rgba(27, 27, 27, 0.94);
+  background: rgba(27, 27, 27, 0.96);
   border-bottom: 1px solid #3a3a3a;
 }
-.cc-brand { margin: 0; font-size: clamp(1.4rem, 2vw, 2rem); }
+.cc-menu { display: none; }
+@media (max-width: 1024px) {
+  .cc-menu {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.4rem 0.75rem;
+    background: transparent;
+    color: var(--gold);
+    border: 3px solid var(--gold);
+    font-family: "Archivo Black", Impact, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+  .cc-bar nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 6;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.2rem 1.1rem 0.8rem;
+    background: #1b1b1b;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  .cc-bar.is-open nav { display: flex; }
+  .cc-bar nav a { min-height: 44px; display: flex; align-items: center; }
+}
+.cc-brand { margin: 0 auto 0 0; font-size: clamp(1.4rem, 2vw, 2rem); }
 .cc-brand span {
   display: block;
   margin-top: 0.3rem;
@@ -69,7 +103,9 @@ figcaption {
   letter-spacing: 0.18em;
   color: var(--gold);
 }
-.cc-bar nav { display: flex; gap: 1.6rem; }
+@media (min-width: 1025px) {
+  .cc-bar nav { display: flex; gap: 1.6rem; }
+}
 .cc-bar a {
   color: var(--text);
   text-decoration: none;
@@ -336,8 +372,7 @@ figcaption {
   .cc-marks strong { font-size: clamp(2.6rem, 6vw, 4.4rem); }
 }
 @media (max-width: 800px) {
-  .cc-bar { grid-template-columns: 1fr auto; padding: 4.2rem 1.1rem 0.9rem; }
-  .cc-bar nav { display: none; }
+  .cc-bar { padding: 4.2rem 1.1rem 0.9rem; }
   .cc-hero { min-height: 88vh; }
   .cc-hero h1 { font-size: clamp(2.7rem, 12vw, 3.8rem); }
   .cc-hero-spec { padding: 5rem 1.1rem 1.6rem; }

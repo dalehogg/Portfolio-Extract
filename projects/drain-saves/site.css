@@ -12,6 +12,7 @@ body.ds {
   --nav: 4.4rem;
   --cut: clamp(56px, 11vw, 170px);
   margin: 0;
+  overflow-x: clip;
   background: var(--navy);
   color: var(--ink);
   font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
@@ -48,13 +49,45 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   border-bottom: 1px solid var(--line);
 }
 .ds-brand {
-  font-weight: 700;
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: inline-flex;
   text-decoration: none;
 }
-.rail { display: flex; flex-wrap: wrap; gap: 0.2rem 1.15rem; }
+.ds-brand img { width: 76px; height: 76px; object-fit: contain; }
+.ds-menu { display: none; }
+@media (max-width: 1024px) {
+  .ds-menu {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-left: auto;
+    padding: 0.35rem 0.75rem;
+    background: transparent;
+    color: var(--ring);
+    border: 2px solid var(--ring);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    cursor: pointer;
+  }
+  .ds-bar .rail {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 6;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.2rem 1.1rem 0.7rem;
+    background: rgba(2, 2, 51, 0.98);
+    border-bottom: 1px solid var(--line);
+  }
+  .ds-bar.is-open .rail { display: flex; }
+}
+@media (min-width: 1025px) {
+  .rail { display: flex; flex-wrap: wrap; gap: 0.2rem 1.15rem; }
+}
 .rail a {
   color: var(--ring);
   text-decoration: none;

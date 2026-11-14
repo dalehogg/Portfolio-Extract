@@ -71,8 +71,41 @@ body.ec .soffit-foot { padding-bottom: 5rem; }
   background: rgba(12, 10, 8, 0.92);
   color: #f6f1e8;
 }
-.brand { font-size: clamp(1.2rem, 2vw, 1.7rem); text-decoration: none; text-transform: uppercase; color: #f6f1e8; }
-.rail { display: flex; flex-wrap: wrap; gap: 0.15rem 1.15rem; }
+.brand { font-size: clamp(1.2rem, 2vw, 1.7rem); text-decoration: none; text-transform: uppercase; color: #f6f1e8; margin-right: auto; }
+.ec-menu { display: none; }
+@media (max-width: 1024px) {
+  .ec-menu {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.3rem 0.75rem;
+    background: transparent;
+    color: #f6f1e8;
+    border: 2px solid var(--red);
+    font-family: Anton, "Arial Black", sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .ec-nav .rail {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 6;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.2rem 1.1rem 0.7rem;
+    background: rgba(12, 10, 8, 0.98);
+    border-bottom: 1px solid rgba(225, 6, 0, 0.45);
+  }
+  .ec-nav.is-open .rail { display: flex; }
+}
+@media (min-width: 1025px) {
+  .rail { display: flex; flex-wrap: wrap; gap: 0.15rem 1.15rem; }
+}
 .rail a {
   text-decoration: none;
   text-transform: uppercase;

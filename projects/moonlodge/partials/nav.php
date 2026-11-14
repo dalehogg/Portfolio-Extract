@@ -9,7 +9,7 @@ $ml_links = [
     'contact' => ['Contact', '/projects/moonlodge/contact.php'],
 ];
 $ml_current = $ml_page ?? '';
-echo '<nav class="rail" aria-label="Moonlodge">';
+echo '<nav id="ml-nav" class="rail" data-menu-panel aria-label="Moonlodge">';
 foreach ($ml_links as $id => $item) {
     $current = $ml_current === $id ? ' aria-current="page"' : '';
     echo '<a href="' . $item[1] . '"' . $current . '>' . $item[0] . '</a>';

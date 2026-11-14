@@ -22,9 +22,10 @@ HTML;
 <?php require __DIR__ . '/../../includes/nav.php'; ?>
 
 <main>
-  <header class="cc-bar">
+  <header class="cc-bar" data-menu>
     <p class="cc-brand">Cornerstone<span>Construction</span></p>
-    <nav aria-label="On this page">
+    <button class="cc-menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="cc-nav">Menu</button>
+    <nav id="cc-nav" data-menu-panel aria-label="On this page">
       <a href="#about">About</a>
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
