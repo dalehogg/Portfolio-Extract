@@ -147,6 +147,7 @@
       scrollFrame = window.requestAnimationFrame(function () {
         scrollFrame = 0;
         var vh = window.innerHeight || 1;
+        if (document.body.classList.contains("backNight")) return;
         bands.forEach(function (band) {
           var top = band.getBoundingClientRect().top;
           band.style.setProperty("--shift", ((top / vh) * -72).toFixed(1) + "px");

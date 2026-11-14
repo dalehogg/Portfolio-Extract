@@ -13,13 +13,13 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
 <?php require __DIR__ . '/includes/nav.php'; ?>
 
   <div id="nightSky" aria-hidden="true">
-    <canvas id="stillfield" data-parallax="0.035"></canvas>
-    <canvas id="starfield" data-parallax="0.08"></canvas>
-    <canvas id="twinklefield" data-parallax="0.15"></canvas>
-    <canvas id="driftfield" data-parallax="0.24"></canvas>
-    <canvas id="shooting" data-parallax="0.18"></canvas>
-    <canvas id="planet" data-parallax="0.05"></canvas>
-    <canvas id="sky-lines" data-parallax="0.04"></canvas>
+    <canvas id="stillfield" data-depth="16"></canvas>
+    <canvas id="starfield" data-depth="34"></canvas>
+    <canvas id="twinklefield" data-depth="52"></canvas>
+    <canvas id="driftfield" data-depth="78"></canvas>
+    <canvas id="shooting" data-depth="60"></canvas>
+    <canvas id="planet" data-depth="22"></canvas>
+    <canvas id="sky-lines"></canvas>
   </div>
   <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>

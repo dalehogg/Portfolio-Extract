@@ -38,7 +38,7 @@ HTML;
     </div>
     <div class="cc-hero-spec">
       <p>Site photograph</p>
-      <h1>Fast work. Right attitude. Excellent results.</h1>
+      <h1 data-split>Fast work. Right attitude. Excellent results.</h1>
       <div class="cc-actions">
         <a class="cc-call" href="tel:+6421998961">Call 021 998 961</a>
         <a class="cc-send" href="#contact">Send a job</a>
@@ -46,42 +46,48 @@ HTML;
     </div>
   </section>
 
-  <section class="cc-about" id="about">
-    <figure>
-      <img src="/projects/cornerstone-construction/assets/aboutPic.jpg" alt="Cornerstone Construction machinery on site">
-      <figcaption>Plant on site</figcaption>
-    </figure>
-    <div>
-      <p class="cc-kicker">What we do</p>
-      <h2>Above expectations.</h2>
-      <p>At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations.</p>
-      <p>At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations.</p>
-      <p>At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations.</p>
-    </div>
-  </section>
-
   <section class="cc-marks" aria-label="Fast work, right attitude, excellent results">
     <p class="cc-kicker">The standard</p>
     <ul>
-      <li data-gsap><strong>Fast</strong><span>Work</span></li>
-      <li data-gsap><strong>Right</strong><span>Attitude</span></li>
-      <li data-gsap><strong>Excellent</strong><span>Results</span></li>
+      <li><strong>Fast</strong><span>Work</span></li>
+      <li><strong>Right</strong><span>Attitude</span></li>
+      <li><strong>Excellent</strong><span>Results</span></li>
     </ul>
   </section>
 
-  <section class="cc-gallery" aria-label="Photographs from the site">
-    <p class="cc-kicker">On site</p>
-    <h2>The plant and the ground.</h2>
-    <div class="cc-shots">
-      <figure data-gsap><img src="/projects/cornerstone-construction/assets/stock/site.jpg" alt="A building frame on a construction site" width="1600" height="1067"><figcaption>The frame</figcaption></figure>
-      <figure data-gsap><img src="/projects/cornerstone-construction/assets/stock/crew.jpg" alt="Crew on a construction site" width="1600" height="1060"><figcaption>The crew</figcaption></figure>
-      <figure data-gsap><img src="/projects/cornerstone-construction/assets/stock/frame.jpg" alt="Architectural drawings on a desk" width="1600" height="900"><figcaption>The drawings</figcaption></figure>
+  <section class="cc-about" id="about">
+    <h2 class="cc-display" data-split>Above expectations.</h2>
+    <div class="cc-about-grid">
+      <figure data-clip>
+        <img src="/projects/cornerstone-construction/assets/aboutPic.jpg" alt="Cornerstone Construction machinery on site" width="1600" height="1067">
+        <figcaption>Plant on site</figcaption>
+      </figure>
+      <div>
+        <p class="cc-kicker">What we do</p>
+        <p>At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations.</p>
+        <p>At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations.</p>
+        <p>At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations. At Cornerstone Construction we are always ready to put a smile on every customers face as our work is completed above expectations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cc-pin" aria-label="Photographs from the site">
+    <div class="cc-pin-head">
+      <p class="cc-kicker">On site</p>
+      <h2 data-split>The plant and the ground.</h2>
+    </div>
+    <div class="cc-track">
+      <figure data-clip><img src="/projects/cornerstone-construction/assets/stock/site.jpg" alt="A building frame on a construction site" width="1600" height="1067"><figcaption>The frame</figcaption></figure>
+      <figure data-clip><img src="/projects/cornerstone-construction/assets/stock/crew.jpg" alt="Crew on a construction site" width="1600" height="1060"><figcaption>The crew</figcaption></figure>
+      <figure data-clip><img src="/projects/cornerstone-construction/assets/stock/frame.jpg" alt="Architectural drawings on a desk" width="1600" height="900"><figcaption>The drawings</figcaption></figure>
     </div>
   </section>
 
   <section class="cc-reviews" id="reviews">
-    <p class="cc-kicker">What others have to say</p>
-    <h2>Job notes.</h2>
+    <div class="cc-reviews-intro">
+      <p class="cc-kicker">What others have to say</p>
+      <h2 data-split>Job notes.</h2>
+    </div>
     <blockquote>
       <p>Work was completed ahead of time. Excellent results. I couldn't recommend a better guy to lay your foundation. I'll be recommeneding this company to many people.</p>
     </blockquote>
@@ -96,7 +102,7 @@ HTML;
   <section class="cc-contact" id="contact">
     <div>
       <p class="cc-kicker">Contact us</p>
-      <h2>Book the job.</h2>
+      <h2 data-split>Book the job.</h2>
       <a class="cc-phone" href="tel:+6421998961">021 998 961</a>
     </div>
     <form action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
