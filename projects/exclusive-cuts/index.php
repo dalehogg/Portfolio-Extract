@@ -7,10 +7,15 @@ $page_path = '/projects/exclusive-cuts/';
 $page_og_image = $origin . '/projects/exclusive-cuts/assets/cut-fade.jpeg';
 $chrome = 'minimal';
 $extra_head = <<<'HTML'
+  <link rel="preload" as="image" href="assets/wood.jpg">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600&display=swap">
   <link rel="stylesheet" href="site.css">
 HTML;
-$page_scripts = '<script src="site.js" defer></script>';
+$page_scripts = <<<'HTML'
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="site.js" defer></script>
+HTML;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,38 +24,32 @@ $page_scripts = '<script src="site.js" defer></script>';
 <?php include __DIR__ . '/../../includes/nav.php'; ?>
 <a class="call-pill" href="tel:0224309918">Call 022 430 9918</a>
 <main class="ec">
-  <section class="board" id="home" data-drift>
-    <div class="board-copy">
-      <p class="eye">North Shore</p>
-      <h1>
-        <span class="line">Exclusive</span>
-        <span class="line cut">Cuts</span>
-      </h1>
-      <div class="shear" aria-hidden="true"></div>
-      <nav class="rail" aria-label="Exclusive Cuts">
-        <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#services">Services</a>
-        <a href="#hours">Hours</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-    <figure class="board-frame">
-      <img class="grain" src="assets/hero.jpg" width="1440" height="1246" alt="Dark timber wall" data-parallax="0.02">
-      <img class="grain-alt" src="assets/hero-alt.jpg" width="1400" height="574" alt="" data-parallax="-0.015">
-    </figure>
+  <section class="board" id="home">
+    <p class="eye">North Shore</p>
+    <h1>
+      <span class="line">Exclusive</span>
+      <span class="line cut">Cuts</span>
+    </h1>
+    <div class="shear" aria-hidden="true"></div>
+    <nav class="rail" aria-label="Exclusive Cuts">
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#hours">Hours</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </section>
 
-  <section class="gallery" id="gallery">
+  <section class="panel" id="gallery">
     <div class="gallery-head">
       <h2>Gallery</h2>
       <button type="button" id="view-more">View more</button>
     </div>
     <div class="gallery-board">
-      <figure class="tall" data-reveal><img src="assets/cut-fade.jpeg" width="960" height="960" alt="A razor fade at Exclusive Cuts"></figure>
-      <figure data-reveal><img src="assets/cut-tattoo.jpeg" width="768" height="960" alt="A haircut in black and white"></figure>
-      <figure class="offset" data-reveal><img src="assets/cut-chair.jpeg" width="768" height="960" alt="A cut in the chair"></figure>
-      <figure data-reveal><img src="assets/cut-kid.jpeg" width="778" height="960" alt="A child's haircut"></figure>
+      <figure data-rise><img src="assets/cut-fade.jpeg" width="960" height="960" alt="A razor fade at Exclusive Cuts" data-pan></figure>
+      <figure data-rise><img src="assets/cut-tattoo.jpeg" width="768" height="960" alt="A haircut in black and white" data-pan></figure>
+      <figure data-rise><img src="assets/cut-chair.jpeg" width="768" height="960" alt="A cut in the chair" data-pan></figure>
+      <figure data-rise><img src="assets/cut-kid.jpeg" width="778" height="960" alt="A child's haircut" data-pan></figure>
     </div>
   </section>
 
@@ -66,47 +65,45 @@ $page_scripts = '<script src="site.js" defer></script>';
     </div>
   </dialog>
 
-  <section class="quality" data-drift>
+  <section class="panel cream quality" id="chair">
     <div>
       <p class="eye">The chair</p>
-      <h2>Quality<br>cuts</h2>
+      <h2>Quality<br><span class="accent">cuts</span></h2>
       <a class="phone" href="tel:0224309918">022 430 9918</a>
     </div>
-    <div class="tools" aria-hidden="true">
+    <div class="tools">
       <figure>
-        <img src="assets/scissors.jpeg" width="960" height="640" alt="" data-parallax="0.02">
+        <img src="assets/scissors.jpeg" width="960" height="640" alt="Scissors" data-pan>
       </figure>
-      <figure class="offset">
-        <img src="assets/clippers.jpeg" width="960" height="640" alt="" data-parallax="-0.02">
+      <figure>
+        <img src="assets/clippers.jpeg" width="960" height="640" alt="Clippers" data-pan>
       </figure>
     </div>
   </section>
 
-  <div class="sheet">
-    <section class="services" id="services">
-      <p class="eye">We provide</p>
-      <ol>
-        <li data-reveal>Zero Fades</li>
-        <li data-reveal>Shavings</li>
-        <li data-reveal>Mohawks</li>
-        <li data-reveal>Razor Fades</li>
-        <li data-reveal>Style Cuts</li>
-        <li data-reveal>Standard Cuts</li>
-      </ol>
-    </section>
+  <section class="panel services" id="services">
+    <p class="eye">We provide</p>
+    <ol>
+      <li data-rise>Zero Fades</li>
+      <li data-rise>Shavings</li>
+      <li data-rise>Mohawks</li>
+      <li data-rise>Razor Fades</li>
+      <li data-rise>Style Cuts</li>
+      <li data-rise>Standard Cuts</li>
+    </ol>
+  </section>
 
-    <section class="hours" id="hours">
-      <p class="eye">Hours</p>
-      <div class="when">
-        <p>Monday</p>
-        <p>Saturday</p>
-      </div>
-      <p class="clock">9:00 to 5:30</p>
-      <p class="walk">Walk-ins<br>welcome</p>
-    </section>
-  </div>
+  <section class="panel cream hours" id="hours">
+    <p class="eye">Hours</p>
+    <div class="when">
+      <p>Monday</p>
+      <p>Saturday</p>
+    </div>
+    <p class="clock">9:00 to 5:30</p>
+    <p class="walk">Walk-ins<br>welcome</p>
+  </section>
 
-  <section class="contact" id="contact">
+  <section class="panel contact" id="contact">
     <div>
       <p class="eye">Get in touch</p>
       <h2>Write, or call.</h2>
@@ -131,11 +128,6 @@ $page_scripts = '<script src="site.js" defer></script>';
   </section>
 
   <p class="colophon">Exclusive Cuts · Copyright 2021 · All Rights Reserved</p>
-
-  <section class="ask">
-    <p>Want something like this?</p>
-    <a href="/#contact">Get a quote</a>
-  </section>
 </main>
 <?php include __DIR__ . '/../../includes/footer.php'; ?>
 </body>

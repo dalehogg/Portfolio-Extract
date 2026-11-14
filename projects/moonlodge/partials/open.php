@@ -10,12 +10,16 @@ $extra_head = <<<'HTML'
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400&display=swap">
   <link rel="stylesheet" href="/projects/moonlodge/site.css">
 HTML;
-$page_scripts = '<script src="/projects/moonlodge/site.js" defer></script>';
+$page_scripts = <<<'HTML'
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="/projects/moonlodge/site.js" defer></script>
+HTML;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php include dirname(__DIR__, 3) . '/includes/head.php'; ?>
-<body class="ml">
+<body class="ml ml-<?php echo htmlspecialchars((string) $ml_page, ENT_QUOTES, 'UTF-8'); ?>">
 <?php include dirname(__DIR__, 3) . '/includes/nav.php'; ?>
 <main class="ml">
 <?php include __DIR__ . '/bar.php'; ?>

@@ -7,15 +7,18 @@ require __DIR__ . '/partials/open.php';
 ?>
   <section class="sky" id="home" data-drift>
     <div class="sky-copy">
-      <p class="eye">Whaingaroa</p>
-      <h1>Moonlodge</h1>
-      <p class="role">Accommodation &amp; Art Studio</p>
-      <p class="locale">Whaingaroa Wellbeing</p>
-      <p class="enquire"><a href="/projects/moonlodge/contact.php">Enquire about a stay</a></p>
+      <div>
+        <p class="eye">Whaingaroa</p>
+        <h1>Moonlodge</h1>
+        <p class="role">Accommodation &amp; Art Studio</p>
+        <p class="locale">Whaingaroa Wellbeing</p>
+      </div>
+      <p class="enquire"><a class="stay-link" href="/projects/moonlodge/contact.php">Enquire about a stay</a></p>
     </div>
     <figure class="sky-frame">
       <img src="/projects/moonlodge/assets/hero.jpg" width="960" height="547" alt="West-coast beach and green hills at Whaingaroa" data-parallax="0.02">
       <span class="moon" aria-hidden="true"></span>
+      <span class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
     </figure>
   </section>
 

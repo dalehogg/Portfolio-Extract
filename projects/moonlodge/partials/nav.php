@@ -3,6 +3,7 @@ $ml_links = [
     'home' => ['Home', '/projects/moonlodge/'],
     'accommodation' => ['Accommodation', '/projects/moonlodge/accommodation.php'],
     'studio' => ['Art Studio', '/projects/moonlodge/art-studio.php'],
+    'questions' => ['Questions', '/projects/moonlodge/questions.php'],
     'attractions' => ['Attractions', '/projects/moonlodge/attractions.php'],
     'about' => ['About', '/projects/moonlodge/about.php'],
     'contact' => ['Contact', '/projects/moonlodge/contact.php'],

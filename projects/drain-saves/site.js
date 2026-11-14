@@ -1,55 +1,71 @@
 (function () {
-  var root = document.querySelector(".ds");
+  var root = document.querySelector("main.ds");
   if (!root) return;
 
-  var form = document.getElementById("client-form");
-  if (form) {
-    var next = form.querySelector('input[name="_next"]');
-    if (next && location.protocol.indexOf("http") === 0) {
-      next.value = location.origin + "/thanks.php";
-    }
-    form.addEventListener("submit", function () {
-      var button = form.querySelector('[type="submit"]');
-      if (button) {
-        button.disabled = true;
-        button.textContent = "Sending…";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  var heroBits = document.querySelectorAll(".well-copy > *");
+  if (heroBits.length) {
+    gsap.from(heroBits, {
+      y: 26,
+      opacity: 0,
+      duration: 0.85,
+      stagger: 0.1,
+      ease: "power2.out"
+    });
+  }
+
+  var mark = document.querySelector(".mark");
+  if (mark) {
+    gsap.to(mark, {
+      y: -26,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".well",
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.6
       }
     });
   }
 
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  var nodes = Array.prototype.slice.call(root.querySelectorAll("[data-drift]"));
-  var span = root.querySelector("[data-span]");
-  var ticking = false;
-
-  function clamp(n) {
-    return n < 0 ? 0 : n > 1 ? 1 : n;
-  }
-
-  function paint() {
-    ticking = false;
-    var vh = window.innerHeight || 1;
-    var doc = document.documentElement.scrollHeight - vh;
-    var page = doc > 0 ? (window.scrollY || 0) / doc : 0;
-    root.style.setProperty("--page", page.toFixed(4));
-    nodes.forEach(function (el) {
-      var rect = el.getBoundingClientRect();
-      el.style.setProperty("--drift", clamp((vh - rect.top) / (vh + rect.height)).toFixed(4));
+  var tide = document.querySelector("[data-tide]");
+  if (tide) {
+    gsap.to(tide, {
+      x: 24,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".well",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
     });
-    if (span) {
-      var rect = span.getBoundingClientRect();
-      span.style.setProperty("--span", clamp((vh * 0.45 - rect.top) / (rect.height || 1)).toFixed(4));
-    }
   }
 
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(paint);
-  }
+  gsap.utils.toArray("[data-rise]").forEach(function (el) {
+    gsap.from(el, {
+      y: 28,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 88%", once: true }
+    });
+  });
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  paint();
+  gsap.utils.toArray("[data-pan]").forEach(function (img) {
+    gsap.fromTo(img, { yPercent: -6 }, {
+      yPercent: 6,
+      ease: "none",
+      scrollTrigger: {
+        trigger: img.parentElement,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
 })();

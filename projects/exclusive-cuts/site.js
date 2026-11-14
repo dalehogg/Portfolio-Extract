@@ -1,21 +1,6 @@
 (function () {
-  var root = document.querySelector(".ec");
+  var root = document.querySelector("main.ec");
   if (!root) return;
-
-  var form = document.getElementById("client-form");
-  if (form) {
-    var next = form.querySelector('input[name="_next"]');
-    if (next && location.protocol.indexOf("http") === 0) {
-      next.value = location.origin + "/thanks.php";
-    }
-    form.addEventListener("submit", function () {
-      var button = form.querySelector('[type="submit"]');
-      if (button) {
-        button.disabled = true;
-        button.textContent = "Sending…";
-      }
-    });
-  }
 
   var more = document.getElementById("view-more");
   var dialog = document.getElementById("more-cuts");
@@ -23,36 +8,51 @@
     more.addEventListener("click", function () {
       dialog.showModal();
     });
-  }
-
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    root.classList.add("is-still");
-    return;
-  }
-
-  var nodes = Array.prototype.slice.call(root.querySelectorAll("[data-drift]"));
-  var ticking = false;
-
-  function clamp(n) {
-    return n < 0 ? 0 : n > 1 ? 1 : n;
-  }
-
-  function paint() {
-    ticking = false;
-    var vh = window.innerHeight || 1;
-    nodes.forEach(function (el) {
-      var rect = el.getBoundingClientRect();
-      el.style.setProperty("--drift", clamp((vh - rect.top) / (vh + rect.height)).toFixed(4));
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog) dialog.close();
     });
   }
 
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    window.requestAnimationFrame(paint);
-  }
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger) return;
 
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  paint();
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".line", {
+    y: 32,
+    opacity: 0,
+    duration: 0.9,
+    stagger: 0.12,
+    ease: "power3.out"
+  });
+  gsap.from(".shear", {
+    scaleX: 0,
+    duration: 0.9,
+    delay: 0.15,
+    ease: "power2.out",
+    transformOrigin: "left center"
+  });
+
+  gsap.utils.toArray(".panel").forEach(function (panel) {
+    gsap.from(panel, {
+      y: 40,
+      opacity: 0,
+      duration: 0.85,
+      ease: "power2.out",
+      scrollTrigger: { trigger: panel, start: "top 90%", once: true }
+    });
+  });
+
+  gsap.utils.toArray("[data-pan]").forEach(function (img) {
+    gsap.fromTo(img, { yPercent: -5 }, {
+      yPercent: 5,
+      ease: "none",
+      scrollTrigger: {
+        trigger: img.parentElement,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  });
 })();
