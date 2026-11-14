@@ -177,6 +177,11 @@ def main() -> None:
         "/projects/custom-paint/",
         "/projects/exclusive-cuts/",
         "/projects/moonlodge/",
+        "/projects/moonlodge/accommodation.php",
+        "/projects/moonlodge/art-studio.php",
+        "/projects/moonlodge/attractions.php",
+        "/projects/moonlodge/about.php",
+        "/projects/moonlodge/contact.php",
         "/projects/unique-slider/",
     ]
 
