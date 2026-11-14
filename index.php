@@ -109,7 +109,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
         <div class="work-grid">
           <article class="work-card reveal">
             <a class="work-media" href="/projects/drain-saves/">
-              <img src="/Img/work/drain-saves.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Drain Saves homepage, navy logo on a dark field">
+              <img src="/Img/work/drain-saves.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Drain Saves, overflow and flood prevention with the company mark">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -145,7 +145,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="/projects/exclusive-cuts/">
-              <img src="/Img/work/exclusive-cuts.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Exclusive Cuts homepage, white type on a dark timber wall">
+              <img src="/Img/work/exclusive-cuts.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Exclusive Cuts, the name in white and red beside a timber wall">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
@@ -157,7 +157,7 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           </article>
           <article class="work-card reveal">
             <a class="work-media" href="/projects/moonlodge/">
-              <img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge homepage over a west-coast beach and green hills">
+              <img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge, the name beside a west-coast beach and green hills">
             </a>
             <div class="work-body">
               <p class="kicker">Client site</p>
