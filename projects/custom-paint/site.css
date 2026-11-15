@@ -56,7 +56,7 @@ body.cp .sticky-quote { display: none; }
 #studio.is-closed { display: none; }
 #studio.is-open {
   position: relative;
-  height: calc(100dvh - 3.2rem);
+  height: calc(100svh - 3.2rem);
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
   grid-template-rows: auto minmax(0, 1fr) 32px;
@@ -151,7 +151,7 @@ body.cp input::placeholder, body.cp textarea::placeholder { color: rgba(255, 255
   .cp-hero { grid-template-columns: 1fr; min-height: 0; padding: 4.5rem 1.1rem 3rem; }
   .cp-points { grid-template-columns: 1fr; padding-bottom: 4.5rem; }
   .cp-end { padding: 4rem 1.1rem; }
-  #studio { height: auto; min-height: 100dvh; grid-template-columns: 1fr; grid-template-rows: auto auto minmax(280px, 70vh) auto; border-radius: 0; }
+  #studio { height: auto; min-height: 100svh; grid-template-columns: 1fr; grid-template-rows: auto auto minmax(280px, 70vh) auto; border-radius: 0; }
   #side { max-height: 46vh; }
   #work { min-height: 280px; }
   #header { padding: 3.4rem 0.8rem 0.6rem; }

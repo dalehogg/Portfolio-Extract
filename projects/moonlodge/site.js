@@ -89,6 +89,7 @@
   if (reduce || !window.gsap || !window.ScrollTrigger) return;
 
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   var moon = document.querySelector(".moon");
   if (moon) {

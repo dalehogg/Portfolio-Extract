@@ -14,6 +14,7 @@
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   gsap.from(".line", { yPercent: 24, stagger: 0.12, duration: 0.95, ease: "power3.out" });
   gsap.from(".shear", { scaleX: 0, duration: 0.8, delay: 0.2, ease: "power2.out", transformOrigin: "left center" });

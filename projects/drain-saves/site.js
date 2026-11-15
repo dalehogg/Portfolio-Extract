@@ -5,6 +5,7 @@
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   gsap.from(".well .word", {
     yPercent: 28,

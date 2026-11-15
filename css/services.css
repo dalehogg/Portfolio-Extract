@@ -21,7 +21,7 @@ main, main *, .hero-copy, .hero-copy * { user-select: text; }
 body #fullpage .section-one {
   position: relative;
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100svh;
   z-index: 5;
   display: flex;
   align-items: flex-end;
