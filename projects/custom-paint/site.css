@@ -79,6 +79,10 @@ body.cp .sticky-quote { display: none; }
 #side label, #side .hint, #side b, #dialog, #dialog label, #dialog .hint, #dialog b, #dialog p { color: #111 !important; }
 #dialog { background: #fff !important; }
 #empty { display: none !important; }
+#selected {
+  background: #142132 !important;
+  color: #f4f7fb !important;
+}
 .layer-item,
 .history-item { color: #f4f7fb !important; }
 .layer-item:hover,

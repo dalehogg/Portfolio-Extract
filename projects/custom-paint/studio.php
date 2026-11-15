@@ -24,7 +24,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 .spinner-btns{position:absolute;right:2px;top:2px;bottom:2px;width:32px;display:flex;flex-direction:column;border-left:1px solid #52667f;background:#1b2a3f;border-top-right-radius:3px;border-bottom-right-radius:3px;overflow:hidden}
 .spinner-btn{flex:1;background:transparent;border:none;color:#c2d2e5;font-size:10px;line-height:1;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .spinner-btn:hover{background:#2b3e59;color:white}
-#palette,#fillPalette{margin-top:7px}.swatch{display:inline-block;width:24px;height:24px;border:1px solid #afbed0;margin:2px;cursor:pointer;border-radius:3px}.hint{font-size:12px;line-height:1.6;color:#b1c3d9}#selected{padding:8px;background:#142132;border-radius:4px;margin:10px 0}#modal{display:none;position:absolute;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.75);z-index:50}#dialog{position:absolute;left:50%;top:50%;width:460px;margin-left:-230px;margin-top:-190px;background:#243246;border:1px solid #68809c;padding:20px;border-radius:8px}#dialog textarea{height:140px}
+#palette,#fillPalette{margin-top:7px}.swatch{display:inline-block;width:24px;height:24px;border:1px solid #afbed0;margin:2px;cursor:pointer;border-radius:3px}.hint{font-size:12px;line-height:1.6;color:#b1c3d9}#selected{padding:8px;background:#142132;border-radius:4px;margin:10px 0;color:#f4f7fb}#modal{display:none;position:absolute;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.75);z-index:50}#dialog{position:absolute;left:50%;top:50%;width:460px;margin-left:-230px;margin-top:-190px;background:#243246;border:1px solid #68809c;padding:20px;border-radius:8px}#dialog textarea{height:140px}
 #progressBarContainer{position:absolute;bottom:30px;left:0;right:0;height:6px;background:#142132;display:none;z-index:100}#progressBar{height:100%;width:0%;background:#087cbb;transition:width .1s ease}
 .tabs-header{display:flex;gap:2px;margin-bottom:12px;border-bottom:1px solid #45556a;padding-bottom:8px;flex-wrap:wrap}
 .tab-btn{background:#1b2a3f;border:1px solid #52667f;color:#a8bbd2;padding:6px 6px;border-radius:4px 4px 0 0;cursor:pointer;font-weight:600;font-size:11.5px;flex:1;min-width:54px;text-align:center;white-space:nowrap}
@@ -1370,7 +1370,7 @@ function updateHistoryUI() {
     
     var totalStates = undoStack.length + 1 + redoStack.length;
     if (totalStates <= 1 && items.length === 0) {
-        html = '<div style="padding:15px;text-align:center;color:#a8bbd2">No edit history yet</div>';
+        html = '<div style="padding:15px;text-align:center;color:#f4f7fb">No edit history yet</div>';
     } else {
         var timeline = [];
                 for (var i = 0; i < undoStack.length; i++) {
@@ -1412,7 +1412,7 @@ function updateHistoryUI() {
             
             html += '<div class="' + cls + '" onclick="jumpToHistoryState(' + i + ', \'' + node.type + '\', ' + node.index + ')">' +
                     '<span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-right:6px;">' + node.label + '</span>' +
-                    '<span style="font-size:11px;flex-shrink:0;color:' + (isCurrent ? '#ffffff' : '#a8bbd2') + '">' + node.time + (isCurrent ? ' ●' : '') + '</span>' +
+                    '<span style="font-size:11px;flex-shrink:0;color:' + (isCurrent ? '#ffffff' : '#f4f7fb') + '">' + node.time + (isCurrent ? ' ●' : '') + '</span>' +
                     '</div>';
         }
     }
@@ -1497,7 +1497,7 @@ function updateLayersUI() {
     if (!list) return;
     var html = '';
     if (items.length === 0) {
-        html = '<div style="padding:15px;text-align:center;color:#a8bbd2">No items placed yet</div>';
+        html = '<div style="padding:15px;text-align:center;color:#f4f7fb">No items placed yet</div>';
     } else {
         for (var i = items.length - 1; i >= 0; i--) {
             var o = items[i];
