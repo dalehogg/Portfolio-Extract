@@ -157,11 +157,11 @@ HTML;
         <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
       </p>
       <label for="ds-name">Name</label>
-      <input id="ds-name" name="name" type="text" autocomplete="name" placeholder="John Smith" required>
+      <input id="ds-name" name="Name" type="text" autocomplete="name" placeholder="John Smith" required>
       <label for="ds-phone">Phone No.</label>
-      <input id="ds-phone" name="number" type="tel" autocomplete="tel" placeholder="(+64)" required>
+      <input id="ds-phone" name="Phone No." type="tel" autocomplete="tel" placeholder="(+64)" required>
       <label for="ds-message">Message</label>
-      <textarea id="ds-message" name="message" rows="6" placeholder="Type query here" required></textarea>
+      <textarea id="ds-message" name="Message" rows="6" placeholder="Type query here" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>

@@ -99,9 +99,8 @@
         next.value = location.origin + "/thanks.php";
       }
       form.addEventListener("submit", function () {
-        ["Budget", "Project Type"].forEach(function (name) {
-          var field = form.querySelector('[name="' + name + '"]');
-          if (!field || field.value.trim()) return;
+        form.querySelectorAll("input[name], select[name], textarea[name]").forEach(function (field) {
+          if (field.name.charAt(0) === "_" || field.type === "hidden" || field.value.trim()) return;
           if (field.tagName === "SELECT") {
             var na = document.createElement("option");
             na.value = "N/A";

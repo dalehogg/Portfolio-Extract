@@ -133,11 +133,11 @@ HTML;
       <input type="hidden" name="_next" value="">
       <p class="cc-honey"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
       <label for="cc-name">Name</label>
-      <input id="cc-name" name="name" type="text" autocomplete="name" required>
+      <input id="cc-name" name="Name" type="text" autocomplete="name" required>
       <label for="cc-phone">Phone No.</label>
-      <input id="cc-phone" name="phone" type="tel" autocomplete="tel" required>
+      <input id="cc-phone" name="Phone No." type="tel" autocomplete="tel" required>
       <label for="cc-message">Message</label>
-      <textarea id="cc-message" name="message" rows="5" required></textarea>
+      <textarea id="cc-message" name="Message" rows="5" required></textarea>
       <button type="submit">Send the job</button>
     </form>
   </section>

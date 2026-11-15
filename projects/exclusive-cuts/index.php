@@ -123,15 +123,16 @@ HTML;
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="">
+<input type="hidden" name="_replyto" value="">
       <p class="honey" aria-hidden="true">
         <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
       </p>
       <label for="ec-name">Name</label>
-      <input id="ec-name" name="name" type="text" autocomplete="name" placeholder="Name" required>
+      <input id="ec-name" name="Name" type="text" autocomplete="name" placeholder="Name" required>
       <label for="ec-email">Email</label>
-      <input id="ec-email" name="email" type="email" autocomplete="email" placeholder="Email" required>
+      <input id="ec-email" name="Email" type="email" autocomplete="email" placeholder="Email" required>
       <label for="ec-message">Message</label>
-      <textarea id="ec-message" name="message" rows="6" placeholder="Message" required></textarea>
+      <textarea id="ec-message" name="Message" rows="6" placeholder="Message" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>

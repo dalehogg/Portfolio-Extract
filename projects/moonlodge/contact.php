@@ -21,17 +21,18 @@ require __DIR__ . '/partials/open.php';
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="">
+<input type="hidden" name="_replyto" value="">
       <p class="honey" aria-hidden="true">
         <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
       </p>
       <label for="ml-first">First Name</label>
-      <input id="ml-first" name="First name" type="text" autocomplete="given-name" required>
+      <input id="ml-first" name="First Name" type="text" autocomplete="given-name" required>
       <label for="ml-last">Last Name</label>
-      <input id="ml-last" name="Last name" type="text" autocomplete="family-name" required>
+      <input id="ml-last" name="Last Name" type="text" autocomplete="family-name" required>
       <label for="ml-email">Email</label>
-      <input id="ml-email" name="email" type="email" autocomplete="email" required>
+      <input id="ml-email" name="Email" type="email" autocomplete="email" required>
       <label for="ml-message">Message</label>
-      <textarea id="ml-message" name="message" rows="6" required></textarea>
+      <textarea id="ml-message" name="Message" rows="6" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>
