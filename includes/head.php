@@ -18,9 +18,9 @@ if ($page_path === '') {
 $canonical = $site_base . ($page_path === '/' ? '/' : $page_path);
 if (isset($page_og_image) && $page_og_image !== '') {
     $og_raw = (string) $page_og_image;
-    $og_image = str_starts_with($og_raw, 'http') ? $og_raw : $site_base . '/' . ltrim($og_raw, '/');
+    $og_image = str_starts_with($og_raw, 'http') ? site_asset($og_raw) : $site_base . site_asset('/' . ltrim($og_raw, '/'));
 } else {
-    $og_image = $site_base . '/Img/og.png';
+    $og_image = $site_base . site_asset('/Img/og.png');
 }
 $h = static function (string $value): string {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');

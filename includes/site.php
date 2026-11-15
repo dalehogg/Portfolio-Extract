@@ -38,8 +38,29 @@ function site_asset_version(): string
 
 function site_asset(string $url): string
 {
-    if ($url === '' || preg_match('#^(https?:)?//#i', $url) === 1 || str_starts_with($url, 'data:')) {
+    if ($url === '' || str_starts_with($url, 'data:') || str_starts_with($url, 'mailto:') || str_starts_with($url, 'tel:')) {
         return $url;
+    }
+    $prefix = '';
+    if (preg_match('#^(https?:)?//#i', $url) === 1) {
+        $parts = parse_url($url);
+        $host = (string) ($parts['host'] ?? '');
+        $base_host = (string) parse_url(site_base(), PHP_URL_HOST);
+        if ($host === '' || ($base_host !== '' && strcasecmp($host, $base_host) !== 0)) {
+            return $url;
+        }
+        $scheme = (string) ($parts['scheme'] ?? 'https');
+        $prefix = $scheme . '://' . $host;
+        if (isset($parts['port'])) {
+            $prefix .= ':' . $parts['port'];
+        }
+        $url = (string) ($parts['path'] ?? '/');
+        if (isset($parts['query'])) {
+            $url .= '?' . $parts['query'];
+        }
+        if (isset($parts['fragment'])) {
+            $url .= '#' . $parts['fragment'];
+        }
     }
     $fragment = '';
     $hash = strpos($url, '#');
@@ -50,26 +71,41 @@ function site_asset(string $url): string
     $url = preg_replace('/([?&])v=[^&]*/', '$1', $url) ?? $url;
     $url = rtrim($url, '?&');
     $join = str_contains($url, '?') ? '&' : '?';
-    return $url . $join . 'v=' . rawurlencode(site_asset_version()) . $fragment;
+    return $prefix . $url . $join . 'v=' . rawurlencode(site_asset_version()) . $fragment;
 }
 
 function site_version_markup(string $html): string
 {
     $versioned = preg_replace_callback(
-        '#\b(href|src)=([\'"])([^\'"]+)\\2#i',
+        '#\b(href|src|srcset)=([\'"])([^\'"]+)\\2#i',
         static function (array $match): string {
+            $attr = $match[1];
+            $quote = $match[2];
             $url = $match[3];
-            if (preg_match('#\.(?:css|js)(?:$|\?)#i', $url) !== 1) {
+            if (strcasecmp($attr, 'srcset') === 0) {
+                $set = preg_replace_callback(
+                    '#\S+\.(?:css|js|png|jpe?g|gif|webp|avif|svg|ico)(?:\?[^\s,]*)?#i',
+                    static function (array $part): string {
+                        return site_asset($part[0]);
+                    },
+                    $url
+                );
+                $set = is_string($set) ? $set : $url;
+                return $attr . '=' . $quote . htmlspecialchars($set, ENT_QUOTES, 'UTF-8') . $quote;
+            }
+            if (preg_match('#\.(?:css|js|png|jpe?g|gif|webp|avif|svg|ico)(?:$|\?)#i', $url) !== 1) {
                 return $match[0];
             }
-            if (preg_match('#^(https?:)?//#i', $url) === 1) {
-                return $match[0];
-            }
-            return $match[1] . '=' . $match[2] . htmlspecialchars(site_asset($url), ENT_QUOTES, 'UTF-8') . $match[2];
+            return $attr . '=' . $quote . htmlspecialchars(site_asset($url), ENT_QUOTES, 'UTF-8') . $quote;
         },
         $html
     );
     return is_string($versioned) ? $versioned : $html;
+}
+
+if (PHP_SAPI !== 'cli' && !defined('SITE_ASSET_BUFFER')) {
+    define('SITE_ASSET_BUFFER', true);
+    ob_start('site_version_markup');
 }
 
 function site_canonical(string $path): string
