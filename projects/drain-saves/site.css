@@ -11,6 +11,10 @@ body.ds {
   --line: rgba(199, 206, 251, 0.34);
   --nav: 4.4rem;
   --cut: clamp(56px, 11vw, 170px);
+  --wave: clamp(26px, 4.5vw, 64px);
+  --wave-top: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 62C180 28 360 18 560 40S940 92 1140 74S1360 30 1440 36V100H0Z'/%3E%3C/svg%3E");
+  --wave-top-alt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 36C120 26 300 70 500 76S880 30 1080 34S1320 72 1440 64V100H0Z'/%3E%3C/svg%3E");
+  --wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V40C1260 74 1060 82 860 60S480 18 280 28S80 58 0 64Z'/%3E%3C/svg%3E");
   margin: 0;
   overflow-x: clip;
   background: var(--navy);
@@ -123,7 +127,8 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
     linear-gradient(90deg, rgba(199, 206, 251, 0.13) 1px, transparent 1px);
   background-size: 36px 36px;
   animation: grid-drift 26s linear infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - var(--cut)));
+  -webkit-mask: var(--wave-bottom) bottom / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) top / 100% calc(100% - var(--wave) + 1px) no-repeat;
+  mask: var(--wave-bottom) bottom / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) top / 100% calc(100% - var(--wave) + 1px) no-repeat;
 }
 .lede { margin-top: 1.5rem; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; margin-top: 2rem; }
@@ -182,7 +187,8 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   padding: calc(var(--cut) + 3.2rem) 4vw 4.2rem;
   background: var(--ring);
   color: var(--navy);
-  clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%);
+  -webkit-mask: var(--wave-top) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat;
+  mask: var(--wave-top) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat;
 }
 .horizon p, .horizon a { color: var(--navy); }
 .horizon p { font-size: clamp(2.2rem, 5vw, 4.4rem); max-width: 14ch; }
@@ -231,7 +237,8 @@ html.gsap-on .service { width: min(72vw, 540px); min-height: 48vh; flex: none; }
   align-items: flex-end;
   overflow: clip;
   background: #050814;
-  clip-path: polygon(0 0, 100% 5vw, 100% 100%, 0 100%);
+  -webkit-mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat;
+  mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat;
 }
 .bleed img {
   position: absolute;
@@ -256,7 +263,8 @@ html.gsap-on .service { width: min(72vw, 540px); min-height: 48vh; flex: none; }
   background: linear-gradient(90deg, rgba(2, 2, 51, 0.72), rgba(2, 2, 51, 0.05) 70%);
   pointer-events: none;
 }
-.bleed-flip { clip-path: polygon(0 5vw, 100% 0, 100% 100%, 0 100%); }
+.bleed-flip { -webkit-mask: var(--wave-top) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat;
+  mask: var(--wave-top) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat; }
 .bleed-flip h2 { margin-left: auto; text-align: right; }
 .bleed-flip::after { background: linear-gradient(270deg, rgba(2, 2, 51, 0.72), rgba(2, 2, 51, 0.05) 70%); }
 
@@ -266,7 +274,8 @@ html.gsap-on .service { width: min(72vw, 540px); min-height: 48vh; flex: none; }
   padding: 4.5rem 4vw 5rem;
   background: var(--deep);
 }
-.about { clip-path: polygon(0 var(--cut), 100% 0, 100% calc(100% - var(--cut)), 0 100%); margin-top: -4vw; padding-top: calc(var(--cut) + 3.5rem); }
+.about { -webkit-mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, var(--wave-bottom) bottom / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) center / 100% calc(100% - 2 * var(--wave) + 2px) no-repeat;
+  mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, var(--wave-bottom) bottom / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) center / 100% calc(100% - 2 * var(--wave) + 2px) no-repeat; margin-top: -4vw; padding-top: calc(var(--cut) + 3.5rem); }
 .about h2, .contact h2 { font-size: clamp(3rem, 7vw, 6rem); max-width: 12ch; }
 .about-figure { margin: 0; overflow: clip; }
 .about-figure img { width: 100%; height: auto; border: 1px solid var(--line); }
@@ -281,7 +290,8 @@ html.gsap-on .service { width: min(72vw, 540px); min-height: 48vh; flex: none; }
 .quote { margin: 0; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 .quote p { font-size: clamp(1.3rem, 2vw, 1.7rem); }
 
-.contact { clip-path: polygon(0 0, 100% var(--cut), 100% 100%, 0 100%); padding-top: calc(var(--cut) + 3.2rem); }
+.contact { -webkit-mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat;
+  mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat; padding-top: calc(var(--cut) + 3.2rem); }
 .contact h2 { margin-bottom: 1.2rem; }
 .ds form {
   position: relative;
