@@ -292,6 +292,7 @@ html.gsap-on .service { width: min(72vw, 540px); min-height: 48vh; flex: none; }
 
 .contact { -webkit-mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat;
   mask: var(--wave-top-alt) top / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--wave) + 1px) no-repeat; padding-top: calc(var(--cut) + 3.2rem); }
+.contact { position: relative; margin-top: calc(var(--wave) * -1); }
 .contact h2 { margin-bottom: 1.2rem; }
 .ds form {
   position: relative;
