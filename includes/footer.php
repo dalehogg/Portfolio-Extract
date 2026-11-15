@@ -14,6 +14,7 @@ if ($chrome_mode === 'minimal') {
     if (!empty($page_scripts)) {
         echo site_version_markup((string) $page_scripts);
     }
+    echo '<script src="' . site_h(site_asset('/js/media.js')) . '" defer></script>';
     echo '<script src="' . site_h(site_asset('/js/motion.js')) . '" defer></script>';
     return;
 }
@@ -26,4 +27,5 @@ if ($chrome_mode === 'minimal') {
 </footer>
 <a class="sticky-quote" href="/#contact">Get a quote</a>
 <?php if (!empty($page_scripts)) { echo site_version_markup((string) $page_scripts); } ?>
+<script src="<?php echo site_h(site_asset('/js/media.js')); ?>" defer></script>
 <script src="<?php echo site_h(site_asset('/js/motion.js')); ?>" defer></script>

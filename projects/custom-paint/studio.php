@@ -65,7 +65,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 </style>
 <link rel="stylesheet" href="<?php echo site_h(site_asset('/projects/custom-paint/site.css')); ?>">
 <div id="studio" class="is-open">
-<iframe id="jobBridgeFrame" src="https://jobpackmaker.gt.tc/job_bridge.php" style="display:none;" aria-hidden="true"></iframe>
+<iframe id="jobBridgeFrame" src="/projects/job-pack-maker/bridge.php" style="display:none;" aria-hidden="true"></iframe>
     
 <div id="header">
     <p class="studio-back"><a href="/projects/custom-paint/">Back to home page</a></p>
@@ -467,7 +467,7 @@ var jobPackWindowRef = null;
 
 // Listen for acknowledgments or messages from Job Pack Maker if needed
 window.addEventListener('message', function(event) {
-    if (event.origin !== "https://jobpackmaker.gt.tc") return;
+    if (event.origin !== window.location.origin) return;
     // Handshake response or confirmation
 });
 
@@ -739,8 +739,11 @@ function sendToJobPack() {
                 bridgeFrame.contentWindow.postMessage({
                     type: 'BRIDGE_PHOTO',
                     payload: payload
-                }, 'https://jobpackmaker.gt.tc');
+                }, window.location.origin);
             }
+            try {
+                localStorage.setItem('job_pack_transfer', JSON.stringify(payload));
+            } catch (err) {}
             
             status('Photo appended to Job Pack Maker successfully!');
             showSendSuccess();
@@ -5349,7 +5352,7 @@ function loadImage(data, completed) {
 
 
 function JobPackMaker(){
-	window.open("https://jobpackmaker.gt.tc/", "_blank");
+	window.open("/projects/job-pack-maker/app.php", "_blank");
 	return;
 }
 

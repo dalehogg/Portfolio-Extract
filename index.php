@@ -117,9 +117,9 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
             <span class="frame-shot"><img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge, the name beside a west-coast beach and green hills"></span>
             <span class="frame-meta"><strong>Moonlodge</strong><em>Stay beside the west coast.</em><span>View project</span></span>
           </a>
-          <a class="frame" data-gsap href="/projects/unique-slider/">
-            <span class="frame-shot"><img src="/Img/work/unique-slider.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Unique Slider, a row of photographs on a light page"></span>
-            <span class="frame-meta"><strong>Unique Slider</strong><em>Twenty-five frames, one strip.</em><span>View project</span></span>
+          <a class="frame" data-gsap href="/projects/job-pack-maker/">
+            <span class="frame-shot"><img src="/Img/work/job-pack-maker.jpg" width="1200" height="750" alt="Job Pack Maker landing page, with a shot of the email builder"></span>
+            <span class="frame-meta"><strong>Job Pack Maker</strong><em>Turn a job into an email draft.</em><span>View project</span></span>
           </a>
         </div>
       </div>
@@ -177,7 +177,6 @@ $page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src
           <p class="kicker">About</p>
           <h2>Dale Hogg.</h2>
           <p class="intro">Soffit is my freelance practice. I design and build sites from New Zealand, and you deal with me. Brochure sites through to web apps. If a simpler site will do, I will say so.</p>
-          <p><a class="github-link" href="https://github.com/dalehogg" target="_blank" rel="noopener">GitHub</a></p>
           <p class="tools-line">HTML, CSS, Vue, Nuxt, Gulp, Git</p>
         </div>
       </div>

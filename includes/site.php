@@ -74,7 +74,7 @@ function site_asset(string $url): string
     return $prefix . $url . $join . 'v=' . rawurlencode(site_asset_version()) . $fragment;
 }
 
-function site_version_markup(string $html): string
+function site_version_urls(string $html): string
 {
     $versioned = preg_replace_callback(
         '#\b(href|src|srcset)=([\'"])([^\'"]+)\\2#i',
@@ -101,6 +101,59 @@ function site_version_markup(string $html): string
         $html
     );
     return is_string($versioned) ? $versioned : $html;
+}
+
+function site_prepare_images(string $html): string
+{
+    $prepared = preg_replace_callback(
+        '#<img\b[^>]*>#i',
+        static function (array $match) use ($html): string {
+            $tag = $match[0][0];
+            $offset = (int) $match[0][1];
+            $before = substr($html, max(0, $offset - 700), min(700, $offset));
+            $eager = preg_match('/\bfetchpriority\s*=\s*([\'"])high\1/i', $tag) === 1
+                || preg_match('/\bloading\s*=\s*([\'"])eager\1/i', $tag) === 1
+                || preg_match('/hero|landingPic|cc-hero|cp-hero|mark-stage|ds-brand|cc-logo|class="well"|class="board"|class="sky"|id="home"|id="top"/i', $before) === 1;
+            $tag = preg_replace('#\s*/?\s*>$#', '', $tag) ?? $tag;
+            if (preg_match('/\bloading\s*=/i', $tag) !== 1) {
+                $tag .= $eager ? ' loading="eager"' : ' loading="lazy"';
+            } elseif ($eager) {
+                $tag = preg_replace('/\bloading\s*=\s*([\'"])lazy\1/i', 'loading="eager"', $tag) ?? $tag;
+            }
+            if (preg_match('/\bdecoding\s*=/i', $tag) !== 1) {
+                $tag .= ' decoding="async"';
+            }
+            if ($eager && preg_match('/\bfetchpriority\s*=/i', $tag) !== 1) {
+                $tag .= ' fetchpriority="high"';
+            }
+            if (preg_match('/\bclass\s*=\s*([\'"])/i', $tag) === 1) {
+                $tag = preg_replace('/\bclass\s*=\s*([\'"])/i', 'class=$1media-img ', $tag, 1) ?? $tag;
+            } else {
+                $tag .= ' class="media-img"';
+            }
+            return $tag . '>';
+        },
+        $html,
+        -1,
+        $count,
+        PREG_OFFSET_CAPTURE
+    );
+    return is_string($prepared) ? $prepared : $html;
+}
+
+function site_version_markup(string $html): string
+{
+    $parts = preg_split('#(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>)#is', $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+    if (!is_array($parts)) {
+        return site_prepare_images(site_version_urls($html));
+    }
+    foreach ($parts as $index => $part) {
+        if (preg_match('#^<(script|style)\b#i', $part) === 1) {
+            continue;
+        }
+        $parts[$index] = site_prepare_images(site_version_urls($part));
+    }
+    return implode('', $parts);
 }
 
 if (PHP_SAPI !== 'cli' && !defined('SITE_ASSET_BUFFER')) {
