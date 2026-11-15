@@ -5,11 +5,44 @@
     if (!img || img.dataset.mediaArmed === "1") return;
     img.dataset.mediaArmed = "1";
     if (!img.classList.contains("media-img")) img.classList.add("media-img");
-    function done() {
+    var ph = null;
+    function addPlaceholder() {
+      var host = img.offsetParent;
+      if (!host || !img.offsetWidth || !img.offsetHeight) return;
+      ph = document.createElement("span");
+      ph.className = "media-ph";
+      ph.setAttribute("aria-hidden", "true");
+      ph.style.top = img.offsetTop + "px";
+      ph.style.left = img.offsetLeft + "px";
+      ph.style.width = img.offsetWidth + "px";
+      ph.style.height = img.offsetHeight + "px";
+      var r = window.getComputedStyle(img).borderRadius;
+      if (r) ph.style.borderRadius = r;
+      host.appendChild(ph);
+    }
+    function dropPlaceholder() {
+      if (!ph) return;
+      var el = ph;
+      ph = null;
+      el.classList.add("is-gone");
+      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 600);
+    }
+    function reveal() {
+      var wasHidden = img.classList.contains("is-pending");
       img.classList.remove("is-pending");
       img.classList.add("is-loaded");
+      dropPlaceholder();
+      if (wasHidden && img.animate && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var target = window.getComputedStyle(img).opacity;
+        img.animate({ opacity: [0, target] }, { duration: 500, easing: "ease" });
+      }
+    }
+    function done() {
+      if (img.decode) img.decode().then(reveal, reveal);
+      else reveal();
     }
     function fail() {
+      dropPlaceholder();
       img.classList.remove("is-pending");
       img.classList.add("is-broken");
       if (!img.nextElementSibling || !img.nextElementSibling.classList.contains("media-fallback")) {
@@ -28,6 +61,7 @@
       return;
     }
     img.classList.add("is-pending");
+    addPlaceholder();
     img.addEventListener("load", done, { once: true });
     img.addEventListener("error", fail, { once: true });
   }

@@ -2,17 +2,20 @@
   0% { background-position: 100% 0; }
   100% { background-position: -100% 0; }
 }
-html.js img.media-img.is-pending {
+/* Images stay invisible until fully decoded, then fade in once, so they never paint in jagged chunks. */
+html.js img.media-img.is-pending { opacity: 0; }
+.media-ph {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
   background-color: rgba(127, 127, 127, 0.18);
-  background-image: linear-gradient(100deg, rgba(127, 127, 127, 0.12) 20%, rgba(255, 255, 255, 0.55) 42%, rgba(127, 127, 127, 0.12) 64%);
+  background-image: linear-gradient(100deg, rgba(127, 127, 127, 0.12) 20%, rgba(255, 255, 255, 0.45) 42%, rgba(127, 127, 127, 0.12) 64%);
   background-size: 220% 100%;
   background-repeat: no-repeat;
   animation: media-shimmer 1.15s ease-in-out infinite;
+  transition: opacity 0.5s ease;
 }
-html.js img.media-img.is-loaded,
-html.js img.media-img.is-broken {
-  animation: none;
-}
+.media-ph.is-gone { opacity: 0; }
 html.js img.media-img.is-broken {
   background: rgba(127, 127, 127, 0.22);
   object-fit: contain;
@@ -39,6 +42,6 @@ html.js .bg-pending.is-loaded::after {
   transition: opacity 0.35s ease;
 }
 @media (prefers-reduced-motion: reduce) {
-  html.js img.media-img.is-pending,
+  .media-ph,
   html.js .bg-pending::after { animation: none; }
 }
