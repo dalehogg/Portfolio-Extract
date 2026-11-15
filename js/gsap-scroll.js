@@ -85,13 +85,15 @@
     }
 
     gsap.utils.toArray(".price-card, .frame, .service-card, .why-card, .step").forEach(function (el) {
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 92%",
-        once: true,
-        onEnter: function () {
-          gsap.fromTo(el, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out", overwrite: "auto" });
-        }
+      gsap.from(el, {
+        y: 28,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power2.out",
+        force3D: true,
+        immediateRender: true,
+        clearProps: "transform,opacity",
+        scrollTrigger: { trigger: el, start: "top 92%", once: true }
       });
     });
   }

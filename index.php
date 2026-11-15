@@ -4,7 +4,7 @@ $page_title = 'Soffit | Freelance web design and development in New Zealand';
 $page_description = 'Soffit is Dale Hogg\'s freelance web design and development practice in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before work starts.';
 $page_path = '/';
 $extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">' . "\n" . '<link rel="stylesheet" href="/css/home.css">';
-$page_scripts = '<script src="/js/sky.js" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>' . "\n" . '<script src="/js/gsap-scroll.js" defer></script>';
+$page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>' . "\n" . '<script src="/js/gsap-scroll.js?v=r14" defer></script>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
