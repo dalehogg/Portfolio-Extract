@@ -1,0 +1,118 @@
+.jpm, .jpm-app {
+  margin: 0;
+  background: #e7eef5;
+  color: #17324d;
+  font-family: "Segoe UI", Aptos, sans-serif;
+}
+.jpm-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem 1.4rem;
+  padding: 4.4rem 4vw 0.8rem;
+  background: #0f3d66;
+  color: #f4f8fb;
+}
+.jpm-brand {
+  margin-right: auto;
+  color: inherit;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.jpm-menu { display: none; }
+.jpm-bar nav { display: flex; gap: 1.2rem; }
+.jpm-bar a { color: #f4f8fb; text-decoration: none; }
+.jpm-hero {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.8fr) 1.2fr;
+  gap: 2.5rem 3rem;
+  align-items: center;
+  width: min(1180px, calc(100% - 8vw));
+  margin: 0 auto;
+  padding: 3.2rem 0 2rem;
+}
+.jpm-kicker {
+  margin: 0 0 0.6rem;
+  color: #0f3d66;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.jpm h1 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.jpm-copy p { margin: 0 0 1.4rem; max-width: 38rem; line-height: 1.6; }
+.jpm-open {
+  display: inline-block;
+  background: #0078d4;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.85rem 1.2rem;
+  border-radius: 4px;
+}
+.jpm-shot {
+  margin: 0;
+  background: #fff;
+  border-top: 6px solid #0078d4;
+  box-shadow: 0 16px 40px rgba(15, 61, 102, 0.16);
+}
+.jpm-shot img { display: block; width: 100%; height: auto; }
+.jpm-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  width: min(1180px, calc(100% - 8vw));
+  margin: 0 auto;
+  padding: 0 0 4rem;
+}
+.jpm-steps article {
+  background: #fff;
+  padding: 1.2rem 1.1rem 1.4rem;
+  border-left: 4px solid #0f3d66;
+}
+.jpm-steps h2 { margin: 0 0 0.45rem; font-size: 1.3rem; }
+.jpm-steps p { margin: 0; line-height: 1.55; }
+.jpm-back { margin: 0 0 0.6rem; }
+.jpm-back a { color: #0078d4; font-weight: 700; text-decoration: none; }
+.jpm-app { padding-top: 3.2rem; }
+@media (max-width: 1024px) {
+  .jpm-menu {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.35rem 0.75rem;
+    background: transparent;
+    color: #f4f8fb;
+    border: 2px solid #7eb6e0;
+    font: inherit;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .jpm-bar nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.3rem 1rem 0.8rem;
+    background: #0f3d66;
+  }
+  .jpm-bar.is-open nav { display: flex; }
+  .jpm-bar nav a { min-height: 44px; display: flex; align-items: center; }
+}
+@media (max-width: 800px) {
+  .jpm-hero, .jpm-steps { grid-template-columns: 1fr; }
+  .jpm-bar { padding: 4.2rem 1rem 0.7rem; }
+}

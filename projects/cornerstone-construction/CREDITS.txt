@@ -1,0 +1,7 @@
+Stock photographs are from Unsplash (https://unsplash.com/license), which allows commercial use.
+
+- assets/stock/site.jpg — Unsplash photo 1541888946425-d81bb19240f5
+- assets/stock/frame.jpg — Unsplash photo 1503387762-592deb58ef4e
+- assets/stock/crew.jpg — Unsplash photo 1504307651254-35680f356dfd
+
+The two digger photographs (landingPic.jpg and aboutPic.jpg) and the ground texture (background/underLayerBg.jpg) come from the original Cornerstone Construction site.

@@ -1,0 +1,10 @@
+# The pages Netlify should publish are the built files in dist/.
+# InfinityFree still uses the same build: bash build.sh, then upload dist/.
+[build]
+  command = "bash build.sh"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
