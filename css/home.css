@@ -417,3 +417,6 @@ body.backNight .price-desk { display: contents; }
   body.backNight .faq-panel,
   body.backNight .price-panel { transition: none; }
 }
+
+/* Keep the fixed sky at the largest viewport height so the mobile address bar showing or hiding does not resize it while scrolling. */
+body #nightSky, body .cloudsLightOne, body .cloudsLightTwo { top: 0; height: 100vh; height: 100lvh; }

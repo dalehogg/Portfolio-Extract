@@ -4,6 +4,7 @@
   var root = document.body;
   if (!root.classList.contains("backNight") && !root.classList.contains("cc") && !root.classList.contains("cp") && !root.classList.contains("us")) return;
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   if (root.classList.contains("backNight")) {
     var moon = document.querySelector(".realMoon-container");
@@ -63,7 +64,12 @@
         });
       }
       sizeLines();
-      window.addEventListener("resize", function () { sizeLines(); paintLines(); });
+      var linesW = window.innerWidth;
+      window.addEventListener("resize", function () {
+        if (window.innerWidth === linesW) return;
+        linesW = window.innerWidth;
+        sizeLines(); paintLines();
+      });
       figures.forEach(function (fig) {
         if (!document.querySelector(fig.sel)) return;
         ScrollTrigger.create({

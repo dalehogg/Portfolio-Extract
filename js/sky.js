@@ -1,5 +1,12 @@
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var lastW = window.innerWidth;
+  function widthChanged() {
+    var w = window.innerWidth;
+    if (w === lastW) return false;
+    lastW = w;
+    return true;
+  }
 
   function paint(canvas, count, radius, drift) {
     if (!canvas) return;
@@ -58,7 +65,7 @@
       canvas.height = height;
     }
     size();
-    window.addEventListener("resize", size);
+    window.addEventListener("resize", function () { if (widthChanged()) size(); });
     function frame() {
       ctx.clearRect(0, 0, width, height);
       wait -= 1;
