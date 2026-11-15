@@ -7,22 +7,66 @@
     else fn();
   }
 
+
+  function slideMenu(panel, open, apply) {
+    if (!panel || reduce || !panel.animate) { apply(open); return; }
+    if (panel._menuAnim) { panel._menuAnim.cancel(); panel._menuAnim = null; }
+    var shut = { opacity: 0, transform: "translateY(-10px)", clipPath: "inset(0 0 100% 0)" };
+    var shown = { opacity: 1, transform: "translateY(0)", clipPath: "inset(0 0 0% 0)" };
+    if (open) {
+      apply(true);
+      panel._menuAnim = panel.animate([shut, shown], { duration: 280, easing: "cubic-bezier(.2,.7,.2,1)" });
+      panel._menuAnim.onfinish = function () { panel._menuAnim = null; };
+    } else {
+      panel._menuAnim = panel.animate([shown, shut], { duration: 220, easing: "ease-in", fill: "forwards" });
+      panel._menuAnim.onfinish = function () { apply(false); if (panel._menuAnim) panel._menuAnim.cancel(); panel._menuAnim = null; };
+    }
+  }
+
+  function setupDetails() {
+    document.querySelectorAll("details").forEach(function (d) {
+      var summary = d.querySelector(":scope > summary");
+      if (!summary) return;
+      summary.addEventListener("click", function (event) {
+        if (reduce || !d.animate) return;
+        event.preventDefault();
+        if (d._anim) { d._anim.cancel(); d._anim = null; }
+        var cs = window.getComputedStyle(d);
+        var chrome = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) + parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
+        var closedH = summary.offsetHeight + chrome;
+        var start = d.offsetHeight;
+        d.style.overflow = "hidden";
+        var finish = function () { d.style.overflow = ""; d.style.height = ""; d._anim = null; };
+        if (!d.open) {
+          d.open = true;
+          var end = d.offsetHeight;
+          d._anim = d.animate({ height: [start + "px", end + "px"] }, { duration: 320, easing: "cubic-bezier(.2,.7,.2,1)" });
+          d._anim.onfinish = finish;
+        } else {
+          d.classList.add("is-closing");
+          d._anim = d.animate({ height: [start + "px", closedH + "px"] }, { duration: 260, easing: "ease-in" });
+          d._anim.onfinish = function () { d.open = false; d.classList.remove("is-closing"); finish(); };
+        }
+      });
+    });
+  }
+
   ready(function () {
+    setupDetails();
     var header = document.querySelector(".site-header");
     var toggle = document.querySelector(".nav-toggle");
     var nav = document.getElementById("site-nav");
     if (toggle && header && nav) {
-      toggle.addEventListener("click", function () {
-        var open = header.classList.toggle("nav-open");
+      var setNav = function (open) {
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
         toggle.textContent = open ? "Close" : "Menu";
+        slideMenu(nav, open, function (show) { header.classList.toggle("nav-open", show); });
+      };
+      toggle.addEventListener("click", function () {
+        setNav(toggle.getAttribute("aria-expanded") !== "true");
       });
       nav.addEventListener("click", function (event) {
-        if (event.target.closest("a")) {
-          header.classList.remove("nav-open");
-          toggle.setAttribute("aria-expanded", "false");
-          toggle.textContent = "Menu";
-        }
+        if (event.target.closest("a") && toggle.getAttribute("aria-expanded") === "true") setNav(false);
       });
     }
 
@@ -32,9 +76,11 @@
       if (!button || !panel) return;
       var label = button.textContent;
       function setOpen(open) {
-        bar.classList.toggle("is-open", open);
+        var wasOpen = button.getAttribute("aria-expanded") === "true";
+        if (open === wasOpen) return;
         button.setAttribute("aria-expanded", open ? "true" : "false");
         button.textContent = open ? "Close" : label;
+        slideMenu(panel, open, function (show) { bar.classList.toggle("is-open", show); });
       }
       button.addEventListener("click", function () {
         setOpen(button.getAttribute("aria-expanded") !== "true");
