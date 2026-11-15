@@ -230,23 +230,28 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="">
+            <input type="hidden" name="_replyto" value="">
             <p class="honey" aria-hidden="true">
               <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none"></label>
             </p>
             <div class="form-row">
               <div class="field">
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" required>
+                <input id="name" name="Name" type="text" autocomplete="name" required>
               </div>
               <div class="field">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required>
+                <input id="email" name="Email" type="email" autocomplete="email" required>
               </div>
             </div>
             <div class="form-row">
               <div class="field">
+                <label for="budget">Budget <span class="optional">(optional)</span></label>
+                <input id="budget" name="Budget" type="text" placeholder="A range is fine" autocomplete="off">
+              </div>
+              <div class="field">
                 <label for="project-type">Project type <span class="optional">(optional)</span></label>
-                <select id="project-type" name="Project type">
+                <select id="project-type" name="Project Type">
                   <option value="">Choose if you know</option>
                   <option>Landing page</option>
                   <option>Business site</option>
@@ -256,14 +261,10 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
                   <option>Not sure yet</option>
                 </select>
               </div>
-              <div class="field">
-                <label for="budget">Budget <span class="optional">(optional)</span></label>
-                <input id="budget" name="Budget" type="text" placeholder="A range is fine" autocomplete="off">
-              </div>
             </div>
             <div class="field">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="6" required></textarea>
+              <textarea id="message" name="Message" rows="6" required></textarea>
             </div>
             <button class="submit-button" type="submit">Send enquiry</button>
           </form>

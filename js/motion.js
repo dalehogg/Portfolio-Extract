@@ -99,6 +99,20 @@
         next.value = location.origin + "/thanks.php";
       }
       form.addEventListener("submit", function () {
+        ["Budget", "Project Type"].forEach(function (name) {
+          var field = form.querySelector('[name="' + name + '"]');
+          if (!field || field.value.trim()) return;
+          if (field.tagName === "SELECT") {
+            var na = document.createElement("option");
+            na.value = "N/A";
+            na.textContent = "N/A";
+            field.appendChild(na);
+          }
+          field.value = "N/A";
+        });
+        var reply = form.querySelector('input[name="_replyto"]');
+        var mail = form.querySelector('input[type="email"]');
+        if (reply && mail) reply.value = mail.value;
         var button = form.querySelector('[type="submit"]');
         if (button) {
           button.disabled = true;
