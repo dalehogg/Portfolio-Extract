@@ -8,7 +8,7 @@
   ScrollTrigger.config({ ignoreMobileResize: true });
 
   gsap.from(".well .word", {
-    yPercent: 28,
+    yPercent: -22,
     stagger: 0.08,
     duration: 0.9,
     ease: "power3.out"

@@ -109,6 +109,7 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   line-height: 0.88;
 }
 .word { display: block; font-size: clamp(3.2rem, 8.4vw, 7.4rem); }
+.well .word:last-child { padding-bottom: 0.2em; }
 .lede, .note, .about-copy p, .quote p { max-width: 68ch; line-height: 1.7; }
 .lede, .note, .about-copy p { font-size: clamp(1.15rem, 1.5vw, 1.4rem); color: #d7e0fb; }
 .about-copy h2 { margin-bottom: 1.6rem; }
@@ -130,7 +131,7 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   -webkit-mask: var(--wave-bottom) bottom / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) top / 100% calc(100% - var(--wave) + 1px) no-repeat;
   mask: var(--wave-bottom) bottom / 100% var(--wave) no-repeat, linear-gradient(#000 0 0) top / 100% calc(100% - var(--wave) + 1px) no-repeat;
 }
-.lede { margin-top: 1.5rem; }
+body.ds p.lede { margin-top: 1.5rem; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.6rem; margin-top: 2rem; }
 .mark-stage { width: min(58vw, 220px); position: relative; }
 .mark {
