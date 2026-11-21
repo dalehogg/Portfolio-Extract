@@ -37,21 +37,21 @@ require __DIR__ . '/partials/open.php';
     <ul class="value-cards">
       <li>
         <span class="ml-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10z"/><path d="M12 11.2a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2z"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10z"/><path d="M12 11.2a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2z"/></svg>
         </span>
         <h3>Care</h3>
         <p>We look after this place carefully, and we look after our guests the same way, treating everyone who comes through the door with care.</p>
       </li>
       <li>
         <span class="ml-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l6-7.5 3.2 3.8 2.6-3.3L21 18H3z"/><circle cx="16.8" cy="7.2" r="1.8"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l6-7.5 3.2 3.8 2.6-3.3L21 18H3z"/><circle cx="16.8" cy="7.2" r="1.8"/></svg>
         </span>
         <h3>Time outdoors</h3>
         <p>Unhurried mornings, time outdoors and honest materials matter to us. We try to live lightly on the land, and keep the lodge simple and warm.</p>
       </li>
       <li>
         <span class="ml-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="1.2"/><path d="M8 5V3.8M16 5V3.8M3.5 10h17"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="1.2"/><path d="M8 5V3.8M16 5V3.8M3.5 10h17"/></svg>
         </span>
         <h3>Rest and making</h3>
         <p>Creativity has a home here too: the lodge and the studio sit together, so rest and making can sit side by side.</p>

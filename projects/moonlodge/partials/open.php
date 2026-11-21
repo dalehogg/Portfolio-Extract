@@ -10,13 +10,13 @@ if (!isset($page_og_image) || $page_og_image === '') {
     $page_og_image = $origin . $ml_root . '/img/' . ($ml_hero ?? 'homeFoldImg.jpg');
 }
 $chrome = 'minimal';
-$extra_head = <<<'HTML'
-  <link rel="preload" href="/projects/moonlodge/fonts/raleway-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/projects/moonlodge/fonts/raleway-semibold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/projects/moonlodge/site.css">
-  <style>:root{--chrome-fg:#ffffff;--chrome-bg:#495159}</style>
-HTML;
-$page_scripts = '<script src="/projects/moonlodge/site.js" defer></script>';
+require_once dirname(__DIR__, 3) . '/includes/site.php';
+$extra_head =
+  '  <link rel="preload" href="' . site_h(site_asset('/projects/moonlodge/fonts/raleway-regular.woff2')) . '" as="font" type="font/woff2" crossorigin>' . "\n"
+  . '  <link rel="preload" href="' . site_h(site_asset('/projects/moonlodge/fonts/raleway-semibold.woff2')) . '" as="font" type="font/woff2" crossorigin>' . "\n"
+  . '  <link rel="stylesheet" href="' . site_h(site_asset('/projects/moonlodge/site.css')) . '">' . "\n"
+  . '  <style>:root{--chrome-fg:#ffffff;--chrome-bg:#495159}</style>' . "\n";
+$page_scripts = '<script src="' . site_h(site_asset('/projects/moonlodge/site.js')) . '" defer></script>';
 
 $ml_links = [
     'home' => ['Home', $ml_root . '/'],
