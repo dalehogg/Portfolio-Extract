@@ -139,6 +139,8 @@
       if (lockTimer) window.clearTimeout(lockTimer);
       if (lockSafety) window.clearTimeout(lockSafety);
       lockSafety = window.setTimeout(unlock, 2000);
+      var pointer = (typeof event.pointerType === "string" && event.pointerType) || event.detail > 0;
+      if (pointer) link.blur();
     });
 
     window.addEventListener("scrollend", function () {

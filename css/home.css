@@ -494,7 +494,7 @@ body.backNight .site-nav a:not(.nav-quote)::after {
 }
 body.backNight .site-nav a[aria-current="true"]:not(.nav-quote),
 body.backNight .site-nav a[aria-current="true"]:not(.nav-quote):hover,
-body.backNight .site-nav a[aria-current="true"]:not(.nav-quote):focus {
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote):focus-visible {
   color: #ffb000;
 }
 body.backNight .site-nav a[aria-current="true"]:not(.nav-quote)::after {

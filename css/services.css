@@ -105,7 +105,10 @@ body #fullpage .section-one .realMoon-container .realMoon-moonCut {
   font-size: 0.7rem;
   text-shadow: 1px 1px #000;
 }
-.site-nav a:hover, .site-nav a:focus { color: #fff; }
+@media (hover: hover) {
+  .site-nav a:hover { color: #fff; }
+}
+.site-nav a:focus-visible { color: #fff; }
 .nav-quote {
   border: 1px solid rgba(255, 255, 255, 0.85);
   padding: 0.5rem 0.7rem;
