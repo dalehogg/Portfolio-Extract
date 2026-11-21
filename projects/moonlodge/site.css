@@ -261,38 +261,209 @@ body.ml :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .panel:hover::after { background: rgba(0, 0, 0, 0.36); }
 .panel:hover h2::after { width: 96px; }
 
-/* About. */
-.aboutContent { max-width: 52rem; margin: 0 auto; padding: clamp(3rem, 7vw, 5rem) var(--gutter); text-align: center; }
-.aboutContent .block + .block { margin-top: clamp(2.5rem, 6vw, 4rem); padding-top: clamp(2.5rem, 6vw, 4rem); border-top: 1px solid var(--line); }
-.aboutContent .block p { margin-top: 1.2rem; text-align: left; hyphens: auto; }
-
-/* Accommodation. */
-.featuresPhotos {
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: clamp(2.5rem, 6vw, 4rem) var(--gutter) clamp(3.5rem, 8vw, 5.5rem);
-  border-top: 1px solid var(--line);
-  display: grid;
-  gap: clamp(2rem, 5vw, 3.5rem);
+/* Shared typography for the redesigned About, lodge features and studio. */
+.ml-kicker {
+  margin: 0 0 0.7rem;
+  font-weight: 600;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
-.feature-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; margin-top: 1.4rem; }
-.feature-lists ul { list-style: none; padding: 0; }
-.feature-lists li { padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
-.feature-lists li::before { content: ""; display: inline-block; width: 6px; height: 6px; margin: 0 0.75rem 0.15em 0; border-radius: 50%; background: var(--slate); }
-.photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(0.6rem, 1.4vw, 1rem); }
-.photos figure { overflow: hidden; border-radius: 4px; background: var(--mist); aspect-ratio: 4 / 3; }
-.photos img { width: 100%; height: 100% !important; object-fit: cover; transition: transform 0.6s ease; }
-.photos figure:hover img { transform: scale(1.04); }
+.ml-pull {
+  margin: 1.6rem 0 0;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  border-left: 3px solid var(--slate);
+}
+.ml-pull p {
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.ml-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--slate-deep);
+}
+.ml-icon svg { width: 1.2rem; height: 1.2rem; }
 
-/* Art Studio. */
-.artSection { max-width: calc(var(--wrap) + 160px); margin: 0 auto; padding: calc(var(--header-h) + clamp(2.5rem, 6vw, 4rem)) var(--gutter) clamp(4rem, 9vw, 6rem); }
-.page-head { text-align: center; padding-bottom: clamp(1.5rem, 4vw, 2.5rem); margin-bottom: clamp(1.5rem, 4vw, 2.5rem); border-bottom: 1px solid var(--line); }
-.page-head .openingText { padding: 1.4rem 0 0; max-width: 46rem; font-size: 1.08rem; }
-.art-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(0.6rem, 1.4vw, 1rem); }
-.artImage { overflow: hidden; border-radius: 4px; background: var(--mist); aspect-ratio: 4 / 3; }
-.artImage:first-child { grid-column: 1 / -1; }
-.artImage img { width: 100%; height: 100% !important; object-fit: cover; transition: transform 0.6s ease, box-shadow 0.5s ease; }
-.artImage:hover img { transform: scale(1.03); }
+/* About: asymmetric welcome, value cards, and two offset work panels. */
+.about-story {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 5.5rem) var(--gutter);
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.about-story-photo { overflow: hidden; border-radius: 4px; background: var(--mist); min-height: 280px; }
+.about-story-photo img { width: 100%; height: 100% !important; object-fit: cover; aspect-ratio: 4 / 5; }
+.about-story-copy p { margin-top: 1.15rem; }
+.about-values {
+  background: var(--mist);
+  padding: clamp(2.8rem, 7vw, 5.5rem) var(--gutter);
+}
+.about-values-intro { max-width: 46rem; margin: 0 0 2.4rem; }
+.about-values-intro p { margin-top: 1.1rem; }
+.value-cards {
+  list-style: none;
+  padding: 0;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+.value-cards li {
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 1.4rem 1.3rem 1.5rem;
+  box-shadow: 0 1px 0 var(--line);
+}
+.value-cards h3 { margin: 0.9rem 0 0.45rem; font-weight: 600; font-size: 1.15rem; letter-spacing: 0.02em; }
+.value-cards p { color: var(--muted); }
+.about-do {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter) clamp(4rem, 9vw, 6.5rem);
+  display: grid;
+  gap: clamp(1.8rem, 4vw, 3.2rem);
+}
+.about-do-copy { max-width: 40rem; }
+.about-do-copy p { margin-top: 1.1rem; }
+.about-do-panels { display: grid; gap: 1rem; }
+.about-do-panel {
+  position: relative;
+  display: grid;
+  place-items: end start;
+  min-height: 260px;
+  overflow: hidden;
+  border-radius: 4px;
+  color: #fff;
+  text-decoration: none;
+  background: #2d3338;
+  isolation: isolate;
+}
+.about-do-panel img { position: absolute; inset: 0; width: 100%; height: 100% !important; object-fit: cover; z-index: 0; transition: transform 0.9s cubic-bezier(.2,.7,.2,1); }
+.about-do-panel::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(transparent 42%, rgba(0,0,0,0.58)); pointer-events: none; }
+.about-do-panel span {
+  position: relative;
+  z-index: 2;
+  padding: 1.2rem 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+.about-do-panel:hover img { transform: scale(1.04); }
+
+/* Accommodation: icon feature cards and a photo mosaic. */
+.lodge-features {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter) clamp(3.5rem, 8vw, 6rem);
+  border-top: 1px solid var(--line);
+}
+.lodge-features-intro { max-width: 42rem; margin-bottom: clamp(1.8rem, 4vw, 2.6rem); }
+.lodge-features-intro p { margin-top: 1rem; }
+.feature-cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.feature-cards li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.85rem;
+  align-items: start;
+  padding: 1rem 0.95rem 1.05rem;
+  background: var(--mist);
+  border-radius: 4px;
+}
+.feature-cards .ml-icon { grid-row: 1 / span 2; }
+.feature-cards h3 { font-weight: 600; font-size: 0.98rem; letter-spacing: 0.02em; }
+.feature-cards p { margin-top: 0.2rem; font-size: 0.92rem; line-height: 1.5; color: var(--muted); }
+.lodge-mosaic {
+  margin-top: clamp(2rem, 5vw, 3.2rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.55rem, 1.3vw, 0.9rem);
+}
+.lodge-mosaic figure { overflow: hidden; border-radius: 4px; background: var(--mist); margin: 0; min-height: 0; }
+.lodge-mosaic img { width: 100%; height: 100% !important; object-fit: cover; aspect-ratio: 4 / 3; transition: transform 0.6s ease; }
+.lodge-mosaic figure:hover img { transform: scale(1.04); }
+.lodge-mosaic .mosaic-hero { grid-column: 1 / -1; }
+.lodge-mosaic .mosaic-hero img { aspect-ratio: 16 / 9; }
+.lodge-mosaic .mosaic-wide { grid-column: 1 / -1; }
+.lodge-mosaic .mosaic-wide img { aspect-ratio: 16 / 9; }
+
+/* Art Studio: split intro, offset shrine pair, captioned mosaic. */
+.studio-intro {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: calc(var(--header-h) + clamp(2.2rem, 6vw, 4rem)) var(--gutter) clamp(2.5rem, 6vw, 4rem);
+  display: grid;
+  gap: clamp(1.6rem, 4vw, 3.2rem);
+  align-items: center;
+}
+.studio-intro-copy p { margin-top: 1.15rem; }
+.studio-intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.6rem;
+  margin-top: 1.6rem;
+}
+.studio-intro-actions .ml-button { margin-top: 0; }
+.studio-text-link {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--slate);
+  padding-bottom: 0.15rem;
+}
+.studio-text-link:hover { color: var(--slate-deep); }
+.studio-intro-photo { overflow: hidden; border-radius: 4px; background: var(--mist); }
+.studio-intro-photo img { width: 100%; height: 100% !important; object-fit: cover; aspect-ratio: 4 / 5; }
+.studio-shrines {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) clamp(2.5rem, 6vw, 4rem);
+  display: grid;
+  gap: clamp(1.4rem, 4vw, 2.4rem);
+}
+.studio-shrine { margin: 0; }
+.studio-shrine img { width: 100%; border-radius: 4px; aspect-ratio: 4 / 3; object-fit: cover; background: var(--mist); }
+.studio-shrine figcaption { padding: 1rem 0.15rem 0; }
+.studio-shrine strong { display: block; margin: 0.25rem 0 0.45rem; font-weight: 600; font-size: 1.45rem; letter-spacing: 0.04em; }
+.studio-shrine figcaption p { color: var(--muted); }
+.studio-mosaic-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) clamp(4rem, 9vw, 6rem);
+}
+.studio-mosaic-intro { max-width: 36rem; margin-bottom: 1.6rem; }
+.studio-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.55rem, 1.3vw, 0.9rem);
+}
+.studio-mosaic figure { margin: 0; overflow: hidden; }
+.studio-mosaic img { width: 100%; border-radius: 4px; aspect-ratio: 4 / 3; object-fit: cover; background: var(--mist); transition: transform 0.6s ease; }
+.studio-mosaic figure:hover img { transform: scale(1.04); }
+.studio-mosaic figcaption { padding: 0.55rem 0.15rem 0.2rem; font-size: 0.9rem; color: var(--muted); }
+.studio-mosaic-lg { grid-column: 1 / -1; }
+.studio-mosaic-lg img { aspect-ratio: 16 / 9; }
+.studio-mosaic-wide { grid-column: 1 / -1; }
+.studio-mosaic-wide img { aspect-ratio: 16 / 8; }
 
 /* Attractions: three tall photo links. */
 .veticalImageContain {
@@ -372,7 +543,16 @@ body.ml .soffit-foot { background: var(--slate-deep); color: #fff; }
 @media (min-width: 700px) {
   .bigHomeButtons { grid-template-columns: 1fr 1fr; }
   .panel-wide { grid-column: 1 / -1; min-height: clamp(300px, 38vw, 500px); }
-  .photos { grid-template-columns: repeat(3, 1fr); }
+  .feature-cards { grid-template-columns: repeat(2, 1fr); }
+  .value-cards { grid-template-columns: repeat(3, 1fr); }
+  .about-do-panels { grid-template-columns: 1fr 1fr; align-items: end; }
+  .about-do-panel-offset { margin-top: 2rem; }
+  .lodge-mosaic { grid-template-columns: repeat(3, 1fr); }
+  .lodge-mosaic .mosaic-hero { grid-column: 1 / span 2; grid-row: 1; }
+  .lodge-mosaic .mosaic-hero img { aspect-ratio: 16 / 10; height: 100%; }
+  .lodge-mosaic figure:nth-child(2) { grid-column: 3; grid-row: 1; }
+  .lodge-mosaic .mosaic-wide { grid-column: 1 / span 3; }
+  .lodge-mosaic .mosaic-wide img { aspect-ratio: 16 / 7; }
   .enquiresInputs-row { grid-template-columns: 1fr 1fr; }
 }
 @media (min-width: 760px) {
@@ -380,15 +560,36 @@ body.ml .soffit-foot { background: var(--slate-deep); color: #fff; }
   .verticalBox { min-height: clamp(360px, 56vh, 560px); }
 }
 @media (min-width: 900px) {
-  /* Seven photos: one large, four small beside it, two wide underneath. */
-  .art-grid { grid-template-columns: repeat(4, 1fr); }
-  .artImage:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-  .artImage:nth-child(6), .artImage:nth-child(7) { grid-column: span 2; aspect-ratio: 8 / 3; }
+  .about-story { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 4rem; }
+  .about-story-photo img { aspect-ratio: auto; min-height: 32rem; }
+  .value-cards { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .about-do { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; }
+  .about-do-panels { align-self: stretch; }
+  .about-do-panel { min-height: 240px; }
+  .about-do-panel-offset { margin-left: 12%; width: 88%; }
+  .feature-cards { grid-template-columns: repeat(5, 1fr); gap: 0.9rem; }
+  .feature-cards li { grid-template-columns: 1fr; grid-template-rows: auto auto auto; justify-items: start; min-height: 100%; padding: 1.15rem 1rem 1.2rem; }
+  .feature-cards .ml-icon { grid-row: auto; margin-bottom: 0.55rem; }
+  .lodge-mosaic { grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto auto; }
+  .lodge-mosaic figure { height: 100%; }
+  .lodge-mosaic .mosaic-hero { grid-column: 1 / span 2; grid-row: 1 / span 2; }
+  .lodge-mosaic .mosaic-hero img { aspect-ratio: 1 / 1; height: 100%; }
+  .lodge-mosaic figure:nth-child(2) { grid-column: 3; grid-row: 1; }
+  .lodge-mosaic figure:nth-child(3) { grid-column: 4; grid-row: 1; }
+  .lodge-mosaic figure:nth-child(4) { grid-column: 3; grid-row: 2; }
+  .lodge-mosaic figure:nth-child(5) { grid-column: 4; grid-row: 2; }
+  .lodge-mosaic .mosaic-wide { grid-column: 1 / span 4; grid-row: 3; }
+  .lodge-mosaic .mosaic-wide img { aspect-ratio: 16 / 6; }
+  .studio-intro { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); }
+  .studio-intro-photo img { aspect-ratio: auto; min-height: 34rem; }
+  .studio-shrines { grid-template-columns: 1fr 1fr; align-items: start; gap: 2rem; }
+  .studio-shrine-offset { margin-top: 4.75rem; }
+  .studio-mosaic { grid-template-columns: repeat(4, 1fr); }
+  .studio-mosaic-lg { grid-column: 1 / span 2; grid-row: 1 / span 2; }
+  .studio-mosaic-lg img { aspect-ratio: auto; height: calc(100% - 2rem); }
+  .studio-mosaic-wide { grid-column: 3 / span 2; }
   .contactContain { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: start; }
   .contact { padding-right: clamp(1rem, 4vw, 3.5rem); border-right: 1px solid var(--line); min-height: 100%; }
-}
-@media (min-width: 1000px) {
-  .featuresPhotos { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: start; }
 }
 
 /* Under 1100px the inline nav is replaced by the menu button. */
@@ -403,11 +604,11 @@ body.ml .soffit-foot { background: var(--slate-deep); color: #fff; }
   .brand-sub { font-size: 0.62rem; }
   .foldText h1 { letter-spacing: 0.06em; }
   .fold-sub { letter-spacing: 0.12em; }
-  .feature-lists { gap: 0 1.2rem; }
+  .feature-cards { grid-template-columns: 1fr; }
   .contact-list div { grid-template-columns: 5rem 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .fold-img { will-change: auto; }
-  .panel img, .verticalBox img, .photos img, .artImage img, .burgerLinks a, .overlayFullMenu { transition: none; }
+  .panel img, .verticalBox img, .lodge-mosaic img, .studio-mosaic img, .about-do-panel img, .burgerLinks a, .overlayFullMenu { transition: none; }
 }
