@@ -1,5 +1,6 @@
 <?php
 $chrome = 'minimal';
+$desktop_only = true;
 $page_title = 'Job Pack Maker | Soffit';
 $page_description = 'Turn planned work, reactive jobs, and bookings into an unsent email draft, with photos from Custom Paint.';
 $page_path = '/projects/job-pack-maker/';

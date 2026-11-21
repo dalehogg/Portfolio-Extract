@@ -113,10 +113,6 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
             <span class="frame-shot"><img src="/Img/work/cornerstone.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Cornerstone Construction homepage with an excavator and a gold call button"></span>
             <span class="frame-meta"><strong>Cornerstone</strong><em>Fast work. Right attitude.</em><span>View project</span></span>
           </a>
-          <a class="frame" data-gsap href="/projects/custom-paint/">
-            <span class="frame-shot"><img src="/Img/work/custom-paint.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Custom Paint landing page, with a button that opens the studio"></span>
-            <span class="frame-meta"><strong>Custom Paint</strong><em>Mark a photo, then send it.</em><span>View project</span></span>
-          </a>
           <a class="frame" data-gsap href="/projects/exclusive-cuts/">
             <span class="frame-shot"><img src="/Img/work/exclusive-cuts.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Exclusive Cuts, the name in white and red beside a timber wall"></span>
             <span class="frame-meta"><strong>Exclusive Cuts</strong><em>A North Shore barbershop.</em><span>View project</span></span>
@@ -125,8 +121,12 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
             <span class="frame-shot"><img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge home page: the name over a west coast beach below green hills"></span>
             <span class="frame-meta"><strong>Moonlodge</strong><em>Stay beside the west coast.</em><span>View project</span></span>
           </a>
-          <a class="frame" data-gsap href="/projects/job-pack-maker/">
-            <span class="frame-shot"><img src="/Img/work/job-pack-maker.jpg" width="1200" height="750" alt="Job Pack Maker landing page, with a shot of the email builder"></span>
+          <a class="frame" data-gsap data-desktop-only href="/projects/custom-paint/">
+            <span class="frame-shot"><img src="/Img/work/custom-paint.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Custom Paint landing page, with a button that opens the studio"><span class="desktop-only-tag">Desktop only</span></span>
+            <span class="frame-meta"><strong>Custom Paint</strong><em>Mark a photo, then send it.</em><span>View project</span></span>
+          </a>
+          <a class="frame" data-gsap data-desktop-only href="/projects/job-pack-maker/">
+            <span class="frame-shot"><img src="/Img/work/job-pack-maker.jpg" width="1200" height="750" alt="Job Pack Maker landing page, with a shot of the email builder"><span class="desktop-only-tag">Desktop only</span></span>
             <span class="frame-meta"><strong>Job Pack Maker</strong><em>Turn a job into an email draft.</em><span>View project</span></span>
           </a>
         </div>
@@ -267,6 +267,15 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
       </div>
     </section>
   </main>
+
+  <div id="desktop-only-modal" class="desktop-only-modal" hidden role="dialog" aria-modal="true" aria-labelledby="desktop-only-title" aria-describedby="desktop-only-copy">
+    <div class="desktop-only-backdrop" data-desktop-only-close></div>
+    <div class="desktop-only-panel" role="document">
+      <h2 id="desktop-only-title">Best on a laptop or desktop</h2>
+      <p id="desktop-only-copy">This project isn't available on mobile or tablet yet. It's built for bigger screens, so please open it on a laptop or desktop.</p>
+      <button type="button" class="button" data-desktop-only-close>Close</button>
+    </div>
+  </div>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>
 </body>

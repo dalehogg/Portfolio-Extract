@@ -118,9 +118,9 @@ if ($page_path === '/') {
     $project_names = [
         'drain-saves' => 'Drain Saves',
         'cornerstone-construction' => 'Cornerstone Construction',
-        'custom-paint' => 'Custom Paint',
         'exclusive-cuts' => 'Exclusive Cuts',
         'moonlodge' => 'Moonlodge',
+        'custom-paint' => 'Custom Paint',
         'job-pack-maker' => 'Job Pack Maker',
     ];
     $parts = explode('/', trim($page_path, '/'));
@@ -180,6 +180,10 @@ $json = $graph ? ['@context' => 'https://schema.org', '@graph' => $graph] : null
   <meta name="theme-color" content="#07091a">
   <link rel="stylesheet" href="<?php echo $h(site_asset('/css/box.css')); ?>">
   <link rel="stylesheet" href="<?php echo $h(site_asset('/css/media.css')); ?>">
+  <link rel="stylesheet" href="<?php echo $h(site_asset('/css/desktop-only.css')); ?>">
+<?php if (!empty($desktop_only)): ?>
+  <script>if(window.matchMedia&&!window.matchMedia("(any-pointer: fine)").matches){document.documentElement.classList.add("is-touch-only");}</script>
+<?php endif; ?>
 <?php
 // $chrome = 'minimal' loads css/chrome.css only (pill + footer). Set $site_styles = true to also load the main fonts and tokens. Pages override --chrome-fg and --chrome-bg.
 $chrome_mode = isset($chrome) ? (string) $chrome : 'full';

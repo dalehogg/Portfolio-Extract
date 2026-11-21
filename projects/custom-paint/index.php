@@ -1,5 +1,6 @@
 <?php
 $chrome = 'minimal';
+$desktop_only = true;
 $page_title = 'Custom Paint | Photo Markup Studio | Soffit';
 $page_description = 'Photo Markup Studio: paste a photo, mark it up with boxes, arrows, measurements and pipe slopes, then copy or download it.';
 $page_path = '/projects/custom-paint/';

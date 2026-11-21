@@ -248,3 +248,76 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   });
 })();
+
+(function () {
+  function isTouchOnly() {
+    return !(window.matchMedia && window.matchMedia("(any-pointer: fine)").matches);
+  }
+
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+
+  ready(function () {
+    var modal = document.getElementById("desktop-only-modal");
+    if (!modal) return;
+    var panel = modal.querySelector(".desktop-only-panel");
+    var closeBtn = modal.querySelector("[data-desktop-only-close].button, .desktop-only-panel [data-desktop-only-close]");
+    var lastFocus = null;
+
+    function focusables() {
+      if (!panel) return [];
+      return Array.prototype.slice.call(panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+    }
+
+    function openModal() {
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      document.documentElement.style.overflow = "hidden";
+      var btn = closeBtn || focusables()[0];
+      if (btn) btn.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.documentElement.style.overflow = "";
+      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+    }
+
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest("a[data-desktop-only]");
+      if (!link || !isTouchOnly()) return;
+      event.preventDefault();
+      openModal();
+    });
+
+    modal.addEventListener("click", function (event) {
+      if (event.target.closest("[data-desktop-only-close]")) {
+        event.preventDefault();
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (modal.hidden) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeModal();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      var list = focusables();
+      if (!list.length) return;
+      var first = list[0];
+      var last = list[list.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  });
+})();

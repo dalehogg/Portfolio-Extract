@@ -166,7 +166,18 @@ def discover_pages() -> list[str]:
             continue
         paths.append(match.group(1))
     order = {path: i for i, path in enumerate(paths)}
-    return sorted(set(paths), key=lambda path: (path != "/", order[path]))
+
+    def sitemap_key(path: str):
+        # Home first; Custom Paint and Job Pack Maker last (desktop-only projects).
+        if path == "/":
+            return (0, 0, 0)
+        if path.startswith("/projects/custom-paint"):
+            return (2, 0, order[path])
+        if path.startswith("/projects/job-pack-maker"):
+            return (2, 1, order[path])
+        return (1, 0, order[path])
+
+    return sorted(set(paths), key=sitemap_key)
 
 
 PREVIEW_HTACCESS = """

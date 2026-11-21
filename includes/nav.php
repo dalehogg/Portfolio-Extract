@@ -8,6 +8,10 @@ $nav_name = htmlspecialchars((string) ($nav_site['businessName'] ?? 'Soffit'), E
 $chrome_mode = isset($chrome) ? (string) $chrome : 'full';
 if ($chrome_mode === 'minimal') {
     echo '<a class="soffit-pill" href="/"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.2 L14 14 H2 Z" fill="currentColor"/></svg>' . $nav_name . "</a>\n";
+    if (!empty($desktop_only)) {
+        require_once __DIR__ . '/desktop-only.php';
+        desktop_only_render_overlay();
+    }
     return;
 }
 ?>
@@ -28,3 +32,9 @@ if ($chrome_mode === 'minimal') {
     <a class="nav-quote" href="/#contact">Get a quote</a>
   </nav>
 </header>
+<?php
+if (!empty($desktop_only)) {
+    require_once __DIR__ . '/desktop-only.php';
+    desktop_only_render_overlay();
+}
+?>
