@@ -282,6 +282,34 @@ body #fullpage .section-one .realMoon-container .realMoon-moonCut {
     animation-name: moonPhaseSmall;
   }
 }
+/* Soften the moving shadow disc so the terminator fades; clip-path keeps the moon rim sharp. */
+body #fullpage .section-one .realMoon-container {
+  overflow: hidden;
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+}
+body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+  background-color: #000;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  box-shadow: none;
+  width: 280px;
+  height: 280px;
+  top: -11%;
+  -webkit-filter: blur(24px);
+  filter: blur(24px);
+  will-change: transform;
+}
+@media (max-width: 980px) {
+  body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+    width: 120px;
+    height: 130px;
+    box-shadow: none;
+    -webkit-filter: blur(18px);
+    filter: blur(18px);
+  }
+}
 body.backNight #services > .split-head { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 3rem) 100%, 0 100%); }
 body.backNight .band > .band-cta.wrap {
   width: auto;
