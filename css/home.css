@@ -425,3 +425,13 @@ body #nightSky, body .cloudsLightOne, body .cloudsLightTwo { top: 0; height: 100
 html.js body.backNight .faq details > .faq-panel,
 html.js body.backNight .price-card details > .price-panel { transition: none; }
 body.backNight details.is-closing summary .chev { transform: rotate(45deg); }
+
+/* Contact facts: phone, hours, location. */
+.contact-facts { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.95rem; line-height: 1.45; }
+.contact-facts li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.6rem; }
+.contact-facts span { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.72; padding-top: 0.2rem; }
+body.backNight #contact .contact-facts li { color: var(--text); }
+body.backNight #contact .contact-facts a { color: var(--amber); }
+.footer-bar { flex-wrap: wrap; }
+.footer-bar .footer-facts { flex-basis: 100%; order: 3; margin: 0.35rem 0 0; font-size: 0.85rem; opacity: 0.8; }
+.footer-bar .footer-facts a { color: inherit; }

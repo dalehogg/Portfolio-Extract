@@ -83,7 +83,7 @@ def seo_tags(meta: dict, config: dict) -> str:
     url = base + ("/" if path == "/" else path)
     title = html.escape(meta["title"], quote=True)
     desc = html.escape(meta["description"], quote=True)
-    image = base + "/Img/og.png"
+    image = base + "/Img/og-soffit.png"
     name = html.escape(config["businessName"], quote=True)
     kind = meta.get("kind", "page")
     robots = '    <meta name="robots" content="noindex">\n' if kind == "utility" else ""
@@ -151,8 +151,40 @@ def apply_seo(page: str, config: dict) -> tuple[str, dict | None]:
     return page, meta
 
 
+def discover_pages() -> list[str]:
+    """Every indexable page: PHP files that set $page_path, minus utility pages."""
+    paths = []
+    candidates = [ROOT / "index.php"] + sorted((ROOT / "projects").rglob("*.php"))
+    for file in candidates:
+        if "partials" in file.parts or "templates" in file.parts:
+            continue
+        text = file.read_text(encoding="utf-8", errors="ignore")
+        match = re.search(r"\$page_path\s*=\s*'([^']+)'", text)
+        if not match:
+            continue
+        if re.search(r"\$page_kind\s*=\s*'utility'", text):
+            continue
+        paths.append(match.group(1))
+    order = {path: i for i, path in enumerate(paths)}
+    return sorted(set(paths), key=lambda path: (path != "/", order[path]))
+
+
+PREVIEW_HTACCESS = """
+# Hidden preview build only (bash build.sh --preview). Keep search engines out.
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+"""
+
+
 def main() -> None:
+    preview = "--preview" in sys.argv[1:]
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    if preview:
+        config["baseUrl"] = config.get("previewBaseUrl") or config["baseUrl"]
+        config["noindex"] = True
+    else:
+        config["noindex"] = False
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir()
@@ -166,7 +198,7 @@ def main() -> None:
     copy_tree(ROOT / "js" / "sky.js", DIST / "js" / "sky.js")
     copy_tree(ROOT / "js" / "gsap-scroll.js", DIST / "js" / "gsap-scroll.js")
     copy_tree(ROOT / "js" / "media.js", DIST / "js" / "media.js")
-    for name in ("index.php", "thanks.php", "404.php", "site.config.json", ".htaccess"):
+    for name in ("index.php", "thanks.php", "404.php", "site.config.json", ".htaccess", "site.webmanifest", "favicon.ico"):
         copy_tree(ROOT / name, DIST / name)
     try:
         revision = subprocess.check_output(
@@ -183,23 +215,7 @@ def main() -> None:
         copy_tree(photos, DIST / "Links" / "Slider" / "Photos")
 
     show = bool(config.get("showTestimonials"))
-    sitemap_paths = [
-        "/",
-        "/projects/drain-saves/",
-        "/projects/cornerstone-construction/",
-        "/projects/custom-paint/",
-        "/projects/custom-paint/studio.php",
-        "/projects/exclusive-cuts/",
-        "/projects/moonlodge/",
-        "/projects/moonlodge/accommodation.php",
-        "/projects/moonlodge/art-studio.php",
-        "/projects/moonlodge/questions.php",
-        "/projects/moonlodge/attractions.php",
-        "/projects/moonlodge/about.php",
-        "/projects/moonlodge/contact.php",
-        "/projects/job-pack-maker/",
-        "/projects/job-pack-maker/app.php",
-    ]
+    sitemap_paths = discover_pages()
 
     base = config["baseUrl"].rstrip("/")
     urls = []
@@ -213,10 +229,15 @@ def main() -> None:
         + "\n</urlset>\n"
     )
     (DIST / "sitemap.xml").write_text(sitemap, encoding="utf-8")
-    (DIST / "robots.txt").write_text(
-        "User-agent: *\nAllow: /\n\nSitemap: " + base + "/sitemap.xml\n",
-        encoding="utf-8",
-    )
+    if preview:
+        (DIST / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
+        with (DIST / ".htaccess").open("a", encoding="utf-8") as handle:
+            handle.write(PREVIEW_HTACCESS)
+    else:
+        (DIST / "robots.txt").write_text(
+            "User-agent: *\nAllow: /\nDisallow: /thanks.php\nDisallow: /projects/job-pack-maker/bridge.php\n\nSitemap: " + base + "/sitemap.xml\n",
+            encoding="utf-8",
+        )
     for css_path in (DIST / "css").glob("*.css"):
         css_path.write_text(minify_css(css_path.read_text(encoding="utf-8")), encoding="utf-8")
 
@@ -248,6 +269,9 @@ def main() -> None:
         ((DIST / "sitemap.xml").exists() and (DIST / "robots.txt").exists(), "sitemap or robots missing"),
         ((DIST / "404.php").exists() and (DIST / "thanks.php").exists(), "php utility pages missing"),
         (not paint or ("function setTool" in paint and "function openLongSection3D" in paint), "custom paint features missing"),
+        (not preview or "noindex" in (DIST / ".htaccess").read_text(encoding="utf-8"), "preview noindex header missing"),
+        (not preview or "Disallow: /" in (DIST / "robots.txt").read_text(encoding="utf-8"), "preview robots not disallowed"),
+        (len(sitemap_paths) > 10, "sitemap discovery found too few pages"),
         ("DirectoryIndex index.php" in (DIST / ".htaccess").read_text(encoding="utf-8"), "DirectoryIndex missing"),
     ]
     if not show:
@@ -258,7 +282,7 @@ def main() -> None:
     failed = [message for ok, message in checks if not ok]
     if failed:
         raise SystemExit("Build checks failed:\n- " + "\n- ".join(failed))
-    print(f"Built {DIST}")
+    print(f"Built {DIST}" + (" (preview: noindex, " + config["baseUrl"] + ")" if preview else " (production: " + config["baseUrl"] + ")"))
 
 
 if __name__ == "__main__":

@@ -21,7 +21,10 @@ if ($chrome_mode === 'minimal') {
 ?>
 <footer class="site-footer">
   <div class="footer-bar">
-    <p><?php echo htmlspecialchars((string) (($nav_site['businessName'] ?? null) ?: 'Soffit'), ENT_QUOTES, 'UTF-8'); ?> · by Dale Hogg · Freelance web design in New Zealand</p>
+    <p><?php echo htmlspecialchars((string) (($nav_site['businessName'] ?? null) ?: 'Soffit'), ENT_QUOTES, 'UTF-8'); ?> · by Dale Hogg · <?php echo htmlspecialchars((string) ($nav_site['locationLine'] ?? 'Based in Auckland, working with clients worldwide'), ENT_QUOTES, 'UTF-8'); ?></p>
+<?php if (!empty($nav_site['phone'])): ?>
+    <p class="footer-facts"><a href="tel:<?php echo htmlspecialchars(str_replace(' ', '', (string) $nav_site['phone']), ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars((string) ($nav_site['phoneDisplay'] ?? $nav_site['phone']), ENT_QUOTES, 'UTF-8'); ?></a> · Mon to Fri, 9:00 am to 5:00 pm NZT · Prices include GST</p>
+<?php endif; ?>
     <a href="/#contact">Get a quote</a>
   </div>
 </footer>

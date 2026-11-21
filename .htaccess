@@ -8,6 +8,10 @@ ErrorDocument 404 /404.php
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # www to non-www, straight onto https (one hop). Works for any domain.
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
   # Redirect plain http to https. Do not test X-Forwarded-Proto.
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -18,10 +22,24 @@ ErrorDocument 404 /404.php
   RewriteRule ^404\.html$ /404.php [R=301,L]
   RewriteRule ^projects/([^/]+)/index\.html$ /projects/$1/ [R=301,L]
   RewriteRule ^projects/unique-slider/?$ /projects/job-pack-maker/ [R=301,L]
+
+  # Moonlodge: the original site's page names.
+  RewriteRule ^projects/moonlodge/(index)(\.html)?$ /projects/moonlodge/ [R=301,L]
+  RewriteRule ^projects/moonlodge/aboutus(\.html)?$ /projects/moonlodge/about.php [R=301,L]
+  RewriteRule ^projects/moonlodge/gallery(\.html)?$ /projects/moonlodge/art-studio.php [R=301,L]
+  RewriteRule ^projects/moonlodge/(accommodation|attractions|questions|contact)\.html$ /projects/moonlodge/$1.php [R=301,L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+  AddType font/ttf .ttf
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml application/xml
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript text/xml application/javascript application/x-javascript application/json application/manifest+json application/xml image/svg+xml image/x-icon font/ttf
 </IfModule>
 
 <IfModule mod_expires.c>
@@ -36,11 +54,25 @@ ErrorDocument 404 /404.php
   ExpiresByType image/avif "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType application/xml "access plus 1 hour"
 </IfModule>
 
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
-  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|avif|svg|ico)$">
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Local CSS and JS are versioned with ?v=<git hash>, so they can be cached for a year.
+  <FilesMatch "\.(css|js|woff2|ttf)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+  # Images referenced from CSS are not versioned, so keep them to 30 days.
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico)$">
     Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(php|html)$">
+    Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>

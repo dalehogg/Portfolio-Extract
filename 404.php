@@ -1,4 +1,5 @@
 <?php
+http_response_code(404);
 $page_title = 'Page not found | Soffit';
 $page_description = 'That page is not on the Soffit site.';
 $page_path = '/404.php';

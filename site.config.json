@@ -1,10 +1,36 @@
 {
-  "_readme": "Edit this file, then run bash build.sh. baseUrl is the live site origin used for canonical links, Open Graph, the sitemap, and robots.txt. Confirm it matches the InfinityFree domain before launch. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Confirm the NZD starting prices, and whether GST should be shown, before publishing. Availability is the badge in the hero.",
+  "_readme": "Edit this file, then run bash build.sh. baseUrl is the live site origin: canonical links, Open Graph, JSON-LD, sitemap.xml and robots.txt all derive from it (intended live domain https://soffit.com, still to be confirmed). bash build.sh --preview builds the hidden preview instead: it swaps in previewBaseUrl, sets noindex on every page, sends X-Robots-Tag noindex and writes a Disallow-all robots.txt. sameAs lists public profile URLs (Facebook page, Google Business Profile) once they exist. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Prices are NZD and include GST (pricesIncludeGst). Availability is the badge in the hero.",
   "assetVersion": "dev",
   "businessName": "Soffit",
   "founderName": "Dale Hogg",
-  "baseUrl": "https://dalehogg.infinityfreeapp.com",
+  "baseUrl": "https://soffit.com",
+  "previewBaseUrl": "https://soffit-preview-dh.page.gd",
+  "noindex": false,
   "email": "dhdaleleon@gmail.com",
+  "phone": "+64 21 0816 9900",
+  "phoneDisplay": "021 0816 9900",
+  "phoneSchema": "+64-21-0816-9900",
+  "hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00",
+    "label": "Monday to Friday, 9:00 to 5:00 pm NZT"
+  },
+  "address": {
+    "addressLocality": "Auckland",
+    "addressRegion": "Auckland",
+    "addressCountry": "NZ"
+  },
+  "locationLine": "Based in Auckland, working with clients worldwide",
+  "areaServed": "Worldwide",
+  "pricesIncludeGst": true,
+  "sameAs": [],
   "showTestimonials": false,
   "availability": "Taking new projects",
   "pricing": [

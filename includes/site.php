@@ -182,7 +182,7 @@ function site_head(array $page): void
     $kind = (string) ($page['kind'] ?? 'page');
     $prefix = (string) ($page['prefix'] ?? '');
     $canonical = site_canonical($path);
-    $image = site_base() . '/Img/og.png';
+    $image = site_base() . '/Img/og-soffit.png';
     $name = site_name();
     $founder = (string) (site_config()['founderName'] ?? 'Dale Hogg');
     $email = (string) (site_config()['email'] ?? '');

@@ -20,37 +20,136 @@ if (isset($page_og_image) && $page_og_image !== '') {
     $og_raw = (string) $page_og_image;
     $og_image = str_starts_with($og_raw, 'http') ? site_asset($og_raw) : $site_base . site_asset('/' . ltrim($og_raw, '/'));
 } else {
-    $og_image = $site_base . site_asset('/Img/og.png');
+    $og_image = $site_base . site_asset('/Img/og-soffit.png');
 }
+$og_is_default = !(isset($page_og_image) && $page_og_image !== '');
+$og_alt = isset($page_og_alt) ? (string) $page_og_alt : ($og_is_default ? $site_name . ', freelance web design and development by Dale Hogg. Sites that earn their keep.' : $page_title);
 $h = static function (string $value): string {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 };
-$json = null;
+$site_phone = (string) ($site['phone'] ?? '');
+$site_phone_schema = (string) ($site['phoneSchema'] ?? $site_phone);
+$site_noindex = !empty($site['noindex']);
+$page_kind = isset($page_kind) ? (string) $page_kind : '';
+$utility_page = in_array($page_path, ['/thanks.php', '/404.php'], true) || $page_kind === 'utility';
+$org_id = $site_base . '/#business';
+$graph = [];
 if ($page_path === '/') {
-    $json = [
-        '@context' => 'https://schema.org',
-        '@type' => ['ProfessionalService', 'LocalBusiness'],
+    $hours = is_array($site['hours'] ?? null) ? $site['hours'] : [];
+    $address = is_array($site['address'] ?? null) ? $site['address'] : ['addressCountry' => 'NZ'];
+    $gst = !empty($site['pricesIncludeGst']);
+    $offers = [];
+    $lowest = null;
+    foreach (($site['pricing'] ?? []) as $package) {
+        $amount = (int) ($package['fromNzd'] ?? 0);
+        if (($package['period'] ?? 'project') !== 'month') {
+            $lowest = $lowest === null ? $amount : min($lowest, $amount);
+        }
+        $offer = [
+            '@type' => 'Offer',
+            'name' => (string) ($package['name'] ?? '') . ' (' . (string) ($package['kicker'] ?? '') . ')',
+            'description' => (string) ($package['summary'] ?? ''),
+            'priceSpecification' => [
+                '@type' => 'PriceSpecification',
+                'minPrice' => $amount,
+                'priceCurrency' => 'NZD',
+                'valueAddedTaxIncluded' => $gst,
+            ],
+        ];
+        if (($package['period'] ?? '') === 'month') {
+            $offer['priceSpecification']['@type'] = 'UnitPriceSpecification';
+            $offer['priceSpecification']['unitText'] = 'month';
+        }
+        $offers[] = $offer;
+    }
+    $business = [
+        '@type' => 'ProfessionalService',
+        '@id' => $org_id,
         'name' => $site_name,
         'description' => $page_description,
-        'url' => $canonical,
-        'image' => $og_image,
+        'url' => $site_base . '/',
+        'logo' => $site_base . '/Img/icon-512.png',
+        'image' => $site_base . '/Img/og-soffit.png',
         'email' => $site_email,
         'founder' => ['@type' => 'Person', 'name' => $site_founder],
-        'areaServed' => ['@type' => 'Country', 'name' => 'New Zealand'],
-        'address' => ['@type' => 'PostalAddress', 'addressCountry' => 'NZ'],
+        'address' => array_merge(['@type' => 'PostalAddress'], $address),
+        'areaServed' => (string) ($site['areaServed'] ?? 'Worldwide'),
+        'currenciesAccepted' => 'NZD',
     ];
+    if ($site_phone_schema !== '') {
+        $business['telephone'] = $site_phone_schema;
+    }
+    if ($hours) {
+        $business['openingHoursSpecification'] = [[
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => $hours['days'] ?? [],
+            'opens' => (string) ($hours['opens'] ?? ''),
+            'closes' => (string) ($hours['closes'] ?? ''),
+        ]];
+    }
+    if ($lowest !== null) {
+        $business['priceRange'] = 'From NZ$' . number_format($lowest) . ' per project' . ($gst ? ', GST included' : '');
+        $business['makesOffer'] = $offers;
+    }
+    if (!empty($site['sameAs']) && is_array($site['sameAs'])) {
+        $business['sameAs'] = array_values(array_filter($site['sameAs']));
+    }
+    $graph[] = $business;
+    $graph[] = [
+        '@type' => 'WebSite',
+        '@id' => $site_base . '/#website',
+        'name' => $site_name,
+        'url' => $site_base . '/',
+        'inLanguage' => 'en-NZ',
+        'publisher' => ['@id' => $org_id],
+    ];
+    if (!empty($page_faqs) && is_array($page_faqs)) {
+        $faq = ['@type' => 'FAQPage', 'mainEntity' => []];
+        foreach ($page_faqs as $item) {
+            $faq['mainEntity'][] = [
+                '@type' => 'Question',
+                'name' => (string) $item[0],
+                'acceptedAnswer' => ['@type' => 'Answer', 'text' => (string) $item[1]],
+            ];
+        }
+        $graph[] = $faq;
+    }
 } elseif (str_starts_with($page_path, '/projects/')) {
-    $json = [
-        '@context' => 'https://schema.org',
+    $project_names = [
+        'drain-saves' => 'Drain Saves',
+        'cornerstone-construction' => 'Cornerstone Construction',
+        'custom-paint' => 'Custom Paint',
+        'exclusive-cuts' => 'Exclusive Cuts',
+        'moonlodge' => 'Moonlodge',
+        'job-pack-maker' => 'Job Pack Maker',
+    ];
+    $parts = explode('/', trim($page_path, '/'));
+    $slug = $parts[1] ?? '';
+    $project_name = $project_names[$slug] ?? ucwords(str_replace('-', ' ', $slug));
+    $crumbs = [
+        ['Home', $site_base . '/'],
+        [$project_name, $site_base . '/projects/' . $slug . '/'],
+    ];
+    $leaf = $parts[2] ?? '';
+    if ($leaf !== '' && $leaf !== 'index.php') {
+        $crumbs[] = [isset($page_crumb) ? (string) $page_crumb : trim(explode('|', $page_title)[0]), $canonical];
+    }
+    $list = [];
+    foreach ($crumbs as $i => $crumb) {
+        $list[] = ['@type' => 'ListItem', 'position' => $i + 1, 'name' => $crumb[0], 'item' => $crumb[1]];
+    }
+    $graph[] = [
         '@type' => 'CreativeWork',
         'name' => $page_title,
         'description' => $page_description,
         'url' => $canonical,
         'image' => $og_image,
         'creator' => ['@type' => 'Person', 'name' => $site_founder],
-        'provider' => ['@type' => 'ProfessionalService', 'name' => $site_name, 'url' => $site_base . '/'],
+        'provider' => ['@type' => 'ProfessionalService', '@id' => $org_id, 'name' => $site_name, 'url' => $site_base . '/'],
     ];
+    $graph[] = ['@type' => 'BreadcrumbList', 'itemListElement' => $list];
 }
+$json = $graph ? ['@context' => 'https://schema.org', '@graph' => $graph] : null;
 ?>
 <head>
   <meta charset="utf-8">
@@ -58,20 +157,27 @@ if ($page_path === '/') {
   <title><?php echo $h($page_title); ?></title>
   <meta name="description" content="<?php echo $h($page_description); ?>">
   <link rel="canonical" href="<?php echo $h($canonical); ?>">
-<?php if ($page_path === '/thanks.php' || $page_path === '/404.php') { echo "  <meta name=\"robots\" content=\"noindex\">\n"; } ?>
+<?php if ($site_noindex) { echo "  <meta name=\"robots\" content=\"noindex, nofollow\">\n"; } elseif ($utility_page) { echo "  <meta name=\"robots\" content=\"noindex\">\n"; } ?>
   <meta property="og:title" content="<?php echo $h($page_title); ?>">
   <meta property="og:description" content="<?php echo $h($page_description); ?>">
   <meta property="og:url" content="<?php echo $h($canonical); ?>">
   <meta property="og:image" content="<?php echo $h($og_image); ?>">
+<?php if ($og_is_default) { echo "  <meta property=\"og:image:width\" content=\"1200\">\n  <meta property=\"og:image:height\" content=\"630\">\n"; } ?>
+  <meta property="og:image:alt" content="<?php echo $h($og_alt); ?>">
+  <meta property="og:locale" content="en_NZ">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="<?php echo $h($site_name); ?>">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<?php echo $h($page_title); ?>">
   <meta name="twitter:description" content="<?php echo $h($page_description); ?>">
   <meta name="twitter:image" content="<?php echo $h($og_image); ?>">
+  <meta name="twitter:image:alt" content="<?php echo $h($og_alt); ?>">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/Img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/Img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/Img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#07091a">
   <link rel="stylesheet" href="<?php echo $h(site_asset('/css/box.css')); ?>">
   <link rel="stylesheet" href="<?php echo $h(site_asset('/css/media.css')); ?>">
 <?php

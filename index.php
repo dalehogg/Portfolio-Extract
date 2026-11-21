@@ -1,8 +1,16 @@
 <?php
 require __DIR__ . '/includes/site.php';
-$page_title = 'Soffit | Freelance web design and development in New Zealand';
-$page_description = 'Soffit is Dale Hogg\'s freelance web design and development practice in New Zealand. Landing pages, business sites, and custom builds, with a fixed quote before work starts.';
+$page_title = 'Soffit | Freelance web design and development, Auckland NZ';
+$page_description = 'Soffit is Dale Hogg\'s freelance web design and development practice, based in Auckland and working with clients worldwide. Landing pages, business sites and custom builds, fixed-quoted.';
 $page_path = '/';
+$page_faqs = [
+    ['How long does a website take?', 'A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.'],
+    ['How do revisions work?', 'The quote includes time for you to review the design and the build and ask for changes. I will say how many review rounds are included before you agree. Work outside that scope is quoted separately.'],
+    ['Do you host the site?', 'I can launch onto hosting you already pay for, or help you choose a host. Hosting is billed by the host. It is not folded into the starting prices unless the quote says so.'],
+    ['Who owns the site?', 'You do. After the final invoice is paid, the design, the pages, and the code are yours, and I hand over the files.'],
+    ['What do you need from me to start?', 'A short description of the business, who the site is for, and any logo, photos, or text you already have. If the words are not ready, we can start from a conversation.'],
+    ['How do payments work?', 'I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.'],
+];
 $extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">' . "\n" . '<link rel="stylesheet" href="/css/home.css">';
 $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>' . "\n" . '<script src="/js/gsap-scroll.js?v=r14" defer></script>';
 ?>
@@ -84,11 +92,11 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
       <div class="wrap">
         <p class="kicker">Pricing</p>
         <h2>Starting points.</h2>
-        <p class="intro">Typical NZD figures for a straightforward brief. The quote is a fixed price for an agreed scope.</p>
+        <p class="intro">Typical NZD figures for a straightforward brief, GST included. The quote is a fixed price for an agreed scope.</p>
         <div class="price-grid" id="price-grid">
 <?php site_pricing(); ?>
         </div>
-        <p class="fine-print">Starting prices in NZD. Hosting, domain names, and third-party services are extra unless the quote says otherwise. The quote will also say whether GST is added.</p>
+        <p class="fine-print">Prices include GST. Starting prices in NZD. Hosting, domain names, and third-party services are extra unless the quote says otherwise.</p>
       </div>
     </section>
 
@@ -176,7 +184,7 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
         <div>
           <p class="kicker">About</p>
           <h2>Dale Hogg.</h2>
-          <p class="intro">Soffit is my freelance practice. I design and build sites from New Zealand, and you deal with me. Brochure sites through to web apps. If a simpler site will do, I will say so.</p>
+          <p class="intro">Soffit is my freelance practice. I'm based in Auckland, working with clients worldwide, and you deal with me. Brochure sites through to web apps. If a simpler site will do, I will say so.</p>
           <p class="tools-line">HTML, CSS, Vue, Nuxt, Gulp, Git</p>
         </div>
       </div>
@@ -187,30 +195,12 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
         <p class="kicker">Questions</p>
         <h2>Before you write.</h2>
         <div class="faq">
+<?php foreach ($page_faqs as $faq_item): ?>
           <details>
-            <summary>How long does a website take?<span class="chev" aria-hidden="true"></span></summary>
-            <div class="faq-panel"><div class="faq-panel-in"><p>A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.</p></div></div>
+            <summary><?php echo site_h($faq_item[0]); ?><span class="chev" aria-hidden="true"></span></summary>
+            <div class="faq-panel"><div class="faq-panel-in"><p><?php echo site_h($faq_item[1]); ?></p></div></div>
           </details>
-          <details>
-            <summary>How do revisions work?<span class="chev" aria-hidden="true"></span></summary>
-            <div class="faq-panel"><div class="faq-panel-in"><p>The quote includes time for you to review the design and the build and ask for changes. I will say how many review rounds are included before you agree. Work outside that scope is quoted separately.</p></div></div>
-          </details>
-          <details>
-            <summary>Do you host the site?<span class="chev" aria-hidden="true"></span></summary>
-            <div class="faq-panel"><div class="faq-panel-in"><p>I can launch onto hosting you already pay for, or help you choose a host. Hosting is billed by the host. It is not folded into the starting prices unless the quote says so.</p></div></div>
-          </details>
-          <details>
-            <summary>Who owns the site?<span class="chev" aria-hidden="true"></span></summary>
-            <div class="faq-panel"><div class="faq-panel-in"><p>You do. After the final invoice is paid, the design, the pages, and the code are yours, and I hand over the files.</p></div></div>
-          </details>
-          <details>
-            <summary>What do you need from me to start?<span class="chev" aria-hidden="true"></span></summary>
-            <div class="faq-panel"><div class="faq-panel-in"><p>A short description of the business, who the site is for, and any logo, photos, or text you already have. If the words are not ready, we can start from a conversation.</p></div></div>
-          </details>
-          <details>
-            <summary>How do payments work?<span class="chev" aria-hidden="true"></span></summary>
-            <div class="faq-panel"><div class="faq-panel-in"><p>I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.</p></div></div>
-          </details>
+<?php endforeach; ?>
         </div>
         <p class="band-cta" style="margin-top:1.4rem"><a class="button button-primary" href="#contact">Ask a question in the form</a></p>
       </div>
@@ -223,6 +213,11 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
           <h2>Tell me what you need.</h2>
           <p class="intro">I reply by email with questions, then a fixed quote.</p>
           <p class="contact-email"><a href="mailto:dhdaleleon@gmail.com">dhdaleleon@gmail.com</a></p>
+          <ul class="contact-facts">
+            <li><span>Phone</span> <a href="tel:+642108169900">021 0816 9900</a></li>
+            <li><span>Hours</span> Monday to Friday, 9:00 am to 5:00 pm NZT</li>
+            <li><span>Location</span> Based in Auckland, working with clients worldwide</li>
+          </ul>
         </div>
         <div>
           <form id="enquiry-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">

@@ -70,7 +70,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
 <div id="header">
     <p class="studio-back"><a href="/projects/custom-paint/">Back to home page</a></p>
 
-    <h2>Photo Markup Studio <span style="font-size:12px;color:#5c7084;font-weight:600">Editable photo annotations</span></h2>
+    <h1>Photo Markup Studio <span style="font-size:12px;color:#5c7084;font-weight:600">Editable photo annotations</span></h1>
     <button class="primary" onclick="pastePhoto()" style="margin: 0;">Paste Photo (Ctrl+V)</button>
 	<button class="primary" onclick="JobPackMaker()" style="margin: 0;">Job Pack Maker</button>
     

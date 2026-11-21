@@ -75,7 +75,7 @@ body.cp .sticky-quote { display: none; }
   border-bottom: 1px solid #d5e2ee;
   padding-left: 7rem;
 }
-#header h2 { margin: 0 0 7px; font-family: Nunito, sans-serif; font-weight: 800; font-size: 1.2rem; color: #111; }
+#header h1, #header h2 { margin: 0 0 7px; font-family: Nunito, sans-serif; font-weight: 800; font-size: 1.2rem; color: #111; }
 #side label, #side .hint, #side b, #dialog, #dialog label, #dialog .hint, #dialog b, #dialog p { color: #111 !important; }
 #dialog { background: #fff !important; }
 #empty { display: none !important; }

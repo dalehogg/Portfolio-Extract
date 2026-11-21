@@ -15,8 +15,6 @@ $extra_head = '<link rel="stylesheet" href="/projects/job-pack-maker/site.css">'
 <?php require __DIR__ . '/../../includes/nav.php'; ?>
 
 <script>window.name = 'jobpackmaker_win';</script>
-<meta charset="UTF-8">
-<title>Job Pack Creator</title>
 <style>
 body {
     font-family: "Segoe UI", Aptos, Arial, sans-serif;
@@ -1309,7 +1307,7 @@ window.onload = onLoad;
     <!-- LEFT SIDE: APP INPUTS -->
     <div class="app-left">
 <p class="jpm-back"><a href="/projects/job-pack-maker/">Back to home page</a></p>
-        <h2>Job Pack Creator</h2>
+        <h1 style="font-size:1.5em;margin:0.83em 0">Job Pack Creator</h1>
         <p>All fields optional. Select photos to embed below.</p>
         <hr><br>
 
@@ -1610,7 +1608,7 @@ window.onload = onLoad;
 
         <!-- PHOTO SECTION -->
         <div class="photo-section">
-            <h3 style="margin-top:0;">📷 Select Photos</h3>
+            <h2 style="font-size:1.17em;margin-top:0;">📷 Select Photos</h2>
             <div class="photoDropZone" onclick="document.getElementById('fileInput').click();">
                 <input type="button" value="📷 Browse Photos" class="topButton selectPhotoButton" onclick="event.cancelBubble=true; document.getElementById('fileInput').click();">
                 <input type="file" id="fileInput" multiple="">
