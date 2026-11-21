@@ -1399,7 +1399,7 @@ window.onload = onLoad;
             <strong>Services:</strong><div class="field"><textarea id="Services" placeholder="i.e. Vector, Chorus"></textarea></div>
             <strong>Manhole(s):</strong><div class="field"><textarea id="Manhole(s)" placeholder="i.e. M/H 1312083"></textarea></div>
             <strong>Excavation Method(s):</strong><div class="field"><textarea id="Excavation_method(s)" placeholder="i.e. Hydro"></textarea></div>
-            <strong>Customer(s):</strong><div class="field"><textarea id="Customer(s)" placeholder="i.e. Name - 0200000000"></textarea></div>
+            <strong>Customer(s):</strong><div class="field"><textarea id="Customer(s)" placeholder="Your Name - 000 000 0000"></textarea></div>
             <strong>TMP:</strong><div class="field"><textarea id="TMP" placeholder="i.e. Shoulder closure"></textarea></div>
             <strong>Reinstatement(s):</strong><div class="field"><textarea id="Reinstatement(s)" placeholder="i.e. hotmix"></textarea></div>
             <hr>
@@ -1491,7 +1491,7 @@ window.onload = onLoad;
             <div class="quick-links" style="margin-bottom:20px;">
                 <input type="button" value="GIS" title="ArcGIS" onclick="flashButton(this); openURL(&quot;https://www.arcgis.com/apps/webappviewer/index.html?id=6392eb30762a47d393b18d986dc40e04&quot;)" class="topButton">
                 <input type="button" value="GM" title="GeoMaps" onclick="flashButton(this); openURL(&quot;https://geomapspublic.aucklandcouncil.govt.nz/viewer/index.html&quot;)" class="topButton">
-                <input type="button" value="SV" title="Google Street View" onclick="flashButton(this); openURL(&quot;https://www.google.com/maps/@-36.7610749,174.7002031,15z?entry=ttu&quot;)" class="topButton">
+                <input type="button" value="SV" title="Google Street View" onclick="flashButton(this); openURL(&quot;https://www.google.com/maps&quot;)" class="topButton">
                 <input type="button" value="WF" title="Weather Forecast" onclick="flashButton(this); openURL(&quot;https://www.metservice.com/towns-cities/regions/auckland/locations/auckland/7-days&quot;)" class="topButton">
             </div>
             <hr><br>
@@ -1523,7 +1523,7 @@ window.onload = onLoad;
                 <strong>Line(s):</strong><div class="field"><textarea id="hdn_cctv_Line(s)" placeholder="i.e. S/L 1234567"></textarea></div>
                 <strong>Manhole Accessible:</strong><div class="field"><textarea id="hdn_cctv_Manhole_Accessible" placeholder="i.e. M/H 1234567"></textarea></div>
                 <strong>In-Conjunction:</strong><div class="field"><textarea id="hdn_cctv_In-Conjunction" placeholder="i.e. Yes / No"></textarea></div>
-                <strong>Customer(s):</strong><div class="field"><textarea id="hdn_cctv_Customer(s)" placeholder="i.e. 0200000000"></textarea></div>
+                <strong>Customer(s):</strong><div class="field"><textarea id="hdn_cctv_Customer(s)" placeholder="000 000 0000"></textarea></div>
                 <strong>Access:</strong><div class="field"><textarea id="hdn_cctv_Access" placeholder="i.e. Down the left side of the house"></textarea></div>
                 <strong>Contractor Preferred:</strong><div class="field"><textarea id="hdn_cctv_Contractor_Preferred" placeholder="i.e. TDG / All Drains"></textarea></div>
             </div>
@@ -1537,7 +1537,7 @@ window.onload = onLoad;
                 <strong>Line(s):</strong><div class="field"><textarea id="hdn_flushing_Line(s)" placeholder="i.e. S/L 1234567"></textarea></div>
                 <strong>Manhole Accessible:</strong><div class="field"><textarea id="hdn_flushing_Manhole_Accessible" placeholder="i.e. M/H 1234567"></textarea></div>
                 <strong>In-Conjunction:</strong><div class="field"><textarea id="hdn_flushing_In-Conjunction" placeholder="i.e. Yes / No"></textarea></div>
-                <strong>Customer(s):</strong><div class="field"><textarea id="hdn_flushing_Customer(s)" placeholder="i.e. 0200000000"></textarea></div>
+                <strong>Customer(s):</strong><div class="field"><textarea id="hdn_flushing_Customer(s)" placeholder="000 000 0000"></textarea></div>
                 <strong>Access:</strong><div class="field"><textarea id="hdn_flushing_Access" placeholder="i.e. Down the left side of the house"></textarea></div>
                 <strong>Contractor Preferred:</strong><div class="field"><textarea id="hdn_flushing_Contractor_Preferred" placeholder="i.e. TDG / All Drains"></textarea></div>
             </div>

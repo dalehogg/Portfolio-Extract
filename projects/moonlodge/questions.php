@@ -1,8 +1,8 @@
 <?php
 $ml_page = 'questions';
 $ml_hero = 'shineBeach.jpg';
-$page_title = 'Artist Questions with Tania Mills | Moonlodge';
-$page_description = 'Artist Questions, nga uiui toi: Tania Mills (Ngati Tuwharetoa) on her medium, her inspiration, the Elemental Shrines and living on Karioi.';
+$page_title = 'Artist Questions with Artist Name | Moonlodge';
+$page_description = 'Artist Questions, nga uiui toi: Artist Name on their medium, their inspiration, the Elemental Shrines and living on Karioi.';
 $page_path = '/projects/moonlodge/questions.php';
 require __DIR__ . '/partials/open.php';
 
@@ -31,9 +31,8 @@ function ml_faq_item(string $question, string $answer, bool $open = false): void
     </figure>
     <div class="artist-intro-copy">
       <p class="ml-kicker">Waimaunga Studio</p>
-      <h2 class="usualH1">Tania Mills</h2>
-      <p class="usualH2">Ngati Tuwharetoa Te Iwi</p>
-      <p>Tania Mills works at Waimaunga Studio, here on Karioi, in clay, papier mâché and mixed media. In these questions she talks about her medium, her process, the Elemental Shrines, and living in Whaingaroa / Raglan. Visits to the studio are by appointment.</p>
+      <h2 class="usualH1">Artist Name</h2>
+      <p>Artist Name works at Waimaunga Studio, here on Karioi, in clay, papier mâché and mixed media. In these questions they talk about their medium, their process, the Elemental Shrines, and living in Whaingaroa / Raglan. Visits to the studio are by appointment.</p>
       <a class="studio-text-link" href="/projects/moonlodge/art-studio.php">Visit the art studio</a>
     </div>
   </section>
@@ -77,7 +76,7 @@ function ml_faq_item(string $question, string $answer, bool $open = false): void
         <?php
         ml_faq_item('What are you working on at the moment?', '<p>The Elemental Shrines: Earth, Air, Fire and Water which will be available to view during the Arts Trail weekend.<br> Early ancient female archetypes in clay.</p>');
         ml_faq_item('Tell me something you like about living in Raglan. How is it special?', '<p>Karioi is a sister to Pirongia, I am connected to both these Maunga. The rich soil enables me to grow. My dream to be sustainable and celebrate beauty is possible through my maunga location, the vast horizon of sky and sea. Ruapuke and it’s elemental wildness cleanses, rejuvenates and inspires me.</p>');
-        ml_faq_item('Where can we see your work?', '<p>By appointment at “Waimaunga Studio”<br> Waimaunga Road, Whaingaroa / Raglan. 021 555 0182</p>');
+        ml_faq_item('Where can we see your work?', '<p>By appointment at “Waimaunga Studio”<br> 123 Example Street, Suburb, City. 000 000 0000</p>');
         ?>
       </div>
     </div>

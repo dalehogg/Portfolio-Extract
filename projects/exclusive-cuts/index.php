@@ -2,7 +2,7 @@
 $cfg = json_decode((string) @file_get_contents(dirname(__DIR__, 2) . '/site.config.json'), true);
 $origin = rtrim((string) (is_array($cfg) ? ($cfg['baseUrl'] ?? '') : ''), '/');
 $page_title = 'Exclusive Cuts | Haircuts, fades, and walk-ins';
-$page_description = 'Exclusive Cuts: zero fades, shavings, mohawks, razor fades, style cuts, and standard cuts. Open Monday to Saturday, 9:00 to 5:30. Walk-ins welcome. Call 022 430 9918.';
+$page_description = 'Exclusive Cuts: zero fades, shavings, mohawks, razor fades, style cuts, and standard cuts. Open Monday to Saturday, 9:00 to 5:30. Walk-ins welcome. Call 000 000 0000.';
 $page_path = '/projects/exclusive-cuts/';
 $page_og_image = $origin . '/projects/exclusive-cuts/assets/cut-fade.jpeg';
 $chrome = 'minimal';
@@ -23,7 +23,7 @@ HTML;
 <?php include __DIR__ . '/../../includes/head.php'; ?>
 <body class="ec">
 <?php include __DIR__ . '/../../includes/nav.php'; ?>
-<a class="call-pill" href="tel:0224309918">Call 022 430 9918</a>
+<a class="call-pill" href="tel:0000000000">Call 000 000 0000</a>
 <header class="ec-nav" data-menu>
   <a class="brand" href="#home">Exclusive <span>Cuts</span></a>
   <button class="ec-menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="ec-nav">Menu</button>
@@ -82,7 +82,7 @@ HTML;
     <div class="quality-copy">
       <p class="eye">The chair</p>
       <h2>Quality<br><span class="accent">cuts</span></h2>
-      <a class="phone" href="tel:0224309918">022 430 9918</a>
+      <a class="phone" href="tel:0000000000">000 000 0000</a>
     </div>
     <div class="tools">
       <figure class="tilt">
@@ -120,7 +120,7 @@ HTML;
     <div>
       <p class="eye">Get in touch</p>
       <h2>Write, or call.</h2>
-      <a class="phone dark" href="tel:0224309918">022 430 9918</a>
+      <a class="phone dark" href="tel:0000000000">000 000 0000</a>
     </div>
     <form id="client-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Exclusive Cuts website enquiry">

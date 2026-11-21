@@ -559,11 +559,27 @@ body.ml :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
   color: var(--slate);
   transition: transform 0.25s ease;
 }
-.faq-item[open] .faq-chevron { transform: rotate(180deg); }
+.faq-item[open]:not(.is-closing) .faq-chevron { transform: rotate(180deg); }
 .faq-answer { padding: 0 1.25rem 1.25rem; color: var(--muted); }
 .faq-answer p + p { margin-top: 0.7rem; }
+/* No-JS (and reduced-motion) path: UA toggle, with a height slide where supported. */
+@supports (interpolate-size: allow-keywords) {
+  .faq-item::details-content {
+    interpolate-size: allow-keywords;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.32s cubic-bezier(.2,.7,.2,1), content-visibility 0.32s cubic-bezier(.2,.7,.2,1);
+  }
+  .faq-item[open]::details-content { height: auto; }
+}
+html.ml-faq-js .faq-item::details-content {
+  height: auto;
+  overflow: visible;
+  transition: none;
+}
 @media (prefers-reduced-motion: reduce) {
   .faq-chevron { transition: none; }
+  .faq-item::details-content { transition: none; }
 }
 
 /* Contact: split details, location and enquiry form. */

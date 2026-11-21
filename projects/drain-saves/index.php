@@ -45,7 +45,7 @@ HTML;
       </h1>
       <p class="lede">Stop sewer and stormwater backflow before it reaches your property.</p>
       <div class="actions">
-        <a class="call" href="tel:02108169900">Call 021 081 699 00</a>
+        <a class="call" href="tel:0000000000">Call 000 000 0000</a>
         <a class="job-note" href="#contact">Send a job note</a>
       </div>
     </div>
@@ -57,7 +57,7 @@ HTML;
 
   <section class="horizon">
     <p>Our free quotes or advise can be provided on the fly.</p>
-    <a class="phone" href="tel:02108169900">021 081 699 00</a>
+    <a class="phone" href="tel:0000000000">000 000 0000</a>
   </section>
 
   <section class="h-pin" id="services">
@@ -145,7 +145,7 @@ HTML;
       <p class="eye">Contact us</p>
       <h2>Tell us about the water.</h2>
       <p class="note">Name, phone, and a message. The same line is open if you would rather call.</p>
-      <a class="phone slim" href="tel:02108169900">021 081 699 00</a>
+      <a class="phone slim" href="tel:0000000000">000 000 0000</a>
     </div>
     <form id="client-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Drain Saves website enquiry">
@@ -156,9 +156,9 @@ HTML;
         <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
       </p>
       <label for="ds-name">Name</label>
-      <input id="ds-name" name="Name" type="text" autocomplete="name" placeholder="John Smith" required>
+      <input id="ds-name" name="Name" type="text" autocomplete="name" placeholder="Your Name" required>
       <label for="ds-phone">Phone No.</label>
-      <input id="ds-phone" name="Phone No." type="tel" autocomplete="tel" placeholder="(+64)" required>
+      <input id="ds-phone" name="Phone No." type="tel" autocomplete="tel" placeholder="000 000 0000" required>
       <label for="ds-message">Message</label>
       <textarea id="ds-message" name="Message" rows="6" placeholder="Type query here" required></textarea>
       <button type="submit">Send</button>

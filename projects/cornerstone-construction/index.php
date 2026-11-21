@@ -50,7 +50,7 @@ HTML;
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="cc-call" href="tel:+6421998961">Call 021 998 961</a>
+    <a class="cc-call" href="tel:0000000000">Call 000 000 0000</a>
   </header>
 
   <section class="cc-hero" id="home">
@@ -61,7 +61,7 @@ HTML;
       <p>Site photograph</p>
       <h1 data-split>Fast work. Right attitude. Excellent results.</h1>
       <div class="cc-actions">
-        <a class="cc-call" href="tel:+6421998961">Call 021 998 961</a>
+        <a class="cc-call" href="tel:0000000000">Call 000 000 0000</a>
         <a class="cc-send" href="#contact">Send a job</a>
       </div>
     </div>
@@ -124,7 +124,7 @@ HTML;
     <div>
       <p class="cc-kicker">Contact us</p>
       <h2 data-split>Book the job.</h2>
-      <a class="cc-phone" href="tel:+6421998961">021 998 961</a>
+      <a class="cc-phone" href="tel:0000000000">000 000 0000</a>
     </div>
     <form action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="Cornerstone Construction enquiry">

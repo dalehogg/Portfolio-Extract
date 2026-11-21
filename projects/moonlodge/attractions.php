@@ -19,17 +19,17 @@ require __DIR__ . '/partials/open.php';
   </section>
 
   <section class="veticalImageContain" aria-label="Places to visit">
-    <a class="verticalBox" href="https://www.facebook.com/places/Things-to-do-in-Raglan-New-Zealand/105557729478205/" rel="noopener">
+    <div class="verticalBox">
       <?php echo ml_img('localAttractions/Raglan/TeAkau.jpg', '', '(min-width: 760px) 33vw, 100vw'); ?>
       <h2>Raglan</h2>
-    </a>
-    <a class="verticalBox" href="https://www.facebook.com/places/Things-to-do-in-Ruapuke/105550289477446/" rel="noopener">
+    </div>
+    <div class="verticalBox">
       <?php echo ml_img('localAttractions/RuapukeBeach/esturary.jpg', '', '(min-width: 760px) 33vw, 100vw'); ?>
       <h2>Ruapuke</h2>
-    </a>
-    <a class="verticalBox" href="https://www.facebook.com/pages/Bridal-Veil-Falls-Waikato/110353062348054" rel="noopener">
+    </div>
+    <div class="verticalBox">
       <?php echo ml_img('localAttractions/WairengaBridalVeil/IMG_2176.jpg', '', '(min-width: 760px) 33vw, 100vw'); ?>
       <h2>Bridal Veil Falls</h2>
-    </a>
+    </div>
   </section>
 <?php require __DIR__ . '/partials/close.php'; ?>

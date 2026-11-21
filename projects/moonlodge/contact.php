@@ -2,15 +2,15 @@
 $ml_page = 'contact';
 $ml_solid = true;
 $page_title = 'Contact | Moonlodge';
-$page_description = 'Contact Moonlodge at Waimaunga, Whaingaroa / Raglan, or send an enquiry about a stay or the art studio.';
+$page_description = 'Contact Moonlodge at 123 Example Street, Suburb, City, or send an enquiry about a stay or the art studio.';
 $page_path = '/projects/moonlodge/contact.php';
 require __DIR__ . '/partials/open.php';
 ?>
   <section class="contact-page">
     <div class="contact-copy">
-      <p class="ml-kicker">Waimaunga, Whaingaroa / Raglan</p>
+      <p class="ml-kicker">Get in touch</p>
       <h1 class="usualH1">Contact</h1>
-      <p>Get in touch about a stay at the lodge, or to visit the art studio by appointment. We are at Waimaunga, in Whaingaroa / Raglan.</p>
+      <p>Get in touch about a stay at the lodge, or to visit the art studio by appointment. We are at 123 Example Street, Suburb, City.</p>
 
       <!-- Sample details for this concept site. Not a real lodge or listing. -->
       <ul class="contact-facts">
@@ -20,7 +20,7 @@ require __DIR__ . '/partials/open.php';
           </span>
           <div>
             <h2>Phone</h2>
-            <p>(07) 555 0182</p>
+            <p><a href="tel:0000000000">000 000 0000</a></p>
           </div>
         </li>
         <li>
@@ -29,7 +29,7 @@ require __DIR__ . '/partials/open.php';
           </span>
           <div>
             <h2>Mob</h2>
-            <p>021 555 0182</p>
+            <p><a href="tel:0000000000">000 000 0000</a></p>
           </div>
         </li>
         <li>
@@ -38,7 +38,7 @@ require __DIR__ . '/partials/open.php';
           </span>
           <div>
             <h2>Email</h2>
-            <p>stay@moonlodge.example</p>
+            <p><a href="mailto:hello@example.com">hello@example.com</a></p>
           </div>
         </li>
       </ul>
@@ -47,7 +47,7 @@ require __DIR__ . '/partials/open.php';
         <?php echo ml_img('localAttractions/Raglan/RaglanOceanBeach.jpg', 'The west coast near Whaingaroa / Raglan', '(min-width: 900px) 36vw, 100vw'); ?>
         <div class="contact-location-text">
           <p class="ml-kicker">Address</p>
-          <p>Waimaunga Road, Whaingaroa / Raglan</p>
+          <p>123 Example Street, Suburb, City</p>
           <p class="contact-location-note">Studio visits are by appointment.</p>
         </div>
       </div>

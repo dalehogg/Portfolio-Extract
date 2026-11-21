@@ -10,7 +10,7 @@ require __DIR__ . '/partials/open.php';
     <?php echo ml_img('accommodation/dressing.jpg', 'Inside Moonlodge: lamps, a chandelier and light through white curtains', '100vw', 'fold-img', true); ?>
     <div class="foldText">
       <h1><span>Waimaunga</span> <span>Moonlodge</span></h1>
-      <a class="ml-button ctaButton" href="https://www.airbnb.co.nz/rooms/24138672?source_impression_id=p3_1574236180_BO5CFg7dkMk%2FD2rT" rel="noopener">Book Now</a>
+      <a class="ml-button ctaButton" href="https://www.airbnb.co.nz" rel="noopener">Book Now</a>
     </div>
   </section>
 

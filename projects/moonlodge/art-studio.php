@@ -12,7 +12,7 @@ require __DIR__ . '/partials/open.php';
     <div class="studio-intro-copy">
       <p class="ml-kicker">Waimaunga Studio</p>
       <h1 class="usualH1">Art Studio</h1>
-      <p>The studio at Waimaunga is a working space and a place to look slowly. Light comes in through white curtains, the doors open to the garden, and the fire and water shrines sit among the work. Tania Mills works here in clay, papier mâché and mixed media, making visual narratives and the Elemental Shrines: Earth, Air, Fire and Water. Visits are by appointment, including during the Arts Trail. If you would like to come in, send a message and we will arrange a time.</p>
+      <p>The studio at Waimaunga is a working space and a place to look slowly. Light comes in through white curtains, the doors open to the garden, and the fire and water shrines sit among the work. Artist Name works here in clay, papier mâché and mixed media, making visual narratives and the Elemental Shrines: Earth, Air, Fire and Water. Visits are by appointment, including during the Arts Trail. If you would like to come in, send a message and we will arrange a time.</p>
       <blockquote class="ml-pull">
         <p>A working space, and a place to look slowly.</p>
       </blockquote>
