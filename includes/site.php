@@ -148,6 +148,13 @@ function site_version_markup(string $html): string
         return site_prepare_images(site_version_urls($html));
     }
     foreach ($parts as $index => $part) {
+        if (preg_match('#^<script\b[^>]*\bsrc=#i', $part) === 1) {
+            // Version the src of external scripts; leave the tag body alone.
+            $parts[$index] = preg_replace_callback('#^<script\b[^>]*>#i', static function (array $m): string {
+                return site_version_urls($m[0]);
+            }, $part, 1) ?? $part;
+            continue;
+        }
         if (preg_match('#^<(script|style)\b#i', $part) === 1) {
             continue;
         }
