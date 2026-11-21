@@ -24,7 +24,11 @@
   }
 
   function setupDetails() {
-    document.querySelectorAll("details").forEach(function (d) {
+    // Moonlodge (body.ml) and any details marked data-native keep the UA toggle.
+    // The height animation below preventDefault()s that, which made the Questions
+    // accordion miss clicks or mis-handle the item that starts open.
+    if (document.body.classList.contains("ml")) return;
+    document.querySelectorAll("details:not([data-native])").forEach(function (d) {
       var summary = d.querySelector(":scope > summary");
       if (!summary) return;
       summary.addEventListener("click", function (event) {

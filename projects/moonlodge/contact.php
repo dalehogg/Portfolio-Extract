@@ -55,7 +55,7 @@ require __DIR__ . '/partials/open.php';
 
     <div class="contact-form">
       <p class="ml-kicker">Write to us</p>
-      <h2 class="usualH1">Enquires</h2>
+      <h2 class="usualH1">Enquiries</h2>
       <form id="ml-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Moonlodge website enquiry">
         <input type="hidden" name="_template" value="table">
