@@ -59,6 +59,10 @@ HTML;
         <figure><img src="/projects/exclusive-cuts/assets/cut-chair.jpeg" width="768" height="960" alt="A cut in the chair"></figure>
         <figure><img src="/projects/exclusive-cuts/assets/cut-kid.jpeg" width="778" height="960" alt="A child's haircut"></figure>
       </div>
+      <div class="swipe-ui">
+        <p class="swipe-hint">Swipe for more<span aria-hidden="true">&rarr;</span></p>
+        <div class="swipe-dots" aria-label="Gallery photos"></div>
+      </div>
     </div>
   </section>
 

@@ -8,6 +8,36 @@
     });
   }
 
+  // Phones: the gallery is a native swipe row. Dots show where you are and jump to a photo.
+  var row = document.querySelector("#gallery .h-track");
+  var dots = document.querySelector("#gallery .swipe-dots");
+  if (row && dots) {
+    var shots = row.querySelectorAll("figure");
+    shots.forEach(function (fig, i) {
+      var dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", "Photo " + (i + 1) + " of " + shots.length);
+      if (!i) dot.setAttribute("aria-current", "true");
+      dot.addEventListener("click", function () {
+        row.scrollTo({ left: fig.offsetLeft - parseFloat(getComputedStyle(row).paddingLeft), behavior: "smooth" });
+      });
+      dots.appendChild(dot);
+    });
+    var ticking = false;
+    row.addEventListener("scroll", function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var max = row.scrollWidth - row.clientWidth;
+        var n = max > 0 ? Math.round((row.scrollLeft / max) * (shots.length - 1)) : 0;
+        dots.querySelectorAll("button").forEach(function (d, i) {
+          if (i === n) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
+        });
+      });
+    }, { passive: true });
+  }
+
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduce || !window.gsap || !window.ScrollTrigger) {
     document.documentElement.classList.remove("gsap-on");
@@ -24,23 +54,28 @@
   var count = document.querySelector(".count");
   var figures = track ? track.querySelectorAll("figure") : [];
   if (track && pin && figures.length) {
-    gsap.to(track, {
-      x: function () { return Math.min(0, window.innerWidth - track.scrollWidth - 24); },
-      ease: "none",
-      scrollTrigger: {
-        trigger: pin,
-        start: "top 68px",
-        end: function () { return "+=" + Math.max(track.scrollWidth - window.innerWidth + 60, window.innerHeight); },
-        pin: true,
-        scrub: 0.7,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: function (self) {
-          if (!count) return;
-          var n = Math.min(figures.length, Math.max(1, Math.ceil(self.progress * figures.length)));
-          count.textContent = String(n).padStart(2, "0") + " / 04";
+    // Desktop and tablet keep the pinned sideways scroll. Under 800px it is switched off for the swipe row.
+    var mm = gsap.matchMedia();
+    mm.add("(min-width: 800px)", function () {
+      gsap.to(track, {
+        x: function () { return Math.min(0, window.innerWidth - track.scrollWidth - 24); },
+        ease: "none",
+        scrollTrigger: {
+          trigger: pin,
+          start: "top 68px",
+          end: function () { return "+=" + Math.max(track.scrollWidth - window.innerWidth + 60, window.innerHeight); },
+          pin: true,
+          scrub: 0.7,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: function (self) {
+            if (!count) return;
+            var n = Math.min(figures.length, Math.max(1, Math.ceil(self.progress * figures.length)));
+            count.textContent = String(n).padStart(2, "0") + " / 04";
+          }
         }
-      }
+      });
+      return function () { gsap.set(track, { clearProps: "transform" }); };
     });
   }
 
