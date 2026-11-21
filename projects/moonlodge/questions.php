@@ -58,7 +58,7 @@ require __DIR__ . '/partials/open.php';
       </div>
       <div class="questionIndividual">
         <h3 class="questonsH2">Where can we see your work?</h3>
-        <p class="questionsAnswer">By appointment at “Waimaunga Studio”<br> 236 Waimaunga Rd. 0278666239</p>
+        <p class="questionsAnswer">By appointment at “Waimaunga Studio”<br> Waimaunga Road, Whaingaroa / Raglan. 021 555 0182</p>
       </div>
     </div>
   </section>

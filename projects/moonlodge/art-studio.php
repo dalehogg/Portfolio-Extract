@@ -11,7 +11,7 @@ require __DIR__ . '/partials/open.php';
   <section class="artSection">
     <header class="page-head">
       <h1 class="usualH1">Art Studio</h1>
-      <p class="openingText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>
+      <p class="openingText">The studio at Waimaunga is a working space and a place to look slowly. Light comes in through white curtains, the doors open to the garden, and the fire and water shrines sit among the work. Tania Mills works here in clay, papier mâché and mixed media, making visual narratives and the Elemental Shrines: Earth, Air, Fire and Water. Visits are by appointment, including during the Arts Trail. If you would like to come in, send a message and we will arrange a time.</p>
     </header>
     <div class="art-grid">
       <figure class="artImage"><?php echo ml_img('studio/files_755839_753059_fire_shrine-a5acd5.jpg', 'The fire shrine, a red open cabinet', '(min-width: 900px) 50vw, 100vw'); ?></figure>

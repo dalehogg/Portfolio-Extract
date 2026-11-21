@@ -15,7 +15,7 @@ require __DIR__ . '/partials/open.php';
   </section>
 
   <section class="openingText">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>From Moonlodge you are close to some of the best of the west coast. Whaingaroa / Raglan has the harbour, the township and the well-known surf beaches. A little further on, Ruapuke opens out to a wilder shoreline and a wide horizon. Inland, a short walk through the bush brings you to Wairenga / Bridal Veil Falls, a high drop into a clear pool. All three are an easy outing from the lodge, whether you want a swim, a slow drive, or an afternoon among the trees.</p>
   </section>
 
   <section class="veticalImageContain" aria-label="Places to visit">

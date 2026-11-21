@@ -9,12 +9,12 @@ require __DIR__ . '/partials/open.php';
   <section class="contactContain">
     <div class="contact">
       <h1 class="usualH1">Contact</h1>
-      <!-- Placeholder details, as on the original site. Replace with Moonlodge's real numbers and address before this goes to a client. -->
+      <!-- Sample details for this concept site. Not a real lodge or listing. -->
       <dl class="contact-list">
-        <div><dt>Phone:</dt><dd>(xx) xxx xxxx</dd></div>
-        <div><dt>Mob:</dt><dd>xxx xxx xxxx</dd></div>
-        <div><dt>Email:</dt><dd>email@example.com</dd></div>
-        <div><dt>Address:</dt><dd>123 Town Rd, City</dd></div>
+        <div><dt>Phone:</dt><dd>(07) 555 0182</dd></div>
+        <div><dt>Mob:</dt><dd>021 555 0182</dd></div>
+        <div><dt>Email:</dt><dd>stay@moonlodge.example</dd></div>
+        <div><dt>Address:</dt><dd>Waimaunga Road, Whaingaroa / Raglan</dd></div>
       </dl>
     </div>
     <div class="enquires">

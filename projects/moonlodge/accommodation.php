@@ -15,7 +15,7 @@ require __DIR__ . '/partials/open.php';
   </section>
 
   <section class="openingText">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Waimaunga Moonlodge is a private stay set among the hills above Whaingaroa / Raglan. Come in through your own entrance, put the kettle on in the kitchen, and settle in. The bedroom is quiet, the bathroom is close by, and an outdoor bath looks out over the land. Mornings bring sunrise over the maunga; in the evening the light drops slowly toward the west coast. Breakfast is ready for you, parking is free, and a heater keeps the lodge warm when the weather turns. Book your dates on Airbnb, or ask us a question first.</p>
   </section>
 
   <section class="featuresPhotos">
