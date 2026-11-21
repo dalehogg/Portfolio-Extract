@@ -64,7 +64,6 @@ HTML;
     <div class="h-viewport">
       <div class="h-label">
         <p class="eye">Services</p>
-        <p class="svc-index" aria-hidden="true">01</p>
       </div>
       <div class="h-track">
         <article class="service">

@@ -33,29 +33,7 @@
     });
   }
 
-  var track = document.querySelector("#services .h-track");
-  var pin = document.querySelector("#services");
-  var index = document.querySelector(".svc-index");
-  if (track && pin) {
-    gsap.to(track, {
-      x: function () { return Math.min(0, window.innerWidth - track.scrollWidth - 32); },
-      ease: "none",
-      scrollTrigger: {
-        trigger: pin,
-        start: "top 70px",
-        end: function () { return "+=" + Math.max(track.scrollWidth - window.innerWidth + 80, window.innerHeight * 0.8); },
-        pin: true,
-        scrub: 0.65,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        onUpdate: function (self) {
-          if (!index) return;
-          var n = Math.min(4, Math.max(1, Math.ceil(self.progress * 4)));
-          index.textContent = String(n).padStart(2, "0");
-        }
-      }
-    });
-  }
+  // Services are a static grid now (no pin, no sideways tween).
 
   gsap.utils.toArray(".reveal-clip").forEach(function (img) {
     gsap.fromTo(img, { clipPath: "inset(14% 10% 14% 10%)" }, {

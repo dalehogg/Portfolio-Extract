@@ -201,16 +201,16 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   justify-content: space-between;
   padding: 0 4vw 1.2rem;
 }
-.svc-index { display: none; margin: 0; font-size: clamp(2rem, 4vw, 3.4rem); color: var(--ring); }
-html.gsap-on .svc-index { display: block; }
+/* Services: a plain grid, no scroll-driven movement. 2x2 on phones and tablets, 4 across on desktop. */
 .h-track {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.7rem, 1.6vw, 1.2rem);
   padding: 0 4vw;
 }
 .service {
-  min-height: 28vh;
+  min-width: 0;
+  min-height: clamp(150px, 22vh, 230px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -220,15 +220,15 @@ html.gsap-on .svc-index { display: block; }
   background: rgba(2, 2, 51, 0.45);
 }
 .service > span { color: var(--ring); font-size: 0.75rem; }
-.service h2 { font-size: clamp(2.6rem, 6vw, 5rem); }
-.service svg { width: 54px; height: 54px; stroke: var(--ring); fill: none; stroke-width: 1.4; align-self: flex-end; }
-html.gsap-on .h-track {
-  display: flex;
-  width: max-content;
-  gap: 2vw;
-  padding: 0 4vw 0.4rem;
+.service h2 { font-size: clamp(1.35rem, 4.6vw, 2.6rem); overflow-wrap: anywhere; }
+.service svg { width: clamp(36px, 4vw, 48px); height: clamp(36px, 4vw, 48px); stroke: var(--ring); fill: none; stroke-width: 1.4; align-self: flex-end; }
+@media (min-width: 1025px) {
+  .h-track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .service h2 { font-size: clamp(1.6rem, 2.4vw, 2.5rem); }
 }
-html.gsap-on .service { width: min(72vw, 540px); min-height: 48vh; flex: none; }
+@media (max-width: 599px) {
+  .service { gap: 1rem; padding: 1.1rem 0.9rem 0.9rem; }
+}
 
 .bleed {
   position: relative;
@@ -348,10 +348,6 @@ html.gsap-on .service { width: min(72vw, 540px); min-height: 48vh; flex: none; }
   .quotes { grid-template-columns: 1fr 1fr 1fr; }
   .quote:nth-child(2) { margin-top: 4.5rem; }
   .quote:nth-child(3) { margin-top: 9rem; }
-}
-@media (max-width: 799px) {
-  .h-track { grid-template-columns: 1fr; }
-  html.gsap-on .service { width: 84vw; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
