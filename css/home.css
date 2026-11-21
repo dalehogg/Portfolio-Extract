@@ -463,3 +463,49 @@ body.backNight #contact .contact-facts a { color: var(--amber); }
 .footer-bar { flex-wrap: wrap; }
 .footer-bar .footer-facts { flex-basis: 100%; order: 3; margin: 0.35rem 0 0; font-size: 0.85rem; opacity: 0.8; }
 .footer-bar .footer-facts a { color: inherit; }
+
+/* Homepage scroll-spy: gold text and an underline that grows in. */
+body.backNight .site-nav a:not(.nav-quote) {
+  position: relative;
+  transition: color 0.2s ease;
+}
+body.backNight .site-nav a:not(.nav-quote)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.32em;
+  height: 1px;
+  background: #ffb000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s ease;
+  pointer-events: none;
+}
+@media (max-width: 980px) {
+  body.backNight .site-nav a:not(.nav-quote) {
+    align-self: flex-start;
+  }
+  body.backNight .site-nav a:not(.nav-quote)::after {
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.45rem;
+  }
+}
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote),
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote):hover,
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote):focus {
+  color: #ffb000;
+}
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote)::after {
+  transform: scaleX(1);
+}
+body.backNight .site-nav a.nav-quote[aria-current="true"] {
+  box-shadow: inset 0 -3px 0 #1a1408;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.backNight .site-nav a:not(.nav-quote),
+  body.backNight .site-nav a:not(.nav-quote)::after {
+    transition: none;
+  }
+}

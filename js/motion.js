@@ -55,8 +55,110 @@
     });
   }
 
+
+  function setupScrollSpy() {
+    if (!document.body.classList.contains("backNight")) return;
+    var nav = document.getElementById("site-nav");
+    if (!nav) return;
+    var items = [];
+    nav.querySelectorAll("a[href]").forEach(function (link) {
+      var href = link.getAttribute("href") || "";
+      var hash = href.indexOf("#") === -1 ? "" : href.slice(href.indexOf("#") + 1);
+      if (!hash) return;
+      var section = document.getElementById(hash);
+      if (section) items.push({ link: link, section: section, id: hash });
+    });
+    if (!items.length) return;
+
+    var currentId = null;
+    var lockedId = null;
+    var lockTimer = 0;
+    var lockSafety = 0;
+    var spyFrame = 0;
+
+    function setCurrent(id) {
+      if (id === currentId) return;
+      currentId = id;
+      items.forEach(function (item) {
+        if (item.id === id) item.link.setAttribute("aria-current", "true");
+        else item.link.removeAttribute("aria-current");
+      });
+    }
+
+    function pick() {
+      if (lockedId) return;
+      var vh = window.innerHeight || 1;
+      var mark = vh * 0.38;
+      var y = window.scrollY || document.documentElement.scrollTop || 0;
+      var maxY = Math.max(0, (document.documentElement.scrollHeight || 0) - vh);
+      if (maxY > 0 && y >= maxY - 2) {
+        setCurrent(items[items.length - 1].id);
+        return;
+      }
+      var chosen = null;
+      for (var i = 0; i < items.length; i += 1) {
+        if (items[i].section.getBoundingClientRect().top <= mark) chosen = items[i];
+      }
+      setCurrent(chosen ? chosen.id : null);
+    }
+
+    function requestPick() {
+      if (spyFrame) return;
+      spyFrame = window.requestAnimationFrame(function () {
+        spyFrame = 0;
+        pick();
+      });
+    }
+
+    function unlock() {
+      lockedId = null;
+      if (lockTimer) { window.clearTimeout(lockTimer); lockTimer = 0; }
+      if (lockSafety) { window.clearTimeout(lockSafety); lockSafety = 0; }
+      pick();
+    }
+
+    function armUnlock() {
+      if (lockTimer) window.clearTimeout(lockTimer);
+      lockTimer = window.setTimeout(unlock, 160);
+    }
+
+    var hasScrollEnd = "onscrollend" in window;
+
+    nav.addEventListener("click", function (event) {
+      var link = event.target.closest("a");
+      if (!link || !nav.contains(link)) return;
+      var href = link.getAttribute("href") || "";
+      var hash = href.indexOf("#") === -1 ? "" : href.slice(href.indexOf("#") + 1);
+      var match = null;
+      items.forEach(function (item) { if (item.id === hash) match = item; });
+      if (!match) return;
+      var path = link.pathname || "";
+      if (path && path !== location.pathname && !(path === "/" && (location.pathname === "/" || /index\.php$/.test(location.pathname)))) return;
+      setCurrent(match.id);
+      lockedId = match.id;
+      if (lockTimer) window.clearTimeout(lockTimer);
+      if (lockSafety) window.clearTimeout(lockSafety);
+      lockSafety = window.setTimeout(unlock, 2000);
+    });
+
+    window.addEventListener("scrollend", function () {
+      if (lockedId) unlock();
+    }, { passive: true });
+    window.addEventListener("scroll", function () {
+      if (lockedId && !hasScrollEnd) armUnlock();
+      requestPick();
+    }, { passive: true });
+    window.addEventListener("resize", requestPick);
+    window.addEventListener("hashchange", function () {
+      lockedId = null;
+      pick();
+    });
+    pick();
+  }
+
   ready(function () {
     setupDetails();
+    setupScrollSpy();
     var header = document.querySelector(".site-header");
     var toggle = document.querySelector(".nav-toggle");
     var nav = document.getElementById("site-nav");
