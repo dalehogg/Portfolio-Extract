@@ -122,7 +122,7 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
             <span class="frame-meta"><strong>Exclusive Cuts</strong><em>A North Shore barbershop.</em><span>View project</span></span>
           </a>
           <a class="frame" data-gsap href="/projects/moonlodge/">
-            <span class="frame-shot"><img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge, the name beside a west-coast beach and green hills"></span>
+            <span class="frame-shot"><img src="/Img/work/moonlodge.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Moonlodge home page: the name over a west coast beach below green hills"></span>
             <span class="frame-meta"><strong>Moonlodge</strong><em>Stay beside the west coast.</em><span>View project</span></span>
           </a>
           <a class="frame" data-gsap href="/projects/job-pack-maker/">
