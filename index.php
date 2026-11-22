@@ -53,33 +53,126 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
   </div>
   <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
-  <div class="day-skies" aria-hidden="true">
-    <div class="day-sky-layer sky-pos-a">
-      <div class="day-sky-drift">
-      <picture class="day-sky-pic">
-        <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-2560.avif')); ?> 2560w, <?php echo site_h(site_asset('/Img/sky/day-sky-3840.avif')); ?> 3840w" sizes="100vw">
-        <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-2560.webp')); ?> 2560w, <?php echo site_h(site_asset('/Img/sky/day-sky-3840.webp')); ?> 3840w" sizes="100vw">
-        <img src="<?php echo site_h(site_asset('/Img/sky/day-sky-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1920.jpg')); ?> 1920w" sizes="100vw" width="3840" height="5100" alt="" decoding="async" loading="eager">
-      </picture>
-      </div>
+  <div class="day-clouds" aria-hidden="true">
+    <div class="cloud-item" style="top:4vh;width:42vw;--dur:48s;--delay:-10s;--sx:1;opacity:0.95;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a.svg')); ?>" alt="" decoding="async" draggable="false">
     </div>
-    <div class="day-sky-layer sky-pos-b">
-      <div class="day-sky-drift">
-      <picture class="day-sky-pic">
-        <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-b-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-2560.avif')); ?> 2560w" sizes="100vw">
-        <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-b-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-2560.webp')); ?> 2560w" sizes="100vw">
-        <img src="<?php echo site_h(site_asset('/Img/sky/day-sky-b-1920.webp')); ?>" sizes="100vw" width="2560" height="1164" alt="" decoding="async" loading="lazy">
-      </picture>
-      </div>
+    <div class="cloud-item is-flip" style="top:8vh;width:22vw;--dur:62s;--delay:-22s;--sx:-1;opacity:0.88;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-e.svg')); ?>" alt="" decoding="async" draggable="false">
     </div>
-    <div class="day-sky-layer sky-pos-c">
-      <div class="day-sky-drift">
-      <picture class="day-sky-pic">
-        <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-c-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-2560.avif')); ?> 2560w" sizes="100vw">
-        <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-c-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-2560.webp')); ?> 2560w" sizes="100vw">
-        <img src="<?php echo site_h(site_asset('/Img/sky/day-sky-c-1920.webp')); ?>" sizes="100vw" width="2560" height="1009" alt="" decoding="async" loading="lazy">
-      </picture>
-      </div>
+    <div class="cloud-item" style="top:18vh;width:16vw;--dur:40s;--delay:-5s;--sx:1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-h.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:2vh;width:28vw;--dur:55s;--delay:-33s;--sx:1;opacity:0.86;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-c.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:52vh;width:36vw;--dur:52s;--delay:-18s;--sx:-1;opacity:0.92;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-b.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:68vh;width:24vw;--dur:44s;--delay:-2s;--sx:1;opacity:0.88;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-f.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:78vh;width:14vw;--dur:70s;--delay:-40s;--sx:-1;opacity:0.8;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-h.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:110vh;width:48vw;--dur:58s;--delay:-14s;--sx:1;opacity:0.94;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-d.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:122vh;width:30vw;--dur:46s;--delay:-28s;--sx:-1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:138vh;width:18vw;--dur:38s;--delay:-8s;--sx:1;opacity:0.85;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-e.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:148vh;width:26vw;--dur:64s;--delay:-36s;--sx:-1;opacity:0.88;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-c.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:190vh;width:15vw;--dur:50s;--delay:-12s;--sx:1;opacity:0.8;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-h.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:215vh;width:34vw;--dur:60s;--delay:-24s;--sx:1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-g.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:250vh;width:40vw;--dur:42s;--delay:-6s;--sx:-1;opacity:0.93;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-b.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:262vh;width:22vw;--dur:54s;--delay:-30s;--sx:1;opacity:0.86;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-f.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:280vh;width:32vw;--dur:47s;--delay:-16s;--sx:1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:298vh;width:20vw;--dur:36s;--delay:-3s;--sx:-1;opacity:0.84;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-e.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:320vh;width:28vw;--dur:68s;--delay:-44s;--sx:1;opacity:0.88;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-c.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:370vh;width:13vw;--dur:58s;--delay:-20s;--sx:-1;opacity:0.78;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-h.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:410vh;width:44vw;--dur:50s;--delay:-11s;--sx:-1;opacity:0.92;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-d.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:428vh;width:26vw;--dur:43s;--delay:-27s;--sx:1;opacity:0.87;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-g.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:455vh;width:36vw;--dur:56s;--delay:-9s;--sx:1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-b.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:478vh;width:18vw;--dur:39s;--delay:-19s;--sx:-1;opacity:0.84;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-f.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:510vh;width:40vw;--dur:61s;--delay:-35s;--sx:-1;opacity:0.93;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:528vh;width:16vw;--dur:45s;--delay:-7s;--sx:1;opacity:0.82;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-e.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:560vh;width:30vw;--dur:52s;--delay:-21s;--sx:-1;opacity:0.88;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-c.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:590vh;width:14vw;--dur:41s;--delay:-13s;--sx:1;opacity:0.8;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-h.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:640vh;width:38vw;--dur:49s;--delay:-17s;--sx:1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-d.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:668vh;width:24vw;--dur:57s;--delay:-29s;--sx:-1;opacity:0.86;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-g.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:700vh;width:34vw;--dur:44s;--delay:-4s;--sx:1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-b.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:730vh;width:28vw;--dur:63s;--delay:-38s;--sx:-1;opacity:0.88;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:760vh;width:20vw;--dur:40s;--delay:-15s;--sx:1;opacity:0.84;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-f.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:800vh;width:22vw;--dur:53s;--delay:-25s;--sx:-1;opacity:0.86;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-e.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:840vh;width:32vw;--dur:46s;--delay:-8s;--sx:1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-c.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:880vh;width:15vw;--dur:59s;--delay:-32s;--sx:-1;opacity:0.8;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-h.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:930vh;width:40vw;--dur:51s;--delay:-12s;--sx:1;opacity:0.92;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-d.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:980vh;width:26vw;--dur:37s;--delay:-1s;--sx:1;opacity:0.87;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-g.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:1040vh;width:34vw;--dur:55s;--delay:-23s;--sx:-1;opacity:0.9;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-b.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item" style="top:1100vh;width:30vw;--dur:48s;--delay:-18s;--sx:1;opacity:0.88;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a.svg')); ?>" alt="" decoding="async" draggable="false">
+    </div>
+    <div class="cloud-item is-flip" style="top:1160vh;width:18vw;--dur:42s;--delay:-6s;--sx:-1;opacity:0.84;">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-f.svg')); ?>" alt="" decoding="async" draggable="false">
     </div>
   </div>
   <div class="realMoon-track" aria-hidden="true">

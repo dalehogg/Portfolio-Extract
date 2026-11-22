@@ -27,7 +27,7 @@ if ($chrome_mode === 'minimal') {
 <?php endif; ?>
     <a href="/#contact">Get a quote</a>
 <?php if (!empty($show_photo_credit)): ?>
-    <p class="photo-credit">Photos and artwork: Auckland skyline silhouette, <a href="https://creazilla.com/media/silhouette/2959/auckland-skyline">Bob Comix</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>); day sky, <a href="https://commons.wikimedia.org/wiki/File:Cirrus-cumulus_clouds_in_the_sky.jpg">Rise DHMN</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>); additional day sky, <a href="https://commons.wikimedia.org/wiki/File:Cumulus_Clouds_on_Horizon.jpg">Defi22</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>) and <a href="https://commons.wikimedia.org/wiki/File:Cirrus_uncinus_clouds_in_the_morning_sky.jpg">ADARSHluck</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); moon, <a href="https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg">Gregory H. Revera</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>). The skyline is a cropped and restyled version of the Bob Comix silhouette.</p>
+    <p class="photo-credit">Photos and artwork: Auckland skyline silhouette, <a href="https://creazilla.com/media/silhouette/2959/auckland-skyline">Bob Comix</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>); day clouds, original drawings for Soffit Web; moon, <a href="https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg">Gregory H. Revera</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>). The skyline is a cropped and restyled version of the Bob Comix silhouette.</p>
 <?php endif; ?>
   </div>
 </footer>

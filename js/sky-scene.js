@@ -33,7 +33,7 @@
   }
 
   function setClouds(day) {
-    var el = document.querySelector(".day-skies");
+    var el = document.querySelector(".day-clouds");
     if (!el) return;
     var play = !!day && !document.hidden && !reduce;
     el.classList.toggle("is-paused", !play);
@@ -87,19 +87,21 @@
     var fb = fadeBottom.toFixed(1) + "px";
     root.style.setProperty("--sky-fade-bottom", fb);
     document.body.style.setProperty("--sky-fade-bottom", fb);
-    /* Warm gold/orange rises to ~20vh above the tallest building (the Sky Tower tip). */
-    var warmPct = ((cityH + 0.20 * vh) / (1.45 * vh)) * 100;
-    if (warmPct < 22) warmPct = 22;
-    if (warmPct > 70) warmPct = 70;
+    /* Thin warm glow: just a short band above the rooftops (start of a sunset). */
+    var warmPct = ((waterH + cityH * 0.22) / (0.48 * vh)) * 100;
+    if (warmPct < 18) warmPct = 18;
+    if (warmPct > 55) warmPct = 55;
     root.style.setProperty("--sunset-warm-pct", warmPct.toFixed(2) + "%");
   }
 
   function paint() {
     var p = progress();
-    var sunset = ease(range(p, 0.22, 0.85));
-    var starFade = ease(range(p, 0.4, 0.82));
-    var cityIn = ease(range(p, 0.28, 0.86));
-    var moonOut = ease(range(p, 0.48, 0.82));
+    /* City and a thin sunset only arrive in the last ~18% of the scroll.
+       Most of the night page stays a deep starry sky. */
+    var sunset = ease(range(p, 0.82, 1.0));
+    var starFade = ease(range(p, 0.90, 1.0));
+    var cityIn = ease(range(p, 0.82, 1.0));
+    var moonOut = ease(range(p, 0.72, 0.90));
     var day = isDay();
 
     layoutSkyline(cityIn);
