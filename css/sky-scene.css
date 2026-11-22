@@ -115,10 +115,12 @@ html.is-day .sky-wash-night { opacity: 0 !important; }
   mix-blend-mode: overlay;
 }
 html.is-day .sky-grad-noise { opacity: 0.05; }
-#nightSky canvas {
+/* Horizon fade lives on a non-moving mask so parallax does not drag the fade line. */
+.star-mask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   z-index: 1;
-  opacity: var(--star-o, 1);
-  will-change: transform, opacity;
   -webkit-mask-image: linear-gradient(
     to top,
     transparent 0,
@@ -138,7 +140,25 @@ html.is-day .sky-grad-noise { opacity: 0.05; }
     #000 100%
   );
 }
-html.is-day #nightSky canvas {
+/* Single GPU-composited wrapper; the only scroll transform for the star field. */
+.star-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -80vh;
+  height: 260%;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  transition: none !important;
+}
+#nightSky canvas {
+  z-index: 1;
+  opacity: var(--star-o, 1);
+  transition: none !important;
+}
+html.is-day #nightSky canvas,
+html.is-day .star-mask {
   -webkit-mask-image: none;
   mask-image: none;
 }
@@ -377,7 +397,7 @@ html.is-day {
   bottom: 0;
   width: auto;
   max-width: none;
-  z-index: 1;
+  z-index: 4; /* above day clouds (3) and moon (2); below page content (5) */
   height: var(--skyline-h, 42vh);
   pointer-events: none;
   overflow: hidden;
@@ -560,10 +580,13 @@ html.is-day .sky-toggle .icon-moon { opacity: 1; transform: none; }
 .sky-toggle-text { padding-top: 0.05rem; }
 
 body.backNight #contact {
-  padding-bottom: 1.2rem;
+  padding-bottom: 2.4rem;
+  scroll-margin-top: 5.5rem;
 }
 body.backNight .site-footer {
-  padding: 0.4rem 0 1.15rem;
+  /* Lift credits above the rooftops, and leave room so the contact
+     heading can scroll clear of the fixed header on small screens. */
+  padding: 0.8rem 0 calc(var(--roof-h, 7rem) + 5rem);
 }
 
 /* Day palette — homepage only. */
@@ -582,15 +605,17 @@ html.is-day body.backNight #why > .wrap,
 html.is-day body.backNight #about > .wrap,
 html.is-day body.backNight #questions > .wrap,
 html.is-day body.backNight #process > .wrap,
-html.is-day body.backNight .band > .band-cta.wrap,
-html.is-day body.backNight .footer-bar,
+html.is-day body.backNight #services > .wrap,
+html.is-day body.backNight #work > .wrap,
+html.is-day body.backNight #testimonials > .wrap,
 html.is-day body.backNight #contact > .wrap,
-html.is-day body.backNight #contact .contact-layout,
-html.is-day body.backNight #contact form,
+html.is-day body.backNight .band > .band-cta.wrap,
 html.is-day body.backNight .frame-meta {
+  color: #1a1814;
+}
+html.is-day body.backNight #contact .contact-layout,
+html.is-day body.backNight #contact form {
   background: transparent;
-  border-color: transparent;
-  box-shadow: none;
   color: #1a1814;
 }
 html.is-day body.backNight .hero-copy,
@@ -755,15 +780,15 @@ html.is-day body.backNight .footer-bar a[href="/#contact"] {
   .photo-credit {
     padding-left: 0;
     margin-top: 0.7rem;
-    font-size: 0.62rem;
-    line-height: 1.35;
+    font-size: 0.68rem;
+    line-height: 1.45;
   }
 }
 .photo-credit a { text-decoration: underline; text-underline-offset: 0.12em; }
 
 
-/* r38: every homepage section is open on the one sky. No colour bands.
-   Footer and body copy sit on top of the silhouette; contrast comes from text-shadow. */
+/* r41: restore section frames as uniform glass boxes. The sky shows through;
+   fills are the same for every box so there are no colour bands. Footer stays open. */
 body.backNight .band > .wrap,
 body.backNight #pricing > .wrap,
 body.backNight #why > .wrap,
@@ -772,15 +797,59 @@ body.backNight #questions > .wrap,
 body.backNight #process > .wrap,
 body.backNight #services > .wrap,
 body.backNight #work > .wrap,
+body.backNight #testimonials > .wrap,
 body.backNight #contact > .wrap,
 body.backNight .band > .band-cta.wrap,
-body.backNight .footer-bar,
-body.backNight .frame-meta,
-body.backNight .site-footer {
+body.backNight .frame-meta {
+  background: rgba(7, 10, 24, 0.42) !important;
+  border: 1px solid rgba(244, 240, 230, 0.16) !important;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18) !important;
+}
+html.is-day body.backNight .band > .wrap,
+html.is-day body.backNight #pricing > .wrap,
+html.is-day body.backNight #why > .wrap,
+html.is-day body.backNight #about > .wrap,
+html.is-day body.backNight #questions > .wrap,
+html.is-day body.backNight #process > .wrap,
+html.is-day body.backNight #services > .wrap,
+html.is-day body.backNight #work > .wrap,
+html.is-day body.backNight #testimonials > .wrap,
+html.is-day body.backNight #contact > .wrap,
+html.is-day body.backNight .band > .band-cta.wrap,
+html.is-day body.backNight .frame-meta {
+  background: rgba(255, 252, 246, 0.46) !important;
+  border: 1px solid rgba(26, 24, 20, 0.16) !important;
+  box-shadow: 0 18px 40px rgba(30, 40, 60, 0.08) !important;
+}
+/* Work was unboxed and nearly full-bleed in home.css; give it the same frame as the others. */
+body.backNight #work > .wrap {
+  width: min(1120px, calc(100% - 8vw));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+@media (max-width: 720px) {
+  body.backNight #work > .wrap {
+    padding-left: 1.05rem;
+    padding-right: 1.05rem;
+  }
+  body.backNight .site-footer {
+    padding: 0.9rem 0 calc(var(--roof-h, 7rem) + 5.5rem);
+  }
+}
+body.backNight .site-footer,
+body.backNight .footer-bar {
   background: transparent !important;
   border: 0 !important;
   border-color: transparent !important;
   box-shadow: none !important;
+}
+body.backNight #contact .contact-layout,
+body.backNight #contact form,
+html.is-day body.backNight #contact .contact-layout,
+html.is-day body.backNight #contact form {
+  background: transparent !important;
 }
 
 body.backNight .site-footer,
@@ -804,38 +873,7 @@ html.is-day body.backNight .site-footer a {
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85), 0 0 14px rgba(255, 255, 255, 0.45);
 }
 
-body.backNight .band h2,
-body.backNight .band p,
-body.backNight .kicker,
-body.backNight .intro,
-body.backNight .service-card,
-body.backNight .why-card,
-body.backNight .step,
-body.backNight .faq,
-body.backNight .price-card,
-body.backNight .frame-meta,
-body.backNight #contact h2,
-body.backNight #contact p,
-body.backNight #contact label,
-body.backNight #contact .intro {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 12px rgba(2, 1, 12, 0.35);
-}
-html.is-day body.backNight .band h2,
-html.is-day body.backNight .band p,
-html.is-day body.backNight .kicker,
-html.is-day body.backNight .intro,
-html.is-day body.backNight .service-card,
-html.is-day body.backNight .why-card,
-html.is-day body.backNight .step,
-html.is-day body.backNight .faq,
-html.is-day body.backNight .price-card,
-html.is-day body.backNight .frame-meta,
-html.is-day body.backNight #contact h2,
-html.is-day body.backNight #contact p,
-html.is-day body.backNight #contact label,
-html.is-day body.backNight #contact .intro {
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.75), 0 0 12px rgba(255, 255, 255, 0.35);
-}
+
 
 /* Form fields stay as fields, not section bands. */
 body.backNight #contact input,

@@ -13,10 +13,10 @@ The earlier cut-out photographs of the Auckland CBD (day: DXR, CC BY-SA 4.0; nig
 
 ## Day clouds
 
-- **Files:** `Img/clouds/photo-a.webp` through `photo-f.webp`, and `photo-h.webp`
+- **Files:** `Img/clouds/photo-a.webp` through `photo-f.webp`, and `photo-h.webp` through `photo-q.webp` (sixteen sprites; `photo-g` was dropped)
 - **Author:** Original photoreal cloud sprites created for Soffit Web
 - **Licence:** All rights reserved to Soffit Web; made for this site
-- **Notes:** Seven isolated fair-weather cumulus photographs of varied shape and size (towering, medium, small, and flat-bottomed) were keyed from a black backdrop (luminance-to-alpha, unpremultiplied edges) and are placed many times down the day sky. They drift horizontally at different speeds, in mixed sizes, clusters and clearer stretches. They replaced the earlier vector cloud drawings and the stacked day-sky photographs (Rise DHMN, CC BY 4.0; Defi22, CC BY-SA 4.0; ADARSHluck, CC BY-SA 4.0), which are no longer used on the page.
+- **Notes:** Sixteen isolated fair-weather cloud photographs of varied shape and size (towering cumulus, wide flat-bottomed, small puffs, medium lumpy, thin stratocumulus patches, and cloud banks) were keyed from a black backdrop (luminance-to-alpha, unpremultiplied and choked edges, shadows lifted toward pale blue-grey). They are placed many times down the day sky, with dense overlapping clusters in some vertical stretches and open blue with only one or two lone clouds in others. They drift horizontally at different speeds, scales, flips and opacities. They replaced the earlier vector cloud drawings and the stacked day-sky photographs (Rise DHMN, CC BY 4.0; Defi22, CC BY-SA 4.0; ADARSHluck, CC BY-SA 4.0), which are no longer used on the page.
 
 ## Moon
 

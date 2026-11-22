@@ -6,7 +6,7 @@
   var sky = document.getElementById("nightSky");
   var city = document.querySelector(".skyline");
   var moonTrack = document.querySelector(".realMoon-track");
-  var starLayers = sky ? Array.prototype.slice.call(sky.querySelectorAll("canvas")) : [];
+  var starTrack = sky ? sky.querySelector(".star-track") : null;
   var toggle = document.getElementById("sky-toggle");
   var frame = 0;
   var KEY = "soffit-sky";
@@ -132,22 +132,14 @@
       moonTrack.style.pointerEvents = "none";
     }
 
-    if (!reduce) {
-      starLayers.forEach(function (el) {
-        if (el.id === "sky-lines") {
-          el.style.opacity = day ? "0" : (1 - starFade).toFixed(3);
-          return;
-        }
-        var depth = parseFloat(el.getAttribute("data-depth")) || 24;
-        var shift = -p * depth * 5.2;
-        el.style.transform = "translate3d(0," + shift.toFixed(1) + "px,0)";
-        if (el.id !== "sky-lines") el.style.opacity = day ? "0" : (1 - starFade * 0.85).toFixed(3);
-      });
-    } else if (sky) {
-      sky.style.opacity = day ? "0" : (1 - starFade * 0.6).toFixed(3);
-      if (moonTrack) {
-        moonTrack.style.transform = "translate3d(0," + (-moonOut * 20) + "vh,0)";
-        moonTrack.style.opacity = String(1 - moonOut);
+    /* One writer, one wrapper. Drive from scrollTop (not a ratio of scrollMax)
+       so a changing viewport or page height cannot reverse the layer. */
+    if (starTrack) {
+      if (reduce) {
+        starTrack.style.transform = "translate3d(0,0,0)";
+      } else {
+        var starY = -scrollTop() * 0.035;
+        starTrack.style.transform = "translate3d(0," + starY + "px,0)";
       }
     }
   }

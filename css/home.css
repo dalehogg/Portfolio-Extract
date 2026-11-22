@@ -362,10 +362,6 @@ body.backNight .footer-bar {
   background: rgba(7, 10, 24, 0.72);
   border: 1px solid rgba(244, 240, 230, 0.14);
 }
-body.backNight #nightSky canvas {
-  top: -12%;
-  height: 124%;
-}
 @media (prefers-reduced-motion: no-preference) {
   body.backNight #fullpage .section-one .realMoon-container {
     position: fixed;
