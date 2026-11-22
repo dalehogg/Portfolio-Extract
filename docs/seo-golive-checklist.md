@@ -2,6 +2,8 @@
 
 Use this once Dale has a live domain and has approved going public. Nothing here should be done against the hidden preview at `https://soffit-preview-dh.page.gd`. The preview build stays noindex, and its robots.txt disallows all crawlers.
 
+The Soffit Web Facebook Page is already public: [https://www.facebook.com/soffitweb](https://www.facebook.com/soffitweb), handle **@soffitweb**, created 22 Nov 2026. Dale approved it. That URL is in `sameAs` in `site.config.json`, so it appears in the site JSON-LD and in the footer. The Page website field still stays blank until the live domain is confirmed.
+
 The intended domain in `site.config.json` is `https://soffit.com`. That name is not confirmed. Replace it with the real domain everywhere below.
 
 ## 1. Point the site at the real domain
@@ -38,15 +40,12 @@ The intended domain in `site.config.json` is `https://soffit.com`. That name is 
 
 ## 4. Link the website on the Facebook Page
 
-1. Open the Soffit Web Facebook Page settings.
-2. Set the **Website** field to `https://<domain>/`. This should also stay blank until the domain is confirmed.
-3. If the Page has an action button, switch it from “Send email” to **Contact us** (or similar) pointing at `https://<domain>/#contact`, if Dale wants that.
-4. Copy the public Page URL (for example `https://www.facebook.com/soffitweb`, once the handle is confirmed).
-5. Add that URL to the `sameAs` array in `site.config.json`:
+The Page is already public at [https://www.facebook.com/soffitweb](https://www.facebook.com/soffitweb) (handle **@soffitweb**, created 22 Nov 2026). That URL is already in `sameAs` in `site.config.json`.
 
-   `"sameAs": ["https://www.facebook.com/<handle>"]`
-
-   You can add the Google Business Profile public URL to the same list later. Rebuild production (`bash build.sh`) and upload again so the footer shows the link and the JSON-LD `sameAs` list is updated. The footer link stays hidden while `sameAs` is empty.
+1. Open the Soffit Web Facebook Page settings: [https://www.facebook.com/soffitweb](https://www.facebook.com/soffitweb).
+2. Set the **Website** field to `https://<domain>/`. Leave this blank until the live domain is confirmed.
+3. If Dale wants it, switch the action button from “Send email” to **Contact us** (or similar) pointing at `https://<domain>/#contact`.
+4. After the Google Business Profile is public, add its URL to the same `sameAs` array, then rebuild production (`bash build.sh`) and upload again so the footer and JSON-LD stay in sync.
 
 ## 5. Bing Webmaster Tools
 
@@ -60,10 +59,10 @@ The intended domain in `site.config.json` is `https://soffit.com`. That name is 
 - Search Console coverage and sitemap status, over the first couple of weeks.
 - FormSubmit on the enquiry form, which needs to be re-activated for the live domain if it was last set up on the preview host.
 - The Facebook and Google website fields, if the domain ever changes.
-- `sameAs` and a production rebuild, whenever a public profile URL is added or changed.
+- `sameAs` and a production rebuild, whenever another public profile URL (such as Google Business Profile) is added or changed. The Facebook Page URL is already listed.
 
 ## Notes that stay in force
 
 - Do not submit the preview host (`soffit-preview-dh.page.gd`) to Search Console, Bing, Facebook or Google Business Profile as the official website.
 - Personal details on concept project pages stay as placeholders until Dale replaces them.
-- Nothing goes public on Facebook or Google, and the site does not go live, without Dale’s yes.
+- The Facebook Page is already public with Dale’s approval. Nothing else goes public on Google, and the site does not go live, without his yes.

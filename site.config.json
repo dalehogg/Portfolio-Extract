@@ -33,7 +33,9 @@
     "Worldwide"
   ],
   "pricesIncludeGst": true,
-  "sameAs": [],
+  "sameAs": [
+    "https://www.facebook.com/soffitweb"
+  ],
   "showTestimonials": false,
   "availability": "Taking new projects",
   "pricing": [
