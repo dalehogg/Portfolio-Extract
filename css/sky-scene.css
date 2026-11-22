@@ -584,9 +584,9 @@ body.backNight #contact {
   scroll-margin-top: 5.5rem;
 }
 body.backNight .site-footer {
-  /* Lift credits above the rooftops, and leave room so the contact
-     heading can scroll clear of the fixed header on small screens. */
-  padding: 0.8rem 0 calc(var(--roof-h, 7rem) + 5rem);
+  /* Credits sit just above the main rooftops, without a large empty band.
+     Small screens keep extra room so the contact heading can clear the header. */
+  padding: 0.8rem 0 calc(var(--roof-h, 7rem) + 1.25rem);
 }
 
 /* Day palette — homepage only. */
@@ -899,7 +899,8 @@ html.is-day body.backNight .step span {
 }
 
 
-/* No header colour bar and no backdrop blur — those drew a hard line across the sky. */
+/* Soft header veil: sky-coloured wash + blur, both fading out so there is no cut-off line.
+   Scrolled content under the wordmark and nav is knocked back enough not to clash. */
 body.backNight .site-header,
 body.backNight .site-header.is-scrolled,
 html.is-day body.backNight .site-header,
@@ -909,6 +910,71 @@ html.is-day body.backNight .site-header.is-scrolled {
   -webkit-backdrop-filter: none !important;
   box-shadow: none !important;
   border: 0 !important;
+  overflow: visible;
+}
+body.backNight .site-header::before,
+body.backNight .site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(100% + 40px);
+  pointer-events: none;
+  z-index: -1;
+}
+body.backNight .site-header::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 1, 12, 0.92) 0,
+    rgba(2, 1, 12, 0.85) calc(100% - 40px),
+    rgba(2, 1, 12, 0) 100%
+  );
+}
+body.backNight .site-header::after {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 calc(100% - 40px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0,
+    #000 calc(100% - 40px),
+    transparent 100%
+  );
+}
+html.is-day body.backNight .site-header::before {
+  /* Pale frost rather than the zenith blue, so the veil still matches
+     the paler mid and horizon sky and does not read as a colour bar. */
+  background: linear-gradient(
+    to bottom,
+    rgba(232, 243, 251, 0.78) 0,
+    rgba(232, 243, 251, 0.55) calc(100% - 40px),
+    rgba(232, 243, 251, 0) 100%
+  );
+}
+
+/* Constellation figures fade out as the city arrives and never cover the footer. */
+body.backNight #sky-lines {
+  opacity: calc(1 - var(--city-in, 0));
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0,
+    transparent 26vh,
+    #000 40vh,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0,
+    transparent 26vh,
+    #000 40vh,
+    #000 100%
+  );
 }
 body.backNight .brand,
 body.backNight .site-nav a:not(.nav-quote) {
