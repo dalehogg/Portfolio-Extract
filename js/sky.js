@@ -113,11 +113,10 @@
           if (star.x > width) star.x = 0;
           if (star.y > height) star.y = 0;
         }
-        /* Fixed CSS-pixel radius, drawn as a circle so a later box change
-           cannot turn a 1x1 rect into a streak. */
+        /* Circle diameter matches the old fillRect(x, y, r, r) square. */
         ctx.fillStyle = "rgba(244,240,230," + star.a.toFixed(3) + ")";
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.arc(star.x, star.y, star.r / 2, 0, Math.PI * 2);
         ctx.fill();
       }
       if (drift && !reduce) window.requestAnimationFrame(frame);

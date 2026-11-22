@@ -41,12 +41,12 @@ var O={w:sz.w,h:sz.h,stars:980,twinklers:.16,shooters:.08,
 O.starfield.generate=function(){
   var t=O.stars,e=0;
   this.buffer=[];
-  for(;e<t;e++)this.buffer[e]={position:{x:C(0,O.w),y:C(0,O.h)},hue:C(0,360),size:0.7,opacity:C(0,70),saturation:C(0,30)+"%"};
+  for(;e<t;e++)this.buffer[e]={position:{x:C(0,O.w),y:C(0,O.h)},hue:C(0,360),size:0.5,opacity:C(0,70),saturation:C(0,30)+"%"};
 };
 O.twinklefield.generate=function(){
   var t=O.stars*O.twinklers,e=0;
   this.buffer=[];
-  for(;e<t;e++)this.buffer[e]={position:{x:C(0,O.w),y:C(0,O.h)},hue:C(0,360),size:0.45+1.05*Math.random(),opacity:C(60,100),saturation:C(70,100)+"%"};
+  for(;e<t;e++)this.buffer[e]={position:{x:C(0,O.w),y:C(0,O.h)},hue:C(0,360),size:1.5*Math.random(),opacity:C(60,100),saturation:C(70,100)+"%"};
 };
 O.shooting.generate=function(){
   if(C(0,O.stars)<O.stars*O.shooters){
