@@ -17,17 +17,38 @@
   background: #02010c;
   opacity: 1;
 }
-/* Night sunset sits on the horizon behind the city and blends upward
-   over ~1.45 viewport heights into the starry sky. Many stops + noise. */
-/* Higher specificity than `.sky-wash span { inset: 0 }` so the wash
-   stays anchored to the (often off-screen) horizon, not the viewport top. */
-.sky-wash .sky-wash-sunset {
-  inset: auto 0 var(--horizon-bottom, -2000px) 0;
-  top: auto;
+/* Sunset and day horizon washes live in .horizon-washes, a fixed
+   bottom:0 sibling of the skyline. They share --horizon-shift with the
+   city so a mobile URL bar cannot move the sunset relative to the rooftops. */
+.horizon-washes {
+  position: fixed;
   left: 0;
   right: 0;
-  bottom: var(--horizon-bottom, -2000px);
-  height: 36vh;
+  bottom: 0;
+  top: auto;
+  height: 0;
+  width: auto;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2; /* above #nightSky (1), below day clouds (3) and the city (4) */
+  transform: translate3d(0, var(--horizon-shift, 80lvh), 0);
+  will-change: transform;
+  transition: none !important;
+}
+.horizon-washes .sky-wash-sunset,
+.horizon-washes .sky-wash-day {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  width: auto;
+  pointer-events: none;
+  transform: none;
+}
+.horizon-washes .sky-wash-sunset {
+  height: var(--sunset-h, 36lvh);
   width: auto;
   /* Fallback, then oklab. Last stop is the exact night sky colour at full opacity
      so there is no transparent-to-different-colour edge. Warm gold lives only
@@ -69,13 +90,8 @@
 }
 html.is-day .sky-wash-sunset { opacity: 0 !important; }
 /* Day: pale hazy near-white blue at the horizon, deepening to rich blue above. */
-.sky-wash .sky-wash-day {
-  inset: auto 0 var(--horizon-bottom, -2000px) 0;
-  top: auto;
-  left: 0;
-  right: 0;
-  bottom: var(--horizon-bottom, -2000px);
-  height: 220vh;
+.horizon-washes .sky-wash-day {
+  height: calc(var(--sky-h, 100lvh) * 2.2);
   width: auto;
   background: linear-gradient(
     to top,
@@ -125,18 +141,18 @@ html.is-day .sky-grad-noise { opacity: 0.05; }
     to top,
     transparent 0,
     transparent var(--horizon-bottom, -2000px),
-    rgba(0,0,0,0.15) calc(var(--horizon-bottom, -2000px) + 8vh),
-    rgba(0,0,0,0.7) calc(var(--horizon-bottom, -2000px) + 18vh),
-    #000 calc(var(--horizon-bottom, -2000px) + 28vh),
+    rgba(0,0,0,0.15) calc(var(--horizon-bottom, -2000px) + (var(--sky-h, 100lvh) * 0.08)),
+    rgba(0,0,0,0.7) calc(var(--horizon-bottom, -2000px) + (var(--sky-h, 100lvh) * 0.18)),
+    #000 calc(var(--horizon-bottom, -2000px) + (var(--sky-h, 100lvh) * 0.28)),
     #000 100%
   );
   mask-image: linear-gradient(
     to top,
     transparent 0,
     transparent var(--horizon-bottom, -2000px),
-    rgba(0,0,0,0.15) calc(var(--horizon-bottom, -2000px) + 8vh),
-    rgba(0,0,0,0.7) calc(var(--horizon-bottom, -2000px) + 18vh),
-    #000 calc(var(--horizon-bottom, -2000px) + 28vh),
+    rgba(0,0,0,0.15) calc(var(--horizon-bottom, -2000px) + (var(--sky-h, 100lvh) * 0.08)),
+    rgba(0,0,0,0.7) calc(var(--horizon-bottom, -2000px) + (var(--sky-h, 100lvh) * 0.18)),
+    #000 calc(var(--horizon-bottom, -2000px) + (var(--sky-h, 100lvh) * 0.28)),
     #000 100%
   );
 }
@@ -388,6 +404,8 @@ html.is-day body #fullpage .section-one .galaxy-center {
 }
 
 html {
+  --horizon-shift: 80lvh;
+  --sunset-h: 36lvh;
   --skyline-fill: #0b1020;
   --window-o: 0.85;
   --water-top: #f0b56a;
@@ -416,7 +434,7 @@ html.is-day {
   height: var(--skyline-h, 42vh);
   pointer-events: none;
   overflow: hidden;
-  transform: translate3d(0, 110%, 0);
+  transform: translate3d(0, var(--horizon-shift, 80lvh), 0);
   opacity: 0;
   will-change: transform, opacity;
   background: transparent;

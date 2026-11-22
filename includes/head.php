@@ -211,8 +211,30 @@ $json = $graph ? ['@context' => 'https://schema.org', '@graph' => $graph] : null
   <link rel="stylesheet" href="<?php echo $h(site_asset('/css/media.css')); ?>">
   <link rel="stylesheet" href="<?php echo $h(site_asset('/css/desktop-only.css')); ?>">
 <?php if (!empty($desktop_only)): ?>
-  <script>if(window.matchMedia&&!window.matchMedia("(any-pointer: fine)").matches){document.documentElement.classList.add("is-touch-only");}</script>
+  <script>document.documentElement.classList.add("desktop-only-page");</script>
 <?php endif; ?>
+  <script>
+  (function () {
+    function mq(q) {
+      return window.matchMedia && window.matchMedia(q).matches;
+    }
+    function soffitDesktopToolOk() {
+      var fine = mq("(pointer: fine)");
+      var coarse = mq("(pointer: coarse)");
+      var noHover = mq("(hover: none)");
+      var small = mq("(max-width: 1100px)");
+      /* Phones and touch-primary small devices, even if any-pointer:fine
+         is wrongly true. Fine-pointer desktops and touch laptops (wide,
+         or a narrow mouse window) stay allowed. */
+      if (small && (coarse || noHover)) return false;
+      return true;
+    }
+    window.soffitDesktopToolOk = soffitDesktopToolOk;
+    var ok = soffitDesktopToolOk();
+    document.documentElement.classList.toggle("is-desktop-tool", ok);
+    document.documentElement.classList.toggle("is-touch-only", !ok);
+  })();
+  </script>
 <?php
 // $chrome = 'minimal' loads css/chrome.css only (pill + footer). Set $site_styles = true to also load the main fonts and tokens. Pages override --chrome-fg and --chrome-bg.
 $chrome_mode = isset($chrome) ? (string) $chrome : 'full';

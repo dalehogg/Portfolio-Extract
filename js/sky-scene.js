@@ -10,6 +10,12 @@
   var toggle = document.getElementById("sky-toggle");
   var frame = 0;
   var KEY = "soffit-sky";
+  var frozenSkyH = 0;
+  var frozenSkyW = 0;
+  var baselineProbe = document.createElement("div");
+  baselineProbe.setAttribute("aria-hidden", "true");
+  baselineProbe.style.cssText = "position:fixed;left:0;bottom:0;height:0;width:0;pointer-events:none;visibility:hidden;";
+  document.body.appendChild(baselineProbe);
 
   function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
   function ease(t) { return t * t * (3 - 2 * t); }
@@ -62,10 +68,45 @@
   }
   function scrollMax() {
     var se = scrollRoot();
-    return Math.max(1, (se.scrollHeight || 0) - (window.innerHeight || 0));
+    /* Scroll range may use the current viewport; sunset/city layout does not. */
+    var viewH = baselineProbe.getBoundingClientRect().top;
+    if (!(viewH > 0)) viewH = window.innerHeight || 0;
+    return Math.max(1, (se.scrollHeight || 0) - viewH);
   }
   function progress() {
     return clamp(scrollTop() / scrollMax(), 0, 1);
+  }
+
+  function readSkyH() {
+    var n = parseFloat(getComputedStyle(root).getPropertyValue("--sky-h"));
+    return n > 1 ? n : 0;
+  }
+
+  function largeViewportHeight() {
+    var h = 0;
+    try {
+      var probe = document.createElement("div");
+      probe.style.cssText = "position:fixed;top:0;left:0;height:100lvh;width:0;pointer-events:none;visibility:hidden;";
+      document.documentElement.appendChild(probe);
+      h = probe.offsetHeight || 0;
+      probe.remove();
+    } catch (e) {}
+    return h;
+  }
+
+  /* Grow-only cached large-viewport height. A showing URL bar must not
+     shrink city or sunset sizing, or they drift apart. Width changes reset. */
+  function stableVh() {
+    var w = window.innerWidth || 0;
+    var h = Math.max(readSkyH(), largeViewportHeight(), frozenSkyH);
+    if (!frozenSkyH || w !== frozenSkyW) {
+      frozenSkyH = h;
+      frozenSkyW = w;
+    } else if (h > frozenSkyH) {
+      frozenSkyH = h;
+    }
+    if (frozenSkyH) root.style.setProperty("--sky-h", frozenSkyH + "px");
+    return frozenSkyH || 800;
   }
 
   /* SVG artwork aspect (width / city height) after cropping the solid base.
@@ -73,7 +114,7 @@
   var CITY_ASPECT = 1590 / 512;
   function layoutSkyline(cityIn) {
     var w = window.innerWidth || 1280;
-    var vh = window.innerHeight || 800;
+    var vh = stableVh();
     /* Wide viewports show the full silhouette; narrow ones grow the city and crop the sides. */
     var cityH = Math.max(w / CITY_ASPECT, Math.min(vh * 0.24, 280), 160);
     var waterH = 0; /* no water band: the city sits flush on the bottom edge */
@@ -89,12 +130,19 @@
     root.style.setProperty("--skyline-anchor", anchor);
     document.body.style.setProperty("--skyline-h", hPx);
     var se = scrollRoot();
-    var pageH = Math.max(se.scrollHeight || 0, (document.body && document.body.scrollHeight) || 0, 400 * vh / 100);
+    var pageH = Math.max(se.scrollHeight || 0, (document.body && document.body.scrollHeight) || 0, 4 * vh);
     root.style.setProperty("--page-h", pageH + "px");
-    /* Compute from the intended lift, not getBoundingClientRect (that is one frame behind the transform). */
+    /* Shared pixel lift for the city and the sunset/day washes. Not a % of
+       each box, and not innerHeight/vh, so they stay locked when the URL bar toggles. */
     if (typeof cityIn !== "number") cityIn = 0;
-    var liftPct = (1 - cityIn) * 110;
-    var horizonBottom = 0 - (liftPct / 100) * h;
+    var liftPx = ((1 - cityIn) * 110 / 100) * h;
+    var shift = liftPx.toFixed(1) + "px";
+    root.style.setProperty("--horizon-shift", shift);
+    document.body.style.setProperty("--horizon-shift", shift);
+    /* Star-mask fade, measured from #nightSky's bottom to the city baseline. */
+    var skyBottom = sky ? sky.getBoundingClientRect().bottom : vh;
+    var base = baselineProbe.getBoundingClientRect().top;
+    var horizonBottom = (skyBottom - base) + liftPx;
     var hb = horizonBottom.toFixed(1) + "px";
     root.style.setProperty("--horizon-bottom", hb);
     document.body.style.setProperty("--horizon-bottom", hb);
@@ -106,6 +154,7 @@
     document.body.style.setProperty("--sky-fade-bottom", fb);
     /* Warm gold/pink only behind the main rooftops; the rest of the wash eases into night. */
     var washH = 0.36 * vh;
+    root.style.setProperty("--sunset-h", washH.toFixed(1) + "px");
     var warmPct = ((cityH * 0.32) / washH) * 100;
     if (warmPct < 16) warmPct = 16;
     if (warmPct > 36) warmPct = 36;
@@ -132,8 +181,7 @@
     root.style.setProperty("--horizon-o", (day ? cityIn : sunset).toFixed(3));
 
     if (city) {
-      var lift = (1 - cityIn) * 110;
-      city.style.transform = "translate3d(0," + lift.toFixed(2) + "%,0)";
+      /* Transform comes from --horizon-shift so it stays in lockstep with the sunset. */
       city.style.opacity = cityIn.toFixed(3);
     }
 
@@ -196,6 +244,10 @@
   setClouds(isDay());
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", function () { onScroll(); });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", onScroll, { passive: true });
+    window.visualViewport.addEventListener("scroll", onScroll, { passive: true });
+  }
   window.addEventListener("load", function () { paint(); });
   document.addEventListener("visibilitychange", function () { setClouds(isDay()); });
 })();

@@ -355,7 +355,12 @@
 
 (function () {
   function isTouchOnly() {
-    return !(window.matchMedia && window.matchMedia("(any-pointer: fine)").matches);
+    if (typeof window.soffitDesktopToolOk === "function") return !window.soffitDesktopToolOk();
+    var mq = function (q) { return window.matchMedia && window.matchMedia(q).matches; };
+    var coarse = mq("(pointer: coarse)");
+    var noHover = mq("(hover: none)");
+    var small = mq("(max-width: 1100px)");
+    return !!(small && (coarse || noHover));
   }
 
   function ready(fn) {

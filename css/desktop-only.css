@@ -94,8 +94,15 @@ body.backNight .frame-shot { position: relative; }
   color: #f4f0e6;
 }
 html.is-touch-only .desktop-only-overlay { display: flex; }
-html.is-touch-only,
-html.is-touch-only body { overflow: hidden; }
+html.desktop-only-page.is-touch-only,
+html.desktop-only-page.is-touch-only body { overflow: hidden; }
+/* No-JS / late-script fallback for phones and touch-primary small devices. */
+@media (max-width: 1100px) and (pointer: coarse),
+       (max-width: 1100px) and (hover: none) {
+  html:not(.is-desktop-tool) .desktop-only-overlay { display: flex; }
+  html.desktop-only-page:not(.is-desktop-tool),
+  html.desktop-only-page:not(.is-desktop-tool) body { overflow: hidden; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .desktop-only-modal, .desktop-only-overlay { transition: none; }

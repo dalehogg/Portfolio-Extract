@@ -38,8 +38,6 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
   <div id="nightSky" aria-hidden="true">
     <div class="sky-wash" aria-hidden="true">
       <span class="sky-wash-night"></span>
-      <span class="sky-wash-sunset"></span>
-      <span class="sky-wash-day"></span>
       <span class="sky-wash-day-horizon"></span>
       <span class="sky-grad-noise"></span>
     </div>
@@ -228,6 +226,10 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
     <div class="realMoon-container">
       <div class="realMoon-moonCut"></div>
     </div>
+  </div>
+  <div class="horizon-washes" aria-hidden="true">
+    <span class="sky-wash-day"></span>
+    <span class="sky-wash-sunset"></span>
   </div>
   <div class="skyline" aria-hidden="true">
     <div class="skyline-city">
