@@ -215,6 +215,7 @@ body.backNight #nightSky {
   bottom: auto;
   width: auto;
   max-width: none;
+  z-index: 1; /* stars stay behind the moon (2), clouds (3) and city (4) */
   /* Stable large-viewport height. height:100% + inset:0 tracked the
      shrinking/growing mobile URL bar and stretched the star canvases. */
   height: 100vh;
@@ -622,9 +623,10 @@ body.backNight #contact {
   scroll-margin-top: 5.5rem;
 }
 body.backNight .site-footer {
-  /* Credits sit just above the main rooftops, without a large empty band.
-     Small screens keep extra room so the contact heading can clear the header. */
-  padding: 0.8rem 0 calc(var(--roof-h, 7rem) + 1.25rem);
+  /* Footer copy sits fully above the city, including the Sky Tower tip.
+     Padding is sized from --city-h (not vh) so it stays locked to the
+     silhouette and the page height stays deterministic. */
+  padding: 0.8rem 0 calc(var(--city-h, var(--skyline-h, 16rem)) + 1.25rem);
 }
 
 /* Day palette — homepage only. */
@@ -809,14 +811,13 @@ html.is-day body.backNight .footer-bar a[href="/#contact"] {
   flex-basis: 100%;
   order: 4;
   margin: 0.45rem 0 0;
-  padding-left: 6.75rem;
+  padding-left: 0;
   font-size: 0.72rem;
   line-height: 1.45;
   opacity: 0.78;
 }
 @media (max-width: 720px) {
   .photo-credit {
-    padding-left: 0;
     margin-top: 0.7rem;
     font-size: 0.68rem;
     line-height: 1.45;
@@ -873,7 +874,7 @@ body.backNight #work > .wrap {
     padding-right: 1.05rem;
   }
   body.backNight .site-footer {
-    padding: 0.9rem 0 calc(var(--roof-h, 7rem) + 5.5rem);
+    padding: 0.9rem 0 calc(var(--city-h, var(--skyline-h, 16rem)) + 1.25rem);
   }
 }
 body.backNight .site-footer,
