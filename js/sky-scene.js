@@ -60,13 +60,16 @@
     var w = window.innerWidth || 1280;
     var vh = window.innerHeight || 800;
     /* Wide viewports show the full silhouette; narrow ones grow the city and crop the sides. */
-    var cityH = Math.max(w / CITY_ASPECT, Math.min(vh * 0.30, 320), 170);
-    var waterH = Math.max(64, Math.min(vh * 0.18, 210));
+    var cityH = Math.max(w / CITY_ASPECT, Math.min(vh * 0.24, 280), 160);
+    var waterH = Math.max(56, Math.min(vh * 0.15, 180));
     var h = cityH + waterH;
     var hPx = h.toFixed(1) + "px";
     root.style.setProperty("--skyline-h", hPx);
     root.style.setProperty("--city-h", cityH.toFixed(1) + "px");
     root.style.setProperty("--water-h", waterH.toFixed(1) + "px");
+    /* Show the full silhouette when it fits; otherwise crop the sides around the Sky Tower. */
+    var anchor = (cityH <= (w / CITY_ASPECT) + 0.5) ? "50%" : "61%";
+    root.style.setProperty("--skyline-anchor", anchor);
     document.body.style.setProperty("--skyline-h", hPx);
     var se = scrollRoot();
     var pageH = Math.max(se.scrollHeight || 0, (document.body && document.body.scrollHeight) || 0, 400 * vh / 100);

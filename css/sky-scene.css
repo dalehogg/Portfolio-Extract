@@ -55,14 +55,15 @@ html.is-day .sky-wash-sunset { opacity: 0 !important; }
   background: linear-gradient(
     to top,
     #f7fbfe 0%,
-    #eef6fc 6%,
-    #d8eef8 14%,
-    #c5e2f6 22%,
-    #a6d0f0 30%,
-    #84bee8 44%,
-    #64abe0 58%,
-    #4e9ada 72%,
-    #3f8ed4 86%,
+    #eef6fc 8%,
+    #e0f0fa 16%,
+    #d2e8f6 var(--sunset-warm-pct, 36%),
+    #b9d8f0 calc(var(--sunset-warm-pct, 36%) + 10%),
+    #9cc8e8 calc(var(--sunset-warm-pct, 36%) + 20%),
+    #7eb6e0 calc(var(--sunset-warm-pct, 36%) + 32%),
+    #64abe0 calc(var(--sunset-warm-pct, 36%) + 48%),
+    #4e9ada calc(var(--sunset-warm-pct, 36%) + 64%),
+    #3f8ed4 calc(var(--sunset-warm-pct, 36%) + 80%),
     transparent 100%
   );
   opacity: var(--day-o, 0);
@@ -360,6 +361,7 @@ html {
   --water-h: 18vh;
   --city-h: 32vh;
   --sunset-warm-pct: 40%;
+  --skyline-anchor: 50%;
 }
 html.is-day {
   --skyline-fill: #8aa4b8;
@@ -447,7 +449,7 @@ html.is-day .skyline { background: transparent; }
   bottom: 0;
   /* Sky Tower sits at ~61% of the artwork; keep it on screen when sides are cropped. */
   left: 50%;
-  transform: translateX(-61%);
+  transform: translateX(calc(-1 * var(--skyline-anchor, 50%)));
   display: block;
   overflow: visible;
 }
@@ -471,7 +473,7 @@ html.is-day .skyline-reflect { opacity: 0.22; }
   width: auto;
   left: 50%;
   top: 0;
-  transform: translateX(-61%) scaleY(-1);
+  transform: translateX(calc(-1 * var(--skyline-anchor, 50%))) scaleY(-1);
   transform-origin: 50% 0;
   display: block;
 }
@@ -746,6 +748,11 @@ html.is-day body.backNight .footer-bar a[href="/#contact"] {
   opacity: 0.78;
 }
 @media (max-width: 720px) {
-  .photo-credit { padding-left: 5.6rem; }
+  .photo-credit {
+    padding-left: 0;
+    margin-top: 0.7rem;
+    font-size: 0.62rem;
+    line-height: 1.35;
+  }
 }
 .photo-credit a { text-decoration: underline; text-underline-offset: 0.12em; }
