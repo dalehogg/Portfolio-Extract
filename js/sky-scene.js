@@ -53,6 +53,37 @@
     return clamp(scrollTop() / scrollMax(), 0, 1);
   }
 
+  /* Visible city+water aspect (width/height) and water band as a fraction of that height. */
+  var ASPECT = { day: 2.5309, night: 2.0830 };
+  var WATER = { day: 0.2385, night: 0.2147 };
+
+  function layoutSkyline(cityIn) {
+    var day = isDay();
+    var aspect = day ? ASPECT.day : ASPECT.night;
+    var frac = day ? WATER.day : WATER.night;
+    var w = window.innerWidth || 1280;
+    var h = w / aspect;
+    var hPx = h.toFixed(1) + "px";
+    root.style.setProperty("--skyline-h", hPx);
+    document.body.style.setProperty("--skyline-h", hPx);
+    var se = scrollRoot();
+    var pageH = Math.max(se.scrollHeight || 0, (document.body && document.body.scrollHeight) || 0, 400 * (window.innerHeight || 800) / 100);
+    root.style.setProperty("--page-h", pageH + "px");
+    /* Compute from the intended lift, not getBoundingClientRect (that is one frame behind the transform). */
+    if (typeof cityIn !== "number") cityIn = 0;
+    var liftPct = (1 - cityIn) * 110;
+    var horizonBottom = h * frac - (liftPct / 100) * h;
+    var hb = horizonBottom.toFixed(1) + "px";
+    root.style.setProperty("--horizon-bottom", hb);
+    document.body.style.setProperty("--horizon-bottom", hb);
+    /* Keep the day-sky photo fully visible while the horizon is below the fold.
+       Only fade it toward the haze once the waterline is in (or very near) the viewport. */
+    var fadeBottom = horizonBottom < 8 ? -2000 : horizonBottom;
+    var fb = fadeBottom.toFixed(1) + "px";
+    root.style.setProperty("--sky-fade-bottom", fb);
+    document.body.style.setProperty("--sky-fade-bottom", fb);
+  }
+
   function paint() {
     var p = progress();
     var sunset = ease(range(p, 0.22, 0.85));
@@ -61,6 +92,7 @@
     var moonOut = ease(range(p, 0.48, 0.82));
     var day = isDay();
 
+    layoutSkyline(cityIn);
     root.style.setProperty("--cam", p.toFixed(4));
     root.style.setProperty("--sunset-o", day ? "0" : sunset.toFixed(3));
     root.style.setProperty("--star-o", day ? "0" : (1 - starFade).toFixed(3));
@@ -128,7 +160,7 @@
   paint();
   setClouds(isDay());
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  window.addEventListener("load", paint);
+  window.addEventListener("resize", function () { onScroll(); });
+  window.addEventListener("load", function () { paint(); });
   document.addEventListener("visibilitychange", function () { setClouds(isDay()); });
 })();

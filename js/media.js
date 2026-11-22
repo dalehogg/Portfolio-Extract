@@ -3,7 +3,7 @@
 
   function armImage(img) {
     if (!img || img.dataset.mediaArmed === "1") return;
-    if (img.closest && img.closest(".day-clouds")) return;
+    if (img.closest && (img.closest(".day-clouds") || img.closest(".day-sky") || img.closest(".skyline"))) return;
     img.dataset.mediaArmed = "1";
     if (!img.classList.contains("media-img")) img.classList.add("media-img");
     var ph = null;
