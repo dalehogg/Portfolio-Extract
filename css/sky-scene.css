@@ -216,7 +216,8 @@ html { --sky-fade-bottom: -2000px; }
     #000 100%
   );
 }
-html.is-day .day-clouds { opacity: 1; }
+html.is-day .day-clouds { opacity: 1; z-index: 3; } /* in front of the moon */
+html.is-day .realMoon-track { z-index: 2; }
 .day-clouds .media-ph { display: none !important; }
 
 .cloud-item {
@@ -504,7 +505,7 @@ html.is-day body.backNight .realMoon-container {
   background-size: cover;
   background-position: center;
   filter: none;
-  opacity: 0.9;
+  opacity: 0.72;
   mix-blend-mode: normal;
   box-shadow: none;
   -webkit-clip-path: none;
