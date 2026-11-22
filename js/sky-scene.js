@@ -33,7 +33,7 @@
   }
 
   function setClouds(day) {
-    var el = document.querySelector(".day-clouds");
+    var el = document.querySelector(".day-skies");
     if (!el) return;
     var play = !!day && !document.hidden && !reduce;
     el.classList.toggle("is-paused", !play);
@@ -53,26 +53,28 @@
     return clamp(scrollTop() / scrollMax(), 0, 1);
   }
 
-  /* Visible city+water aspect (width/height) and water band as a fraction of that height. */
-  var ASPECT = { day: 2.5309, night: 2.0830 };
-  var WATER = { day: 0.2385, night: 0.2147 };
-
+  /* SVG artwork aspect (width / city height) after cropping the solid base.
+     The Sky Tower sits at ~61% from the left; CSS translateX keeps it on screen. */
+  var CITY_ASPECT = 1590 / 512;
   function layoutSkyline(cityIn) {
-    var day = isDay();
-    var aspect = day ? ASPECT.day : ASPECT.night;
-    var frac = day ? WATER.day : WATER.night;
     var w = window.innerWidth || 1280;
-    var h = w / aspect;
+    var vh = window.innerHeight || 800;
+    /* Wide viewports show the full silhouette; narrow ones grow the city and crop the sides. */
+    var cityH = Math.max(w / CITY_ASPECT, Math.min(vh * 0.30, 320), 170);
+    var waterH = Math.max(64, Math.min(vh * 0.18, 210));
+    var h = cityH + waterH;
     var hPx = h.toFixed(1) + "px";
     root.style.setProperty("--skyline-h", hPx);
+    root.style.setProperty("--city-h", cityH.toFixed(1) + "px");
+    root.style.setProperty("--water-h", waterH.toFixed(1) + "px");
     document.body.style.setProperty("--skyline-h", hPx);
     var se = scrollRoot();
-    var pageH = Math.max(se.scrollHeight || 0, (document.body && document.body.scrollHeight) || 0, 400 * (window.innerHeight || 800) / 100);
+    var pageH = Math.max(se.scrollHeight || 0, (document.body && document.body.scrollHeight) || 0, 400 * vh / 100);
     root.style.setProperty("--page-h", pageH + "px");
     /* Compute from the intended lift, not getBoundingClientRect (that is one frame behind the transform). */
     if (typeof cityIn !== "number") cityIn = 0;
     var liftPct = (1 - cityIn) * 110;
-    var horizonBottom = h * frac - (liftPct / 100) * h;
+    var horizonBottom = waterH - (liftPct / 100) * h;
     var hb = horizonBottom.toFixed(1) + "px";
     root.style.setProperty("--horizon-bottom", hb);
     document.body.style.setProperty("--horizon-bottom", hb);
@@ -82,6 +84,11 @@
     var fb = fadeBottom.toFixed(1) + "px";
     root.style.setProperty("--sky-fade-bottom", fb);
     document.body.style.setProperty("--sky-fade-bottom", fb);
+    /* Warm gold/orange rises to ~20vh above the tallest building (the Sky Tower tip). */
+    var warmPct = ((cityH + 0.20 * vh) / (1.45 * vh)) * 100;
+    if (warmPct < 22) warmPct = 22;
+    if (warmPct > 70) warmPct = 70;
+    root.style.setProperty("--sunset-warm-pct", warmPct.toFixed(2) + "%");
   }
 
   function paint() {

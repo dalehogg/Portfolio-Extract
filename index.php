@@ -53,56 +53,34 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
   </div>
   <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
-  <div class="day-sky" aria-hidden="true">
-    <div class="day-sky-shift">
+  <div class="day-skies" aria-hidden="true">
+    <div class="day-sky-layer sky-pos-a">
+      <div class="day-sky-drift">
       <picture class="day-sky-pic">
         <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-2560.avif')); ?> 2560w, <?php echo site_h(site_asset('/Img/sky/day-sky-3840.avif')); ?> 3840w" sizes="100vw">
-        <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-2560.webp')); ?> 2560w" sizes="100vw">
-        <img src="<?php echo site_h(site_asset('/Img/sky/day-sky-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1920.jpg')); ?> 1920w" sizes="100vw" width="3840" height="5100" alt="" decoding="async">
+        <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-2560.webp')); ?> 2560w, <?php echo site_h(site_asset('/Img/sky/day-sky-3840.webp')); ?> 3840w" sizes="100vw">
+        <img src="<?php echo site_h(site_asset('/Img/sky/day-sky-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-1920.jpg')); ?> 1920w" sizes="100vw" width="3840" height="5100" alt="" decoding="async" loading="eager">
       </picture>
+      </div>
     </div>
-  </div>
-  <div class="day-clouds" aria-hidden="true">
-    <picture class="cloud-layer cu-pos-a">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-mid-b-700.avif')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-b-800.avif')); ?> 800w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-b-1400.avif')); ?> 1400w" sizes="(max-width: 720px) 70vw, 42vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-mid-b-700.webp')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-b-800.webp')); ?> 800w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-b-1400.webp')); ?> 1400w" sizes="(max-width: 720px) 70vw, 42vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-mid-b-700.webp')); ?>" width="1400" height="347" alt="" decoding="async" loading="eager">
-    </picture>
-    <picture class="cloud-layer cu-pos-b">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-small-a-500.avif')); ?> 500w, <?php echo site_h(site_asset('/Img/clouds/cu-small-a-700.avif')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-small-a-1000.avif')); ?> 1000w" sizes="(max-width: 720px) 50vw, 28vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-small-a-500.webp')); ?> 500w, <?php echo site_h(site_asset('/Img/clouds/cu-small-a-700.webp')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-small-a-1000.webp')); ?> 1000w" sizes="(max-width: 720px) 50vw, 28vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-small-a-500.webp')); ?>" width="1000" height="1003" alt="" decoding="async" loading="lazy">
-    </picture>
-    <picture class="cloud-layer cu-pos-c">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-wisp-b-500.avif')); ?> 500w" sizes="(max-width: 720px) 40vw, 20vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-wisp-b-500.webp')); ?> 500w" sizes="(max-width: 720px) 40vw, 20vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-wisp-b-500.webp')); ?>" width="500" height="549" alt="" decoding="async" loading="lazy">
-    </picture>
-    <picture class="cloud-layer cu-pos-d">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-small-c-400.avif')); ?> 400w, <?php echo site_h(site_asset('/Img/clouds/cu-small-c-600.avif')); ?> 600w, <?php echo site_h(site_asset('/Img/clouds/cu-small-c-800.avif')); ?> 800w" sizes="(max-width: 720px) 40vw, 22vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-small-c-400.webp')); ?> 400w, <?php echo site_h(site_asset('/Img/clouds/cu-small-c-600.webp')); ?> 600w, <?php echo site_h(site_asset('/Img/clouds/cu-small-c-800.webp')); ?> 800w" sizes="(max-width: 720px) 40vw, 22vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-small-c-400.webp')); ?>" width="800" height="231" alt="" decoding="async" loading="lazy">
-    </picture>
-    <picture class="cloud-layer cu-pos-e">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-mid-a-600.avif')); ?> 600w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-a-700.avif')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-a-1200.avif')); ?> 1200w" sizes="(max-width: 720px) 65vw, 38vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-mid-a-600.webp')); ?> 600w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-a-700.webp')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-a-1200.webp')); ?> 1200w" sizes="(max-width: 720px) 65vw, 38vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-mid-a-600.webp')); ?>" width="1200" height="737" alt="" decoding="async" loading="lazy">
-    </picture>
-    <picture class="cloud-layer cu-pos-f">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-mid-c-700.avif')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-c-800.avif')); ?> 800w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-c-1400.avif')); ?> 1400w" sizes="(max-width: 720px) 55vw, 32vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-mid-c-700.webp')); ?> 700w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-c-800.webp')); ?> 800w, <?php echo site_h(site_asset('/Img/clouds/cu-mid-c-1400.webp')); ?> 1400w" sizes="(max-width: 720px) 55vw, 32vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-mid-c-700.webp')); ?>" width="1400" height="942" alt="" decoding="async" loading="lazy">
-    </picture>
-    <picture class="cloud-layer cu-pos-g">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-wisp-b-500.avif')); ?> 500w" sizes="(max-width: 720px) 45vw, 24vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-wisp-b-500.webp')); ?> 500w" sizes="(max-width: 720px) 45vw, 24vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-wisp-b-500.webp')); ?>" width="500" height="549" alt="" decoding="async" loading="lazy">
-    </picture>
-    <picture class="cloud-layer cu-pos-h">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-small-a-500.avif')); ?> 500w, <?php echo site_h(site_asset('/Img/clouds/cu-small-a-700.avif')); ?> 700w" sizes="(max-width: 720px) 36vw, 18vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cu-small-a-500.webp')); ?> 500w, <?php echo site_h(site_asset('/Img/clouds/cu-small-a-700.webp')); ?> 700w" sizes="(max-width: 720px) 36vw, 18vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cu-small-a-500.webp')); ?>" width="700" height="702" alt="" decoding="async" loading="lazy">
-    </picture>
+    <div class="day-sky-layer sky-pos-b">
+      <div class="day-sky-drift">
+      <picture class="day-sky-pic">
+        <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-b-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-2560.avif')); ?> 2560w" sizes="100vw">
+        <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-b-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-b-2560.webp')); ?> 2560w" sizes="100vw">
+        <img src="<?php echo site_h(site_asset('/Img/sky/day-sky-b-1920.webp')); ?>" sizes="100vw" width="2560" height="1164" alt="" decoding="async" loading="lazy">
+      </picture>
+      </div>
+    </div>
+    <div class="day-sky-layer sky-pos-c">
+      <div class="day-sky-drift">
+      <picture class="day-sky-pic">
+        <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-c-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-2560.avif')); ?> 2560w" sizes="100vw">
+        <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/sky/day-sky-c-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/sky/day-sky-c-2560.webp')); ?> 2560w" sizes="100vw">
+        <img src="<?php echo site_h(site_asset('/Img/sky/day-sky-c-1920.webp')); ?>" sizes="100vw" width="2560" height="1009" alt="" decoding="async" loading="lazy">
+      </picture>
+      </div>
+    </div>
   </div>
   <div class="realMoon-track" aria-hidden="true">
     <div class="realMoon-container">
@@ -110,16 +88,13 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
     </div>
   </div>
   <div class="skyline" aria-hidden="true">
-    <picture class="skyline-shot skyline-night">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.avif')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-night-3840.avif')); ?> 3840w, <?php echo site_h(site_asset('/Img/city/auckland-night-5120.avif')); ?> 5120w" sizes="100vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.webp')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-night-3840.webp')); ?> 3840w" sizes="100vw">
-      <img src="<?php echo site_h(site_asset('/Img/city/auckland-night-1920.webp')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.webp')); ?> 2560w" sizes="100vw" width="5120" height="2458" alt="" decoding="async" loading="eager">
-    </picture>
-    <picture class="skyline-shot skyline-day">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-day-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-2560.avif')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.avif')); ?> 3480w" sizes="100vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-day-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-2560.webp')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.webp')); ?> 3480w" sizes="100vw">
-      <img src="<?php echo site_h(site_asset('/Img/city/auckland-day-1920.webp')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-day-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-2560.webp')); ?> 2560w" sizes="100vw" width="3480" height="1584" alt="" decoding="async" loading="lazy">
-    </picture>
+    <div class="skyline-water"><span class="skyline-shimmer"></span></div>
+    <div class="skyline-reflect">
+      <?php include __DIR__ . '/Img/city/auckland-skyline.svg'; ?>
+    </div>
+    <div class="skyline-city">
+      <?php include __DIR__ . '/Img/city/auckland-skyline.svg'; ?>
+    </div>
   </div>
 
   <div id="fullpage">

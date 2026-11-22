@@ -26,17 +26,19 @@
   height: 145vh;
   background: linear-gradient(
     to top,
-    #ffd89a 0%,
-    #ffc56a 8%,
-    #f5a24a 16%,
-    #ee7c48 24%,
-    #e06060 32%,
-    #c44c78 42%,
-    #8a3478 54%,
-    #5a2468 64%,
-    #321850 74%,
-    #160e30 84%,
-    #0a0a1c 92%,
+    #ffe9b0 0%,
+    #ffd278 6%,
+    #ffb347 14%,
+    #f7943e 22%,
+    #ee7a40 var(--sunset-warm-pct, 36%),
+    #f07a6a calc(var(--sunset-warm-pct, 36%) + 7%),
+    #e86a8a calc(var(--sunset-warm-pct, 36%) + 14%),
+    #c4548c calc(var(--sunset-warm-pct, 36%) + 22%),
+    #8a3478 calc(var(--sunset-warm-pct, 36%) + 32%),
+    #5a2468 calc(var(--sunset-warm-pct, 36%) + 44%),
+    #321850 calc(var(--sunset-warm-pct, 36%) + 56%),
+    #160e30 calc(var(--sunset-warm-pct, 36%) + 68%),
+    #0a0a1c calc(var(--sunset-warm-pct, 36%) + 80%),
     transparent 100%
   );
   opacity: 0;
@@ -140,44 +142,23 @@ html.is-day #sky-lines {
   display: none;
 }
 
-/* Full-bleed day sky photograph (tall, parallaxed on scroll). */
-.day-sky {
-  position: fixed;
-  inset: 0;
+/* Stacked full-frame day-sky photographs in document space.
+   Long soft vertical masks blend them; each layer drifts slowly sideways. */
+html { --sky-fade-bottom: -2000px; }
+
+.day-skies {
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
   width: auto;
   max-width: none;
+  height: var(--page-h, 400vh);
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
   opacity: 0;
   transition: opacity 0.6s ease;
-}
-html.is-day .day-sky { opacity: 1; }
-.day-sky-shift {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 170%;
-  will-change: transform;
-  transform: translate3d(0, calc(var(--cam, 0) * -28%), 0);
-}
-.day-sky-pic,
-.day-sky-pic img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  background: none;
-}
-/* Fade the photo out toward the horizon (viewport-locked).
-   --sky-fade-bottom stays far below the fold until the waterline is on screen,
-   so the hero keeps a rich blue sky. */
-.day-sky {
   -webkit-mask-image: linear-gradient(
     to top,
     transparent 0,
@@ -197,76 +178,77 @@ html.is-day .day-sky { opacity: 1; }
     #000 100%
   );
 }
+html.is-day .day-skies { opacity: 1; }
+.day-skies .media-ph { display: none !important; }
 
-.day-clouds {
+.day-sky-layer {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: auto;
-  max-width: none;
-  height: var(--page-h, 400vh);
-  z-index: 2;
+  left: -10%;
+  width: 120%;
+  overflow: hidden;
   pointer-events: none;
-  overflow: visible;
-  opacity: 0;
-  transition: opacity 0.6s ease;
 }
+.day-sky-drift {
+  width: 118%;
+  height: 100%;
+  will-change: transform;
+  animation: sky-drift var(--dur, 220s) linear infinite;
+  animation-play-state: running;
+}
+.day-skies.is-paused .day-sky-drift { animation-play-state: paused; }
+.day-sky-pic,
+.day-sky-pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  background: none;
+}
+/* Hero layer: Rise DHMN, keeps the rich lower cloud bank in the first viewport. */
+.sky-pos-a {
+  top: 0;
+  height: 130vh;
+  --dur: 240s;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 72%, rgba(0,0,0,0.55) 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 72%, rgba(0,0,0,0.55) 88%, transparent 100%);
+}
+/* Mid-page: Defi22 cumulus, denser banks and clear blue stretches. */
+.sky-pos-b {
+  top: 95vh;
+  height: 145vh;
+  --dur: 200s;
+  animation-delay: -80s;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 18%, #000 78%, transparent 100%);
+}
+.sky-pos-b .day-sky-drift { animation-name: sky-drift-alt; animation-delay: -80s; }
+/* Lower page: wispy cirrus uncinus and open blue. */
+.sky-pos-c {
+  top: 200vh;
+  height: 160vh;
+  --dur: 260s;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 88%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 88%, #000 100%);
+}
+.sky-pos-c .day-sky-drift { animation-delay: -140s; }
+
+@keyframes sky-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-15%, 0, 0); }
+}
+@keyframes sky-drift-alt {
+  from { transform: translate3d(-15%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
 body .cloudsLightOne,
 body .cloudsLightTwo {
   display: none !important;
 }
-.day-clouds .media-ph { display: none !important; }
-html.is-day .day-clouds { opacity: 1; }
 
-.cloud-layer {
-  position: absolute;
-  display: block;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  pointer-events: none;
-  animation: cu-drift var(--dur, 150s) linear infinite;
-  will-change: transform;
-  background: none !important;
-  transition: none !important;
-}
-.cloud-layer img {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: none !important;
-  transition: none !important;
-}
-/* Varied density: clusters and clearings down the page, different sizes and speeds. */
-.cu-pos-a { top: 6vh;  left: -8%;  width: min(48vw, 38rem); --dur: 155s; opacity: 0.95; }
-.cu-pos-b { top: 3vh;  left: 58%;  width: min(30vw, 22rem); --dur: 190s; animation-delay: -40s; opacity: 0.9; }
-.cu-pos-c { top: 36vh; left: 70%;  width: min(18vw, 12rem); --dur: 220s; animation-delay: -90s; opacity: 0.8; }
-.cu-pos-d { top: 78vh; left: 64%;  width: min(22vw, 16rem); --dur: 170s; animation-delay: -20s; opacity: 0.88; }
-.cu-pos-e { top: 125vh; left: -6%; width: min(44vw, 34rem); --dur: 200s; animation-delay: -110s; opacity: 0.92; }
-.cu-pos-f { top: 210vh; left: 40%; width: min(34vw, 26rem); --dur: 180s; animation-delay: -60s; opacity: 0.9; }
-.cu-pos-g { top: 168vh; left: 8%;  width: min(24vw, 16rem); --dur: 240s; animation-delay: -150s; opacity: 0.8; }
-.cu-pos-h { top: 280vh; left: 50%; width: min(20vw, 14rem); --dur: 210s; animation-delay: -30s; opacity: 0.86; transform: scaleX(-1); }
-@keyframes cu-drift {
-  from { transform: translate3d(-15vw, 0, 0); }
-  to   { transform: translate3d(110vw, 0, 0); }
-}
-.cu-pos-h { animation-name: cu-drift-flip; }
-@keyframes cu-drift-flip {
-  from { transform: scaleX(-1) translate3d(-15vw, 0, 0); }
-  to   { transform: scaleX(-1) translate3d(-110vw, 0, 0); }
-}
-.day-clouds.is-paused .cloud-layer { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
-  .cloud-layer { animation: none; }
-  .day-sky-shift { transform: none; }
-}
-@media (max-width: 720px) {
-  .cu-pos-a { width: min(78vw, 24rem); top: 5.5vh; }
-  .cu-pos-b { width: min(52vw, 16rem); top: 4vh; left: 48%; }
-  .cu-pos-c { width: min(64vw, 20rem); }
-  .cu-pos-d { width: min(42vw, 14rem); }
-  .cu-pos-e { width: min(80vw, 24rem); }
+  .day-sky-drift { animation: none; }
 }
 
 /* Soft light scrim behind the hero words only — not a wash on the sky. */
@@ -369,6 +351,23 @@ html.is-day body #fullpage .section-one .galaxy-center {
   .realMoon-track .realMoon-moonCut { animation: none !important; }
 }
 
+html {
+  --skyline-fill: #0b1020;
+  --window-o: 0.85;
+  --water-top: #f0b56a;
+  --water-mid: #c45c4a;
+  --water-deep: #1c1430;
+  --water-h: 18vh;
+  --city-h: 32vh;
+  --sunset-warm-pct: 40%;
+}
+html.is-day {
+  --skyline-fill: #8aa4b8;
+  --window-o: 0;
+  --water-top: #d4e8ee;
+  --water-mid: #7eb0be;
+  --water-deep: #3d7a8c;
+}
 .skyline {
   position: fixed;
   left: 0;
@@ -383,34 +382,100 @@ html.is-day body #fullpage .section-one .galaxy-center {
   transform: translate3d(0, 72%, 0);
   will-change: transform, opacity;
   background: transparent;
-  -webkit-mask-image: none;
-  mask-image: none;
+  color: var(--skyline-fill);
+  transition: color 0.7s ease;
 }
 html.is-day .skyline { background: transparent; }
-.skyline-shot {
+
+.skyline-water {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  transition: opacity 0.6s ease;
-  background: transparent;
+  height: var(--water-h, 18vh);
+  background: linear-gradient(
+    to bottom,
+    var(--water-top) 0%,
+    var(--water-mid) 42%,
+    var(--water-deep) 100%
+  );
+  transition: background 0.7s ease;
+  overflow: hidden;
 }
-.skyline-shot img {
+.skyline-shimmer {
+  position: absolute;
+  inset: 0;
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: bottom center;
-  background: transparent;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 62%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  animation: water-shimmer 16s ease-in-out infinite;
+  opacity: 0.55;
+  pointer-events: none;
 }
-.skyline-night { opacity: 1; }
-.skyline-day { opacity: 0; }
-html.is-day .skyline-night { opacity: 0; }
-html.is-day .skyline-day { opacity: 1; }
+@keyframes water-shimmer {
+  from { background-position: 120% 0; }
+  to   { background-position: -20% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skyline-shimmer { animation: none; opacity: 0.28; }
+}
+
+.skyline-city,
+.skyline-reflect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  color: var(--skyline-fill);
+  transition: color 0.7s ease;
+}
+.skyline-city {
+  bottom: var(--water-h, 18vh);
+  height: var(--city-h, 32vh);
+}
+.skyline-city svg {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  bottom: 0;
+  /* Sky Tower sits at ~61% of the artwork; keep it on screen when sides are cropped. */
+  left: 50%;
+  transform: translateX(-61%);
+  display: block;
+  overflow: visible;
+}
+.skyline-windows {
+  opacity: var(--window-o, 0);
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+
+.skyline-reflect {
+  bottom: 0;
+  height: var(--water-h, 18vh);
+  opacity: 0.32;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0, rgba(0,0,0,0.18) 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0, rgba(0,0,0,0.18) 55%, transparent 100%);
+}
+html.is-day .skyline-reflect { opacity: 0.22; }
+.skyline-reflect svg {
+  position: absolute;
+  height: var(--city-h, 32vh);
+  width: auto;
+  left: 50%;
+  top: 0;
+  transform: translateX(-61%) scaleY(-1);
+  transform-origin: 50% 0;
+  display: block;
+}
+.skyline-reflect .skyline-windows { opacity: calc(var(--window-o, 0) * 0.35); }
 
 html.is-day body.backNight .realMoon-moonCut,
 html.is-day .realMoon-track .realMoon-moonCut {
@@ -434,11 +499,13 @@ html.is-day body.backNight .realMoon-container {
   background-size: cover;
   background-position: center;
   filter: none;
-  opacity: 0.85;
+  opacity: 0.9;
   mix-blend-mode: normal;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 86%, transparent 100%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 86%, transparent 100%);
+  box-shadow: none;
+  -webkit-clip-path: none;
+  clip-path: none;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 72%, rgba(0,0,0,0.72) 88%, transparent 100%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 72%, rgba(0,0,0,0.72) 88%, transparent 100%);
 }
 
 .sky-toggle {
@@ -626,8 +693,7 @@ html.is-day body.backNight .site-nav a {
 
 @media (prefers-reduced-motion: reduce) {
   .sky-wash span,
-  .day-clouds,
-  .day-sky,
+  .day-skies,
   .sky-toggle,
   html.is-day body,
   html.is-day body.backNight .band > .wrap,
