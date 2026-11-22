@@ -3,6 +3,7 @@ require __DIR__ . '/includes/site.php';
 $page_title = 'Soffit Web | Freelance web design and development, Auckland NZ';
 $page_description = 'Soffit Web is Dale Hogg\'s freelance web design and development practice, based in Auckland and working with clients worldwide. Landing pages, business sites and custom builds, fixed-quoted.';
 $page_path = '/';
+$show_photo_credit = true;
 $page_faqs = [
     ['How long does a website take?', 'A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.'],
     ['How do revisions work?', 'The quote includes time for you to review the design and the build and ask for changes. I will say how many review rounds are included before you agree. Work outside that scope is quoted separately.'],
@@ -52,23 +53,70 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
   <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
   <div class="day-clouds" aria-hidden="true">
-    <div class="day-cloud c1"></div>
-    <div class="day-cloud c2"></div>
-    <div class="day-cloud c3"></div>
-    <div class="day-cloud c4"></div>
-    <div class="day-cloud c5"></div>
+    <svg class="cloud-defs" width="0" height="0" focusable="false">
+      <defs>
+        <linearGradient id="cuFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff"/>
+          <stop offset="40%" stop-color="#f4f7fb"/>
+          <stop offset="100%" stop-color="#b7c4d4"/>
+        </linearGradient>
+        <filter id="cuBillow" x="-30%" y="-35%" width="160%" height="170%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015 0.022" numOctaves="3" seed="7" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="24" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <filter id="cuBillow2" x="-30%" y="-35%" width="160%" height="170%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.028" numOctaves="3" seed="19" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+    </svg>
+    <svg class="cumulus cu-a" viewBox="0 0 420 170" preserveAspectRatio="xMidYMid meet">
+      <g filter="url(#cuBillow)" fill="url(#cuFill)">
+        <ellipse cx="170" cy="100" rx="120" ry="48"/>
+        <ellipse cx="250" cy="82" rx="95" ry="54"/>
+        <ellipse cx="90" cy="96" rx="84" ry="42"/>
+        <ellipse cx="320" cy="102" rx="72" ry="38"/>
+        <ellipse cx="210" cy="68" rx="64" ry="40"/>
+      </g>
+    </svg>
+    <svg class="cumulus cu-b" viewBox="0 0 360 150" preserveAspectRatio="xMidYMid meet">
+      <g filter="url(#cuBillow2)" fill="url(#cuFill)">
+        <ellipse cx="150" cy="88" rx="100" ry="42"/>
+        <ellipse cx="220" cy="72" rx="80" ry="46"/>
+        <ellipse cx="80" cy="90" rx="70" ry="36"/>
+        <ellipse cx="280" cy="90" rx="58" ry="32"/>
+      </g>
+    </svg>
+    <svg class="cumulus cu-c" viewBox="0 0 480 180" preserveAspectRatio="xMidYMid meet">
+      <g filter="url(#cuBillow)" fill="url(#cuFill)">
+        <ellipse cx="200" cy="108" rx="140" ry="50"/>
+        <ellipse cx="310" cy="90" rx="110" ry="58"/>
+        <ellipse cx="100" cy="104" rx="90" ry="44"/>
+        <ellipse cx="390" cy="110" rx="80" ry="40"/>
+        <ellipse cx="250" cy="74" rx="72" ry="42"/>
+        <ellipse cx="160" cy="80" rx="60" ry="34"/>
+      </g>
+    </svg>
+    <svg class="cumulus cu-d" viewBox="0 0 300 130" preserveAspectRatio="xMidYMid meet">
+      <g filter="url(#cuBillow2)" fill="url(#cuFill)">
+        <ellipse cx="130" cy="78" rx="88" ry="36"/>
+        <ellipse cx="190" cy="66" rx="70" ry="40"/>
+        <ellipse cx="70" cy="80" rx="58" ry="30"/>
+        <ellipse cx="240" cy="80" rx="50" ry="28"/>
+      </g>
+    </svg>
   </div>
   <div class="skyline" aria-hidden="true">
-<?php
-  $skyline = __DIR__ . '/Img/city/auckland-skyline.svg';
-  if (is_file($skyline)) {
-    $svg = (string) file_get_contents($skyline);
-    if (str_starts_with($svg, '<?xml')) {
-      $svg = preg_replace('/^<\?xml[^>]*>\s*/', '', $svg);
-    }
-    echo $svg;
-  }
-?>
+    <picture class="skyline-shot skyline-night">
+      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-800.avif')); ?> 800w, <?php echo site_h(site_asset('/Img/city/auckland-night-1472.avif')); ?> 1472w" sizes="100vw">
+      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-800.webp')); ?> 800w, <?php echo site_h(site_asset('/Img/city/auckland-night-1472.webp')); ?> 1472w" sizes="100vw">
+      <img src="<?php echo site_h(site_asset('/Img/city/auckland-night-1472.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-800.jpg')); ?> 800w, <?php echo site_h(site_asset('/Img/city/auckland-night-1472.jpg')); ?> 1472w" sizes="100vw" width="1472" height="530" alt="" decoding="async" loading="eager">
+    </picture>
+    <picture class="skyline-shot skyline-day">
+      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.avif')); ?> 3480w" sizes="100vw">
+      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.webp')); ?> 3480w" sizes="100vw">
+      <img src="<?php echo site_h(site_asset('/Img/city/auckland-day-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1920.jpg')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.jpg')); ?> 3480w" sizes="100vw" width="1920" height="874" alt="" decoding="async" loading="lazy">
+    </picture>
   </div>
 
   <div id="fullpage">

@@ -28,7 +28,15 @@
     if (persist) {
       try { localStorage.setItem(KEY, day ? "day" : "night"); } catch (e) {}
     }
+    setClouds(day);
     paint();
+  }
+
+  function setClouds(day) {
+    var el = document.querySelector(".day-clouds");
+    if (!el) return;
+    var play = !!day && !document.hidden && !reduce;
+    el.classList.toggle("is-paused", !play);
   }
 
   function progress() {
@@ -109,7 +117,9 @@
 
   bootTheme();
   paint();
+  setClouds(isDay());
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
   window.addEventListener("load", paint);
+  document.addEventListener("visibilitychange", function () { setClouds(isDay()); });
 })();

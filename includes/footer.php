@@ -26,6 +26,9 @@ if ($chrome_mode === 'minimal') {
     <p class="footer-facts"><a href="tel:<?php echo htmlspecialchars(str_replace(' ', '', (string) $nav_site['phone']), ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars((string) ($nav_site['phoneDisplay'] ?? $nav_site['phone']), ENT_QUOTES, 'UTF-8'); ?></a> · Mon to Fri, 9:00 am to 5:00 pm NZT · Prices include GST</p>
 <?php endif; ?>
     <a href="/#contact">Get a quote</a>
+<?php if (!empty($show_photo_credit)): ?>
+    <p class="photo-credit">Auckland waterfront photos: day, <a href="https://commons.wikimedia.org/wiki/File:Auckland_Skyline_as_seen_from_Devonport_20100128_3.jpg">DXR</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); night, <a href="https://commons.wikimedia.org/wiki/File:Auckland_City_%26_Skytower_at_night.jpg">111 Emergency</a> (<a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>). Cropped and the sky faded to blend with the page.</p>
+<?php endif; ?>
   </div>
 </footer>
 <a class="sticky-quote" href="/#contact">Get a quote</a>

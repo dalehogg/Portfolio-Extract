@@ -34,18 +34,19 @@
 .sky-wash-day {
   background: linear-gradient(
     180deg,
-    #7eb8ea 0%,
-    #a9d4f4 42%,
-    #d0e8fa 100%
+    #3d86d0 0%,
+    #5ea3e4 28%,
+    #7eb8ec 62%,
+    #a9d4f4 100%
   );
   opacity: var(--day-o, 0);
 }
 .sky-wash-day-horizon {
   background: linear-gradient(
     180deg,
-    transparent 42%,
-    #f0d7a4 78%,
-    #f7e4b8 100%
+    transparent 68%,
+    rgba(255, 214, 160, 0.28) 88%,
+    rgba(255, 226, 176, 0.5) 100%
   );
   opacity: 0;
 }
@@ -63,9 +64,43 @@ html.is-day #sky-lines {
   opacity: 0 !important;
 }
 
+/* Full-bleed sky layers */
+body.backNight {
+  margin: 0;
+  background: #02010c;
+  --skyline-h: min(70vh, 580px);
+}
+html.is-day,
+html.is-day body.backNight {
+  background: #3d86d0;
+}
+body.backNight #nightSky {
+  position: fixed;
+  inset: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  max-width: none;
+  height: 100%;
+  background: #02010c;
+}
+html.is-day body.backNight #nightSky {
+  background: #3d86d0;
+}
+html.is-day #nightSky canvas,
+html.is-day #sky-lines {
+  opacity: 0 !important;
+  visibility: hidden;
+  display: none;
+}
+
 .day-clouds {
   position: fixed;
   inset: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  max-width: none;
   z-index: 2;
   pointer-events: none;
   overflow: hidden;
@@ -73,30 +108,32 @@ html.is-day #sky-lines {
   transition: opacity 0.6s ease;
 }
 html.is-day .day-clouds { opacity: 1; }
-.day-cloud {
+.cloud-defs {
   position: absolute;
-  height: 4.2rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  filter: blur(10px);
-  box-shadow:
-    4.5rem 0.4rem 2rem 1.1rem rgba(255, 255, 255, 0.78),
-    -3.8rem 0.6rem 1.8rem 0.9rem rgba(255, 255, 255, 0.7),
-    1.2rem -1.1rem 1.4rem 0.7rem rgba(255, 255, 255, 0.8);
-  animation: cloud-drift var(--dur, 90s) linear infinite;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.cumulus {
+  position: absolute;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 10px 14px rgba(70, 90, 120, 0.18));
+  animation: cu-drift var(--dur, 120s) linear infinite;
   will-change: transform;
+  opacity: 0.92;
 }
-.day-cloud.c1 { top: 8%; left: -20%; width: 16rem; --dur: 110s; opacity: 0.7; }
-.day-cloud.c2 { top: 18%; left: 10%; width: 22rem; height: 5rem; --dur: 140s; animation-delay: -40s; opacity: 0.55; }
-.day-cloud.c3 { top: 28%; left: 45%; width: 14rem; --dur: 95s; animation-delay: -20s; opacity: 0.62; }
-.day-cloud.c4 { top: 12%; left: 70%; width: 18rem; height: 4.6rem; --dur: 125s; animation-delay: -70s; opacity: 0.5; }
-.day-cloud.c5 { top: 36%; left: -8%; width: 20rem; --dur: 160s; animation-delay: -90s; opacity: 0.4; filter: blur(14px); }
-@keyframes cloud-drift {
+.cu-a { top: 5%; left: -28%; width: min(46vw, 34rem); --dur: 140s; }
+.cu-b { top: 16%; left: 18%; width: min(32vw, 24rem); --dur: 100s; animation-delay: -45s; opacity: 0.72; }
+.cu-c { top: 9%; left: 48%; width: min(52vw, 40rem); --dur: 170s; animation-delay: -80s; opacity: 0.85; }
+.cu-d { top: 24%; left: -10%; width: min(26vw, 20rem); --dur: 88s; animation-delay: -20s; opacity: 0.6; }
+@keyframes cu-drift {
   from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(120vw, 0, 0); }
+  to { transform: translate3d(130vw, 0, 0); }
 }
+.day-clouds.is-paused .cumulus { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
-  .day-cloud { animation: none; }
+  .cumulus { animation: none; }
 }
 
 .skyline {
@@ -104,74 +141,66 @@ html.is-day .day-clouds { opacity: 1; }
   left: 0;
   right: 0;
   bottom: 0;
+  width: auto;
+  max-width: none;
   z-index: 4;
-  height: min(38vh, 340px);
+  height: var(--skyline-h, min(46vh, 420px));
   pointer-events: none;
+  overflow: hidden;
   transform: translate3d(0, 72%, 0);
   will-change: transform, opacity;
-  color: #090c14;
+  background: #0a1018;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 6%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 6%, #000 100%);
 }
-.skyline-svg { width: 100%; height: 100%; display: block; }
-.skyline .hills { fill: #14182a; }
-.skyline .hills-2 { fill: #101322; opacity: 0.85; }
-.skyline .h-stop-a { stop-color: #1a2840; }
-.skyline .h-stop-b { stop-color: #0a101c; }
-.skyline .harbour-sheen { fill: rgba(160, 190, 230, 0.12); }
-.skyline .bldg { fill: #121624; }
-.skyline .far-bldg { fill: #161b2c; }
-.skyline .mid-bldg { fill: #10141f; }
-.skyline .near-bldg { fill: #0c1018; }
-.skyline .quay { fill: #0a0d14; }
-.skyline .bridge-deck,
-.skyline .bridge-pier,
-.skyline .bridge-approach { fill: #151a28; }
-.skyline .bridge-arch,
-.skyline .bridge-hang { stroke: #1a2133; }
-.skyline .tower-shaft,
-.skyline .tower-base { fill: #0e121c; }
-.skyline .tower-pod { fill: #141a28; }
-.skyline .tower-band { fill: #c9a05a; }
-.skyline .tower-mast,
-.skyline .tower-tip { fill: #9aa3b8; }
-.skyline .win { fill: #e2b656; opacity: 0.82; }
-
-html.is-day .skyline .hills { fill: #7fa4c4; }
-html.is-day .skyline .hills-2 { fill: #8aadc8; }
-html.is-day .skyline .h-stop-a { stop-color: #6a9ec0; }
-html.is-day .skyline .h-stop-b { stop-color: #3e6e90; }
-html.is-day .skyline .harbour-sheen { fill: rgba(255, 255, 255, 0.22); }
-html.is-day .skyline .far-bldg { fill: #6d8498; }
-html.is-day .skyline .mid-bldg,
-html.is-day .skyline .bldg { fill: #53687a; }
-html.is-day .skyline .near-bldg { fill: #3f5262; }
-html.is-day .skyline .quay { fill: #334553; }
-html.is-day .skyline .bridge-deck,
-html.is-day .skyline .bridge-pier,
-html.is-day .skyline .bridge-approach { fill: #4a5c6c; }
-html.is-day .skyline .bridge-arch,
-html.is-day .skyline .bridge-hang { stroke: #3c4d5b; }
-html.is-day .skyline .tower-shaft,
-html.is-day .skyline .tower-base { fill: #4a5c6c; }
-html.is-day .skyline .tower-pod { fill: #5b6f80; }
-html.is-day .skyline .tower-band { fill: #d8d5cf; }
-html.is-day .skyline .tower-mast,
-html.is-day .skyline .tower-tip { fill: #eceae4; }
-html.is-day .skyline .win { opacity: 0; }
+html.is-day .skyline { background: #6d8b90; }
+.skyline-shot {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transition: opacity 0.6s ease;
+}
+.skyline-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+.skyline-day img { object-position: 50% 0%; }
+@media (max-width: 720px) {
+  .skyline-night img { object-position: 50% 80%; }
+  .skyline-day img { object-position: 50% 18%; }
+}
+.skyline-night { opacity: 1; }
+.skyline-day { opacity: 0; }
+html.is-day .skyline-night { opacity: 0; }
+html.is-day .skyline-day { opacity: 1; }
 
 html.is-day body.backNight .realMoon-moonCut {
   opacity: 0 !important;
   visibility: hidden;
 }
+html.is-day body #fullpage .section-one .realMoon-container,
 html.is-day body.backNight .realMoon-container {
-  filter: saturate(0.25) brightness(1.45) contrast(0.85);
-  background-color: rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 0 28px rgba(255, 255, 255, 0.4);
+  overflow: visible;
+  background-color: transparent;
+  -webkit-clip-path: none;
+  clip-path: none;
+  filter: contrast(0.7) saturate(0.42) brightness(1.06);
+  opacity: 0.78;
+  box-shadow: 0 0 28px 10px rgba(210, 225, 245, 0.35);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 62%, rgba(0,0,0,0.55) 72%, transparent 82%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 62%, rgba(0,0,0,0.55) 72%, transparent 82%);
 }
 
 .sky-toggle {
   position: fixed;
   left: 1.15rem;
-  bottom: calc(1.15rem + (min(38vh, 340px) * var(--city-in, 0)));
+  bottom: calc(1.15rem + (var(--skyline-h, min(46vh, 420px)) * var(--city-in, 0)));
   z-index: 360;
   display: inline-flex;
   align-items: center;
@@ -214,10 +243,10 @@ html.is-day .sky-toggle .icon-moon { opacity: 1; transform: none; }
 .sky-toggle-text { padding-top: 0.05rem; }
 
 body.backNight #contact {
-  padding-bottom: calc(3.2rem + min(40vh, 360px));
+  padding-bottom: 2.4rem;
 }
 body.backNight .site-footer {
-  padding-bottom: calc(2.2rem + min(40vh, 360px));
+  padding-bottom: calc(0.9rem + var(--skyline-h, min(46vh, 420px)));
 }
 
 /* Day palette — homepage only. */
@@ -367,11 +396,11 @@ html.is-day body.backNight .site-nav a {
 @media (max-width: 720px) {
   .sky-toggle {
     left: 0.7rem;
-    bottom: calc(0.7rem + (min(32vh, 240px) * var(--city-in, 0)));
+    bottom: calc(0.7rem + (var(--skyline-h, min(46vh, 420px)) * var(--city-in, 0)));
     padding: 0.5rem 0.7rem 0.5rem 0.5rem;
   }
-  .skyline { height: min(32vh, 240px); }
-  .day-cloud { filter: blur(12px); }
+  .skyline { height: var(--skyline-h); }
+  body.backNight { --skyline-h: min(42vh, 340px); }
 }
 
 html.is-day body.backNight #contact > .wrap,
@@ -385,6 +414,8 @@ html.is-day body.backNight .footer-bar p,
 html.is-day body.backNight .footer-bar a,
 html.is-day body.backNight .footer-facts,
 html.is-day body.backNight .footer-facts a,
+html.is-day body.backNight .photo-credit,
+html.is-day body.backNight .photo-credit a,
 html.is-day body.backNight .site-footer,
 html.is-day body.backNight .site-footer p,
 html.is-day body.backNight .site-footer a {
@@ -394,3 +425,17 @@ html.is-day body.backNight .footer-bar a[href="#contact"],
 html.is-day body.backNight .footer-bar a[href="/#contact"] {
   color: #8a5800 !important;
 }
+
+.photo-credit {
+  flex-basis: 100%;
+  order: 4;
+  margin: 0.45rem 0 0;
+  padding-left: 6.75rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  opacity: 0.78;
+}
+@media (max-width: 720px) {
+  .photo-credit { padding-left: 5.6rem; }
+}
+.photo-credit a { text-decoration: underline; text-underline-offset: 0.12em; }
