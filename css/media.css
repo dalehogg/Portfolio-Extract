@@ -1,0 +1,47 @@
+@keyframes media-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+/* Images stay invisible until fully decoded, then fade in once, so they never paint in jagged chunks. */
+html.js img.media-img.is-pending { opacity: 0; }
+.media-ph {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  background-color: rgba(127, 127, 127, 0.18);
+  background-image: linear-gradient(100deg, rgba(127, 127, 127, 0.12) 20%, rgba(255, 255, 255, 0.45) 42%, rgba(127, 127, 127, 0.12) 64%);
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: media-shimmer 1.15s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+}
+.media-ph.is-gone { opacity: 0; }
+html.js img.media-img.is-broken {
+  background: rgba(127, 127, 127, 0.22);
+  object-fit: contain;
+}
+.media-fallback {
+  display: block;
+  margin: 0.3rem 0 0;
+  font: 500 0.75rem/1.4 ui-sans-serif, sans-serif;
+  opacity: 0.8;
+}
+html.js .bg-pending { position: relative; }
+html.js .bg-pending::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(100deg, rgba(127, 127, 127, 0.14) 20%, rgba(255, 255, 255, 0.5) 42%, rgba(127, 127, 127, 0.14) 64%);
+  background-size: 220% 100%;
+  animation: media-shimmer 1.15s ease-in-out infinite;
+}
+html.js .bg-pending.is-loaded::after {
+  opacity: 0;
+  animation: none;
+  transition: opacity 0.35s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .media-ph,
+  html.js .bg-pending::after { animation: none; }
+}

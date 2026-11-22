@@ -1,0 +1,13 @@
+:root {
+  --ink: #0c1220;
+  --ink-2: #171e30;
+  --paper: #f3efe6;
+  --text: #f4f0e6;
+  --text-soft: #d4cfc4;
+  --ink-text: #1a1814;
+  --line: rgba(244, 240, 230, 0.18);
+  --amber: #e2a322;
+  --amber-ink: #1a1408;
+  --font-display: Fraunces, Georgia, "Times New Roman", serif;
+  --font-ui: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}

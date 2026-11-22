@@ -1,0 +1,511 @@
+html, body { overflow-x: clip; }
+#nightSky {
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+}
+#nightSky canvas,
+.cloudsLightOne,
+.cloudsLightTwo,
+body #fullpage .section-one .galaxy-center {
+  width: 100%;
+  max-width: 100%;
+}
+.site-footer, .site-footer::before {
+  background-image: none;
+}
+.city, .cityWhite, .citySilouhute { display: none; }
+
+body.backNight .band,
+body.backNight .band-alt {
+  padding: 2.4rem 0 3.2rem;
+  background: transparent;
+  box-shadow: none;
+}
+body.backNight .band > .wrap {
+  width: min(1120px, calc(100% - 8vw));
+  padding: 3.2rem 2.4rem 3.4rem;
+  background: rgba(7, 10, 24, 0.68);
+  border: 1px solid rgba(244, 240, 230, 0.16);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.22);
+}
+body.backNight .intro,
+body.backNight .service-card p,
+body.backNight .why-card p,
+body.backNight .step p,
+body.backNight .faq p { max-width: 62ch; }
+body.backNight .band h2 { margin: 0 0 1.75rem; }
+body.backNight .kicker { margin-bottom: 0.9rem; }
+body.backNight .band p,
+body.backNight .intro,
+body.backNight .service-card p,
+body.backNight .why-card p,
+body.backNight .step p,
+body.backNight .faq p,
+body.backNight .price-note,
+body.backNight .fine-print {
+  line-height: 1.7;
+}
+body.backNight .intro { margin-bottom: 2.25rem; }
+body.backNight .service-card h3,
+body.backNight .why-card h3,
+body.backNight .step h3 { margin-bottom: 0.85rem; }
+body.backNight .band-cta { margin-top: 2.5rem; }
+body.backNight .contact-layout { gap: 4.5rem; }
+body.backNight .split-head {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.7fr) 1.4fr;
+  gap: 3rem 5.5rem;
+  align-items: start;
+}
+body.backNight .sticky-head { position: sticky; top: 5.5rem; }
+body.backNight .service-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+body.backNight .service-card { padding: 2.4rem 0 2.6rem; }
+body.backNight .why-grid { display: block; }
+body.backNight .why-card {
+  display: grid;
+  grid-template-columns: 4.2rem minmax(10rem, 0.7fr) 1.4fr;
+  gap: 1.25rem 2.75rem;
+  align-items: baseline;
+  border: 0;
+  border-top: 1px solid rgba(244, 240, 230, 0.22);
+  padding: 2.4rem 0;
+  background: transparent;
+  box-shadow: none;
+}
+body.backNight .why-card h3 { margin: 0; }
+body.backNight .why-card span {
+  font-family: var(--font-ui);
+  color: var(--amber);
+  letter-spacing: 0.14em;
+}
+body.backNight .timeline {
+  display: grid;
+  gap: 0;
+  margin-top: 1.5rem;
+  border-left: 2px solid var(--amber);
+  padding-left: 1.4rem;
+}
+body.backNight .timeline::before { content: none; }
+body.backNight .timeline .step { padding: 2.1rem 0 2.3rem; border-bottom: 1px solid rgba(244, 240, 230, 0.14); }
+body.backNight .step span { color: var(--amber); background: var(--ink-2); padding-right: 0.4rem; position: relative; }
+body.backNight #about,
+body.backNight #about > .wrap { overflow: visible; }
+body.backNight .about-layout {
+  grid-template-columns: minmax(9.5rem, 16rem) minmax(0, 1fr);
+  gap: 2rem 3.5rem;
+  align-items: center;
+}
+body.backNight .about-mark {
+  width: min(100%, 16rem);
+  aspect-ratio: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  border: 1px solid var(--amber);
+  background:
+    linear-gradient(160deg, rgba(226, 163, 34, 0.2), transparent 55%),
+    var(--ink-2);
+}
+body.backNight .about-mark span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(4.4rem, 12vw, 7rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--text);
+}
+body.backNight .price-card a.button.button-primary {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  padding: 0.9rem 1.45rem;
+  margin-top: 0.35rem;
+  background: var(--amber);
+  color: var(--amber-ink);
+  border: 3px solid var(--amber);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+}
+body.backNight .faq details { padding: 0.4rem 0; }
+body.backNight .price-grid { display: block; }
+body.backNight .price-card {
+  display: grid;
+  grid-template-columns: 0.7fr 0.9fr 1.3fr auto;
+  gap: 1.25rem 2.5rem;
+  align-items: center;
+  border: 0;
+  border-top: 1px solid rgba(244, 240, 230, 0.22);
+  background: transparent;
+  padding: 2.25rem 0;
+  box-shadow: none;
+}
+body.backNight .showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem 4rem;
+  margin-top: 2.5rem;
+}
+body.backNight .frame {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  max-width: 460px;
+}
+body.backNight .frame:nth-child(even) { margin-top: 3.5rem; justify-self: end; }
+body.backNight .frame-shot {
+  display: block;
+  padding: 0.7rem;
+  background: linear-gradient(180deg, rgba(244,240,230,0.14), rgba(244,240,230,0.04));
+  border: 1px solid rgba(244,240,230,0.28);
+  box-shadow: 0 22px 40px rgba(0,0,0,0.28);
+  overflow: hidden;
+}
+body.backNight .frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+body.backNight .frame:hover img { transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce) {
+  body.backNight .frame img { transition: none; }
+  body.backNight .frame:hover img { transform: none; }
+}
+body.backNight .frame-meta { display: grid; gap: 0.55rem; margin-top: 1.25rem; }
+body.backNight .faq details { padding: 0.35rem 0 0.6rem; }
+body.backNight .faq summary { padding: 1.15rem 0; }
+body.backNight .frame-meta strong { font-size: 1.35rem; }
+body.backNight .frame-meta em { font-style: normal; color: var(--text-soft); max-width: 36ch; }
+body.backNight .frame-meta span { font-family: var(--font-ui); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.72rem; color: var(--amber); }
+body.backNight #contact,
+body.backNight #contact::before { background: transparent; color: var(--text); }
+body.backNight #contact > .wrap { background: rgba(5, 7, 18, 0.78); }
+body.backNight #contact h2,
+body.backNight #contact p,
+body.backNight #contact label,
+body.backNight #contact .kicker,
+body.backNight #contact .intro,
+body.backNight #contact .fine-print,
+body.backNight #contact .contact-email a { color: var(--text); }
+body.backNight #contact .contact-email a { color: var(--amber); }
+body.backNight #contact .field input,
+body.backNight #contact .field textarea,
+body.backNight #contact .field select {
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  border-color: rgba(244, 240, 230, 0.45);
+}
+body.backNight #work .work-card h3 { font-size: clamp(2rem, 4vw, 3.2rem); }
+html.can-reveal .why-card,
+html.can-reveal .timeline .step,
+html.can-reveal .service-card {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+html.can-reveal .band.is-in .why-card:nth-child(2),
+html.can-reveal .band.is-in .step:nth-child(2),
+html.can-reveal .band.is-in .service-card:nth-child(2) { transition-delay: 0.08s; }
+html.can-reveal .band.is-in .why-card:nth-child(3),
+html.can-reveal .band.is-in .step:nth-child(3),
+html.can-reveal .band.is-in .service-card:nth-child(3) { transition-delay: 0.16s; }
+html.can-reveal .band.is-in .why-card:nth-child(4),
+html.can-reveal .band.is-in .step:nth-child(4) { transition-delay: 0.24s; }
+@media (max-width: 900px) {
+  body.backNight .band { padding: 1.4rem 0 2rem; }
+  body.backNight .band > .wrap { width: calc(100% - 1.2rem); padding: 1.8rem 1.05rem 2rem; }
+  body.backNight .why-card,
+  body.backNight .price-card,
+  body.backNight .showcase { grid-template-columns: 1fr; }
+  body.backNight .frame,
+  body.backNight .frame:nth-child(even) { max-width: none; margin-top: 0; justify-self: stretch; }
+  body.backNight .split-head,
+  body.backNight .why-grid,
+  body.backNight .timeline,
+  body.backNight .about-layout { grid-template-columns: 1fr; }
+  body.backNight .sticky-head { position: static; }
+  body.backNight .timeline::before { display: none; }
+}
+@media (min-width: 1100px) {
+  body.backNight .band { padding: 3.2rem 0 4.4rem; }
+  body.backNight .frame { max-width: 380px; }
+}
+
+@media (min-width: 981px) {
+  body #fullpage .section-one .realMoon-container {
+    left: auto;
+    right: 8vw;
+    top: 20vh;
+    top: 20lvh;
+    top: calc(var(--sky-h, 100lvh) * 0.20);
+    width: 230px;
+    height: 230px;
+  }
+  .hero-copy {
+    margin-left: 7vw;
+    margin-bottom: 0;
+    width: min(34rem, 48vw);
+  }
+}
+@media (max-width: 980px) {
+  body #fullpage .section-one .realMoon-container {
+    width: 88px;
+    height: 88px;
+    top: 11vh;
+    top: 11lvh;
+    top: calc(var(--sky-h, 100lvh) * 0.11);
+    right: 1rem;
+    left: auto;
+  }
+  body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+    width: 72px;
+    height: 100px;
+    left: 64%;
+    top: -8%;
+    box-shadow: -6px 0 10px 2px #000;
+    -webkit-animation-name: moonPhaseSmall;
+    animation-name: moonPhaseSmall;
+  }
+}
+body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+  -webkit-animation: moonPhase 46s ease-in-out infinite;
+  animation: moonPhase 46s ease-in-out infinite;
+}
+#nightSky canvas { animation: none; }
+@media (max-width: 980px) {
+  body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+    -webkit-animation-name: moonPhaseSmall;
+    animation-name: moonPhaseSmall;
+  }
+}
+/* Soften the moving shadow disc so the terminator fades; clip-path keeps the moon rim sharp. */
+body #fullpage .section-one .realMoon-container {
+  overflow: hidden;
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+}
+body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+  background-color: #000;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  box-shadow: none;
+  width: 280px;
+  height: 280px;
+  top: -11%;
+  -webkit-filter: blur(24px);
+  filter: blur(24px);
+  will-change: transform;
+}
+@media (max-width: 980px) {
+  body #fullpage .section-one .realMoon-container .realMoon-moonCut {
+    width: 120px;
+    height: 130px;
+    box-shadow: none;
+    -webkit-filter: blur(18px);
+    filter: blur(18px);
+  }
+}
+body.backNight #services > .split-head { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), calc(100% - 3rem) 100%, 0 100%); }
+body.backNight .band > .band-cta.wrap {
+  width: auto;
+  display: inline-block;
+  margin: 1.4rem 0 0 8vw;
+  padding: 0.85rem 1.15rem;
+  clip-path: none;
+  background: rgba(7, 10, 24, 0.78);
+}
+body.backNight #pricing > .wrap {
+  width: min(980px, calc(100% - 10vw));
+  margin-right: 4vw;
+  margin-left: auto;
+  clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0 100%, 0 3rem);
+  background: rgba(8, 12, 28, 0.7);
+}
+body.backNight #work > .wrap {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+body.backNight .frame-meta {
+  padding: 0.85rem 0.95rem 1rem;
+  background: rgba(6, 8, 20, 0.78);
+}
+body.backNight #why > .wrap {
+  background: rgba(8, 12, 28, 0.66);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2.2rem), 0 100%);
+}
+body.backNight #process > .wrap {
+  width: min(860px, calc(100% - 10vw));
+  margin-left: 5vw;
+  margin-right: auto;
+}
+body.backNight #about > .wrap { background: rgba(8, 12, 28, 0.66); }
+body.backNight #questions > .wrap {
+  width: min(860px, calc(100% - 10vw));
+  margin-left: auto;
+  margin-right: 4vw;
+  clip-path: polygon(0 2rem, 100% 0, 100% 100%, 0 100%);
+}
+body.backNight .site-footer {
+  background: transparent;
+}
+body.backNight .footer-bar {
+  width: min(1120px, calc(100% - 8vw));
+  padding: 1.4rem 1.4rem;
+  background: rgba(7, 10, 24, 0.72);
+  border: 1px solid rgba(244, 240, 230, 0.14);
+}
+@media (prefers-reduced-motion: no-preference) {
+  body.backNight #fullpage .section-one .realMoon-container {
+    position: fixed;
+    z-index: 2;
+    pointer-events: none;
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .realMoon-moonCut, #driftfield { animation: none !important; }
+}
+
+body.backNight .chev {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: -0.2rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+  flex: none;
+}
+body.backNight details[open] summary .chev { transform: rotate(225deg); }
+body.backNight .faq summary,
+body.backNight .price-card summary {
+  color: inherit;
+  font: inherit;
+  list-style: none;
+}
+body.backNight .faq summary::-webkit-details-marker,
+body.backNight .price-card summary::-webkit-details-marker { display: none; }
+body.backNight .faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+}
+body.backNight .faq details > .faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+body.backNight .faq details[open] > .faq-panel { grid-template-rows: 1fr; }
+body.backNight .faq-panel-in { overflow: hidden; }
+body.backNight .faq-panel-in p { margin: 0; padding: 0 0 0.85rem; }
+body.backNight .price-fold { display: none; }
+body.backNight .price-desk { display: contents; }
+@media (max-width: 768px) {
+  body.backNight .price-desk { display: none; }
+  body.backNight .price-fold { display: block; }
+  body.backNight .price-card { display: block; padding: 0.15rem 0; }
+  body.backNight .price-card summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 0.2rem 0.75rem;
+    padding: 0.95rem 0;
+    cursor: pointer;
+  }
+  body.backNight .price-card summary .kicker { grid-column: 1 / -1; margin: 0; }
+  body.backNight .price-card summary h3,
+  body.backNight .price-card summary .price { margin: 0; }
+  body.backNight .price-card summary .price { white-space: nowrap; }
+  body.backNight .price-card details > .price-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  body.backNight .price-card details[open] > .price-panel { grid-template-rows: 1fr; }
+  body.backNight .price-panel-in { overflow: hidden; min-height: 0; }
+  body.backNight .price-panel-in .price-note { margin: 0.15rem 0 0.55rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.backNight .chev,
+  body.backNight .faq-panel,
+  body.backNight .price-panel { transition: none; }
+}
+
+/* Keep the fixed sky at the largest viewport height so the mobile address bar showing or hiding does not resize it while scrolling. */
+body #nightSky, body .cloudsLightOne, body .cloudsLightTwo { top: 0; height: 100vh; height: 100lvh; height: var(--sky-h, 100lvh); }
+
+/* Dropdowns animate their height in motion.js, so the CSS row transition is turned off to avoid fighting it. */
+html.js body.backNight .faq details > .faq-panel,
+html.js body.backNight .price-card details > .price-panel { transition: none; }
+body.backNight details.is-closing summary .chev { transform: rotate(45deg); }
+
+/* Contact facts: phone, hours, location. */
+.contact-facts { list-style: none; margin: 1.2rem 0 0; padding: 0; display: grid; gap: 0.55rem; font-size: 0.95rem; line-height: 1.45; }
+.contact-facts li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.6rem; }
+.contact-facts span { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.72; padding-top: 0.2rem; }
+body.backNight #contact .contact-facts li { color: var(--text); }
+body.backNight #contact .contact-facts a { color: var(--amber); }
+.footer-bar { flex-wrap: wrap; }
+.footer-bar .footer-facts { flex-basis: 100%; order: 3; margin: 0.35rem 0 0; font-size: 0.85rem; opacity: 0.8; }
+.footer-bar .footer-facts a { color: inherit; }
+
+/* Homepage scroll-spy: gold text and an underline that grows in. */
+body.backNight .site-nav a:not(.nav-quote) {
+  position: relative;
+  transition: color 0.2s ease;
+}
+body.backNight .site-nav a:not(.nav-quote)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.32em;
+  height: 1px;
+  background: #ffb000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.28s ease;
+  pointer-events: none;
+}
+@media (max-width: 980px) {
+  body.backNight .site-nav a:not(.nav-quote) {
+    align-self: flex-start;
+  }
+  body.backNight .site-nav a:not(.nav-quote)::after {
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.45rem;
+  }
+}
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote),
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote):hover,
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote):focus-visible {
+  color: #ffb000;
+}
+body.backNight .site-nav a[aria-current="true"]:not(.nav-quote)::after {
+  transform: scaleX(1);
+}
+body.backNight .site-nav a.nav-quote[aria-current="true"] {
+  box-shadow: inset 0 -3px 0 #1a1408;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.backNight .site-nav a:not(.nav-quote),
+  body.backNight .site-nav a:not(.nav-quote)::after {
+    transition: none;
+  }
+}

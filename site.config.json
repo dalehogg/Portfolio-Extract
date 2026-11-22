@@ -1,0 +1,120 @@
+{
+  "_readme": "Edit this file, then run bash build.sh. baseUrl is the live site origin: canonical links, Open Graph, JSON-LD, sitemap.xml and robots.txt all derive from it (intended live domain https://soffit.com, still to be confirmed). bash build.sh --preview builds the hidden preview instead: it swaps in previewBaseUrl, sets noindex on every page, sends X-Robots-Tag noindex and writes a Disallow-all robots.txt. sameAs lists public profile URLs (Facebook page, Google Business Profile) once they exist. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Prices are NZD and include GST (pricesIncludeGst). Availability is the badge in the hero.",
+  "assetVersion": "dev",
+  "businessName": "Soffit Web",
+  "founderName": "Dale Hogg",
+  "baseUrl": "https://soffit.com",
+  "previewBaseUrl": "https://soffit-preview-dh.page.gd",
+  "noindex": false,
+  "email": "dhdaleleon@gmail.com",
+  "phone": "+64 21 0816 9900",
+  "phoneDisplay": "021 0816 9900",
+  "phoneSchema": "+64-21-0816-9900",
+  "hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "17:00",
+    "label": "Monday to Friday, 9:00 to 5:00 pm NZT"
+  },
+  "address": {
+    "addressLocality": "Auckland",
+    "addressRegion": "Auckland",
+    "addressCountry": "NZ"
+  },
+  "locationLine": "Based in Auckland, working with clients worldwide",
+  "areaServed": [
+    "Auckland",
+    "Worldwide"
+  ],
+  "pricesIncludeGst": true,
+  "sameAs": [
+    "https://www.facebook.com/soffitweb"
+  ],
+  "showTestimonials": false,
+  "availability": "Taking new projects",
+  "pricing": [
+    {
+      "id": "starter",
+      "kicker": "Landing page",
+      "name": "Starter",
+      "fromNzd": 350,
+      "period": "project",
+      "note": "One page for one offer.",
+      "summary": "A single page with a clear next step.",
+      "includes": [
+        "Designed and built",
+        "Works on phones",
+        "One review round"
+      ],
+      "projectType": "Landing page"
+    },
+    {
+      "id": "business",
+      "kicker": "Business site",
+      "name": "Business",
+      "fromNzd": 700,
+      "period": "project",
+      "note": "Several pages, one business.",
+      "summary": "Services, about, and a way to enquire.",
+      "includes": [
+        "Pages agreed first",
+        "Custom design and build",
+        "Walkthrough at launch"
+      ],
+      "projectType": "Business site"
+    },
+    {
+      "id": "custom",
+      "kicker": "Web app",
+      "name": "Custom",
+      "fromNzd": 1500,
+      "period": "project",
+      "note": "Where a custom build starts.",
+      "summary": "A tool or a larger site, quoted after a scope.",
+      "includes": [
+        "Written scope first",
+        "Fixed quote for that scope",
+        "Files handed over"
+      ],
+      "projectType": "Custom build"
+    },
+    {
+      "id": "care",
+      "kicker": "After launch",
+      "name": "Care",
+      "fromNzd": 150,
+      "period": "month",
+      "note": "Month to month.",
+      "summary": "Small updates after launch.",
+      "includes": [
+        "Text and image edits",
+        "Plugins and libraries updates",
+        "Stop when you want"
+      ],
+      "projectType": "Care plan"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    },
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    },
+    {
+      "quote": "[Placeholder quote — replace with the client’s own words]",
+      "name": "Client name",
+      "business": "Business"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thanks.php
+Disallow: /projects/job-pack-maker/bridge.php
+
+Sitemap: https://soffit.com/sitemap.xml
