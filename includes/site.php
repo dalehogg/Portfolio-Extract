@@ -181,6 +181,114 @@ function site_money(int $amount): string
     return 'NZ$' . number_format($amount);
 }
 
+function site_same_as(): array
+{
+    $list = site_config()['sameAs'] ?? [];
+    if (!is_array($list)) {
+        return [];
+    }
+    $urls = [];
+    foreach ($list as $url) {
+        $url = trim((string) $url);
+        if ($url !== '' && filter_var($url, FILTER_VALIDATE_URL)) {
+            $urls[] = $url;
+        }
+    }
+    return array_values(array_unique($urls));
+}
+
+function site_same_as_label(string $url): string
+{
+    $host = strtolower((string) parse_url($url, PHP_URL_HOST));
+    $host = preg_replace('/^www\./', '', $host) ?? $host;
+    $labels = [
+        'facebook.com' => 'Facebook',
+        'fb.com' => 'Facebook',
+        'instagram.com' => 'Instagram',
+        'linkedin.com' => 'LinkedIn',
+        'x.com' => 'X',
+        'twitter.com' => 'X',
+        'youtube.com' => 'YouTube',
+        'youtu.be' => 'YouTube',
+        'maps.google.com' => 'Google',
+        'google.com' => 'Google',
+        'g.page' => 'Google',
+        'maps.app.goo.gl' => 'Google',
+    ];
+    if (isset($labels[$host])) {
+        return $labels[$host];
+    }
+    foreach ($labels as $suffix => $label) {
+        if ($host === $suffix || str_ends_with($host, '.' . $suffix)) {
+            return $label;
+        }
+    }
+    return $host !== '' ? $host : 'Profile';
+}
+
+function site_area_served(?array $site = null): array
+{
+    $site = $site ?? site_config();
+    $raw = $site['areaServed'] ?? ['Auckland', 'Worldwide'];
+    if (!is_array($raw)) {
+        $raw = [trim((string) $raw)];
+    }
+    $has_auckland = false;
+    $has_worldwide = false;
+    foreach ($raw as $item) {
+        $name = is_array($item) ? (string) ($item['name'] ?? '') : (string) $item;
+        if (strcasecmp($name, 'Auckland') === 0) {
+            $has_auckland = true;
+        }
+        if (strcasecmp($name, 'Worldwide') === 0) {
+            $has_worldwide = true;
+        }
+    }
+    // Auckland is the base; Worldwide is the service area. Keep both even if an older
+    // config only stored one of the two strings.
+    if (!$has_auckland) {
+        array_unshift($raw, 'Auckland');
+    }
+    if (!$has_worldwide) {
+        $raw[] = 'Worldwide';
+    }
+    $out = [];
+    $seen = [];
+    foreach ($raw as $item) {
+        if (is_array($item)) {
+            $key = strtolower((string) ($item['name'] ?? json_encode($item)));
+            if ($key === '' || isset($seen[$key])) {
+                continue;
+            }
+            $seen[$key] = true;
+            if (!isset($item['@type']) && strcasecmp((string) ($item['name'] ?? ''), 'Auckland') === 0) {
+                $item = array_merge(['@type' => 'City'], $item);
+            }
+            $out[] = $item;
+            continue;
+        }
+        $label = trim((string) $item);
+        if ($label === '') {
+            continue;
+        }
+        $key = strtolower($label);
+        if (isset($seen[$key])) {
+            continue;
+        }
+        $seen[$key] = true;
+        if (strcasecmp($label, 'Auckland') === 0) {
+            $out[] = [
+                '@type' => 'City',
+                'name' => 'Auckland',
+                'containedInPlace' => ['@type' => 'Country', 'name' => 'New Zealand'],
+            ];
+        } else {
+            $out[] = $label;
+        }
+    }
+    return $out;
+}
+
 function site_head(array $page): void
 {
     $title = (string) $page['title'];
@@ -204,7 +312,7 @@ function site_head(array $page): void
             'image' => $image,
             'email' => $email,
             'founder' => ['@type' => 'Person', 'name' => $founder],
-            'areaServed' => ['@type' => 'Country', 'name' => 'New Zealand'],
+            'areaServed' => site_area_served(),
             'address' => ['@type' => 'PostalAddress', 'addressCountry' => 'NZ'],
         ];
     } elseif ($kind === 'project') {
@@ -220,7 +328,7 @@ function site_head(array $page): void
         ];
     }
     $styles = $page['styles'] ?? [];
-    echo "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n";
+    echo "<!DOCTYPE html>\n<html lang=\"en-NZ\">\n<head>\n";
     echo "  <meta charset=\"utf-8\">\n";
     echo "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n";
     echo '  <title>' . site_h($title) . "</title>\n";

@@ -25,3 +25,9 @@ The earlier cut-out photographs of the Auckland CBD (day: DXR, CC BY-SA 4.0; nig
 - **Source:** Wikimedia Commons, own work, 10 April 2011
 - **Licence:** [Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)](https://creativecommons.org/licenses/by-sa/3.0/)
 - **Original resolution:** 2580 × 2452. The disc was cropped and served at 1536px (AVIF and WebP), which covers the on-page moon (230 CSS px) at 3× and more. A separate, slightly brighter day texture (`realmoon-day`) is used in day mode, with a soft feathered edge. The soft-edged night terminator is a separate overlay; it is not a blur on the texture.
+
+## Fonts
+
+- **Fraunces** (display headings), [SIL Open Font License 1.1](https://scripts.sil.org/OFL), by [Undercase Type](https://fonts.google.com/specimen/Fraunces)
+- **IBM Plex Mono** (labels and UI), [SIL Open Font License 1.1](https://scripts.sil.org/OFL), by [IBM](https://fonts.google.com/specimen/IBM+Plex+Mono)
+- **Notes:** Self-hosted as subset `.woff2` files in `fonts/`. The latin Fraunces and IBM Plex Mono regular files are preloaded on pages that use the main typefaces.

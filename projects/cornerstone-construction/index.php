@@ -16,7 +16,7 @@ $extra_head = <<<'HTML'
 HTML;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php require __DIR__ . '/../../includes/head.php'; ?>
 <body class="cc">
 <?php require __DIR__ . '/../../includes/nav.php'; ?>

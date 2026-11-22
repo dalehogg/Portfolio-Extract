@@ -38,10 +38,13 @@ if ($page_path === '/') {
     $hours = is_array($site['hours'] ?? null) ? $site['hours'] : [];
     $address = is_array($site['address'] ?? null) ? $site['address'] : ['addressCountry' => 'NZ'];
     $gst = !empty($site['pricesIncludeGst']);
+    $area_served = site_area_served($site);
     $offers = [];
+    $services = [];
     $lowest = null;
     foreach (($site['pricing'] ?? []) as $package) {
         $amount = (int) ($package['fromNzd'] ?? 0);
+        $package_id = (string) ($package['id'] ?? '');
         if (($package['period'] ?? 'project') !== 'month') {
             $lowest = $lowest === null ? $amount : min($lowest, $amount);
         }
@@ -49,6 +52,7 @@ if ($page_path === '/') {
             '@type' => 'Offer',
             'name' => (string) ($package['name'] ?? '') . ' (' . (string) ($package['kicker'] ?? '') . ')',
             'description' => (string) ($package['summary'] ?? ''),
+            'priceCurrency' => 'NZD',
             'priceSpecification' => [
                 '@type' => 'PriceSpecification',
                 'minPrice' => $amount,
@@ -60,6 +64,18 @@ if ($page_path === '/') {
             $offer['priceSpecification']['@type'] = 'UnitPriceSpecification';
             $offer['priceSpecification']['unitText'] = 'month';
         }
+        $service_id = $site_base . '/#service-' . ($package_id !== '' ? $package_id : (string) count($services));
+        $service_name = trim((string) ($package['kicker'] ?? '') . ' — ' . (string) ($package['name'] ?? ''), ' —');
+        $services[] = [
+            '@type' => 'Service',
+            '@id' => $service_id,
+            'name' => $service_name !== '' ? $service_name : (string) ($package['name'] ?? ''),
+            'description' => (string) ($package['summary'] ?? ''),
+            'provider' => ['@id' => $org_id],
+            'areaServed' => $area_served,
+            'offers' => $offer,
+        ];
+        $offer['itemOffered'] = ['@id' => $service_id];
         $offers[] = $offer;
     }
     $business = [
@@ -73,28 +89,41 @@ if ($page_path === '/') {
         'email' => $site_email,
         'founder' => ['@type' => 'Person', 'name' => $site_founder],
         'address' => array_merge(['@type' => 'PostalAddress'], $address),
-        'areaServed' => (string) ($site['areaServed'] ?? 'Worldwide'),
+        'areaServed' => $area_served,
         'currenciesAccepted' => 'NZD',
     ];
-    if ($site_phone_schema !== '') {
-        $business['telephone'] = $site_phone_schema;
+    $telephone = (string) ($site['phone'] ?? $site_phone_schema);
+    if ($telephone !== '') {
+        $business['telephone'] = $telephone;
     }
     if ($hours) {
+        $opens = (string) ($hours['opens'] ?? '09:00');
+        $closes = (string) ($hours['closes'] ?? '17:00');
+        $business['openingHours'] = 'Mo-Fr ' . $opens . '-' . $closes;
         $business['openingHoursSpecification'] = [[
             '@type' => 'OpeningHoursSpecification',
             'dayOfWeek' => $hours['days'] ?? [],
-            'opens' => (string) ($hours['opens'] ?? ''),
-            'closes' => (string) ($hours['closes'] ?? ''),
+            'opens' => $opens,
+            'closes' => $closes,
         ]];
     }
     if ($lowest !== null) {
         $business['priceRange'] = 'From NZ$' . number_format($lowest) . ' per project' . ($gst ? ', GST included' : '');
         $business['makesOffer'] = $offers;
+        $business['hasOfferCatalog'] = [
+            '@type' => 'OfferCatalog',
+            'name' => 'Website packages',
+            'itemListElement' => $offers,
+        ];
     }
-    if (!empty($site['sameAs']) && is_array($site['sameAs'])) {
-        $business['sameAs'] = array_values(array_filter($site['sameAs']));
+    $same_as = site_same_as();
+    if ($same_as) {
+        $business['sameAs'] = $same_as;
     }
     $graph[] = $business;
+    foreach ($services as $service) {
+        $graph[] = $service;
+    }
     $graph[] = [
         '@type' => 'WebSite',
         '@id' => $site_base . '/#website',
@@ -190,9 +219,9 @@ $chrome_mode = isset($chrome) ? (string) $chrome : 'full';
 if ($chrome_mode === 'minimal' && empty($site_styles)) {
     echo '  <link rel="stylesheet" href="' . $h(site_asset('/css/chrome.css')) . "\">\n";
 } else {
-    echo "  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n";
-    echo "  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n";
-    echo "  <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,460;9..144,620&family=IBM+Plex+Mono:wght@400;500&display=swap\">\n";
+    echo "  <link rel=\"preload\" href=\"/fonts/fraunces-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n";
+    echo "  <link rel=\"preload\" href=\"/fonts/ibm-plex-mono-latin-400.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n";
+    echo '  <link rel="stylesheet" href="' . $h(site_asset('/css/fonts.css')) . "\">\n";
     echo '  <link rel="stylesheet" href="' . $h(site_asset('/css/tokens.css')) . "\">\n";
     echo '  <link rel="stylesheet" href="' . $h(site_asset('/css/services.css')) . "\">\n";
 }

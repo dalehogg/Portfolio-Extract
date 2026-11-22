@@ -9,7 +9,7 @@ $extra_head = '<link rel="stylesheet" href="/projects/job-pack-maker/site.css">'
     . '<style>:root{--chrome-fg:#f4f6f8;--chrome-bg:#0f3d66}</style>';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php require __DIR__ . '/../../includes/head.php'; ?>
 <body class="jpm">
 <?php require __DIR__ . '/../../includes/nav.php'; ?>

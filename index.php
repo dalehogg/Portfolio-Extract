@@ -17,7 +17,7 @@ $extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link 
 $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>' . "\n" . '<script src="/js/gsap-scroll.js?v=r14" defer></script>' . "\n" . '<script src="/js/sky-scene.js" defer></script>';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php require __DIR__ . '/includes/head.php'; ?>
 <body class="backNight">
 <?php require __DIR__ . '/includes/nav.php'; ?>
@@ -326,7 +326,7 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
             <span class="frame-meta"><strong>Custom Paint</strong><em>Mark a photo, then send it.</em><span>View project</span></span>
           </a>
           <a class="frame" data-gsap data-desktop-only href="/projects/job-pack-maker/">
-            <span class="frame-shot"><img src="/Img/work/job-pack-maker.jpg" width="1200" height="750" alt="Job Pack Maker landing page, with a shot of the email builder"><span class="desktop-only-tag">Desktop only</span></span>
+            <span class="frame-shot"><img src="/Img/work/job-pack-maker.jpg" width="1200" height="750" loading="lazy" decoding="async" alt="Job Pack Maker landing page, with a shot of the email builder"><span class="desktop-only-tag">Desktop only</span></span>
             <span class="frame-meta"><strong>Job Pack Maker</strong><em>Turn a job into an email draft.</em><span>View project</span></span>
           </a>
         </div>

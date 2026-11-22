@@ -15,7 +15,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
     . '<script src="/js/gsap-scroll.js" defer></script>';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php require __DIR__ . '/../../includes/head.php'; ?>
 <body class="cp">
 <?php require __DIR__ . '/../../includes/nav.php'; ?>

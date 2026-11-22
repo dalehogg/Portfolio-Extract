@@ -14,7 +14,7 @@ $extra_head = '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\
     . '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php require __DIR__ . '/../../includes/head.php'; ?>
 <body class="cp studio">
 <?php require __DIR__ . '/../../includes/nav.php'; ?>

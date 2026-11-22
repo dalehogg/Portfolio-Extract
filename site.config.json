@@ -28,7 +28,10 @@
     "addressCountry": "NZ"
   },
   "locationLine": "Based in Auckland, working with clients worldwide",
-  "areaServed": "Worldwide",
+  "areaServed": [
+    "Auckland",
+    "Worldwide"
+  ],
   "pricesIncludeGst": true,
   "sameAs": [],
   "showTestimonials": false,

@@ -64,7 +64,7 @@ function ml_img(string $file, string $alt, string $sizes = '100vw', string $clas
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php include dirname(__DIR__, 3) . '/includes/head.php'; ?>
 <body class="ml ml-<?php echo htmlspecialchars((string) $ml_page, ENT_QUOTES, 'UTF-8'); ?><?php echo $ml_solid ? ' ml-solid' : ''; ?>">
 <?php include dirname(__DIR__, 3) . '/includes/nav.php'; ?>

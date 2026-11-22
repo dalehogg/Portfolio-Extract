@@ -2,10 +2,11 @@
 http_response_code(404);
 $page_title = 'Page not found | Soffit Web';
 $page_description = 'That page is not on the Soffit Web site.';
+$page_kind = 'utility';
 $page_path = '/404.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php require __DIR__ . '/includes/head.php'; ?>
 <body class="backNight">
 <?php require __DIR__ . '/includes/nav.php'; ?>

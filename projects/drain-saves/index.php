@@ -18,7 +18,7 @@ $page_scripts = <<<'HTML'
 HTML;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php include __DIR__ . '/../../includes/head.php'; ?>
 <body class="ds">
 <?php include __DIR__ . '/../../includes/nav.php'; ?>

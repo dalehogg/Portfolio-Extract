@@ -164,7 +164,10 @@ def discover_pages() -> list[str]:
             continue
         if re.search(r"\$page_kind\s*=\s*'utility'", text):
             continue
-        paths.append(match.group(1))
+        path = match.group(1)
+        if path in {"/thanks.php", "/404.php"} or path.endswith("/bridge.php"):
+            continue
+        paths.append(path)
     order = {path: i for i, path in enumerate(paths)}
 
     def sitemap_key(path: str):
@@ -200,8 +203,10 @@ def main() -> None:
         shutil.rmtree(DIST)
     DIST.mkdir()
 
-    for folder in ("css", "Img", "projects", "includes"):
-        copy_tree(ROOT / folder, DIST / folder)
+    for folder in ("css", "Img", "projects", "includes", "fonts"):
+        src = ROOT / folder
+        if src.exists():
+            copy_tree(src, DIST / folder)
     copy_tree(ROOT / "js" / "full.js", DIST / "js" / "full.js")
     copy_tree(ROOT / "js" / "ui.js", DIST / "js" / "ui.js")
     copy_tree(ROOT / "js" / "rise.js", DIST / "js" / "rise.js")
@@ -241,15 +246,21 @@ def main() -> None:
         + "\n</urlset>\n"
     )
     (DIST / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+    robots_preview = "User-agent: *\nDisallow: /\n"
+    robots_live = (
+        "User-agent: *\nAllow: /\nDisallow: /thanks.php\n"
+        "Disallow: /projects/job-pack-maker/bridge.php\n\n"
+        "Sitemap: " + base + "/sitemap.xml\n"
+    )
     if preview:
-        (DIST / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
+        (DIST / "robots.txt").write_text(robots_preview, encoding="utf-8")
         with (DIST / ".htaccess").open("a", encoding="utf-8") as handle:
             handle.write(PREVIEW_HTACCESS)
     else:
-        (DIST / "robots.txt").write_text(
-            "User-agent: *\nAllow: /\nDisallow: /thanks.php\nDisallow: /projects/job-pack-maker/bridge.php\n\nSitemap: " + base + "/sitemap.xml\n",
-            encoding="utf-8",
-        )
+        (DIST / "robots.txt").write_text(robots_live, encoding="utf-8")
+        # Keep the repo copies in sync with the production origin in site.config.json.
+        (ROOT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
+        (ROOT / "robots.txt").write_text(robots_live, encoding="utf-8")
     for css_path in (DIST / "css").glob("*.css"):
         css_path.write_text(minify_css(css_path.read_text(encoding="utf-8")), encoding="utf-8")
 

@@ -1,10 +1,11 @@
 <?php
 $page_title = 'Message sent | Soffit Web';
 $page_description = 'Your project enquiry has been sent to Dale Hogg at Soffit Web.';
+$page_kind = 'utility';
 $page_path = '/thanks.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-NZ">
 <?php require __DIR__ . '/includes/head.php'; ?>
 <body class="backNight">
 <?php require __DIR__ . '/includes/nav.php'; ?>

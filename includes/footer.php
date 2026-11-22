@@ -25,6 +25,16 @@ if ($chrome_mode === 'minimal') {
 <?php if (!empty($nav_site['phone'])): ?>
     <p class="footer-facts"><a href="tel:<?php echo htmlspecialchars(str_replace(' ', '', (string) $nav_site['phone']), ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars((string) ($nav_site['phoneDisplay'] ?? $nav_site['phone']), ENT_QUOTES, 'UTF-8'); ?></a> · Mon to Fri, 9:00 am to 5:00 pm NZT · Prices include GST</p>
 <?php endif; ?>
+<?php
+$footer_same_as = site_same_as();
+if ($footer_same_as) {
+    echo "    <ul class=\"footer-social\">\n";
+    foreach ($footer_same_as as $url) {
+        echo '      <li><a href="' . site_h($url) . '" rel="me noopener noreferrer" target="_blank">' . site_h(site_same_as_label($url)) . "</a></li>\n";
+    }
+    echo "    </ul>\n";
+}
+?>
     <a href="/#contact">Get a quote</a>
 <?php if (!empty($show_photo_credit)): ?>
     <p class="photo-credit">Photos and artwork: Auckland skyline silhouette, <a href="https://creazilla.com/media/silhouette/2959/auckland-skyline">Bob Comix</a> (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>); day clouds, original photoreal sprites created for Soffit Web; moon, <a href="https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg">Gregory H. Revera</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>). The skyline is a cropped and restyled version of the Bob Comix silhouette.</p>
