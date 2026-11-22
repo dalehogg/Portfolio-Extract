@@ -365,7 +365,7 @@ figcaption {
   font: inherit;
 }
 .cc-contact button { justify-self: start; margin-top: 0.8rem; cursor: pointer; }
-.cc-honey { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.cc-honey { position: absolute; left: 0; top: 0; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); border: 0; white-space: nowrap; }
 .cc-copy {
   margin: 0;
   width: 100%;

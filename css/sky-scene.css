@@ -245,7 +245,7 @@ html { --sky-fade-bottom: -2000px; }
   right: 0;
   width: auto;
   max-width: none;
-  height: var(--page-h, 400vh);
+  height: var(--page-h, 100%);
   z-index: 1;
   pointer-events: none;
   overflow: hidden;

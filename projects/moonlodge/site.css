@@ -32,8 +32,8 @@ body.ml h1, body.ml h2, body.ml h3, body.ml p, body.ml ul, body.ml dl, body.ml d
 body.ml img { display: block; max-width: 100%; height: auto; }
 :where(body.ml) a { color: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.ml-skip { position: absolute; left: -9999px; top: 0; z-index: 2000; background: #fff; color: var(--ink); padding: 0.6rem 1rem; }
-.ml-skip:focus { left: 1rem; top: 3.2rem; }
+.ml-skip { position: absolute; left: 0; top: 0; z-index: 2000; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); white-space: nowrap; background: #fff; color: var(--ink); padding: 0; }
+.ml-skip:focus { left: 1rem; top: 3.2rem; width: auto; height: auto; overflow: visible; clip: auto; clip-path: none; white-space: normal; padding: 0.6rem 1rem; }
 body.ml :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
 /* Header: translucent slate over the photo, solid once you scroll (as on the original). */
@@ -46,7 +46,7 @@ body.ml :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 0 var(--gutter) 0 calc(var(--gutter) + 92px);
+  padding: 0 var(--gutter) 0 max(calc(var(--gutter) + 92px), var(--soffit-pill-clear, 10.5rem));
   color: #fff;
   background: rgba(73, 81, 89, 0.55);
   -webkit-backdrop-filter: blur(6px);
@@ -641,7 +641,7 @@ html.ml-faq-js .faq-item::details-content {
 }
 .enquiresInputs input:focus, .enquiresInputs textarea:focus { outline: none; border-color: var(--slate); box-shadow: 0 0 0 3px rgba(73, 81, 89, 0.2); }
 .enquiresInputs textarea { resize: vertical; min-height: 10rem; }
-.honey { position: absolute; left: -9999px; }
+.honey { position: absolute; left: 0; top: 0; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); border: 0; white-space: nowrap; }
 
 /* Footer. */
 .ml-footer { margin-top: 0; padding: clamp(2.2rem, 5vw, 3.2rem) var(--gutter); background: var(--slate); color: #fff; text-align: center; }
@@ -711,7 +711,7 @@ body.ml .soffit-foot { background: var(--slate-deep); color: #fff; }
 }
 @media (max-width: 520px) {
   :root { --header-h: 72px; }
-  .header { padding-left: calc(var(--gutter) + 84px); }
+  .header { padding-left: var(--soffit-pill-clear, 9.85rem); }
   .brand-name { font-size: 1.45rem; }
   .brand-sub { font-size: 0.62rem; }
   .foldText h1 { letter-spacing: 0.06em; }

@@ -32,6 +32,9 @@ var O={w:sz.w,h:sz.h,stars:980,twinklers:.16,shooters:.08,
   setup:function(){
     var s=soffitStarBox();
     this.w=s.w;this.h=s.h;
+    var sky=document.getElementById("nightSky");
+    var skyH=(sky&&sky.clientHeight)||800;
+    this.stars=Math.round(980*Math.max(1,this.h/Math.max(1,skyH)));
     this.starfield.ctx=soffitFitCanvas(this.starfield.canvas,this.w,this.h);
     this.twinklefield.ctx=soffitFitCanvas(this.twinklefield.canvas,this.w,this.h);
     this.shooting.ctx=soffitFitCanvas(this.shooting.canvas,this.w,this.h);

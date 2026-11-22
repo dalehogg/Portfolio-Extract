@@ -134,9 +134,17 @@
     var anchor = (cityH <= (w / CITY_ASPECT) + 0.5) ? "50%" : "61%";
     root.style.setProperty("--skyline-anchor", anchor);
     document.body.style.setProperty("--skyline-h", hPx);
-    var se = scrollRoot();
-    var pageH = Math.max(se.scrollHeight || 0, (document.body && document.body.scrollHeight) || 0, 4 * vh);
-    root.style.setProperty("--page-h", pageH + "px");
+    /* Height of the in-flow page only. Do not use scrollHeight: .day-clouds is
+       absolutely positioned and a 400vh fallback was inflating the document,
+       leaving a variable empty gap after the footer. */
+    var yDoc = scrollTop();
+    var contentBottom = 0;
+    var full = document.getElementById("fullpage");
+    var footer = document.querySelector(".site-footer");
+    if (full) contentBottom = Math.max(contentBottom, full.getBoundingClientRect().bottom + yDoc);
+    if (footer) contentBottom = Math.max(contentBottom, footer.getBoundingClientRect().bottom + yDoc);
+    if (!(contentBottom > 0)) contentBottom = (document.body && document.body.scrollHeight) || (4 * vh);
+    root.style.setProperty("--page-h", Math.round(contentBottom) + "px");
     /* Shared pixel lift for the city and the sunset/day washes. Not a % of
        each box, and not innerHeight/vh, so they stay locked when the URL bar toggles. */
     if (typeof cityIn !== "number") cityIn = 0;
@@ -147,7 +155,10 @@
     /* Star-mask fade, measured from #nightSky's bottom to the city baseline. */
     var skyBottom = sky ? sky.getBoundingClientRect().bottom : vh;
     var base = baselineProbe.getBoundingClientRect().top;
-    var horizonBottom = (skyBottom - base) + liftPx;
+    /* Subtract lift: when the city is below the fold, this is negative so
+       the star mask does not wipe the visible night sky. Adding lift (r47)
+       left only a sliver of stars at the top of the hero. */
+    var horizonBottom = (skyBottom - base) - liftPx;
     var hb = horizonBottom.toFixed(1) + "px";
     root.style.setProperty("--horizon-bottom", hb);
     document.body.style.setProperty("--horizon-bottom", hb);
@@ -166,14 +177,32 @@
     root.style.setProperty("--sunset-warm-pct", warmPct.toFixed(2) + "%");
   }
 
+  function cityHeightNow() {
+    var w = window.innerWidth || 1280;
+    var vh = stableVh();
+    return Math.max(w / CITY_ASPECT, Math.min(vh * 0.24, 280), 160);
+  }
+
+  /* City and sunset arrive over the last ~city-height of scroll, measured
+     from the footer, not as a fraction of the whole page (that left a
+     long empty run after the contact section on some viewport heights). */
+  function horizonArrival() {
+    var footer = document.querySelector(".site-footer");
+    var tail = Math.max(cityHeightNow() * 1.15, 180);
+    if (!footer) return ease(range(stableProgress(), 0.82, 1.0));
+    var y = scrollTop();
+    var endY = footer.getBoundingClientRect().bottom + y;
+    var dist = endY - (y + stableVh());
+    return ease(clamp(1 - dist / tail, 0, 1));
+  }
+
   function paint() {
     var p = progress();
-    /* City and a thin sunset only arrive in the last ~18% of the scroll.
-       Most of the night page stays a deep starry sky. */
-    var sunset = ease(range(p, 0.82, 1.0));
+    var arrived = horizonArrival();
+    var sunset = arrived;
     /* Stars stay in the night sky; a CSS mask fades them only into the thin glow. */
     var starFade = 0;
-    var cityIn = ease(range(p, 0.82, 1.0));
+    var cityIn = arrived;
     var moonP = stableProgress();
     var moonOut = ease(range(moonP, 0.72, 0.90));
     var day = isDay();

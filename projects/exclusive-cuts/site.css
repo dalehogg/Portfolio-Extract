@@ -292,7 +292,7 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.82); }
   text-transform: uppercase;
   cursor: pointer;
 }
-.honey { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.honey { position: absolute; left: 0; top: 0; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); border: 0; white-space: nowrap; }
 .colophon {
   margin: 0;
   padding: 1.4rem 4vw 1.6rem;

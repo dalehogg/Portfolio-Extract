@@ -88,7 +88,12 @@
       }
       stars = [];
       var i;
-      for (i = 0; i < count; i += 1) {
+      /* Counts are per-viewport; the track is ~2.6 viewports tall, so scale
+         to keep the pre-r45 density visible in any one screen. */
+      var skyEl = document.getElementById("nightSky");
+      var skyH = (skyEl && skyEl.clientHeight) || frozenH || 800;
+      var n = Math.round(count * Math.max(1, height / Math.max(1, skyH)));
+      for (i = 0; i < n; i += 1) {
         stars.push({
           x: Math.random() * width,
           y: Math.random() * height,

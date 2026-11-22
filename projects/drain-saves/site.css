@@ -16,7 +16,6 @@ body.ds {
   --wave-top-alt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 36C120 26 300 70 500 76S880 30 1080 34S1320 72 1440 64V100H0Z'/%3E%3C/svg%3E");
   --wave-bottom: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V40C1260 74 1060 82 860 60S480 18 280 28S80 58 0 64Z'/%3E%3C/svg%3E");
   margin: 0;
-  overflow-x: clip;
   background: var(--navy);
   color: var(--ink);
   font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
@@ -41,6 +40,7 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
 .ds-bar {
   position: sticky;
   top: 0;
+  top: env(safe-area-inset-top, 0px);
   z-index: 40;
   display: flex;
   flex-wrap: wrap;
@@ -48,7 +48,7 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   justify-content: space-between;
   gap: 0.4rem 1.5rem;
   min-height: var(--nav);
-  padding: 0.35rem 4vw 0.35rem 8.25rem;
+  padding: 0.35rem 4vw 0.35rem var(--soffit-pill-clear, 10.5rem);
   background: rgba(2, 2, 51, 0.94);
   border-bottom: 1px solid var(--line);
 }
@@ -108,7 +108,8 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   text-transform: uppercase;
   line-height: 0.88;
 }
-.word { display: block; font-size: clamp(3.2rem, 8.4vw, 7.4rem); }
+.word { display: block; font-size: clamp(3.2rem, 8.4vw, 7.4rem); overflow-wrap: anywhere; }
+.well-copy { min-width: 0; }
 .well .word:last-child { padding-bottom: 0.2em; }
 .lede, .note, .about-copy p, .quote p { max-width: 68ch; line-height: 1.7; }
 .lede, .note, .about-copy p { font-size: clamp(1.15rem, 1.5vw, 1.4rem); color: #d7e0fb; }
@@ -122,6 +123,7 @@ body.ds .eye, body.ds .rail a, body.ds label, body.ds input, body.ds textarea, b
   align-items: end;
   min-height: calc(100svh - var(--nav));
   padding: 2.5rem 4vw 7rem;
+  overflow-x: clip;
   background-color: var(--navy);
   background-image:
     linear-gradient(rgba(199, 206, 251, 0.13) 1px, transparent 1px),
@@ -326,7 +328,7 @@ body.ds p.lede { margin-top: 1.5rem; }
   font-size: 0.72rem;
   cursor: pointer;
 }
-.honey { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+.honey { position: absolute; left: 0; top: 0; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); border: 0; white-space: nowrap; }
 .colophon {
   margin: 0;
   padding: 1.2rem 4vw 1.5rem;
