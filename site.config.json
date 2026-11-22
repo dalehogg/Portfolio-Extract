@@ -1,7 +1,7 @@
 {
   "_readme": "Edit this file, then run bash build.sh. baseUrl is the live site origin: canonical links, Open Graph, JSON-LD, sitemap.xml and robots.txt all derive from it (intended live domain https://soffit.com, still to be confirmed). bash build.sh --preview builds the hidden preview instead: it swaps in previewBaseUrl, sets noindex on every page, sends X-Robots-Tag noindex and writes a Disallow-all robots.txt. sameAs lists public profile URLs (Facebook page, Google Business Profile) once they exist. showTestimonials is the only switch for the quotes section: set it to true only after the placeholder quotes below are real client words. Prices are NZD and include GST (pricesIncludeGst). Availability is the badge in the hero.",
   "assetVersion": "dev",
-  "businessName": "Soffit",
+  "businessName": "Soffit Web",
   "founderName": "Dale Hogg",
   "baseUrl": "https://soffit.com",
   "previewBaseUrl": "https://soffit-preview-dh.page.gd",

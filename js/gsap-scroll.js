@@ -7,25 +7,8 @@
   ScrollTrigger.config({ ignoreMobileResize: true });
 
   if (root.classList.contains("backNight")) {
-    var moon = document.querySelector(".realMoon-container");
-    if (moon) {
-      gsap.to(moon, {
-        x: function () { return -Math.min(window.innerWidth * 0.42, 560); },
-        y: function () { return Math.min(window.innerHeight * 0.28, 240); },
-        ease: "none",
-        scrollTrigger: { trigger: "main", start: "top bottom", end: "bottom bottom", scrub: 0.7, invalidateOnRefresh: true }
-      });
-    }
-
-    gsap.utils.toArray("#nightSky canvas").forEach(function (canvas) {
-      if (canvas.id === "sky-lines") return;
-      var depth = parseFloat(canvas.getAttribute("data-depth")) || 20;
-      gsap.to(canvas, {
-        y: depth,
-        ease: "none",
-        scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.45 }
-      });
-    });
+    /* Moon and star parallax are driven by js/sky-scene.js so the camera
+       can descend toward the city without fighting ScrollTrigger. */
 
     var lines = document.getElementById("sky-lines");
     var sky = document.getElementById("nightSky");

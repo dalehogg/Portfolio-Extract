@@ -1,4 +1,4 @@
-# Soffit go-live checklist
+# Soffit Web go-live checklist
 
 Work through this when the real domain is ready. Everything SEO-related (canonical links, Open Graph URLs, JSON-LD, `sitemap.xml`, `robots.txt`) is derived from **one value**: `baseUrl` in `site.config.json`.
 
@@ -10,7 +10,7 @@ Work through this when the real domain is ready. Everything SEO-related (canonic
 - [ ] Production build: `bash build.sh` (NOT `--preview`). Upload the contents of `dist/` into that domain's `htdocs` folder.
 - [ ] Check that `https://<domain>/robots.txt` says `Allow: /` with a `Sitemap:` line, and that no page has `<meta name="robots" content="noindex, nofollow">` (only `/404.php` and `/thanks.php` should be `noindex`).
 - [ ] Check `https://www.<domain>/` and `http://<domain>/` both 301 to `https://<domain>/`.
-- [ ] Visit a made-up URL (for example `/nope`) and confirm the Soffit 404 page shows with status 404.
+- [ ] Visit a made-up URL (for example `/nope`) and confirm the Soffit Web 404 page shows with status 404.
 - [ ] Keep the hidden preview (`soffit-preview-dh.page.gd`) on `bash build.sh --preview` builds only, so it stays `noindex` with a disallow-all `robots.txt`. Consider deleting it after launch so there is only one copy of the site.
 
 ## 2. Search engines

@@ -1,6 +1,6 @@
 <?php
-$page_title = 'Message sent | Soffit';
-$page_description = 'Your project enquiry has been sent to Dale Hogg at Soffit.';
+$page_title = 'Message sent | Soffit Web';
+$page_description = 'Your project enquiry has been sent to Dale Hogg at Soffit Web.';
 $page_path = '/thanks.php';
 ?>
 <!DOCTYPE html>

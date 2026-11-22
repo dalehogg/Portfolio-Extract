@@ -27,7 +27,7 @@ function site_base(): string
 
 function site_name(): string
 {
-    return (string) (site_config()['businessName'] ?? 'Soffit');
+    return (string) (site_config()['businessName'] ?? 'Soffit Web');
 }
 
 function site_asset_version(): string

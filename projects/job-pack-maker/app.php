@@ -3,7 +3,7 @@ require __DIR__ . '/mail.php';
 jpm_maybe_send();
 $chrome = 'minimal';
 $desktop_only = true;
-$page_title = 'Job Pack Maker app | Soffit';
+$page_title = 'Job Pack Maker app | Soffit Web';
 $page_description = 'Build a job email draft from planned work, reactive work, or a booking, then download it as an unsent message.';
 $page_path = '/projects/job-pack-maker/app.php';
 $extra_head = '<link rel="stylesheet" href="/projects/job-pack-maker/site.css">' . "\n"

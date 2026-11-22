@@ -5,7 +5,7 @@ $site = json_decode((string) @file_get_contents($config_path), true);
 if (!is_array($site)) {
     $site = [];
 }
-$site_name = (string) ($site['businessName'] ?? 'Soffit');
+$site_name = (string) ($site['businessName'] ?? 'Soffit Web');
 $site_base = rtrim((string) ($site['baseUrl'] ?? ''), '/');
 $site_email = (string) ($site['email'] ?? '');
 $site_founder = (string) ($site['founderName'] ?? 'Dale Hogg');
@@ -63,7 +63,7 @@ if ($page_path === '/') {
         $offers[] = $offer;
     }
     $business = [
-        '@type' => 'ProfessionalService',
+        '@type' => ['ProfessionalService', 'LocalBusiness'],
         '@id' => $org_id,
         'name' => $site_name,
         'description' => $page_description,
@@ -145,7 +145,7 @@ if ($page_path === '/') {
         'url' => $canonical,
         'image' => $og_image,
         'creator' => ['@type' => 'Person', 'name' => $site_founder],
-        'provider' => ['@type' => 'ProfessionalService', '@id' => $org_id, 'name' => $site_name, 'url' => $site_base . '/'],
+        'provider' => ['@type' => ['ProfessionalService', 'LocalBusiness'], '@id' => $org_id, 'name' => $site_name, 'url' => $site_base . '/'],
     ];
     $graph[] = ['@type' => 'BreadcrumbList', 'itemListElement' => $list];
 }

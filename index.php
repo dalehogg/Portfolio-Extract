@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/includes/site.php';
-$page_title = 'Soffit | Freelance web design and development, Auckland NZ';
-$page_description = 'Soffit is Dale Hogg\'s freelance web design and development practice, based in Auckland and working with clients worldwide. Landing pages, business sites and custom builds, fixed-quoted.';
+$page_title = 'Soffit Web | Freelance web design and development, Auckland NZ';
+$page_description = 'Soffit Web is Dale Hogg\'s freelance web design and development practice, based in Auckland and working with clients worldwide. Landing pages, business sites and custom builds, fixed-quoted.';
 $page_path = '/';
 $page_faqs = [
     ['How long does a website take?', 'A landing page is often ready in a couple of weeks once I have your words and pictures. A business site is often three to six weeks. A custom build depends on the scope we agree first. The timing goes in the quote.'],
@@ -11,8 +11,9 @@ $page_faqs = [
     ['What do you need from me to start?', 'A short description of the business, who the site is for, and any logo, photos, or text you already have. If the words are not ready, we can start from a conversation.'],
     ['How do payments work?', 'I send a fixed quote for the agreed scope before I start. The quote sets out when payment is due. I do not publish one price that fits every project.'],
 ];
-$extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">' . "\n" . '<link rel="stylesheet" href="/css/home.css">';
-$page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>' . "\n" . '<script src="/js/gsap-scroll.js?v=r14" defer></script>';
+$extra_head = '<link rel="stylesheet" href="/css/globals.css">' . "\n" . '<link rel="stylesheet" href="/css/main.css">' . "\n" . '<link rel="stylesheet" href="/css/home.css">' . "\n" . '<link rel="stylesheet" href="/css/sky-scene.css">' . "\n"
+  . '<script>try{if(localStorage.getItem("soffit-sky")==="day")document.documentElement.classList.add("is-day");}catch(e){}</script>';
+$page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<script src="/js/full.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>' . "\n" . '<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>' . "\n" . '<script src="/js/gsap-scroll.js?v=r14" defer></script>' . "\n" . '<script src="/js/sky-scene.js" defer></script>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,26 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
 <body class="backNight">
 <?php require __DIR__ . '/includes/nav.php'; ?>
 
+  <button type="button" class="sky-toggle" id="sky-toggle" aria-pressed="false" aria-label="Switch to day">
+    <span class="sky-toggle-icons" aria-hidden="true">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/>
+        <path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M5.6 18.4l1.6-1.6M16.8 7.2l1.6-1.6"/>
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M14.2 3.1A8.5 8.5 0 1 0 20.9 14 7 7 0 0 1 14.2 3.1z"/>
+      </svg>
+    </span>
+    <span class="sky-toggle-text">Day</span>
+  </button>
+
   <div id="nightSky" aria-hidden="true">
+    <div class="sky-wash" aria-hidden="true">
+      <span class="sky-wash-night"></span>
+      <span class="sky-wash-sunset"></span>
+      <span class="sky-wash-day"></span>
+      <span class="sky-wash-day-horizon"></span>
+    </div>
     <canvas id="stillfield" data-depth="16"></canvas>
     <canvas id="starfield" data-depth="34"></canvas>
     <canvas id="twinklefield" data-depth="52"></canvas>
@@ -31,6 +51,25 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
   </div>
   <div class="cloudsLightOne noOpac" aria-hidden="true"></div>
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
+  <div class="day-clouds" aria-hidden="true">
+    <div class="day-cloud c1"></div>
+    <div class="day-cloud c2"></div>
+    <div class="day-cloud c3"></div>
+    <div class="day-cloud c4"></div>
+    <div class="day-cloud c5"></div>
+  </div>
+  <div class="skyline" aria-hidden="true">
+<?php
+  $skyline = __DIR__ . '/Img/city/auckland-skyline.svg';
+  if (is_file($skyline)) {
+    $svg = (string) file_get_contents($skyline);
+    if (str_starts_with($svg, '<?xml')) {
+      $svg = preg_replace('/^<\?xml[^>]*>\s*/', '', $svg);
+    }
+    echo $svg;
+  }
+?>
+  </div>
 
   <div id="fullpage">
     <section class="section section-one" id="top">
@@ -184,7 +223,7 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
         <div>
           <p class="kicker">About</p>
           <h2>Dale Hogg.</h2>
-          <p class="intro">Soffit is my freelance practice. I'm based in Auckland, working with clients worldwide, and you deal with me. Brochure sites through to web apps. If a simpler site will do, I will say so.</p>
+          <p class="intro">Soffit Web is my freelance practice. I'm based in Auckland, working with clients worldwide, and you deal with me. Brochure sites through to web apps. If a simpler site will do, I will say so.</p>
           <p class="tools-line">HTML, CSS, Vue, Nuxt, Gulp, Git</p>
         </div>
       </div>
@@ -221,7 +260,7 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
         </div>
         <div>
           <form id="enquiry-form" action="https://formsubmit.co/dhdaleleon@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="Project enquiry from the Soffit website">
+            <input type="hidden" name="_subject" value="Project enquiry from the Soffit Web website">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="">

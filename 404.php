@@ -1,7 +1,7 @@
 <?php
 http_response_code(404);
-$page_title = 'Page not found | Soffit';
-$page_description = 'That page is not on the Soffit site.';
+$page_title = 'Page not found | Soffit Web';
+$page_description = 'That page is not on the Soffit Web site.';
 $page_path = '/404.php';
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $page_path = '/404.php';
       <h1>That page is not here.</h1>
       <p>The address does not match a page on this site. You can go back, or ask for a quote.</p>
       <p class="hero-actions">
-        <a class="button button-primary" href="/">Soffit home</a>
+        <a class="button button-primary" href="/">Soffit Web home</a>
         <a class="button button-ghost" href="/#contact">Get a quote</a>
       </p>
     </div>

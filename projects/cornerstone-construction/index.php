@@ -1,6 +1,6 @@
 <?php
 $chrome = 'minimal';
-$page_title = 'Cornerstone Construction | Soffit';
+$page_title = 'Cornerstone Construction | Soffit Web';
 $page_description = 'Cornerstone Construction, rebuilt: fast work, the right attitude, and excellent results. What we do, reviews, and a way to get in touch.';
 $page_path = '/projects/cornerstone-construction/';
 $page_og_image = '/projects/cornerstone-construction/assets/landingPic.jpg';

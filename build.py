@@ -208,6 +208,7 @@ def main() -> None:
     copy_tree(ROOT / "js" / "motion.js", DIST / "js" / "motion.js")
     copy_tree(ROOT / "js" / "sky.js", DIST / "js" / "sky.js")
     copy_tree(ROOT / "js" / "gsap-scroll.js", DIST / "js" / "gsap-scroll.js")
+    copy_tree(ROOT / "js" / "sky-scene.js", DIST / "js" / "sky-scene.js")
     copy_tree(ROOT / "js" / "media.js", DIST / "js" / "media.js")
     for name in ("index.php", "thanks.php", "404.php", "site.config.json", ".htaccess", "site.webmanifest", "favicon.ico"):
         copy_tree(ROOT / name, DIST / name)

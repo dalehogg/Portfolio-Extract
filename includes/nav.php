@@ -4,7 +4,7 @@ $nav_site = json_decode((string) @file_get_contents($config_path), true);
 if (!is_array($nav_site)) {
     $nav_site = [];
 }
-$nav_name = htmlspecialchars((string) ($nav_site['businessName'] ?? 'Soffit'), ENT_QUOTES, 'UTF-8');
+$nav_name = htmlspecialchars((string) ($nav_site['businessName'] ?? 'Soffit Web'), ENT_QUOTES, 'UTF-8');
 $chrome_mode = isset($chrome) ? (string) $chrome : 'full';
 if ($chrome_mode === 'minimal') {
     echo '<a class="soffit-pill" href="/"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.2 L14 14 H2 Z" fill="currentColor"/></svg>' . $nav_name . "</a>\n";
