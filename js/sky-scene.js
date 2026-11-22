@@ -30,6 +30,21 @@
     }
     setClouds(day);
     paint();
+    resizeStarsSoon();
+  }
+
+  function resizeStarsSoon() {
+    var run = function () {
+      if (typeof window.soffitResizeStars === "function") {
+        window.soffitResizeStars();
+      } else if (typeof window.soffitFullStarsResize === "function") {
+        window.soffitFullStarsResize();
+      }
+    };
+    run();
+    window.requestAnimationFrame(function () {
+      run();
+    });
   }
 
   function setClouds(day) {
@@ -162,6 +177,18 @@
     toggle.addEventListener("click", function () {
       applyTheme(!isDay(), true);
     });
+  }
+
+  if (typeof window.soffitResizeStars !== "function") {
+    /* Set a stable sky height even if sky.js has not booted yet. */
+    try {
+      var probe = document.createElement("div");
+      probe.style.cssText = "position:fixed;top:0;left:0;height:100lvh;width:0;pointer-events:none;visibility:hidden;";
+      document.documentElement.appendChild(probe);
+      var h = Math.max(window.innerHeight || 0, probe.offsetHeight || 0);
+      probe.remove();
+      if (h) root.style.setProperty("--sky-h", h + "px");
+    } catch (e) {}
   }
 
   bootTheme();

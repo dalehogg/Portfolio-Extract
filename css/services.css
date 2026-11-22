@@ -45,7 +45,7 @@ body #fullpage .section-one .realMoon-container .realMoon-moonCut {
   0%, 100% { -webkit-transform: translate3d(-48px, 0, 0); }
   50% { -webkit-transform: translate3d(96px, 0, 0); }
 }
-#nightSky canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+#nightSky canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: none; object-position: top center; }
 @media (prefers-reduced-motion: reduce) {
   #starfield, #twinklefield, #driftfield, .realMoon-moonCut { animation: none !important; }
 }

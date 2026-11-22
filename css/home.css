@@ -443,7 +443,7 @@ body.backNight .price-desk { display: contents; }
 }
 
 /* Keep the fixed sky at the largest viewport height so the mobile address bar showing or hiding does not resize it while scrolling. */
-body #nightSky, body .cloudsLightOne, body .cloudsLightTwo { top: 0; height: 100vh; height: 100lvh; }
+body #nightSky, body .cloudsLightOne, body .cloudsLightTwo { top: 0; height: 100vh; height: 100lvh; height: var(--sky-h, 100lvh); }
 
 /* Dropdowns animate their height in motion.js, so the CSS row transition is turned off to avoid fighting it. */
 html.js body.backNight .faq details > .faq-panel,

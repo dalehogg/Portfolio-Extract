@@ -145,7 +145,11 @@ html.is-day .sky-grad-noise { opacity: 0.05; }
   position: absolute;
   left: 0;
   right: 0;
+  /* Offset stays in large-viewport units so a mobile URL bar cannot
+     change the box and stretch the canvas bitmap. */
   top: -80vh;
+  top: -80lvh;
+  top: calc(var(--sky-h, 100lvh) * -0.8);
   height: 260%;
   pointer-events: none;
   will-change: transform;
@@ -156,6 +160,9 @@ html.is-day .sky-grad-noise { opacity: 0.05; }
   z-index: 1;
   opacity: var(--star-o, 1);
   transition: none !important;
+  /* Never let the browser scale a stale bitmap into a new box. */
+  object-fit: none;
+  object-position: top center;
 }
 html.is-day #nightSky canvas,
 html.is-day .star-mask {
@@ -186,22 +193,30 @@ html.is-day body.backNight {
 }
 body.backNight #nightSky {
   position: fixed;
-  inset: 0;
+  top: 0;
   left: 0;
   right: 0;
+  bottom: auto;
   width: auto;
   max-width: none;
-  height: 100%;
+  /* Stable large-viewport height. height:100% + inset:0 tracked the
+     shrinking/growing mobile URL bar and stretched the star canvases. */
+  height: 100vh;
+  height: 100lvh;
+  height: var(--sky-h, 100lvh);
   background: #02010c;
 }
 html.is-day body.backNight #nightSky {
   background: #4a9ad8;
 }
+/* Hide stars in day mode without display:none. display:none zeroes
+   clientWidth/Height, so a day-first load painted a 0-tall or viewport-
+   tall bitmap that was then stretched to the 260% star track at night. */
 html.is-day #nightSky canvas,
 html.is-day #sky-lines {
   opacity: 0 !important;
   visibility: hidden;
-  display: none;
+  pointer-events: none;
 }
 
 /* Drifting SVG cumulus over a continuous blue day sky, down to the city. */
