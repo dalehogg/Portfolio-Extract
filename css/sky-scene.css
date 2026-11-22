@@ -30,7 +30,7 @@
   width: auto;
   overflow: visible;
   pointer-events: none;
-  z-index: 2; /* above #nightSky (1), below day clouds (3) and the city (4) */
+  z-index: 1; /* above the page background, behind the moon (2), clouds (3) and city (4) */
   transform: translate3d(0, var(--horizon-shift, 80lvh), 0);
   will-change: transform;
   transition: none !important;
@@ -328,7 +328,10 @@ html.is-day body #fullpage .section-one .galaxy-center {
 .realMoon-track {
   position: fixed;
   z-index: 2;
+  /* Large-viewport / --sky-h only: a showing URL bar must not move the moon. */
   top: 20vh;
+  top: 20lvh;
+  top: calc(var(--sky-h, 100lvh) * 0.20);
   right: 8vw;
   left: auto;
   width: 230px;
@@ -346,6 +349,8 @@ html.is-day body #fullpage .section-one .galaxy-center {
     width: 100px;
     height: 100px;
     top: 12vh;
+    top: 12lvh;
+    top: calc(var(--sky-h, 100lvh) * 0.12);
     right: 1rem;
   }
 }

@@ -76,6 +76,11 @@
   function progress() {
     return clamp(scrollTop() / scrollMax(), 0, 1);
   }
+  /* Moon parallax uses the grow-only large viewport, not the current
+     innerHeight, so a URL bar cannot change its progress, offset or size. */
+  function stableProgress() {
+    return clamp(scrollTop() / Math.max(1, (scrollRoot().scrollHeight || 0) - stableVh()), 0, 1);
+  }
 
   function readSkyH() {
     var n = parseFloat(getComputedStyle(root).getPropertyValue("--sky-h"));
@@ -169,7 +174,8 @@
     /* Stars stay in the night sky; a CSS mask fades them only into the thin glow. */
     var starFade = 0;
     var cityIn = ease(range(p, 0.82, 1.0));
-    var moonOut = ease(range(p, 0.72, 0.90));
+    var moonP = stableProgress();
+    var moonOut = ease(range(moonP, 0.72, 0.90));
     var day = isDay();
 
     layoutSkyline(cityIn);
@@ -186,8 +192,9 @@
     }
 
     if (moonTrack) {
-      var x = -Math.min(window.innerWidth * 0.36, 480) * p;
-      var y = Math.min(window.innerHeight * 0.08, 64) * (1 - moonOut) - moonOut * Math.min(window.innerHeight * 0.38, 280);
+      var moonH = stableVh();
+      var x = -Math.min(window.innerWidth * 0.36, 480) * moonP;
+      var y = Math.min(moonH * 0.08, 64) * (1 - moonOut) - moonOut * Math.min(moonH * 0.38, 280);
       var s = 1 - moonOut * 0.32;
       var o = 1 - moonOut;
       moonTrack.style.transform = "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")";

@@ -677,7 +677,7 @@ body.backNight #contact .type-chip[aria-pressed="true"], body.backNight #contact
   white-space: nowrap;
 }
 @media (min-width: 981px) {
-  body #fullpage .section-one .realMoon-container { left: auto; right: 9vw; top: 16vh; }
+  body #fullpage .section-one .realMoon-container { left: auto; right: 9vw; top: 16vh; top: 16lvh; top: calc(var(--sky-h, 100lvh) * 0.16); }
   body.backNight #contact :focus-visible { outline-color: #1a1408; }
 }
 @media (max-width: 800px) {
