@@ -1,22 +1,22 @@
 # Photo and artwork credits
 
-The homepage Auckland skyline is a vector silhouette sitting on a CSS water band, with the page’s own day or night sky showing behind it. The daytime sky is a realistic blue gradient with many drifting SVG cumulus clouds, drawn for Soffit Web. The moon texture is a cropped full-moon photograph. Required attribution also appears in the site footer.
+The homepage Auckland skyline is a vector silhouette sitting flush on the bottom edge of the page, with the page’s own day or night sky showing behind it. The daytime sky is a realistic blue gradient with many drifting photoreal cumulus sprites created for Soffit Web. The moon texture is a cropped full-moon photograph. Required attribution also appears in the site footer.
 
 ## Auckland skyline silhouette
 
 - **File:** [Auckland Skyline](https://creazilla.com/media/silhouette/2959/auckland-skyline) (Creazilla, originally published 17 December 2018)
 - **Author:** [Bob Comix](https://creazilla.com/user/profile/669a772469021f40ea48fdb3/all)
 - **Licence:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
-- **Changes:** The solid base under the waterfront was cropped so the silhouette sits on the page’s water band. The path was optimised. A sparse row of window lights was added for night mode, and the shape is coloured with CSS (`currentColor`) so it can shift from a near-black navy at night to a soft, hazy blue-grey by day. Served as a single SVG (`Img/city/auckland-skyline.svg`).
+- **Changes:** The solid base under the waterfront was cropped in an earlier version; the silhouette now sits flush on the bottom edge of the page, with no water band. The path was optimised. A sparse row of window lights was added for night mode, and the shape is coloured with CSS (`currentColor`) so it can shift from a near-black navy at night to a soft, hazy blue-grey by day. Served as a single SVG (`Img/city/auckland-skyline.svg`).
 
 The earlier cut-out photographs of the Auckland CBD (day: DXR, CC BY-SA 4.0; night: Ssiyamalan, CC BY-SA 4.0) were replaced by this silhouette and are no longer used on the site.
 
 ## Day clouds
 
-- **Files:** `Img/clouds/cloud-a.svg` through `cloud-h.svg`
-- **Author:** Original drawings made for Soffit Web
-- **Licence:** All rights reserved to Soffit Web; drawn for this site
-- **Notes:** Eight soft-shaded cumulus shapes (white tops, grey undersides, no outlines) are placed many times down the day sky, in mixed sizes, clusters and clearer stretches, and drift horizontally at different speeds. They replaced the earlier stacked day-sky photographs (Rise DHMN, CC BY 4.0; Defi22, CC BY-SA 4.0; ADARSHluck, CC BY-SA 4.0), which are no longer used on the page.
+- **Files:** `Img/clouds/photo-a.webp` through `photo-h.webp`
+- **Author:** Original photoreal cloud sprites created for Soffit Web
+- **Licence:** All rights reserved to Soffit Web; made for this site
+- **Notes:** Eight isolated fair-weather cumulus photographs of varied shape and size (towering, medium, small, flat-bottomed, and a thin wisp) were keyed from a black backdrop (luminance-to-alpha, unpremultiplied edges) and are placed many times down the day sky. They drift horizontally at different speeds, in mixed sizes, clusters and clearer stretches. They replaced the earlier vector cloud drawings and the stacked day-sky photographs (Rise DHMN, CC BY 4.0; Defi22, CC BY-SA 4.0; ADARSHluck, CC BY-SA 4.0), which are no longer used on the page.
 
 ## Moon
 

@@ -61,12 +61,14 @@
     var vh = window.innerHeight || 800;
     /* Wide viewports show the full silhouette; narrow ones grow the city and crop the sides. */
     var cityH = Math.max(w / CITY_ASPECT, Math.min(vh * 0.24, 280), 160);
-    var waterH = Math.max(56, Math.min(vh * 0.15, 180));
-    var h = cityH + waterH;
+    var waterH = 0; /* no water band: the city sits flush on the bottom edge */
+    var h = cityH;
     var hPx = h.toFixed(1) + "px";
     root.style.setProperty("--skyline-h", hPx);
     root.style.setProperty("--city-h", cityH.toFixed(1) + "px");
-    root.style.setProperty("--water-h", waterH.toFixed(1) + "px");
+    root.style.setProperty("--water-h", "0px");
+    /* Main rooftops (excluding the Sky Tower spire) sit at ~40% of city height. */
+    root.style.setProperty("--roof-h", (cityH * 0.40).toFixed(1) + "px");
     /* Show the full silhouette when it fits; otherwise crop the sides around the Sky Tower. */
     var anchor = (cityH <= (w / CITY_ASPECT) + 0.5) ? "50%" : "61%";
     root.style.setProperty("--skyline-anchor", anchor);
@@ -77,7 +79,7 @@
     /* Compute from the intended lift, not getBoundingClientRect (that is one frame behind the transform). */
     if (typeof cityIn !== "number") cityIn = 0;
     var liftPct = (1 - cityIn) * 110;
-    var horizonBottom = waterH - (liftPct / 100) * h;
+    var horizonBottom = 0 - (liftPct / 100) * h;
     var hb = horizonBottom.toFixed(1) + "px";
     root.style.setProperty("--horizon-bottom", hb);
     document.body.style.setProperty("--horizon-bottom", hb);
@@ -87,10 +89,11 @@
     var fb = fadeBottom.toFixed(1) + "px";
     root.style.setProperty("--sky-fade-bottom", fb);
     document.body.style.setProperty("--sky-fade-bottom", fb);
-    /* Thin warm glow: just a short band above the rooftops (start of a sunset). */
-    var warmPct = ((waterH + cityH * 0.22) / (0.48 * vh)) * 100;
-    if (warmPct < 18) warmPct = 18;
-    if (warmPct > 55) warmPct = 55;
+    /* Warm gold/pink only behind the main rooftops; the rest of the wash eases into night. */
+    var washH = 0.36 * vh;
+    var warmPct = ((cityH * 0.32) / washH) * 100;
+    if (warmPct < 16) warmPct = 16;
+    if (warmPct > 36) warmPct = 36;
     root.style.setProperty("--sunset-warm-pct", warmPct.toFixed(2) + "%");
   }
 
@@ -99,7 +102,8 @@
     /* City and a thin sunset only arrive in the last ~18% of the scroll.
        Most of the night page stays a deep starry sky. */
     var sunset = ease(range(p, 0.82, 1.0));
-    var starFade = ease(range(p, 0.90, 1.0));
+    /* Stars stay in the night sky; a CSS mask fades them only into the thin glow. */
+    var starFade = 0;
     var cityIn = ease(range(p, 0.82, 1.0));
     var moonOut = ease(range(p, 0.72, 0.90));
     var day = isDay();
