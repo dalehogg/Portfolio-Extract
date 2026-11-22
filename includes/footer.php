@@ -27,7 +27,7 @@ if ($chrome_mode === 'minimal') {
 <?php endif; ?>
     <a href="/#contact">Get a quote</a>
 <?php if (!empty($show_photo_credit)): ?>
-    <p class="photo-credit">Auckland waterfront photos: day, <a href="https://commons.wikimedia.org/wiki/File:Auckland_Skyline_as_seen_from_Devonport_20100128_3.jpg">DXR</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); night, <a href="https://commons.wikimedia.org/wiki/File:Auckland_City_%26_Skytower_at_night.jpg">111 Emergency</a> (<a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>). Cropped and the sky faded to blend with the page.</p>
+    <p class="photo-credit">Photos: day skyline, <a href="https://commons.wikimedia.org/wiki/File:Auckland_Skyline_as_seen_from_Devonport_20100128_3.jpg">DXR</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); night skyline, <a href="https://commons.wikimedia.org/wiki/File:Auckland_Skyline_383495.jpg">Ssiyamalan</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>); clouds, <a href="https://www.pexels.com/photo/white-cumulus-clouds-in-bright-blue-sky-16735355/">Mehmet Turgut Kirkgoz</a> (Pexels licence); moon, <a href="https://commons.wikimedia.org/wiki/File:FullMoon2010.jpg">Gregory H. Revera</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>). Skyline photos cropped and the sky faded to blend with the page.</p>
 <?php endif; ?>
   </div>
 </footer>

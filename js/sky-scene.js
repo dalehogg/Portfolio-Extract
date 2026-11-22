@@ -5,7 +5,7 @@
   var root = document.documentElement;
   var sky = document.getElementById("nightSky");
   var city = document.querySelector(".skyline");
-  var moon = document.querySelector(".realMoon-container");
+  var moonTrack = document.querySelector(".realMoon-track");
   var starLayers = sky ? Array.prototype.slice.call(sky.querySelectorAll("canvas")) : [];
   var toggle = document.getElementById("sky-toggle");
   var frame = 0;
@@ -39,9 +39,18 @@
     el.classList.toggle("is-paused", !play);
   }
 
+  function scrollRoot() {
+    return document.scrollingElement || document.documentElement;
+  }
+  function scrollTop() {
+    return scrollRoot().scrollTop || 0;
+  }
+  function scrollMax() {
+    var se = scrollRoot();
+    return Math.max(1, (se.scrollHeight || 0) - (window.innerHeight || 0));
+  }
   function progress() {
-    var max = Math.max(1, (document.documentElement.scrollHeight || 0) - window.innerHeight);
-    return clamp((window.scrollY || 0) / max, 0, 1);
+    return clamp(scrollTop() / scrollMax(), 0, 1);
   }
 
   function paint() {
@@ -65,14 +74,14 @@
       city.style.opacity = cityIn.toFixed(3);
     }
 
-    if (moon) {
+    if (moonTrack) {
       var x = -Math.min(window.innerWidth * 0.36, 480) * p;
       var y = Math.min(window.innerHeight * 0.08, 64) * (1 - moonOut) - moonOut * Math.min(window.innerHeight * 0.38, 280);
       var s = 1 - moonOut * 0.32;
       var o = 1 - moonOut;
-      moon.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0) scale(" + s.toFixed(3) + ")";
-      moon.style.opacity = o.toFixed(3);
-      moon.style.pointerEvents = "none";
+      moonTrack.style.transform = "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")";
+      moonTrack.style.opacity = String(o);
+      moonTrack.style.pointerEvents = "none";
     }
 
     if (!reduce) {
@@ -88,9 +97,9 @@
       });
     } else if (sky) {
       sky.style.opacity = day ? "0" : (1 - starFade * 0.6).toFixed(3);
-      if (moon) {
-        moon.style.transform = "translate3d(0," + (-moonOut * 20) + "vh,0)";
-        moon.style.opacity = (1 - moonOut).toFixed(3);
+      if (moonTrack) {
+        moonTrack.style.transform = "translate3d(0," + (-moonOut * 20) + "vh,0)";
+        moonTrack.style.opacity = String(1 - moonOut);
       }
     }
   }

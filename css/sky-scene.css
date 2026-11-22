@@ -103,37 +103,131 @@ html.is-day #sky-lines {
   max-width: none;
   z-index: 2;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
-html.is-day .day-clouds { opacity: 1; }
-.cloud-defs {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
+body .cloudsLightOne,
+body .cloudsLightTwo {
+  display: none !important;
 }
-.cumulus {
+.day-clouds .media-ph { display: none !important; }
+html.is-day .day-clouds { opacity: 1; }
+/* Photoreal cloud photos: transform-only drift, no CSS blur. */
+.cloud-layer {
   position: absolute;
+  display: block;
+  margin: 0;
+  padding: 0;
   height: auto;
-  overflow: visible;
-  filter: drop-shadow(0 10px 14px rgba(70, 90, 120, 0.18));
+  pointer-events: none;
   animation: cu-drift var(--dur, 120s) linear infinite;
   will-change: transform;
-  opacity: 0.92;
+  opacity: 0.88;
+  background: none !important;
+  transition: none !important;
 }
-.cu-a { top: 5%; left: -28%; width: min(46vw, 34rem); --dur: 140s; }
-.cu-b { top: 16%; left: 18%; width: min(32vw, 24rem); --dur: 100s; animation-delay: -45s; opacity: 0.72; }
-.cu-c { top: 9%; left: 48%; width: min(52vw, 40rem); --dur: 170s; animation-delay: -80s; opacity: 0.85; }
-.cu-d { top: 24%; left: -10%; width: min(26vw, 20rem); --dur: 88s; animation-delay: -20s; opacity: 0.6; }
+.cloud-layer img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: none !important;
+  transition: none !important;
+}
+.cu-a { top: 3.6rem; left: 46%; width: min(50vw, 38rem); --dur: 150s; opacity: 0.92; }
+.cu-b { top: 3.2rem; left: 4%; width: min(38vw, 28rem); --dur: 190s; animation-delay: -40s; opacity: 0.86; }
+.cu-c { top: 6.5rem; left: -30%; width: min(26vw, 19rem); --dur: 220s; animation-delay: -30s; opacity: 0.78; }
 @keyframes cu-drift {
   from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(130vw, 0, 0); }
+  to { transform: translate3d(140vw, 0, 0); }
 }
-.day-clouds.is-paused .cumulus { animation-play-state: paused; }
+.day-clouds.is-paused .cloud-layer { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
-  .cumulus { animation: none; }
+  .cloud-layer { animation: none; }
+}
+@media (max-width: 720px) {
+  .cu-a { top: 3.6rem; left: 22%; width: min(78vw, 26rem); }
+  .cu-b { top: 3.4rem; left: -8%; width: min(58vw, 20rem); }
+  .cu-c { top: 7rem; left: -32%; width: min(48vw, 16rem); }
+}
+
+/* One scroll transform lives on this wrapper; the inner moon keeps the texture and terminator. */
+.realMoon-track {
+  position: fixed;
+  z-index: 3;
+  top: 20vh;
+  right: 8vw;
+  left: auto;
+  width: 230px;
+  height: 230px;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  transform-origin: 50% 50%;
+  transition: none !important;
+}
+@media (max-width: 980px) {
+  .realMoon-track {
+    width: 100px;
+    height: 100px;
+    top: 12vh;
+    right: 1rem;
+  }
+}
+.realMoon-track .realMoon-container {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  margin: 0;
+  transition: none !important;
+  background-image: url("../Img/moon/realmoon.avif");
+  background-image: image-set(
+    url("../Img/moon/realmoon.avif") type("image/avif"),
+    url("../Img/moon/realmoon.webp") type("image/webp")
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+}
+.realMoon-track .realMoon-moonCut {
+  position: absolute;
+  background-color: #000;
+  border-radius: 50%;
+  box-shadow: none;
+  width: 280px;
+  height: 280px;
+  left: 62%;
+  top: -11%;
+  -webkit-filter: blur(24px);
+  filter: blur(24px);
+  will-change: transform;
+  -webkit-animation: moonPhase 46s ease-in-out infinite;
+  animation: moonPhase 46s ease-in-out infinite;
+}
+@media (max-width: 980px) {
+  .realMoon-track .realMoon-moonCut {
+    width: 120px;
+    height: 130px;
+    left: 64%;
+    top: -8%;
+    -webkit-filter: blur(18px);
+    filter: blur(18px);
+    -webkit-animation-name: moonPhaseSmall;
+    animation-name: moonPhaseSmall;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .realMoon-track .realMoon-moonCut { animation: none !important; }
 }
 
 .skyline {
@@ -170,9 +264,10 @@ html.is-day .skyline { background: #6d8b90; }
   object-fit: cover;
   object-position: 50% 100%;
 }
+.skyline-night img { object-position: 72% 8%; }
 .skyline-day img { object-position: 50% 0%; }
 @media (max-width: 720px) {
-  .skyline-night img { object-position: 50% 80%; }
+  .skyline-night img { object-position: 80% 18%; }
   .skyline-day img { object-position: 50% 18%; }
 }
 .skyline-night { opacity: 1; }
@@ -180,11 +275,13 @@ html.is-day .skyline { background: #6d8b90; }
 html.is-day .skyline-night { opacity: 0; }
 html.is-day .skyline-day { opacity: 1; }
 
-html.is-day body.backNight .realMoon-moonCut {
+html.is-day body.backNight .realMoon-moonCut,
+html.is-day .realMoon-track .realMoon-moonCut {
   opacity: 0 !important;
   visibility: hidden;
 }
 html.is-day body #fullpage .section-one .realMoon-container,
+html.is-day .realMoon-track .realMoon-container,
 html.is-day body.backNight .realMoon-container {
   overflow: visible;
   background-color: transparent;
