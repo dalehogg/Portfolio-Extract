@@ -54,19 +54,19 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
   <div class="cloudsLightTwo noOpac" aria-hidden="true"></div>
   <div class="day-clouds" aria-hidden="true">
     <picture class="cloud-layer cu-a">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-a-770.avif')); ?> 770w, <?php echo site_h(site_asset('/Img/clouds/cloud-a-1540.avif')); ?> 1540w" sizes="(max-width: 720px) 80vw, 50vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-a-770.webp')); ?> 770w, <?php echo site_h(site_asset('/Img/clouds/cloud-a-1540.webp')); ?> 1540w" sizes="(max-width: 720px) 80vw, 50vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a-770.webp')); ?>" width="1540" height="889" alt="" decoding="async">
+      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-a-625.avif')); ?> 625w, <?php echo site_h(site_asset('/Img/clouds/cloud-a-1250.avif')); ?> 1250w" sizes="(max-width: 720px) 70vw, 40vw">
+      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-a-625.webp')); ?> 625w, <?php echo site_h(site_asset('/Img/clouds/cloud-a-1250.webp')); ?> 1250w" sizes="(max-width: 720px) 70vw, 40vw">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-a-625.webp')); ?>" width="1250" height="902" alt="" decoding="async">
     </picture>
     <picture class="cloud-layer cu-b">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-b-1000.avif')); ?> 1000w, <?php echo site_h(site_asset('/Img/clouds/cloud-b-2000.avif')); ?> 2000w" sizes="(max-width: 720px) 60vw, 38vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-b-1000.webp')); ?> 1000w, <?php echo site_h(site_asset('/Img/clouds/cloud-b-2000.webp')); ?> 2000w" sizes="(max-width: 720px) 60vw, 38vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-b-1000.webp')); ?>" width="2000" height="760" alt="" decoding="async">
+      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-b-993.avif')); ?> 993w, <?php echo site_h(site_asset('/Img/clouds/cloud-b-1987.avif')); ?> 1987w" sizes="(max-width: 720px) 55vw, 34vw">
+      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-b-993.webp')); ?> 993w, <?php echo site_h(site_asset('/Img/clouds/cloud-b-1987.webp')); ?> 1987w" sizes="(max-width: 720px) 55vw, 34vw">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-b-993.webp')); ?>" width="1987" height="781" alt="" decoding="async">
     </picture>
     <picture class="cloud-layer cu-c">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-c-404.avif')); ?> 404w, <?php echo site_h(site_asset('/Img/clouds/cloud-c-809.avif')); ?> 809w" sizes="(max-width: 720px) 50vw, 24vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-c-404.webp')); ?> 404w, <?php echo site_h(site_asset('/Img/clouds/cloud-c-809.webp')); ?> 809w" sizes="(max-width: 720px) 50vw, 24vw">
-      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-c-404.webp')); ?>" width="809" height="715" alt="" decoding="async">
+      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-c-398.avif')); ?> 398w, <?php echo site_h(site_asset('/Img/clouds/cloud-c-796.avif')); ?> 796w" sizes="(max-width: 720px) 46vw, 24vw">
+      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/clouds/cloud-c-398.webp')); ?> 398w, <?php echo site_h(site_asset('/Img/clouds/cloud-c-796.webp')); ?> 796w" sizes="(max-width: 720px) 46vw, 24vw">
+      <img src="<?php echo site_h(site_asset('/Img/clouds/cloud-c-398.webp')); ?>" width="796" height="724" alt="" decoding="async">
     </picture>
   </div>
   <div class="realMoon-track" aria-hidden="true">
@@ -76,14 +76,14 @@ $page_scripts = '<script src="/js/sky.js?v=r14" defer></script>' . "\n" . '<scri
   </div>
   <div class="skyline" aria-hidden="true">
     <picture class="skyline-shot skyline-night">
-      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.avif')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-night-3840.avif')); ?> 3840w, <?php echo site_h(site_asset('/Img/city/auckland-night-5120.avif')); ?> 5120w, <?php echo site_h(site_asset('/Img/city/auckland-night-7680.avif')); ?> 7680w" sizes="100vw">
-      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.webp')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-night-3840.webp')); ?> 3840w, <?php echo site_h(site_asset('/Img/city/auckland-night-5120.webp')); ?> 5120w, <?php echo site_h(site_asset('/Img/city/auckland-night-7680.webp')); ?> 7680w" sizes="100vw">
-      <img src="<?php echo site_h(site_asset('/Img/city/auckland-night-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.jpg')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.jpg')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.jpg')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-night-3840.jpg')); ?> 3840w, <?php echo site_h(site_asset('/Img/city/auckland-night-5120.jpg')); ?> 5120w, <?php echo site_h(site_asset('/Img/city/auckland-night-7680.jpg')); ?> 7680w" sizes="100vw" width="7680" height="3982" alt="" decoding="async" loading="eager">
+      <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.avif')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-night-3840.avif')); ?> 3840w, <?php echo site_h(site_asset('/Img/city/auckland-night-5120.avif')); ?> 5120w" sizes="100vw">
+      <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.webp')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-night-3840.webp')); ?> 3840w, <?php echo site_h(site_asset('/Img/city/auckland-night-5120.webp')); ?> 5120w" sizes="100vw">
+      <img src="<?php echo site_h(site_asset('/Img/city/auckland-night-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-night-1280.jpg')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-night-1920.jpg')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-night-2560.jpg')); ?> 2560w" sizes="100vw" width="5120" height="2655" alt="" decoding="async" loading="eager">
     </picture>
     <picture class="skyline-shot skyline-day">
       <source type="image/avif" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1280.avif')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-day-1920.avif')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-2560.avif')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.avif')); ?> 3480w" sizes="100vw">
       <source type="image/webp" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1280.webp')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-day-1920.webp')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-2560.webp')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.webp')); ?> 3480w" sizes="100vw">
-      <img src="<?php echo site_h(site_asset('/Img/city/auckland-day-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1280.jpg')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-day-1920.jpg')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-2560.jpg')); ?> 2560w, <?php echo site_h(site_asset('/Img/city/auckland-day-3480.jpg')); ?> 3480w" sizes="100vw" width="3480" height="1584" alt="" decoding="async" loading="lazy">
+      <img src="<?php echo site_h(site_asset('/Img/city/auckland-day-1920.jpg')); ?>" srcset="<?php echo site_h(site_asset('/Img/city/auckland-day-1280.jpg')); ?> 1280w, <?php echo site_h(site_asset('/Img/city/auckland-day-1920.jpg')); ?> 1920w, <?php echo site_h(site_asset('/Img/city/auckland-day-2560.jpg')); ?> 2560w" sizes="100vw" width="3480" height="1584" alt="" decoding="async" loading="lazy">
     </picture>
   </div>
 

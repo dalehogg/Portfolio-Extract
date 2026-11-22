@@ -134,9 +134,9 @@ html.is-day .day-clouds { opacity: 1; }
   background: none !important;
   transition: none !important;
 }
-.cu-a { top: 3.6rem; left: 46%; width: min(50vw, 38rem); --dur: 150s; opacity: 0.92; }
-.cu-b { top: 3.2rem; left: 4%; width: min(38vw, 28rem); --dur: 190s; animation-delay: -40s; opacity: 0.86; }
-.cu-c { top: 6.5rem; left: -30%; width: min(26vw, 19rem); --dur: 220s; animation-delay: -30s; opacity: 0.78; }
+.cu-a { top: 5.4rem; left: 50%; width: min(40vw, 30rem); --dur: 150s; opacity: 0.95; }
+.cu-b { top: 5.2rem; left: 2%; width: min(34vw, 24rem); --dur: 190s; opacity: 0.93; }
+.cu-c { top: 6.4rem; left: -28%; width: min(24vw, 17rem); --dur: 220s; animation-delay: -18s; opacity: 0.86; }
 @keyframes cu-drift {
   from { transform: translate3d(0, 0, 0); }
   to { transform: translate3d(140vw, 0, 0); }
@@ -146,9 +146,9 @@ html.is-day .day-clouds { opacity: 1; }
   .cloud-layer { animation: none; }
 }
 @media (max-width: 720px) {
-  .cu-a { top: 3.6rem; left: 22%; width: min(78vw, 26rem); }
-  .cu-b { top: 3.4rem; left: -8%; width: min(58vw, 20rem); }
-  .cu-c { top: 7rem; left: -32%; width: min(48vw, 16rem); }
+  .cu-a { top: 5.2rem; left: 28%; width: min(68vw, 22rem); }
+  .cu-b { top: 5rem; left: -6%; width: min(52vw, 18rem); }
+  .cu-c { top: 7.2rem; left: -36%; width: min(44vw, 15rem); }
 }
 
 /* One scroll transform lives on this wrapper; the inner moon keeps the texture and terminator. */
@@ -283,15 +283,17 @@ html.is-day .realMoon-track .realMoon-moonCut {
 html.is-day body #fullpage .section-one .realMoon-container,
 html.is-day .realMoon-track .realMoon-container,
 html.is-day body.backNight .realMoon-container {
-  overflow: visible;
+  overflow: hidden;
   background-color: transparent;
-  -webkit-clip-path: none;
-  clip-path: none;
-  filter: contrast(0.7) saturate(0.42) brightness(1.06);
-  opacity: 0.78;
-  box-shadow: 0 0 28px 10px rgba(210, 225, 245, 0.35);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 62%, rgba(0,0,0,0.55) 72%, transparent 82%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 62%, rgba(0,0,0,0.55) 72%, transparent 82%);
+  border-radius: 50%;
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  filter: contrast(0.34) saturate(0.12) brightness(2.35);
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 0 22px 8px rgba(255, 255, 255, 0.3);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 70%, rgba(0,0,0,0.7) 86%, transparent 100%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 70%, rgba(0,0,0,0.7) 86%, transparent 100%);
 }
 
 .sky-toggle {
